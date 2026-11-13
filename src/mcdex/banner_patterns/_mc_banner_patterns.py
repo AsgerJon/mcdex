@@ -20,7 +20,8 @@ class MCBannerPatterns(MCThing):
 
     squareBottomLeft = MCBannerPatterns.SQUARE_BOTTOM_LEFT
     squareBottomLeft is MCBannerPatterns['square_bottom_left']  # True
-    squareBottomLeft['1.8']  # BannerPatternId('square_bottom_left', 'bl')
+    squareBottomLeft[Version.V1_8]
+    # BannerPatternId('square_bottom_left', 'bl')
     len(MCBannerPatterns)
 
   Implementation
@@ -74,6 +75,8 @@ class MCBannerPatterns(MCThing):
   STRAIGHT_CROSS = Kee[str]('straight_cross')
   STRIPE_BOTTOM = Kee[str]('stripe_bottom')
   STRIPE_CENTER = Kee[str]('stripe_center')
+  STRIPE_DOWN_LEFT = Kee[str]('stripe_down_left')
+  STRIPE_DOWN_RIGHT = Kee[str]('stripe_down_right')
   STRIPE_DOWNLEFT = Kee[str]('stripe_downleft')
   STRIPE_DOWNRIGHT = Kee[str]('stripe_downright')
   STRIPE_LEFT = Kee[str]('stripe_left')

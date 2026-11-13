@@ -20,7 +20,7 @@ class MCWolfVariants(MCThing):
 
     ashen = MCWolfVariants.ASHEN
     ashen is MCWolfVariants['ashen']  # True
-    ashen['1.20.5']
+    ashen[Version.V1_20_5]
     # WolfVariantId('ashen', 'minecraft:wolf{variant:"minecraft:ashen"}')
     len(MCWolfVariants)
 

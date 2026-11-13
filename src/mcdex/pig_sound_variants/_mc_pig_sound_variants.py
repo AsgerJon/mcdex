@@ -20,7 +20,7 @@ class MCPigSoundVariants(MCThing):
 
     mini = MCPigSoundVariants.MINI
     mini is MCPigSoundVariants['mini']  # True
-    mini['26.1']
+    mini[Version.V26_1]
     # PigSoundVariantId('mini',
     #   'minecraft:pig{sound_variant:"minecraft:mini"}')
     len(MCPigSoundVariants)

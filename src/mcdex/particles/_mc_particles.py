@@ -20,7 +20,7 @@ class MCParticles(MCThing):
 
     poof = MCParticles.POOF
     poof is MCParticles['poof']  # True
-    poof['1.12.2']  # ParticleId('poof', 'explode')
+    poof[Version.V1_12_2]  # ParticleId('poof', 'explode')
     len(MCParticles)
 
   Implementation

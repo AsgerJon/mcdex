@@ -21,7 +21,7 @@ class MCZombieNautilusVariants(MCThing):
 
     warm = MCZombieNautilusVariants.WARM
     warm is MCZombieNautilusVariants['warm']  # True
-    warm['1.21.11']
+    warm[Version.V1_21_11]
     # ZombieNautilusVariantId('warm',
     #   'minecraft:zombie_nautilus{variant:"minecraft:warm"}')
     len(MCZombieNautilusVariants)

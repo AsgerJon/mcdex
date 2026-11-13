@@ -9,7 +9,7 @@ from __future__ import annotations
 from worktoy.waitaminute.desc import WriteOnceError
 from worktoy.work_test import BaseTest
 
-from mcdex import ItemId
+from mcdex import GameId, ItemId
 
 
 class TestItemId(BaseTest):
@@ -31,6 +31,7 @@ class TestItemId(BaseTest):
     for uniqueName, minecraftId in cases:
       with self.subTest(minecraftId=minecraftId):
         id_ = ItemId(uniqueName, minecraftId)
+        self.assertIsInstance(id_, GameId)
         self.assertEqual(id_.uniqueName, uniqueName)
         self.assertEqual(id_.minecraftId, minecraftId)
 

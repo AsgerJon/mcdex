@@ -43,6 +43,18 @@
     "1.13": "minecraft:channeling"
    }
   },
+  "curse_of_binding": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "minecraft:binding_curse"
+   }
+  },
+  "curse_of_vanishing": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "minecraft:vanishing_curse"
+   }
+  },
   "density": {
    "ids": {
     "1.7.2": "",

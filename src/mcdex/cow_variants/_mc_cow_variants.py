@@ -20,7 +20,7 @@ class MCCowVariants(MCThing):
 
     warm = MCCowVariants.WARM
     warm is MCCowVariants['warm']  # True
-    warm['1.21.5']
+    warm[Version.V1_21_5]
     # CowVariantId('warm', 'minecraft:cow{variant:"minecraft:warm"}')
     len(MCCowVariants)
 

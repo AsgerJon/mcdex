@@ -20,7 +20,7 @@ class MCBiomes(MCThing):
 
     plains = MCBiomes.PLAINS
     plains is MCBiomes['plains']  # True
-    plains['1.8.9']  # BiomeId('plains', '1')
+    plains[Version.V1_8_9]  # BiomeId('plains', '1')
     len(MCBiomes)
 
   Implementation

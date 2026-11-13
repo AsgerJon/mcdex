@@ -56,9 +56,9 @@ from __future__ import annotations
 from ._mc_version import MCVersion
 from ._version import Version
 from ._equipment_slot import EquipmentSlot
+from ._game_id import GameId
 from ._item_id import ItemId
 from ._not_in_version import NotInVersion
-from ._game_id import GameId
 from ._catalogue_meta import CatalogueMeta
 from ._mc_thing import MCThing
 from ._entity_id import EntityId

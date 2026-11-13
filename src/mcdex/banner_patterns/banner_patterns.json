@@ -236,6 +236,20 @@
     "1.20.5": "minecraft:stripe_center"
    }
   },
+  "stripe_down_left": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "dls",
+    "1.20.5": "minecraft:stripe_downleft"
+   }
+  },
+  "stripe_down_right": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "drs",
+    "1.20.5": "minecraft:stripe_downright"
+   }
+  },
   "stripe_downleft": {
    "ids": {
     "1.7.2": "",

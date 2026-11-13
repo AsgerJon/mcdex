@@ -32,11 +32,11 @@ class TestMCVillagerProfessions(BaseTest):
     cls.records = _records()
 
   def test_kind(self) -> None:
-    farmer = MCVillagerProfessions['farmer']
+    farmer = MCVillagerProfessions.FARMER
     self.assertIsInstance(farmer, MCVillagerProfessions)
     self.assertIsInstance(farmer, MCThing)
-    self.assertIs(type(farmer['26.3']), VillagerProfessionId)
-    self.assertIsInstance(farmer['26.3'], GameId)
+    self.assertIs(type(farmer[Version.V26_3]), VillagerProfessionId)
+    self.assertIsInstance(farmer[Version.V26_3], GameId)
     self.assertEqual(repr(farmer), "<MCVillagerProfessions>.FARMER")
     self.assertEqual(len(MCVillagerProfessions), len(self.records))
     with self.assertRaises(KeyError) as context:
@@ -63,17 +63,19 @@ class TestMCVillagerProfessions(BaseTest):
                              '{profession:"minecraft:%s"}}' % name)
 
   def test_known_professions(self) -> None:
-    self.assertEqual(MCVillagerProfessions['farmer']['1.7.10'],
+    self.assertEqual(MCVillagerProfessions.FARMER[Version.V1_7_10],
                      VillagerProfessionId('farmer', 'Villager{Profession:0}'))
-    self.assertEqual(MCVillagerProfessions['fisherman']['1.13.2'].minecraftId,
+    fisherman = MCVillagerProfessions.FISHERMAN
+    self.assertEqual(fisherman[Version.V1_13_2].minecraftId,
                      'minecraft:villager{Profession:0,Career:2}')
-    self.assertEqual(MCVillagerProfessions['fisherman']['1.14'].minecraftId,
+    self.assertEqual(fisherman[Version.V1_14].minecraftId,
                      'minecraft:villager{VillagerData:'
                      '{profession:"minecraft:fisherman"}}')
-    self.assertEqual(MCVillagerProfessions['cartographer']['1.11'].minecraftId,
+    cartographer = MCVillagerProfessions.CARTOGRAPHER
+    self.assertEqual(cartographer[Version.V1_11].minecraftId,
                      'minecraft:villager{Profession:1,Career:2}')
     with self.assertRaises(NotInVersion) as context:
-      _ = MCVillagerProfessions['mason']['1.13.2']
+      _ = MCVillagerProfessions.MASON[Version.V1_13_2]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.13.2 has no 'mason'; vanilla added it in 1.14!",

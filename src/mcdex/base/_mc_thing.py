@@ -68,7 +68,7 @@ class MCThing(CatalogueMeta.keeNum):
   version of the data, built at its first read and returned as a copy.
 
   A member is found by its name in any case, 'MCItems.Pink_Wool', by its
-  unique name, as 'MCSounds["entity.creeper.primed"]', or by its
+  unique name, as 'MCItems["pink_wool"]', or by its
   position. A unique name the catalogue lacks raises 'KeyError'. An
   empty unique name, a name the data lacks, a missing or empty table, or
   ids that leave the thing in no version raise 'ValueError' at the first
@@ -153,7 +153,7 @@ class MCThing(CatalogueMeta.keeNum):
   def __class_resolve__(cls, identifier: Any) -> Any:
     """
     A member by its unique name, where its name in capitals does not
-    find it, as 'entity.creeper.primed' for 'ENTITY_CREEPER_PRIMED'. A
+    find it, as '13' for 'THIRTEEN'. A
     unique name the catalogue lacks raises 'KeyError'; anything else
     goes on to the enumeration's other steps.
     """
@@ -195,21 +195,21 @@ class MCThing(CatalogueMeta.keeNum):
     """The records of the data file, read at the first call."""
     if cls.__data_records__:
       return cls.__data_records__
-    if cls.__name__ not in MCThing.__catalogue_records__:
+    if cls not in MCThing.__catalogue_records__:
       package = cls.__module__.rsplit('.', 1)[0]
       path = files(package).joinpath(cls.__data_file__)
       text = path.read_text('utf-8')
       records = json.loads(text)[cls.__data_key__]
-      MCThing.__catalogue_records__[cls.__name__] = records
-    return MCThing.__catalogue_records__[cls.__name__]
+      MCThing.__catalogue_records__[cls] = records
+    return MCThing.__catalogue_records__[cls]
 
   @classmethod
   def _byUniqueName(cls, ) -> dict:
     """The members by their unique names, listed at the first call."""
-    if cls.__name__ not in MCThing.__unique_names__:
+    if cls not in MCThing.__unique_names__:
       named = {member.value: member for member in cls}
-      MCThing.__unique_names__[cls.__name__] = named
-    return MCThing.__unique_names__[cls.__name__]
+      MCThing.__unique_names__[cls] = named
+    return MCThing.__unique_names__[cls]
 
   def _record(self, ) -> dict:
     """The member's record in the data, checked for its 'ids'."""
@@ -233,7 +233,7 @@ class MCThing(CatalogueMeta.keeNum):
     version, value), in order, checked and kept at the first call. A
     subclass with tables besides 'ids' reads them in '_read'.
     """
-    key = (type(self).__name__, self.name, table, 'changes')
+    key = (type(self), self.name, table, 'changes')
     if key not in MCThing.__thing_tables__:
       MCThing.__thing_tables__[key] = self._read(table, self._record())
     return MCThing.__thing_tables__[key]
@@ -266,7 +266,7 @@ class MCThing(CatalogueMeta.keeNum):
     A table of the member, a value for each version, built at the first
     call and kept: the ids from the first version of the data.
     """
-    key = (type(self).__name__, self.name, table, 'table')
+    key = (type(self), self.name, table, 'table')
     if key not in MCThing.__thing_tables__:
       MCThing.__thing_tables__[key] = self._tableOf(self._changes(table))
     return MCThing.__thing_tables__[key]

@@ -9,7 +9,7 @@ from __future__ import annotations
 from worktoy.work_test import BaseTest
 
 from mcdex import ChickenVariantId, CowVariantId, GameId, MCChickenVariants
-from mcdex import MCChickenVariants, MCThing, NotInVersion
+from mcdex import MCChickenVariants, MCThing, NotInVersion, Version
 
 
 class TestMCChickenVariants(BaseTest):
@@ -18,20 +18,20 @@ class TestMCChickenVariants(BaseTest):
   """
 
   def test_chicken_variants(self) -> None:
-    cold = MCChickenVariants['cold']
+    cold = MCChickenVariants.COLD
     self.assertIsInstance(cold, MCChickenVariants)
     self.assertIsInstance(cold, MCThing)
-    self.assertEqual(cold['1.21.5'],
+    self.assertEqual(cold[Version.V1_21_5],
                      ChickenVariantId(
                          'cold', 'minecraft:chicken'
                                  '{variant:"minecraft:cold"}'))
-    self.assertIsInstance(cold['26.3'], GameId)
+    self.assertIsInstance(cold[Version.V26_3], GameId)
     self.assertEqual(repr(cold), "<MCChickenVariants>.COLD")
     self.assertEqual(len(MCChickenVariants), 3)
     self.assertNotEqual(ChickenVariantId('x', 'minecraft:x'),
                         CowVariantId('x', 'minecraft:x'))
     with self.assertRaises(NotInVersion) as context:
-      _ = cold['1.21.4']
+      _ = cold[Version.V1_21_4]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.21.4 has no 'cold'; vanilla added it in 1.21.5!",

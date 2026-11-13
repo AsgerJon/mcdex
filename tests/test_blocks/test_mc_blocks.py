@@ -37,7 +37,7 @@ class TestMCBlocks(BaseTest):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def test_getitem(self) -> None:
-    pinkWool = MCBlocks['pink_wool']
+    pinkWool = MCBlocks.PINK_WOOL
     self.assertIsInstance(pinkWool, MCBlocks)
     self.assertIs(MCBlocks['pink_wool'], pinkWool)
 
@@ -71,7 +71,8 @@ class TestMCBlocks(BaseTest):
     self.assertNotIn(MCItems['tnt'], MCBlocks)
     self.assertNotIn(MCEntities['tnt'], MCBlocks)
     self.assertNotIn(MCBlocks['tnt'], MCEntities)
-    self.assertNotEqual(MCBlocks['tnt']['26.3'], MCEntities['tnt']['26.3'])
+    self.assertNotEqual(MCBlocks.TNT[Version.V26_3],
+                        MCEntities.TNT[Version.V26_3])
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  THE DATA   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -148,13 +149,14 @@ class TestMCBlocks(BaseTest):
     })
 
   def test_variants_by_version(self) -> None:
-    self.assertEqual(MCBlocks['stone']['1.7.10'].minecraftId,
+    self.assertEqual(MCBlocks.STONE[Version.V1_7_10].minecraftId,
                      'minecraft:stone')
-    self.assertEqual(MCBlocks['stone']['1.8'].minecraftId, 'minecraft:stone:0')
-    self.assertEqual(MCBlocks['granite']['1.8'].minecraftId,
+    self.assertEqual(MCBlocks.STONE[Version.V1_8].minecraftId,
+                     'minecraft:stone:0')
+    self.assertEqual(MCBlocks.GRANITE[Version.V1_8].minecraftId,
                      'minecraft:stone:1')
     with self.assertRaises(NotInVersion) as context:
-      _ = MCBlocks['granite']['1.7.10']
+      _ = MCBlocks.GRANITE[Version.V1_7_10]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.7.10 has no 'granite'; vanilla added it in 1.8!",
@@ -178,9 +180,9 @@ class TestMCBlocks(BaseTest):
         'minecraft:flower_pot{Item:"minecraft:red_flower",Data:0}',
     })
     with self.assertRaises(NotInVersion):
-      _ = MCBlocks['dragon_head']['1.8.9']
+      _ = MCBlocks.DRAGON_HEAD[Version.V1_8_9]
     with self.assertRaises(NotInVersion):
-      _ = MCBlocks['white_bed']['1.11.2']
+      _ = MCBlocks.WHITE_BED[Version.V1_11_2]
 
   def test_renamed_and_split(self) -> None:
     self._ids({

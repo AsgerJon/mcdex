@@ -20,7 +20,7 @@ class MCEnchantments(MCThing):
 
     protection = MCEnchantments.PROTECTION
     protection is MCEnchantments['protection']  # True
-    protection['1.7.10']  # EnchantmentId('protection', '0')
+    protection[Version.V1_7_10]  # EnchantmentId('protection', '0')
     len(MCEnchantments)
 
   Implementation
@@ -47,6 +47,8 @@ class MCEnchantments(MCThing):
   BLAST_PROTECTION = Kee[str]('blast_protection')
   BREACH = Kee[str]('breach')
   CHANNELING = Kee[str]('channeling')
+  CURSE_OF_BINDING = Kee[str]('curse_of_binding')
+  CURSE_OF_VANISHING = Kee[str]('curse_of_vanishing')
   DENSITY = Kee[str]('density')
   DEPTH_STRIDER = Kee[str]('depth_strider')
   EFFICIENCY = Kee[str]('efficiency')

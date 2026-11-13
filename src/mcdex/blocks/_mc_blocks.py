@@ -20,7 +20,7 @@ class MCBlocks(MCThing):
 
     pinkWool = MCBlocks.PINK_WOOL
     pinkWool is MCBlocks['pink_wool']  # True
-    pinkWool['1.12.2']  # BlockId('pink_wool', 'minecraft:wool:6')
+    pinkWool[Version.V1_12_2]  # BlockId('pink_wool', 'minecraft:wool:6')
     len(MCBlocks)
 
   Implementation
@@ -89,6 +89,7 @@ class MCBlocks(MCThing):
   BAMBOO_PRESSURE_PLATE = Kee[str]('bamboo_pressure_plate')
   BAMBOO_SAPLING = Kee[str]('bamboo_sapling')
   BAMBOO_SHELF = Kee[str]('bamboo_shelf')
+  BAMBOO_SHOOT = Kee[str]('bamboo_shoot')
   BAMBOO_SIGN = Kee[str]('bamboo_sign')
   BAMBOO_SLAB = Kee[str]('bamboo_slab')
   BAMBOO_STAIRS = Kee[str]('bamboo_stairs')
@@ -530,6 +531,7 @@ class MCBlocks(MCThing):
   GREEN_WOOL_STAIRS = Kee[str]('green_wool_stairs')
   GRINDSTONE = Kee[str]('grindstone')
   HANGING_ROOTS = Kee[str]('hanging_roots')
+  HAY_BALE = Kee[str]('hay_bale')
   HAY_BLOCK = Kee[str]('hay_block')
   HEAVY_CORE = Kee[str]('heavy_core')
   HEAVY_WEIGHTED_PRESSURE_PLATE = Kee[str]('heavy_weighted_pressure_plate')
@@ -691,6 +693,7 @@ class MCBlocks(MCThing):
   MEDIUM_AMETHYST_BUD = Kee[str]('medium_amethyst_bud')
   MELON = Kee[str]('melon')
   MELON_STEM = Kee[str]('melon_stem')
+  MONSTER_SPAWNER = Kee[str]('monster_spawner')
   MOSS_BLOCK = Kee[str]('moss_block')
   MOSS_CARPET = Kee[str]('moss_carpet')
   MOSSY_COBBLESTONE = Kee[str]('mossy_cobblestone')
@@ -898,6 +901,7 @@ class MCBlocks(MCThing):
   POTENT_SULFUR = Kee[str]('potent_sulfur')
   POTTED_ACACIA_SAPLING = Kee[str]('potted_acacia_sapling')
   POTTED_ALLIUM = Kee[str]('potted_allium')
+  POTTED_AZALEA = Kee[str]('potted_azalea')
   POTTED_AZALEA_BUSH = Kee[str]('potted_azalea_bush')
   POTTED_AZURE_BLUET = Kee[str]('potted_azure_bluet')
   POTTED_BAMBOO = Kee[str]('potted_bamboo')
@@ -914,6 +918,7 @@ class MCBlocks(MCThing):
   POTTED_DARK_OAK_SAPLING = Kee[str]('potted_dark_oak_sapling')
   POTTED_DEAD_BUSH = Kee[str]('potted_dead_bush')
   POTTED_FERN = Kee[str]('potted_fern')
+  POTTED_FLOWERING_AZALEA = Kee[str]('potted_flowering_azalea')
   POTTED_FLOWERING_AZALEA_BUSH = Kee[str]('potted_flowering_azalea_bush')
   POTTED_GOLDEN_DANDELION = Kee[str]('potted_golden_dandelion')
   POTTED_JUNGLE_SAPLING = Kee[str]('potted_jungle_sapling')
@@ -1011,8 +1016,10 @@ class MCBlocks(MCThing):
   RED_WOOL_SLAB = Kee[str]('red_wool_slab')
   RED_WOOL_STAIRS = Kee[str]('red_wool_stairs')
   REDSTONE_BLOCK = Kee[str]('redstone_block')
+  REDSTONE_COMPARATOR = Kee[str]('redstone_comparator')
   REDSTONE_LAMP = Kee[str]('redstone_lamp')
   REDSTONE_ORE = Kee[str]('redstone_ore')
+  REDSTONE_REPEATER = Kee[str]('redstone_repeater')
   REDSTONE_TORCH = Kee[str]('redstone_torch')
   REDSTONE_WALL_TORCH = Kee[str]('redstone_wall_torch')
   REDSTONE_WIRE = Kee[str]('redstone_wire')
@@ -1292,6 +1299,7 @@ class MCBlocks(MCThing):
   WEEPING_VINES_PLANT = Kee[str]('weeping_vines_plant')
   WET_SPONGE = Kee[str]('wet_sponge')
   WHEAT = Kee[str]('wheat')
+  WHEAT_CROPS = Kee[str]('wheat_crops')
   WHITE_BANNER = Kee[str]('white_banner')
   WHITE_BED = Kee[str]('white_bed')
   WHITE_CANDLE = Kee[str]('white_candle')

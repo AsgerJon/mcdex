@@ -20,7 +20,7 @@ class MCChickenVariants(MCThing):
 
     cold = MCChickenVariants.COLD
     cold is MCChickenVariants['cold']  # True
-    cold['1.21.5']
+    cold[Version.V1_21_5]
     # ChickenVariantId('cold', 'minecraft:chicken{variant:"minecraft:cold"}')
     len(MCChickenVariants)
 

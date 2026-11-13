@@ -20,7 +20,7 @@ class MCFrogVariants(MCThing):
 
     warm = MCFrogVariants.WARM
     warm is MCFrogVariants['warm']  # True
-    warm['1.19']
+    warm[Version.V1_19]
     # FrogVariantId('warm', 'minecraft:frog{variant:"minecraft:warm"}')
     len(MCFrogVariants)
 

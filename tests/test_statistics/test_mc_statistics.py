@@ -31,11 +31,11 @@ class TestMCStatistics(BaseTest):
     cls.records = _records()
 
   def test_kind(self) -> None:
-    leaveGame = MCStatistics['leave_game']
+    leaveGame = MCStatistics.LEAVE_GAME
     self.assertIsInstance(leaveGame, MCStatistics)
     self.assertIsInstance(leaveGame, MCThing)
-    self.assertIs(type(leaveGame['26.3']), StatisticId)
-    self.assertIsInstance(leaveGame['26.3'], GameId)
+    self.assertIs(type(leaveGame[Version.V26_3]), StatisticId)
+    self.assertIsInstance(leaveGame[Version.V26_3], GameId)
     self.assertEqual(repr(leaveGame), "<MCStatistics>.LEAVE_GAME")
     self.assertNotEqual(StatisticId('x', 'minecraft:x'), SoundId('x', 'minecraft:x'))
 
@@ -66,17 +66,19 @@ class TestMCStatistics(BaseTest):
     self.assertEqual(len(latest), 78)
 
   def test_known_statistics(self) -> None:
-    self.assertEqual(MCStatistics['leave_game']['1.12.2'],
+    self.assertEqual(MCStatistics.LEAVE_GAME[Version.V1_12_2],
                      StatisticId('leave_game', 'stat.leaveGame'))
-    playTime = MCStatistics['play_time']
-    self.assertEqual(playTime['1.12.2'].minecraftId, 'stat.playOneMinute')
-    self.assertEqual(playTime['1.16.5'].minecraftId,
+    playTime = MCStatistics.PLAY_TIME
+    self.assertEqual(playTime[Version.V1_12_2].minecraftId,
+                     'stat.playOneMinute')
+    self.assertEqual(playTime[Version.V1_16_5].minecraftId,
                      'minecraft:play_one_minute')
-    self.assertEqual(playTime['1.17'].minecraftId, 'minecraft:play_time')
-    junkFished = MCStatistics['junk_fished']
-    self.assertEqual(junkFished['1.11'].minecraftId, 'stat.junkFished')
+    self.assertEqual(playTime[Version.V1_17].minecraftId,
+                     'minecraft:play_time')
+    junkFished = MCStatistics.JUNK_FISHED
+    self.assertEqual(junkFished[Version.V1_11].minecraftId, 'stat.junkFished')
     with self.assertRaises(NotInVersion) as context:
-      _ = junkFished['1.12.2']
+      _ = junkFished[Version.V1_12_2]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.12.2 has no 'junk_fished'; vanilla removed it in 1.11.1!",

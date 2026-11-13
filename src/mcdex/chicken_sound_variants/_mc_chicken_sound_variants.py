@@ -21,7 +21,7 @@ class MCChickenSoundVariants(MCThing):
 
     picky = MCChickenSoundVariants.PICKY
     picky is MCChickenSoundVariants['picky']  # True
-    picky['26.1']
+    picky[Version.V26_1]
     # ChickenSoundVariantId('picky',
     #   'minecraft:chicken{sound_variant:"minecraft:picky"}')
     len(MCChickenSoundVariants)

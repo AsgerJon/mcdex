@@ -20,7 +20,7 @@ class MCTrimPatterns(MCThing):
 
     coast = MCTrimPatterns.COAST
     coast is MCTrimPatterns['coast']  # True
-    coast['1.20']  # TrimPatternId('coast', 'minecraft:coast')
+    coast[Version.V1_20]  # TrimPatternId('coast', 'minecraft:coast')
     len(MCTrimPatterns)
 
   Implementation

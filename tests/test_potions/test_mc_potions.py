@@ -32,11 +32,11 @@ class TestMCPotions(BaseTest):
     cls.records = _records()
 
   def test_kind(self) -> None:
-    swiftness = MCPotions['swiftness']
+    swiftness = MCPotions.SWIFTNESS
     self.assertIsInstance(swiftness, MCPotions)
     self.assertIsInstance(swiftness, MCThing)
-    self.assertIs(type(swiftness['26.3']), PotionId)
-    self.assertIsInstance(swiftness['26.3'], GameId)
+    self.assertIs(type(swiftness[Version.V26_3]), PotionId)
+    self.assertIsInstance(swiftness[Version.V26_3], GameId)
     self.assertEqual(repr(swiftness), "<MCPotions>.SWIFTNESS")
     self.assertNotEqual(PotionId('x', 'minecraft:x'), EffectId('x', 'minecraft:x'))
 
@@ -76,19 +76,21 @@ class TestMCPotions(BaseTest):
     self.assertEqual(sum('strong' in r for r in self.records.values()), 9)
 
   def test_known_potions(self) -> None:
-    regeneration = MCPotions['regeneration']
-    self.assertEqual(regeneration['1.8.9'], PotionId('regeneration', '1'))
-    self.assertEqual(regeneration['1.9'].minecraftId, 'minecraft:regeneration')
-    self.assertEqual(MCPotions['water']['1.7.10'].minecraftId, '0')
-    self.assertEqual(MCPotions['leaping']['1.8'].minecraftId, '11')
+    regeneration = MCPotions.REGENERATION
+    self.assertEqual(regeneration[Version.V1_8_9],
+                     PotionId('regeneration', '1'))
+    self.assertEqual(regeneration[Version.V1_9].minecraftId,
+                     'minecraft:regeneration')
+    self.assertEqual(MCPotions.WATER[Version.V1_7_10].minecraftId, '0')
+    self.assertEqual(MCPotions.LEAPING[Version.V1_8].minecraftId, '11')
     with self.assertRaises(NotInVersion) as context:
-      _ = MCPotions['leaping']['1.7.10']
+      _ = MCPotions.LEAPING[Version.V1_7_10]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.7.10 has no 'leaping'; vanilla added it in 1.8!",
     )
     with self.assertRaises(NotInVersion) as context:
-      _ = MCPotions['empty']['26.3']
+      _ = MCPotions.EMPTY[Version.V26_3]
     self.assertIn("removed it in 1.20.5", str(context.exception))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -118,12 +120,14 @@ class TestMCPotions(BaseTest):
 
   def test_modified_potion_ids(self) -> None:
     """The night vision's 6 with the bit for long, before 1.9: 70."""
-    longNightVision = MCPotions['night_vision', 'long']
-    self.assertEqual(longNightVision['1.8.9'], PotionId('night_vision', '70'))
-    self.assertEqual(longNightVision['1.12.2'],
+    longNightVision = MCPotions[MCPotions.NIGHT_VISION, PotionModifier.LONG]
+    self.assertEqual(longNightVision[Version.V1_8_9],
+                     PotionId('night_vision', '70'))
+    self.assertEqual(longNightVision[Version.V1_12_2],
                      PotionId('night_vision', 'minecraft:long_night_vision'))
-    self.assertEqual(MCPotions['regeneration', 'strong']['1.7.2'].minecraftId,
-                     '33')
+    strongRegeneration = MCPotions[
+        MCPotions.REGENERATION, PotionModifier.STRONG]
+    self.assertEqual(strongRegeneration[Version.V1_7_2].minecraftId, '33')
     ids = longNightVision.versionIds
     self.assertEqual(ids[Version.V1_8_9], '70')
     ids[Version.V26_3] = 'test:changed'
@@ -131,15 +135,15 @@ class TestMCPotions(BaseTest):
                      'minecraft:long_night_vision')
 
   def test_modified_potion_not_in_version(self) -> None:
-    strongLeaping = MCPotions['leaping', PotionModifier.STRONG]
+    strongLeaping = MCPotions[MCPotions.LEAPING, PotionModifier.STRONG]
     with self.assertRaises(NotInVersion) as context:
-      _ = strongLeaping['1.7.10']
+      _ = strongLeaping[Version.V1_7_10]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.7.10 has no 'strong leaping'; vanilla added it in 1.8!",
     )
     with self.assertRaises(ValueError) as context:
-      _ = strongLeaping['1.6.4']
+      _ = strongLeaping[Version.V1_6_4]
     self.assertIn('no data on MCPotions[<MCPotions>.LEAPING, '
                   '<PotionModifier>.STRONG] before 1.7.2',
                   str(context.exception))

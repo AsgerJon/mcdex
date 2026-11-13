@@ -20,7 +20,7 @@ class MCEntities(MCThing):
 
     witherSkeleton = MCEntities.WITHER_SKELETON
     witherSkeleton is MCEntities['wither_skeleton']  # True
-    witherSkeleton['1.10.2']
+    witherSkeleton[Version.V1_10_2]
     # EntityId('wither_skeleton', 'Skeleton{SkeletonType:1}')
     len(MCEntities)
 
@@ -154,6 +154,7 @@ class MCEntities(MCThing):
   POLAR_BEAR = Kee[str]('polar_bear')
   POPLAR_BOAT = Kee[str]('poplar_boat')
   POPLAR_CHEST_BOAT = Kee[str]('poplar_chest_boat')
+  PRIMED_TNT = Kee[str]('primed_tnt')
   PUFFERFISH = Kee[str]('pufferfish')
   RABBIT = Kee[str]('rabbit')
   RAVAGER = Kee[str]('ravager')
@@ -181,6 +182,9 @@ class MCEntities(MCThing):
   SULFUR_CUBE = Kee[str]('sulfur_cube')
   TADPOLE = Kee[str]('tadpole')
   TEXT_DISPLAY = Kee[str]('text_display')
+  THROWN_BOTTLE_O_ENCHANTING = Kee[str]('thrown_bottle_o_enchanting')
+  THROWN_EGG = Kee[str]('thrown_egg')
+  THROWN_ENDER_PEARL = Kee[str]('thrown_ender_pearl')
   TNT = Kee[str]('tnt')
   TNT_MINECART = Kee[str]('tnt_minecart')
   TRADER_LLAMA = Kee[str]('trader_llama')

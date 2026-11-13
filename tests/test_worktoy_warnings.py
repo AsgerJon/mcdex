@@ -17,7 +17,7 @@ from worktoy.waitaminute import WorkToyWarning
 from worktoy.work_test import BaseTest
 
 from mcdex import EntityId, EquipmentSlot, MCItems, MCPotions, MCThing
-from mcdex import NotInVersion, Version
+from mcdex import NotInVersion, PotionModifier, Version
 
 
 class Wisps(MCThing):
@@ -57,29 +57,30 @@ class TestWorktoyWarnings(BaseTest):
     with warnings.catch_warnings():
       warnings.simplefilter('error', WorkToyWarning)
       wisp = Wisps.WISP
-      self.assertEqual(wisp['1.10.2'].minecraftId, 'Wisp')
-      self.assertEqual(wisp['26.3'].minecraftId, 'test:wisp')
+      self.assertEqual(wisp[Version.V1_10_2].minecraftId, 'Wisp')
+      self.assertEqual(wisp[Version.V26_3].minecraftId, 'test:wisp')
       self.assertEqual(wisp.versionIds[Version.V1_11], 'test:wisp')
       with self.assertRaises(ValueError):
-        _ = wisp['1.6.4']
+        _ = wisp[Version.V1_6_4]
 
   def test_item_tables(self) -> None:
     """The stack sizes and slots of an item, read and looked up."""
     with warnings.catch_warnings():
       warnings.simplefilter('error', WorkToyWarning)
       testTrinket = Trinkets.TEST_TRINKET
-      self.assertEqual(testTrinket['1.9'].minecraftId, 'test:trinket')
+      self.assertEqual(testTrinket[Version.V1_9].minecraftId, 'test:trinket')
       self.assertEqual(testTrinket.maxStackSize[Version.V1_9], 1)
       self.assertIs(testTrinket.equipmentSlot[Version.V1_10],
                     EquipmentSlot.CHEST)
       with self.assertRaises(NotInVersion):
-        _ = testTrinket['1.8.9']
+        _ = testTrinket[Version.V1_8_9]
 
   def test_modified_potion(self) -> None:
     """A potion with a modifier, looked up, and a version before it."""
     with warnings.catch_warnings():
       warnings.simplefilter('error', WorkToyWarning)
-      longNightVision = MCPotions['night_vision', 'long']
-      self.assertEqual(longNightVision['1.8.9'].minecraftId, '70')
+      longNightVision = MCPotions[
+          MCPotions.NIGHT_VISION, PotionModifier.LONG]
+      self.assertEqual(longNightVision[Version.V1_8_9].minecraftId, '70')
       with self.assertRaises(ValueError):
-        _ = longNightVision['1.6.4']
+        _ = longNightVision[Version.V1_6_4]

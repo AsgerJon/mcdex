@@ -1883,6 +1883,17 @@
     "1.7.2": "mainhand"
    }
   },
+  "book_and_quill": {
+   "ids": {
+    "1.7.2": "minecraft:writable_book"
+   },
+   "maxStackSize": {
+    "1.7.2": 1
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
+   }
+  },
   "bookshelf": {
    "ids": {
     "1.7.2": "minecraft:bookshelf"
@@ -1904,6 +1915,17 @@
    },
    "equipmentSlot": {
     "1.21.2": "mainhand"
+   }
+  },
+  "bottle_o_enchanting": {
+   "ids": {
+    "1.7.2": "minecraft:experience_bottle"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
    }
   },
   "bow": {
@@ -5950,6 +5972,18 @@
     "1.9": "head"
    }
   },
+  "dragons_breath": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "minecraft:dragon_breath"
+   },
+   "maxStackSize": {
+    "1.9": 64
+   },
+   "equipmentSlot": {
+    "1.9": "mainhand"
+   }
+  },
   "dried_ghast": {
    "ids": {
     "1.7.2": "",
@@ -6106,6 +6140,17 @@
   "emerald_ore": {
    "ids": {
     "1.7.2": "minecraft:emerald_ore"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
+   }
+  },
+  "empty_map": {
+   "ids": {
+    "1.7.2": "minecraft:map"
    },
    "maxStackSize": {
     "1.7.2": 64
@@ -6555,6 +6600,17 @@
    },
    "equipmentSlot": {
     "1.19.4": "mainhand"
+   }
+  },
+  "eye_of_ender": {
+   "ids": {
+    "1.7.2": "minecraft:ender_eye"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
    }
   },
   "farmland": {
@@ -8018,6 +8074,17 @@
     "1.21.6": "mainhand"
    }
   },
+  "hay_bale": {
+   "ids": {
+    "1.7.2": "minecraft:hay_block"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
+   }
+  },
   "hay_block": {
    "ids": {
     "1.7.2": "minecraft:hay_block"
@@ -9052,6 +9119,17 @@
     "1.7.2": "feet"
    }
   },
+  "leather_cap": {
+   "ids": {
+    "1.7.2": "minecraft:leather_helmet"
+   },
+   "maxStackSize": {
+    "1.7.2": 1
+   },
+   "equipmentSlot": {
+    "1.7.2": "head"
+   }
+  },
   "leather_chestplate": {
    "ids": {
     "1.7.2": "minecraft:leather_chestplate"
@@ -9096,6 +9174,28 @@
    },
    "equipmentSlot": {
     "1.7.2": "legs"
+   }
+  },
+  "leather_pants": {
+   "ids": {
+    "1.7.2": "minecraft:leather_leggings"
+   },
+   "maxStackSize": {
+    "1.7.2": 1
+   },
+   "equipmentSlot": {
+    "1.7.2": "legs"
+   }
+  },
+  "leather_tunic": {
+   "ids": {
+    "1.7.2": "minecraft:leather_chestplate"
+   },
+   "maxStackSize": {
+    "1.7.2": 1
+   },
+   "equipmentSlot": {
+    "1.7.2": "chest"
    }
   },
   "lectern": {
@@ -10617,6 +10717,18 @@
     "1.14": "mainhand"
    }
   },
+  "monster_spawner": {
+   "ids": {
+    "1.7.2": "minecraft:mob_spawner",
+    "1.13": "minecraft:spawner"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
+   }
+  },
   "mooshroom_spawn_egg": {
    "ids": {
     "1.7.2": "minecraft:spawn_egg:96",
@@ -11272,6 +11384,17 @@
    },
    "equipmentSlot": {
     "1.16": "mainhand"
+   }
+  },
+  "nether_quartz": {
+   "ids": {
+    "1.7.2": "minecraft:quartz"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
    }
   },
   "nether_quartz_ore": {
@@ -14554,6 +14677,18 @@
     "1.8": "mainhand"
    }
   },
+  "rabbits_foot": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "minecraft:rabbit_foot"
+   },
+   "maxStackSize": {
+    "1.8": 64
+   },
+   "equipmentSlot": {
+    "1.8": "mainhand"
+   }
+  },
   "rail": {
    "ids": {
     "1.7.2": "minecraft:rail"
@@ -14587,6 +14722,40 @@
    },
    "equipmentSlot": {
     "1.14": "mainhand"
+   }
+  },
+  "raw_beef": {
+   "ids": {
+    "1.7.2": "minecraft:beef"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
+   }
+  },
+  "raw_chicken": {
+   "ids": {
+    "1.7.2": "minecraft:chicken"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
+   }
+  },
+  "raw_cod": {
+   "ids": {
+    "1.7.2": "minecraft:fish:0",
+    "1.13": "minecraft:cod"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
    }
   },
   "raw_copper": {
@@ -14659,6 +14828,53 @@
    },
    "equipmentSlot": {
     "1.17": "mainhand"
+   }
+  },
+  "raw_mutton": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "minecraft:mutton"
+   },
+   "maxStackSize": {
+    "1.8": 64
+   },
+   "equipmentSlot": {
+    "1.8": "mainhand"
+   }
+  },
+  "raw_porkchop": {
+   "ids": {
+    "1.7.2": "minecraft:porkchop"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
+   }
+  },
+  "raw_rabbit": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "minecraft:rabbit"
+   },
+   "maxStackSize": {
+    "1.8": 64
+   },
+   "equipmentSlot": {
+    "1.8": "mainhand"
+   }
+  },
+  "raw_salmon": {
+   "ids": {
+    "1.7.2": "minecraft:fish:1",
+    "1.13": "minecraft:salmon"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
    }
   },
   "recovery_compass": {
@@ -15110,6 +15326,28 @@
     "1.7.2": "mainhand"
    }
   },
+  "redstone_comparator": {
+   "ids": {
+    "1.7.2": "minecraft:comparator"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
+   }
+  },
+  "redstone_dust": {
+   "ids": {
+    "1.7.2": "minecraft:redstone"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
+   }
+  },
   "redstone_lamp": {
    "ids": {
     "1.7.2": "minecraft:redstone_lamp"
@@ -15124,6 +15362,17 @@
   "redstone_ore": {
    "ids": {
     "1.7.2": "minecraft:redstone_ore"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
+   }
+  },
+  "redstone_repeater": {
+   "ids": {
+    "1.7.2": "minecraft:repeater"
    },
    "maxStackSize": {
     "1.7.2": 64
@@ -15862,6 +16111,17 @@
     "1.7.2": "mainhand"
    }
   },
+  "slimeball": {
+   "ids": {
+    "1.7.2": "minecraft:slime_ball"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
+   }
+  },
   "small_amethyst_bud": {
    "ids": {
     "1.7.2": "",
@@ -16552,6 +16812,17 @@
     "1.9": "minecraft:spawn_egg{EntityTag:{id:\"Squid\"}}",
     "1.11": "minecraft:spawn_egg{EntityTag:{id:\"minecraft:squid\"}}",
     "1.13": "minecraft:squid_spawn_egg"
+   },
+   "maxStackSize": {
+    "1.7.2": 64
+   },
+   "equipmentSlot": {
+    "1.7.2": "mainhand"
+   }
+  },
+  "steak": {
+   "ids": {
+    "1.7.2": "minecraft:cooked_beef"
    },
    "maxStackSize": {
     "1.7.2": 64
@@ -17853,6 +18124,18 @@
    },
    "equipmentSlot": {
     "1.13": "mainhand"
+   }
+  },
+  "turtle_shell": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:turtle_helmet"
+   },
+   "maxStackSize": {
+    "1.13": 1
+   },
+   "equipmentSlot": {
+    "1.13": "head"
    }
   },
   "turtle_spawn_egg": {

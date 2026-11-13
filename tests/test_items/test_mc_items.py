@@ -23,6 +23,17 @@ def _records() -> dict:
   return json.loads(text)['items']
 
 
+#  The game's names of the items that have one a person would use too,
+#  each the same item: counted once, under the other name.
+GAME_NAMES = (
+  'short_grass', 'ender_eye', 'experience_bottle', 'beef', 'chicken', 'cod',
+  'mutton', 'porkchop', 'rabbit', 'salmon', 'cooked_beef', 'leather_helmet',
+  'leather_chestplate', 'leather_leggings', 'turtle_helmet', 'writable_book',
+  'slime_ball', 'quartz', 'redstone', 'rabbit_foot', 'dragon_breath',
+  'comparator', 'repeater', 'spawner', 'hay_block', 'map',
+)
+
+
 class TestMCItems(BaseTest):
   """
   TestMCItems tests the 'MCItems' catalogue.
@@ -37,7 +48,7 @@ class TestMCItems(BaseTest):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def test_getitem(self) -> None:
-    grass = MCItems['grass']
+    grass = MCItems.GRASS
     self.assertIsInstance(grass, MCItems)
     self.assertEqual(grass.uniqueName, 'grass')
 
@@ -123,45 +134,48 @@ class TestMCItems(BaseTest):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def test_elytra(self) -> None:
-    elytra = MCItems['elytra']
-    self.assertEqual(elytra['1.9'], ItemId('elytra', 'minecraft:elytra'))
-    self.assertEqual(elytra['26.3'].minecraftId, 'minecraft:elytra')
+    elytra = MCItems.ELYTRA
+    self.assertEqual(elytra[Version.V1_9],
+                     ItemId('elytra', 'minecraft:elytra'))
+    self.assertEqual(elytra[Version.V26_3].minecraftId, 'minecraft:elytra')
     with self.assertRaises(NotInVersion) as context:
-      _ = elytra['1.7.10']
+      _ = elytra[Version.V1_7_10]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.7.10 has no 'elytra'; vanilla added it in 1.9!",
     )
 
   def test_pink_wool(self) -> None:
-    pinkWool = MCItems['pink_wool']
-    self.assertEqual(pinkWool['1.7.10'].minecraftId, 'minecraft:wool:6')
-    self.assertEqual(pinkWool['1.12.2'].minecraftId, 'minecraft:wool:6')
-    self.assertEqual(pinkWool['1.13'].minecraftId, 'minecraft:pink_wool')
+    pinkWool = MCItems.PINK_WOOL
+    self.assertEqual(pinkWool[Version.V1_7_10].minecraftId, 'minecraft:wool:6')
+    self.assertEqual(pinkWool[Version.V1_12_2].minecraftId, 'minecraft:wool:6')
+    self.assertEqual(pinkWool[Version.V1_13].minecraftId,
+                     'minecraft:pink_wool')
 
   def test_grass(self) -> None:
     for name in ('grass', 'short_grass'):
       with self.subTest(name=name):
         grass = MCItems[name]
-        self.assertEqual(grass['1.7.10'].minecraftId,
+        self.assertEqual(grass[Version.V1_7_10].minecraftId,
                          'minecraft:tallgrass:1')
-        self.assertEqual(grass['1.20.2'].minecraftId, 'minecraft:grass')
-        self.assertEqual(grass['26.3'].minecraftId, 'minecraft:short_grass')
-    self.assertEqual(MCItems['grass_block']['1.12.2'].minecraftId,
+        self.assertEqual(grass[Version.V1_20_2].minecraftId, 'minecraft:grass')
+        self.assertEqual(grass[Version.V26_3].minecraftId,
+                         'minecraft:short_grass')
+    self.assertEqual(MCItems.GRASS_BLOCK[Version.V1_12_2].minecraftId,
                      'minecraft:grass')
-    self.assertEqual(MCItems['grass_block']['1.13'].minecraftId,
+    self.assertEqual(MCItems.GRASS_BLOCK[Version.V1_13].minecraftId,
                      'minecraft:grass_block')
 
   def test_shulker_boxes(self) -> None:
     for name in ('shulker_box', 'purple_shulker_box'):
       with self.subTest(name=name):
-        self.assertEqual(MCItems[name]['1.11'].minecraftId,
+        self.assertEqual(MCItems[name][Version.V1_11].minecraftId,
                          'minecraft:purple_shulker_box')
-        self.assertEqual(MCItems[name]['1.12.2'].minecraftId,
+        self.assertEqual(MCItems[name][Version.V1_12_2].minecraftId,
                          'minecraft:purple_shulker_box')
-    self.assertEqual(MCItems['shulker_box']['26.3'].minecraftId,
+    self.assertEqual(MCItems.SHULKER_BOX[Version.V26_3].minecraftId,
                      'minecraft:shulker_box')
-    self.assertEqual(MCItems['purple_shulker_box']['26.3'].minecraftId,
+    self.assertEqual(MCItems.PURPLE_SHULKER_BOX[Version.V26_3].minecraftId,
                      'minecraft:purple_shulker_box')
 
   def test_pumpkins(self) -> None:
@@ -169,15 +183,17 @@ class TestMCItems(BaseTest):
     for name in ('pumpkin', 'carved_pumpkin'):
       with self.subTest(name=name):
         item = MCItems[name]
-        self.assertEqual(item['1.7.10'].minecraftId, 'minecraft:pumpkin')
-        self.assertEqual(item['1.12.2'].minecraftId, 'minecraft:pumpkin')
+        self.assertEqual(item[Version.V1_7_10].minecraftId,
+                         'minecraft:pumpkin')
+        self.assertEqual(item[Version.V1_12_2].minecraftId,
+                         'minecraft:pumpkin')
         self.assertIs(item.equipmentSlot[Version.V1_12_2],
                       EquipmentSlot.HEAD)
-    self.assertEqual(MCItems['pumpkin']['1.13'].minecraftId,
+    self.assertEqual(MCItems.PUMPKIN[Version.V1_13].minecraftId,
                      'minecraft:pumpkin')
-    self.assertIs(MCItems['pumpkin'].equipmentSlot[Version.V1_13],
+    self.assertIs(MCItems.PUMPKIN.equipmentSlot[Version.V1_13],
                   EquipmentSlot.MAINHAND)
-    self.assertEqual(MCItems['carved_pumpkin']['1.13'].minecraftId,
+    self.assertEqual(MCItems.CARVED_PUMPKIN[Version.V1_13].minecraftId,
                      'minecraft:carved_pumpkin')
 
   def test_stone_slabs(self) -> None:
@@ -185,53 +201,55 @@ class TestMCItems(BaseTest):
     for name in ('stone_slab', 'smooth_stone_slab'):
       with self.subTest(name=name):
         item = MCItems[name]
-        self.assertEqual(item['1.12.2'].minecraftId, 'minecraft:stone_slab:0')
-        self.assertEqual(item['1.13.2'].minecraftId, 'minecraft:stone_slab')
-    self.assertEqual(MCItems['stone_slab']['1.14'].minecraftId,
+        self.assertEqual(item[Version.V1_12_2].minecraftId,
+                         'minecraft:stone_slab:0')
+        self.assertEqual(item[Version.V1_13_2].minecraftId,
+                         'minecraft:stone_slab')
+    self.assertEqual(MCItems.STONE_SLAB[Version.V1_14].minecraftId,
                      'minecraft:stone_slab')
-    self.assertEqual(MCItems['smooth_stone_slab']['1.14'].minecraftId,
+    self.assertEqual(MCItems.SMOOTH_STONE_SLAB[Version.V1_14].minecraftId,
                      'minecraft:smooth_stone_slab')
 
   def test_stone_stairs(self) -> None:
     """The old stone stairs were cobblestone stairs, and only those."""
-    self.assertEqual(MCItems['cobblestone_stairs']['1.12.2'].minecraftId,
+    self.assertEqual(MCItems.COBBLESTONE_STAIRS[Version.V1_12_2].minecraftId,
                      'minecraft:stone_stairs')
     with self.assertRaises(NotInVersion):
-      _ = MCItems['stone_stairs']['1.12.2']
-    self.assertEqual(MCItems['stone_stairs']['1.14'].minecraftId,
+      _ = MCItems.STONE_STAIRS[Version.V1_12_2]
+    self.assertEqual(MCItems.STONE_STAIRS[Version.V1_14].minecraftId,
                      'minecraft:stone_stairs')
 
   def test_removed(self) -> None:
     with self.assertRaises(NotInVersion) as context:
-      _ = MCItems['lit_furnace']['1.10']
+      _ = MCItems.LIT_FURNACE[Version.V1_10]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.10 has no 'lit_furnace'; vanilla removed it in 1.9!",
     )
 
   def test_spawn_egg(self) -> None:
-    creeperSpawnEgg = MCItems['creeper_spawn_egg']
-    self.assertEqual(creeperSpawnEgg['1.8.9'].minecraftId,
+    creeperSpawnEgg = MCItems.CREEPER_SPAWN_EGG
+    self.assertEqual(creeperSpawnEgg[Version.V1_8_9].minecraftId,
                      'minecraft:spawn_egg:50')
-    self.assertEqual(creeperSpawnEgg['1.10.2'].minecraftId,
+    self.assertEqual(creeperSpawnEgg[Version.V1_10_2].minecraftId,
                      'minecraft:spawn_egg{EntityTag:{id:"Creeper"}}')
-    self.assertEqual(creeperSpawnEgg['1.12.2'].minecraftId,
+    self.assertEqual(creeperSpawnEgg[Version.V1_12_2].minecraftId,
                      'minecraft:spawn_egg{EntityTag:{id:"minecraft:creeper"}}')
-    self.assertEqual(creeperSpawnEgg['1.13'].minecraftId,
+    self.assertEqual(creeperSpawnEgg[Version.V1_13].minecraftId,
                      'minecraft:creeper_spawn_egg')
 
   def test_splash_potion(self) -> None:
-    splashPotion = MCItems['splash_potion']
-    self.assertEqual(splashPotion['1.8.9'].minecraftId,
+    splashPotion = MCItems.SPLASH_POTION
+    self.assertEqual(splashPotion[Version.V1_8_9].minecraftId,
                      'minecraft:potion:16384')
-    self.assertEqual(splashPotion['1.9'].minecraftId,
+    self.assertEqual(splashPotion[Version.V1_9].minecraftId,
                      'minecraft:splash_potion')
 
   def test_latest_stack_sizes_and_slots(self) -> None:
     """26.3's, as its own generator report gives them."""
     stacks, slots = {}, {}
     for name, record in self.records.items():
-      if list(record['ids'].values())[-1] and name != 'short_grass':
+      if list(record['ids'].values())[-1] and name not in GAME_NAMES:
         stack = list(record['maxStackSize'].values())[-1]
         slot = list(record['equipmentSlot'].values())[-1]
         stacks[stack] = stacks.get(stack, 0) + 1
@@ -242,41 +260,41 @@ class TestMCItems(BaseTest):
                              'saddle': 1})
 
   def test_elytra_slot_and_stack(self) -> None:
-    elytra = MCItems['elytra']
+    elytra = MCItems.ELYTRA
     self.assertIs(elytra.equipmentSlot[Version.V1_9], EquipmentSlot.CHEST)
     self.assertIs(elytra.equipmentSlot[Version.V26_3], EquipmentSlot.CHEST)
     self.assertEqual(elytra.maxStackSize[Version.V1_9], 1)
     self.assertNotIn(Version.V1_8_9, elytra.equipmentSlot)
 
   def test_slots_that_changed(self) -> None:
-    shield = MCItems['shield'].equipmentSlot
+    shield = MCItems.SHIELD.equipmentSlot
     self.assertIs(shield[Version.V1_9], EquipmentSlot.MAINHAND)
     self.assertIs(shield[Version.V1_10], EquipmentSlot.OFFHAND)
-    pumpkin = MCItems['carved_pumpkin'].equipmentSlot
+    pumpkin = MCItems.CARVED_PUMPKIN.equipmentSlot
     self.assertIs(pumpkin[Version.V1_12_2], EquipmentSlot.HEAD)
     self.assertIs(pumpkin[Version.V1_13], EquipmentSlot.HEAD)
-    saddle = MCItems['saddle'].equipmentSlot
+    saddle = MCItems.SADDLE.equipmentSlot
     self.assertIs(saddle[Version.V1_21_4], EquipmentSlot.MAINHAND)
     self.assertIs(saddle[Version.V1_21_5], EquipmentSlot.SADDLE)
-    carpet = MCItems['white_carpet'].equipmentSlot
+    carpet = MCItems.WHITE_CARPET.equipmentSlot
     self.assertIs(carpet[Version.V1_20_4], EquipmentSlot.MAINHAND)
     self.assertIs(carpet[Version.V1_20_5], EquipmentSlot.BODY)
-    helmet = MCItems['iron_helmet'].equipmentSlot
+    helmet = MCItems.IRON_HELMET.equipmentSlot
     for version_ in (Version.V1_7_2, Version.V1_12_2, Version.V26_3):
       self.assertIs(helmet[version_], EquipmentSlot.HEAD)
 
   def test_stack_sizes_that_changed(self) -> None:
-    door = MCItems['oak_door'].maxStackSize
+    door = MCItems.OAK_DOOR.maxStackSize
     self.assertEqual(door[Version.V1_7_10], 1)
     self.assertEqual(door[Version.V1_8], 64)
-    pot = MCItems['decorated_pot'].maxStackSize
+    pot = MCItems.DECORATED_POT.maxStackSize
     self.assertEqual(pot[Version.V1_20_2], 1)
     self.assertEqual(pot[Version.V1_20_3], 64)
-    self.assertEqual(MCItems['ender_pearl'].maxStackSize[Version.V1_7_10], 16)
-    self.assertEqual(MCItems['potion'].maxStackSize[Version.V1_12_2], 1)
+    self.assertEqual(MCItems.ENDER_PEARL.maxStackSize[Version.V1_7_10], 16)
+    self.assertEqual(MCItems.POTION.maxStackSize[Version.V1_12_2], 1)
 
   def test_diamond(self) -> None:
-    diamond = MCItems['diamond']
+    diamond = MCItems.DIAMOND
     for text in ('1.7.2', '1.12.2', '1.13', '26.3'):
       with self.subTest(version=text):
         self.assertEqual(diamond[text].minecraftId, 'minecraft:diamond')

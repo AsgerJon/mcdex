@@ -284,6 +284,13 @@
     "1.7.2": "",
     "1.21.6": "minecraft:waypoint_transmit_range"
    }
+  },
+  "zombie_reinforcements": {
+   "ids": {
+    "1.7.2": "zombie.spawnReinforcements",
+    "1.16": "minecraft:zombie.spawn_reinforcements",
+    "1.21.2": "minecraft:spawn_reinforcements"
+   }
   }
  }
 }

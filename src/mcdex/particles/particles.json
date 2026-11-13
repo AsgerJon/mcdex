@@ -1,6 +1,6 @@
 {
  "covers": [
-  "1.7.2",
+  "1.8",
   "26.3"
  ],
  "legend": {
@@ -9,7 +9,6 @@
  "particles": {
   "ambient_entity_effect": {
    "ids": {
-    "1.7.2": "",
     "1.8": "mobSpellAmbient",
     "1.13": "minecraft:ambient_entity_effect",
     "1.20.5": ""
@@ -17,20 +16,18 @@
   },
   "angry_villager": {
    "ids": {
-    "1.7.2": "",
     "1.8": "angryVillager",
     "1.13": "minecraft:angry_villager"
    }
   },
   "ash": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.16": "minecraft:ash"
    }
   },
   "barrier": {
    "ids": {
-    "1.7.2": "",
     "1.8": "barrier",
     "1.13": "minecraft:barrier",
     "1.18": ""
@@ -38,7 +35,6 @@
   },
   "block": {
    "ids": {
-    "1.7.2": "",
     "1.8": "blockcrack_",
     "1.9": "blockcrack",
     "1.13": "minecraft:block"
@@ -46,13 +42,12 @@
   },
   "block_crumble": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.21.2": "minecraft:block_crumble"
    }
   },
   "block_dust": {
    "ids": {
-    "1.7.2": "",
     "1.8": "blockdust_",
     "1.9": "blockdust",
     "1.13": ""
@@ -60,443 +55,422 @@
   },
   "block_marker": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.18": "minecraft:block_marker"
    }
   },
   "bubble": {
    "ids": {
-    "1.7.2": "",
     "1.8": "bubble",
     "1.13": "minecraft:bubble"
    }
   },
   "bubble_column_up": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.13": "minecraft:bubble_column_up"
    }
   },
   "bubble_pop": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.13": "minecraft:bubble_pop"
    }
   },
   "campfire_cosy_smoke": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.14": "minecraft:campfire_cosy_smoke"
    }
   },
   "campfire_signal_smoke": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.14": "minecraft:campfire_signal_smoke"
    }
   },
   "cherry_leaves": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20": "minecraft:cherry_leaves"
    }
   },
   "cloud": {
    "ids": {
-    "1.7.2": "",
     "1.8": "cloud",
     "1.13": "minecraft:cloud"
    }
   },
   "composter": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.14": "minecraft:composter"
    }
   },
   "copper_fire_flame": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.21.9": "minecraft:copper_fire_flame"
    }
   },
   "crimson_spore": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.16": "minecraft:crimson_spore"
    }
   },
   "crit": {
    "ids": {
-    "1.7.2": "",
     "1.8": "crit",
     "1.13": "minecraft:crit"
    }
   },
   "current_down": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.13": "minecraft:current_down"
    }
   },
   "damage_indicator": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.9": "damageIndicator",
     "1.13": "minecraft:damage_indicator"
    }
   },
   "dolphin": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.13": "minecraft:dolphin"
    }
   },
   "dragon_breath": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.9": "dragonbreath",
     "1.13": "minecraft:dragon_breath"
    }
   },
   "dripping_cherry_leaves": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.19.4": "minecraft:dripping_cherry_leaves",
     "1.20": ""
    }
   },
   "dripping_dripstone_lava": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:dripping_dripstone_lava"
    }
   },
   "dripping_dripstone_water": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:dripping_dripstone_water"
    }
   },
   "dripping_honey": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.15": "minecraft:dripping_honey"
    }
   },
   "dripping_lava": {
    "ids": {
-    "1.7.2": "",
     "1.8": "dripLava",
     "1.13": "minecraft:dripping_lava"
    }
   },
   "dripping_obsidian_tear": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.16": "minecraft:dripping_obsidian_tear"
    }
   },
   "dripping_water": {
    "ids": {
-    "1.7.2": "",
     "1.8": "dripWater",
     "1.13": "minecraft:dripping_water"
    }
   },
   "dust": {
    "ids": {
-    "1.7.2": "",
     "1.8": "reddust",
     "1.13": "minecraft:dust"
    }
   },
   "dust_color_transition": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:dust_color_transition"
    }
   },
   "dust_pillar": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.5": "minecraft:dust_pillar"
    }
   },
   "dust_plume": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.3": "minecraft:dust_plume"
    }
   },
   "effect": {
    "ids": {
-    "1.7.2": "",
     "1.8": "spell",
     "1.13": "minecraft:effect"
    }
   },
   "egg_crack": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20": "minecraft:egg_crack"
    }
   },
   "elder_guardian": {
    "ids": {
-    "1.7.2": "",
     "1.8": "mobappearance",
     "1.13": "minecraft:elder_guardian"
    }
   },
   "electric_spark": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:electric_spark"
    }
   },
   "enchant": {
    "ids": {
-    "1.7.2": "",
     "1.8": "enchantmenttable",
     "1.13": "minecraft:enchant"
    }
   },
   "enchanted_hit": {
    "ids": {
-    "1.7.2": "",
     "1.8": "magicCrit",
     "1.13": "minecraft:enchanted_hit"
    }
   },
   "end_rod": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.9": "endRod",
     "1.13": "minecraft:end_rod"
    }
   },
   "entity_effect": {
    "ids": {
-    "1.7.2": "",
     "1.8": "mobSpell",
     "1.13": "minecraft:entity_effect"
    }
   },
   "explosion": {
    "ids": {
-    "1.7.2": "",
     "1.8": "largeexplode",
     "1.13": "minecraft:explosion"
    }
   },
   "explosion_emitter": {
    "ids": {
-    "1.7.2": "",
     "1.8": "hugeexplosion",
     "1.13": "minecraft:explosion_emitter"
    }
   },
   "falling_cherry_leaves": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.19.4": "minecraft:falling_cherry_leaves",
     "1.20": ""
    }
   },
   "falling_dripstone_lava": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:falling_dripstone_lava"
    }
   },
   "falling_dripstone_water": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:falling_dripstone_water"
    }
   },
   "falling_dust": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.10": "fallingdust",
     "1.13": "minecraft:falling_dust"
    }
   },
   "falling_honey": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.15": "minecraft:falling_honey"
    }
   },
   "falling_lava": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.14": "minecraft:falling_lava"
    }
   },
   "falling_nectar": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.15": "minecraft:falling_nectar"
    }
   },
   "falling_obsidian_tear": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.16": "minecraft:falling_obsidian_tear"
    }
   },
   "falling_spore_blossom": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:falling_spore_blossom"
    }
   },
   "falling_water": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.14": "minecraft:falling_water"
    }
   },
   "firefly": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.21.5": "minecraft:firefly"
    }
   },
   "firework": {
    "ids": {
-    "1.7.2": "",
     "1.8": "fireworksSpark",
     "1.13": "minecraft:firework"
    }
   },
   "fishing": {
    "ids": {
-    "1.7.2": "",
     "1.8": "wake",
     "1.13": "minecraft:fishing"
    }
   },
   "flame": {
    "ids": {
-    "1.7.2": "",
     "1.8": "flame",
     "1.13": "minecraft:flame"
    }
   },
   "flash": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.14": "minecraft:flash"
    }
   },
   "footstep": {
    "ids": {
-    "1.7.2": "",
     "1.8": "footstep",
     "1.13": ""
    }
   },
   "geyser": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "26.2": "minecraft:geyser"
    }
   },
   "geyser_base": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "26.2": "minecraft:geyser_base"
    }
   },
   "geyser_plume": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "26.2": "minecraft:geyser_plume"
    }
   },
   "geyser_poof": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "26.2": "minecraft:geyser_poof"
    }
   },
   "glow": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:glow"
    }
   },
   "glow_squid_ink": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:glow_squid_ink"
    }
   },
   "gust": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.3": "minecraft:gust"
    }
   },
   "gust_dust": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.3": "minecraft:gust_dust",
     "1.20.5": ""
    }
   },
   "gust_emitter": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.3": "minecraft:gust_emitter",
     "1.20.5": ""
    }
   },
   "gust_emitter_large": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.5": "minecraft:gust_emitter_large"
    }
   },
   "gust_emitter_small": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.5": "minecraft:gust_emitter_small"
    }
   },
   "happy_villager": {
    "ids": {
-    "1.7.2": "",
     "1.8": "happyVillager",
     "1.13": "minecraft:happy_villager"
    }
   },
   "heart": {
    "ids": {
-    "1.7.2": "",
     "1.8": "heart",
     "1.13": "minecraft:heart"
    }
   },
   "infested": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.5": "minecraft:infested"
    }
   },
   "instant_effect": {
    "ids": {
-    "1.7.2": "",
     "1.8": "instantSpell",
     "1.13": "minecraft:instant_effect"
    }
   },
   "item": {
    "ids": {
-    "1.7.2": "",
     "1.8": "iconcrack_",
     "1.9": "iconcrack",
     "1.13": "minecraft:item"
@@ -504,412 +478,396 @@
   },
   "item_cobweb": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.5": "minecraft:item_cobweb"
    }
   },
   "item_slime": {
    "ids": {
-    "1.7.2": "",
     "1.8": "slime",
     "1.13": "minecraft:item_slime"
    }
   },
   "item_snowball": {
    "ids": {
-    "1.7.2": "",
     "1.8": "snowballpoof",
     "1.13": "minecraft:item_snowball"
    }
   },
   "item_take": {
    "ids": {
-    "1.7.2": "",
     "1.8": "take",
     "1.13": ""
    }
   },
   "landing_cherry_leaves": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.19.4": "minecraft:landing_cherry_leaves",
     "1.20": ""
    }
   },
   "landing_honey": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.15": "minecraft:landing_honey"
    }
   },
   "landing_lava": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.14": "minecraft:landing_lava"
    }
   },
   "landing_obsidian_tear": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.16": "minecraft:landing_obsidian_tear"
    }
   },
   "large_smoke": {
    "ids": {
-    "1.7.2": "",
     "1.8": "largesmoke",
     "1.13": "minecraft:large_smoke"
    }
   },
   "lava": {
    "ids": {
-    "1.7.2": "",
     "1.8": "lava",
     "1.13": "minecraft:lava"
    }
   },
   "light": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:light",
     "1.18": ""
    }
   },
   "mycelium": {
    "ids": {
-    "1.7.2": "",
     "1.8": "townaura",
     "1.13": "minecraft:mycelium"
    }
   },
   "nautilus": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.13": "minecraft:nautilus"
    }
   },
   "note": {
    "ids": {
-    "1.7.2": "",
     "1.8": "note",
     "1.13": "minecraft:note"
    }
   },
   "noxious_gas": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "26.2": "minecraft:noxious_gas"
    }
   },
   "noxious_gas_cloud": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "26.2": "minecraft:noxious_gas_cloud"
    }
   },
   "ominous_spawning": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.5": "minecraft:ominous_spawning"
    }
   },
   "orange_poplar_leaves": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "26.3": "minecraft:orange_poplar_leaves"
    }
   },
   "pale_oak_leaves": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.21.4": "minecraft:pale_oak_leaves"
    }
   },
   "pause_mob_growth": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "26.1": "minecraft:pause_mob_growth"
    }
   },
   "poof": {
    "ids": {
-    "1.7.2": "",
     "1.8": "explode",
     "1.13": "minecraft:poof"
    }
   },
   "portal": {
    "ids": {
-    "1.7.2": "",
     "1.8": "portal",
     "1.13": "minecraft:portal"
    }
   },
   "raid_omen": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.5": "minecraft:raid_omen"
    }
   },
   "rain": {
    "ids": {
-    "1.7.2": "",
     "1.8": "droplet",
     "1.13": "minecraft:rain"
    }
   },
   "red_poplar_leaves": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "26.3": "minecraft:red_poplar_leaves"
    }
   },
   "reset_mob_growth": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "26.1": "minecraft:reset_mob_growth"
    }
   },
   "reverse_portal": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.16": "minecraft:reverse_portal"
    }
   },
   "scrape": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:scrape"
    }
   },
   "sculk_charge": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.19": "minecraft:sculk_charge"
    }
   },
   "sculk_charge_pop": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.19": "minecraft:sculk_charge_pop"
    }
   },
   "sculk_soul": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.19": "minecraft:sculk_soul"
    }
   },
   "shriek": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.19": "minecraft:shriek"
    }
   },
   "small_flame": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:small_flame"
    }
   },
   "small_gust": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.5": "minecraft:small_gust"
    }
   },
   "smoke": {
    "ids": {
-    "1.7.2": "",
     "1.8": "smoke",
     "1.13": "minecraft:smoke"
    }
   },
   "sneeze": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.14": "minecraft:sneeze"
    }
   },
   "snow_shovel": {
    "ids": {
-    "1.7.2": "",
     "1.8": "snowshovel",
     "1.13": ""
    }
   },
   "snowflake": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:snowflake"
    }
   },
   "sonic_boom": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.19": "minecraft:sonic_boom"
    }
   },
   "soul": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.16": "minecraft:soul"
    }
   },
   "soul_fire_flame": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.16": "minecraft:soul_fire_flame"
    }
   },
   "spit": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.11": "spit",
     "1.13": "minecraft:spit"
    }
   },
   "splash": {
    "ids": {
-    "1.7.2": "",
     "1.8": "splash",
     "1.13": "minecraft:splash"
    }
   },
   "spore_blossom_air": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:spore_blossom_air"
    }
   },
   "squid_ink": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.13": "minecraft:squid_ink"
    }
   },
   "sulfur_bubbles": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "26.2": "minecraft:sulfur_bubbles"
    }
   },
   "sulfur_cube_goo": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "26.2": "minecraft:sulfur_cube_goo"
    }
   },
   "suspended_depth": {
    "ids": {
-    "1.7.2": "",
     "1.8": "depthsuspend",
     "1.13": ""
    }
   },
   "sweep_attack": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.9": "sweepAttack",
     "1.13": "minecraft:sweep_attack"
    }
   },
   "tinted_leaves": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.21.5": "minecraft:tinted_leaves"
    }
   },
   "totem_of_undying": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.11": "totem",
     "1.13": "minecraft:totem_of_undying"
    }
   },
   "trail": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.21.2": "minecraft:trail"
    }
   },
   "trial_omen": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.5": "minecraft:trial_omen"
    }
   },
   "trial_spawner_detection": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.3": "minecraft:trial_spawner_detection"
    }
   },
   "trial_spawner_detection_ominous": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.5": "minecraft:trial_spawner_detection_ominous"
    }
   },
   "underwater": {
    "ids": {
-    "1.7.2": "",
     "1.8": "suspended",
     "1.13": "minecraft:underwater"
    }
   },
   "vault_connection": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.5": "minecraft:vault_connection"
    }
   },
   "vibration": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:vibration"
    }
   },
   "warped_spore": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.16": "minecraft:warped_spore"
    }
   },
   "wax_off": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:wax_off"
    }
   },
   "wax_on": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.17": "minecraft:wax_on"
    }
   },
   "white_ash": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.16": "minecraft:white_ash"
    }
   },
   "white_smoke": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "1.20.3": "minecraft:white_smoke"
    }
   },
   "witch": {
    "ids": {
-    "1.7.2": "",
     "1.8": "witchMagic",
     "1.13": "minecraft:witch"
    }
   },
   "yellow_poplar_leaves": {
    "ids": {
-    "1.7.2": "",
+    "1.8": "",
     "26.3": "minecraft:yellow_poplar_leaves"
    }
   }

@@ -21,7 +21,7 @@ class MCWolfSoundVariants(MCThing):
 
     puglin = MCWolfSoundVariants.PUGLIN
     puglin is MCWolfSoundVariants['puglin']  # True
-    puglin['1.21.5']
+    puglin[Version.V1_21_5]
     # WolfSoundVariantId('puglin',
     #   'minecraft:wolf{sound_variant:"minecraft:puglin"}')
     len(MCWolfSoundVariants)

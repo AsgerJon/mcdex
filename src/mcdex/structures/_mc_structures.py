@@ -20,7 +20,7 @@ class MCStructures(MCThing):
 
     villagePlains = MCStructures.VILLAGE_PLAINS
     villagePlains is MCStructures['village_plains']  # True
-    villagePlains['1.12.2']
+    villagePlains[Version.V1_12_2]
     # StructureId('village_plains', 'Village{Children:[{Type:0b}]}')
     len(MCStructures)
 

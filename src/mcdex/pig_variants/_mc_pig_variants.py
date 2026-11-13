@@ -20,7 +20,7 @@ class MCPigVariants(MCThing):
 
     temperate = MCPigVariants.TEMPERATE
     temperate is MCPigVariants['temperate']  # True
-    temperate['1.12.2']  # PigVariantId('temperate', 'minecraft:pig')
+    temperate[Version.V1_12_2]  # PigVariantId('temperate', 'minecraft:pig')
     len(MCPigVariants)
 
   Implementation

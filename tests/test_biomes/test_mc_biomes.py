@@ -30,11 +30,11 @@ class TestMCBiomes(BaseTest):
     cls.records = _records()
 
   def test_kind(self) -> None:
-    plains = MCBiomes['plains']
+    plains = MCBiomes.PLAINS
     self.assertIsInstance(plains, MCBiomes)
     self.assertIsInstance(plains, MCThing)
-    self.assertIs(type(plains['26.3']), BiomeId)
-    self.assertIsInstance(plains['26.3'], GameId)
+    self.assertIs(type(plains[Version.V26_3]), BiomeId)
+    self.assertIsInstance(plains[Version.V26_3], GameId)
     self.assertEqual(repr(plains), "<MCBiomes>.PLAINS")
     self.assertNotEqual(BiomeId('x', 'minecraft:x'), BlockId('x', 'minecraft:x'))
 
@@ -64,31 +64,33 @@ class TestMCBiomes(BaseTest):
     self.assertEqual(len(latest), 67)
 
   def test_known_biomes(self) -> None:
-    windsweptHills = MCBiomes['windswept_hills']
-    self.assertEqual(windsweptHills['1.8.9'], BiomeId('windswept_hills', '3'))
-    self.assertEqual(windsweptHills['1.12.2'].minecraftId,
+    windsweptHills = MCBiomes.WINDSWEPT_HILLS
+    self.assertEqual(windsweptHills[Version.V1_8_9],
+                     BiomeId('windswept_hills', '3'))
+    self.assertEqual(windsweptHills[Version.V1_12_2].minecraftId,
                      'minecraft:extreme_hills')
-    self.assertEqual(windsweptHills['1.17.1'].minecraftId,
+    self.assertEqual(windsweptHills[Version.V1_17_1].minecraftId,
                      'minecraft:mountains')
-    self.assertEqual(windsweptHills['1.18'].minecraftId,
+    self.assertEqual(windsweptHills[Version.V1_18].minecraftId,
                      'minecraft:windswept_hills')
-    self.assertEqual(MCBiomes['sunflower_plains']['1.7.10'].minecraftId, '129')
-    self.assertEqual(MCBiomes['nether_wastes']['1.15.2'].minecraftId,
+    self.assertEqual(MCBiomes.SUNFLOWER_PLAINS[Version.V1_7_10].minecraftId,
+                     '129')
+    self.assertEqual(MCBiomes.NETHER_WASTES[Version.V1_15_2].minecraftId,
                      'minecraft:nether')
-    self.assertEqual(MCBiomes['nether_wastes']['1.16'].minecraftId,
+    self.assertEqual(MCBiomes.NETHER_WASTES[Version.V1_16].minecraftId,
                      'minecraft:nether_wastes')
-    self.assertEqual(MCBiomes['cherry_grove']['1.19.4'].minecraftId,
+    self.assertEqual(MCBiomes.CHERRY_GROVE[Version.V1_19_4].minecraftId,
                      'minecraft:cherry_grove')
 
   def test_removed(self) -> None:
     """A biome 1.18 folded into another was removed; it keeps its name."""
-    mountainEdge = MCBiomes['mountain_edge']
-    self.assertEqual(mountainEdge['1.12.2'].minecraftId,
+    mountainEdge = MCBiomes.MOUNTAIN_EDGE
+    self.assertEqual(mountainEdge[Version.V1_12_2].minecraftId,
                      'minecraft:smaller_extreme_hills')
-    self.assertEqual(mountainEdge['1.17.1'].minecraftId,
+    self.assertEqual(mountainEdge[Version.V1_17_1].minecraftId,
                      'minecraft:mountain_edge')
     with self.assertRaises(NotInVersion) as context:
-      _ = mountainEdge['1.18']
+      _ = mountainEdge[Version.V1_18]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.18 has no 'mountain_edge'; vanilla removed it in 1.18!",

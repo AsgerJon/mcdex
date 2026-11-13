@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from worktoy.work_test import BaseTest
 
-from mcdex import GameId, MCThing, MCZombieNautilusVariants
+from mcdex import GameId, MCThing, MCZombieNautilusVariants, Version
 from mcdex import MCZombieNautilusVariants, NotInVersion, PigVariantId
 from mcdex import ZombieNautilusVariantId
 
@@ -20,20 +20,20 @@ class TestMCZombieNautilusVariants(BaseTest):
   """
 
   def test_zombie_nautilus_variants(self) -> None:
-    warm = MCZombieNautilusVariants['warm']
+    warm = MCZombieNautilusVariants.WARM
     self.assertIsInstance(warm, MCZombieNautilusVariants)
     self.assertIsInstance(warm, MCThing)
-    self.assertEqual(warm['1.21.11'],
+    self.assertEqual(warm[Version.V1_21_11],
                      ZombieNautilusVariantId(
                          'warm', 'minecraft:zombie_nautilus'
                                  '{variant:"minecraft:warm"}'))
-    self.assertIsInstance(warm['26.3'], GameId)
+    self.assertIsInstance(warm[Version.V26_3], GameId)
     self.assertEqual(repr(warm), "<MCZombieNautilusVariants>.WARM")
     self.assertEqual(len(MCZombieNautilusVariants), 2)
     self.assertNotEqual(ZombieNautilusVariantId('x', 'minecraft:x'),
                         PigVariantId('x', 'minecraft:x'))
     with self.assertRaises(NotInVersion) as context:
-      _ = warm['1.21.10']
+      _ = warm[Version.V1_21_10]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.21.10 has no 'warm'; vanilla added it in 1.21.11!",

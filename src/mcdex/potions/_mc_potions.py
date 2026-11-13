@@ -26,7 +26,7 @@ class MCPotions(MCThing):
 
     swiftness = MCPotions.SWIFTNESS
     swiftness is MCPotions['swiftness']  # True
-    swiftness['1.8.9']  # PotionId('swiftness', '2')
+    swiftness[Version.V1_8_9]  # PotionId('swiftness', '2')
     len(MCPotions)
 
   Implementation
@@ -65,7 +65,7 @@ class MCPotions(MCThing):
     if not isinstance(identifier, tuple) or len(identifier) != 2:
       return super().__class_resolve__(identifier)
     base, modifier = cls(identifier[0]), PotionModifier(identifier[1])
-    key = (base.name, modifier.name)
+    key = (base, modifier)
     if key not in cls.__modified_potions__:
       if modifier.value not in base._record():
         infoSpec = """mcdex has no %s %s potion"""

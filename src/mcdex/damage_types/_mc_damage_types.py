@@ -20,7 +20,7 @@ class MCDamageTypes(MCThing):
 
     inFire = MCDamageTypes.IN_FIRE
     inFire is MCDamageTypes['in_fire']  # True
-    inFire['1.19.4']  # DamageTypeId('in_fire', 'minecraft:in_fire')
+    inFire[Version.V1_19_4]  # DamageTypeId('in_fire', 'minecraft:in_fire')
     len(MCDamageTypes)
 
   Implementation

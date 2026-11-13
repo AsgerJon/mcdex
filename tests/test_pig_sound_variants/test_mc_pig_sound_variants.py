@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from worktoy.work_test import BaseTest
 
-from mcdex import GameId, MCPigSoundVariants, MCThing
+from mcdex import GameId, MCPigSoundVariants, MCThing, Version
 from mcdex import NotInVersion, PigSoundVariantId, PigVariantId
 
 
@@ -18,20 +18,20 @@ class TestMCPigSoundVariants(BaseTest):
   """
 
   def test_pig_sound_variants(self) -> None:
-    mini = MCPigSoundVariants['mini']
+    mini = MCPigSoundVariants.MINI
     self.assertIsInstance(mini, MCPigSoundVariants)
     self.assertIsInstance(mini, MCThing)
-    self.assertEqual(mini['26.1'],
+    self.assertEqual(mini[Version.V26_1],
                      PigSoundVariantId(
                          'mini', 'minecraft:pig'
                                  '{sound_variant:"minecraft:mini"}'))
-    self.assertIsInstance(mini['26.3'], GameId)
+    self.assertIsInstance(mini[Version.V26_3], GameId)
     self.assertEqual(repr(mini), "<MCPigSoundVariants>.MINI")
     self.assertEqual(len(MCPigSoundVariants), 3)
     self.assertNotEqual(PigSoundVariantId('x', 'minecraft:x'),
                         PigVariantId('x', 'minecraft:x'))
     with self.assertRaises(NotInVersion) as context:
-      _ = mini['1.21.11']
+      _ = mini[Version.V1_21_11]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.21.11 has no 'mini'; vanilla added it in 26.1!",

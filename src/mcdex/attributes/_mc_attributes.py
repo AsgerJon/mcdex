@@ -20,7 +20,8 @@ class MCAttributes(MCThing):
 
     maxHealth = MCAttributes.MAX_HEALTH
     maxHealth is MCAttributes['max_health']  # True
-    maxHealth['1.15.2']  # AttributeId('max_health', 'generic.maxHealth')
+    maxHealth[Version.V1_15_2]
+    # AttributeId('max_health', 'generic.maxHealth')
     len(MCAttributes)
 
   Implementation
@@ -81,3 +82,4 @@ class MCAttributes(MCThing):
   WATER_MOVEMENT_EFFICIENCY = Kee[str]('water_movement_efficiency')
   WAYPOINT_RECEIVE_RANGE = Kee[str]('waypoint_receive_range')
   WAYPOINT_TRANSMIT_RANGE = Kee[str]('waypoint_transmit_range')
+  ZOMBIE_REINFORCEMENTS = Kee[str]('zombie_reinforcements')

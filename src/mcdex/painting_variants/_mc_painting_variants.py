@@ -20,7 +20,7 @@ class MCPaintingVariants(MCThing):
 
     donkeyKong = MCPaintingVariants.DONKEY_KONG
     donkeyKong is MCPaintingVariants['donkey_kong']  # True
-    donkeyKong['1.12.2']
+    donkeyKong[Version.V1_12_2]
     # PaintingVariantId('donkey_kong',
     #   'minecraft:painting{Motive:"DonkeyKong"}')
     len(MCPaintingVariants)

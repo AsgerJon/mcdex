@@ -293,6 +293,12 @@
     "1.21.9": "minecraft:bamboo_shelf"
    }
   },
+  "bamboo_shoot": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:bamboo_sapling"
+   }
+  },
   "bamboo_sign": {
    "ids": {
     "1.7.2": "",
@@ -2931,6 +2937,11 @@
     "1.17": "minecraft:hanging_roots"
    }
   },
+  "hay_bale": {
+   "ids": {
+    "1.7.2": "minecraft:hay_block"
+   }
+  },
   "hay_block": {
    "ids": {
     "1.7.2": "minecraft:hay_block"
@@ -3902,6 +3913,12 @@
   "melon_stem": {
    "ids": {
     "1.7.2": "minecraft:melon_stem"
+   }
+  },
+  "monster_spawner": {
+   "ids": {
+    "1.7.2": "minecraft:mob_spawner",
+    "1.13": "minecraft:spawner"
    }
   },
   "moss_block": {
@@ -5138,6 +5155,12 @@
     "1.13": "minecraft:potted_allium"
    }
   },
+  "potted_azalea": {
+   "ids": {
+    "1.7.2": "",
+    "1.17": "minecraft:potted_azalea_bush"
+   }
+  },
   "potted_azalea_bush": {
    "ids": {
     "1.7.2": "",
@@ -5241,6 +5264,12 @@
     "1.7.2": "minecraft:flower_pot{Item:31,Data:2}",
     "1.8": "minecraft:flower_pot{Item:\"minecraft:tallgrass\",Data:2}",
     "1.13": "minecraft:potted_fern"
+   }
+  },
+  "potted_flowering_azalea": {
+   "ids": {
+    "1.7.2": "",
+    "1.17": "minecraft:potted_flowering_azalea_bush"
    }
   },
   "potted_flowering_azalea_bush": {
@@ -5844,6 +5873,12 @@
     "1.7.2": "minecraft:redstone_block"
    }
   },
+  "redstone_comparator": {
+   "ids": {
+    "1.7.2": "minecraft:unpowered_comparator",
+    "1.13": "minecraft:comparator"
+   }
+  },
   "redstone_lamp": {
    "ids": {
     "1.7.2": "minecraft:redstone_lamp"
@@ -5852,6 +5887,12 @@
   "redstone_ore": {
    "ids": {
     "1.7.2": "minecraft:redstone_ore"
+   }
+  },
+  "redstone_repeater": {
+   "ids": {
+    "1.7.2": "minecraft:unpowered_repeater",
+    "1.13": "minecraft:repeater"
    }
   },
   "redstone_torch": {
@@ -7488,6 +7529,11 @@
    }
   },
   "wheat": {
+   "ids": {
+    "1.7.2": "minecraft:wheat"
+   }
+  },
+  "wheat_crops": {
    "ids": {
     "1.7.2": "minecraft:wheat"
    }

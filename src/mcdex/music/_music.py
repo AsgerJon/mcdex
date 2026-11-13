@@ -20,7 +20,7 @@ class Music(MCThing):
 
     pigstep = Music.PIGSTEP
     pigstep is Music['pigstep']  # True
-    pigstep['1.21']  # MusicId('pigstep', 'minecraft:pigstep')
+    pigstep[Version.V1_21]  # MusicId('pigstep', 'minecraft:pigstep')
     len(Music)
 
   Implementation

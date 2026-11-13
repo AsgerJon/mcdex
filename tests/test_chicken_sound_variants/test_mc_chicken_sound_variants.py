@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from worktoy.work_test import BaseTest
 
-from mcdex import ChickenSoundVariantId, ChickenVariantId, GameId
+from mcdex import ChickenSoundVariantId, ChickenVariantId, GameId, Version
 from mcdex import MCChickenSoundVariants, MCThing
 from mcdex import NotInVersion
 
@@ -20,20 +20,20 @@ class TestMCChickenSoundVariants(BaseTest):
   """
 
   def test_chicken_sound_variants(self) -> None:
-    picky = MCChickenSoundVariants['picky']
+    picky = MCChickenSoundVariants.PICKY
     self.assertIsInstance(picky, MCChickenSoundVariants)
     self.assertIsInstance(picky, MCThing)
-    self.assertEqual(picky['26.1'],
+    self.assertEqual(picky[Version.V26_1],
                      ChickenSoundVariantId(
                          'picky', 'minecraft:chicken'
                                   '{sound_variant:"minecraft:picky"}'))
-    self.assertIsInstance(picky['26.3'], GameId)
+    self.assertIsInstance(picky[Version.V26_3], GameId)
     self.assertEqual(repr(picky), "<MCChickenSoundVariants>.PICKY")
     self.assertEqual(len(MCChickenSoundVariants), 2)
     self.assertNotEqual(ChickenSoundVariantId('x', 'minecraft:x'),
                         ChickenVariantId('x', 'minecraft:x'))
     with self.assertRaises(NotInVersion) as context:
-      _ = picky['1.21.11']
+      _ = picky[Version.V1_21_11]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.21.11 has no 'picky'; vanilla added it in 26.1!",

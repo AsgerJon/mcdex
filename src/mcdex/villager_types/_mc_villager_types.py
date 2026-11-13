@@ -20,7 +20,7 @@ class MCVillagerTypes(MCThing):
 
     desert = MCVillagerTypes.DESERT
     desert is MCVillagerTypes['desert']  # True
-    desert['1.14']
+    desert[Version.V1_14]
     # VillagerTypeId('desert',
     #   'minecraft:villager{VillagerData:{type:"minecraft:desert"}}')
     len(MCVillagerTypes)

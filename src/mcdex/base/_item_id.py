@@ -6,19 +6,10 @@ needs to identify it.
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-
-from worktoy.dispatch import overload
-from worktoy.desc import FixBox
-from worktoy.mcls import BaseObject
-
-if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Any, TypeAlias
-
-  Key: TypeAlias = tuple[str, str]
+from . import GameId
 
 
-class ItemId(BaseObject):
+class ItemId(GameId):
   """
   A user of mcdex names an item once, by its unique name, as
   'pink_wool', and each version of the game needs its own id for it.
@@ -41,58 +32,5 @@ class ItemId(BaseObject):
   Implementation
   --------------
 
-  'uniqueName' and 'minecraftId' are 'FixBox[str]', written once by the
-  constructor, which refuses an empty one with 'ValueError'. The text of
-  an id is its 'minecraftId'. Equality and hash compare both strings;
-  anything but an 'ItemId' compares as 'NotImplemented'.
+  All of it is 'GameId's: an 'ItemId' is equal only to an 'ItemId'.
   """
-
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-  #  Public Variables
-  uniqueName = FixBox[str]()
-  minecraftId = FixBox[str]()
-
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-  def __str__(self, ) -> str:
-    """The 'minecraftId', as 'minecraft:wool:6'."""
-    return self.minecraftId
-
-  def __repr__(self, ) -> str:
-    """"ItemId('pink_wool', 'minecraft:wool:6')", which evaluates back."""
-    return '%s(%r, %r)' % (type(self).__name__, *self._key())
-
-  def __eq__(self, other: Any) -> bool:
-    if isinstance(other, ItemId):
-      return self._key() == other._key()
-    return NotImplemented
-
-  def __hash__(self, ) -> int:
-    return hash(self._key())
-
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-  @overload(str, str)
-  def __init__(self, uniqueName: str, minecraftId: str) -> None:
-    for name_, value_ in (('uniqueName', uniqueName),
-                          ('minecraftId', minecraftId)):
-      if not value_:
-        infoSpec = """%s() received an empty '%s'"""
-        raise ValueError(infoSpec % (type(self).__name__, name_))
-    self.uniqueName = uniqueName
-    self.minecraftId = minecraftId
-
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-  def _key(self, ) -> Key:
-    """The unique name and the minecraft id, for comparisons and hash."""
-    return (self.uniqueName, self.minecraftId)

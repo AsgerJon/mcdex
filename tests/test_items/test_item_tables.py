@@ -83,7 +83,7 @@ class TestItemTables(BaseTest):
                         (TrialItems.TEST_LACKING_SLOTS, 'equipmentSlot')):
       with self.subTest(table=table):
         with self.assertRaises(ValueError) as context:
-          _ = item['1.7.2']
+          _ = item[Version.V1_7_2]
         self.assertIn("TrialItems('%s') received no '%s'" % (
           item.uniqueName, table), str(context.exception))
 
@@ -166,7 +166,7 @@ class TestItemTables(BaseTest):
 
   def test_nbt_id(self) -> None:
     egg = TrialItems.TEST_EGG
-    self.assertEqual(egg['1.12.2'].minecraftId,
+    self.assertEqual(egg[Version.V1_12_2].minecraftId,
                      'test:egg{EntityTag:{id:"Creeper"}}')
-    self.assertEqual(egg['1.8.9'].minecraftId, 'test:egg:50')
-    self.assertEqual(egg['1.13'].minecraftId, 'test:egg')
+    self.assertEqual(egg[Version.V1_8_9].minecraftId, 'test:egg:50')
+    self.assertEqual(egg[Version.V1_13].minecraftId, 'test:egg')

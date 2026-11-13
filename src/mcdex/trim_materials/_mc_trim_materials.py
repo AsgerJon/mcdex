@@ -20,7 +20,7 @@ class MCTrimMaterials(MCThing):
 
     amethyst = MCTrimMaterials.AMETHYST
     amethyst is MCTrimMaterials['amethyst']  # True
-    amethyst['1.20']  # TrimMaterialId('amethyst', 'minecraft:amethyst')
+    amethyst[Version.V1_20]  # TrimMaterialId('amethyst', 'minecraft:amethyst')
     len(MCTrimMaterials)
 
   Implementation

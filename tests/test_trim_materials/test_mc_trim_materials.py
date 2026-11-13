@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from worktoy.work_test import BaseTest
 
-from mcdex import GameId, MCThing, MCTrimMaterials
+from mcdex import GameId, MCThing, MCTrimMaterials, Version
 from mcdex import NotInVersion, TrimMaterialId, TrimPatternId
 
 
@@ -18,18 +18,18 @@ class TestMCTrimMaterials(BaseTest):
   """
 
   def test_trim_materials(self) -> None:
-    amethyst = MCTrimMaterials['amethyst']
+    amethyst = MCTrimMaterials.AMETHYST
     self.assertIsInstance(amethyst, MCTrimMaterials)
     self.assertIsInstance(amethyst, MCThing)
-    self.assertEqual(amethyst['1.19.4'],
+    self.assertEqual(amethyst[Version.V1_19_4],
                      TrimMaterialId('amethyst', 'minecraft:amethyst'))
-    self.assertIsInstance(amethyst['26.3'], GameId)
+    self.assertIsInstance(amethyst[Version.V26_3], GameId)
     self.assertEqual(repr(amethyst), "<MCTrimMaterials>.AMETHYST")
     self.assertEqual(len(MCTrimMaterials), 11)
     self.assertNotEqual(TrimMaterialId('x', 'minecraft:x'),
                         TrimPatternId('x', 'minecraft:x'))
     with self.assertRaises(NotInVersion) as context:
-      _ = amethyst['1.19.3']
+      _ = amethyst[Version.V1_19_3]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.19.3 has no 'amethyst'; vanilla added it in 1.19.4!",
@@ -38,7 +38,7 @@ class TestMCTrimMaterials(BaseTest):
       _ = MCTrimMaterials['amethystx']
 
   def test_added_later(self) -> None:
-    resin = MCTrimMaterials['resin']
-    self.assertEqual(resin['1.21.4'].minecraftId, 'minecraft:resin')
+    resin = MCTrimMaterials.RESIN
+    self.assertEqual(resin[Version.V1_21_4].minecraftId, 'minecraft:resin')
     with self.assertRaises(NotInVersion):
-      _ = resin['1.21.3']
+      _ = resin[Version.V1_21_3]

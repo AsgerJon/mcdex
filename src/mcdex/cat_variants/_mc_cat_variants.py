@@ -20,7 +20,8 @@ class MCCatVariants(MCThing):
 
     black = MCCatVariants.BLACK
     black is MCCatVariants['black']  # True
-    black['1.12.2']  # CatVariantId('black', 'minecraft:ocelot{CatType:1}')
+    black[Version.V1_12_2]
+    # CatVariantId('black', 'minecraft:ocelot{CatType:1}')
     len(MCCatVariants)
 
   Implementation

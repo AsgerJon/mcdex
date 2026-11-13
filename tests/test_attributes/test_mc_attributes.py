@@ -31,11 +31,11 @@ class TestMCAttributes(BaseTest):
     cls.records = _records()
 
   def test_kind(self) -> None:
-    maxHealth = MCAttributes['max_health']
+    maxHealth = MCAttributes.MAX_HEALTH
     self.assertIsInstance(maxHealth, MCAttributes)
     self.assertIsInstance(maxHealth, MCThing)
-    self.assertIs(type(maxHealth['26.3']), AttributeId)
-    self.assertIsInstance(maxHealth['26.3'], GameId)
+    self.assertIs(type(maxHealth[Version.V26_3]), AttributeId)
+    self.assertIsInstance(maxHealth[Version.V26_3], GameId)
     self.assertEqual(repr(maxHealth), "<MCAttributes>.MAX_HEALTH")
     self.assertNotEqual(AttributeId('x', 'minecraft:x'), EffectId('x', 'minecraft:x'))
 
@@ -59,7 +59,10 @@ class TestMCAttributes(BaseTest):
           elif Version(text) < Version.V1_21_2:
             self.assertRegex(minecraftId, r'^minecraft:[a-z]+\.[a-z_]+$')
           else:
-            self.assertEqual(minecraftId, 'minecraft:' + name)
+            #  A name a person would use beside the game's, its own data.
+            gameName = {'zombie_reinforcements': 'spawn_reinforcements'}
+            self.assertEqual(minecraftId,
+                             'minecraft:' + gameName.get(name, name))
 
   def test_latest_version(self) -> None:
     latest = [n for n, r in self.records.items()
@@ -67,18 +70,20 @@ class TestMCAttributes(BaseTest):
     self.assertEqual(len(latest), 40)
 
   def test_known_attributes(self) -> None:
-    maxHealth = MCAttributes['max_health']
-    self.assertEqual(maxHealth['1.15.2'],
+    maxHealth = MCAttributes.MAX_HEALTH
+    self.assertEqual(maxHealth[Version.V1_15_2],
                      AttributeId('max_health', 'generic.maxHealth'))
-    self.assertEqual(maxHealth['1.16'].minecraftId,
+    self.assertEqual(maxHealth[Version.V1_16].minecraftId,
                      'minecraft:generic.max_health')
-    self.assertEqual(maxHealth['1.21.2'].minecraftId, 'minecraft:max_health')
-    jumpStrength = MCAttributes['jump_strength']
-    self.assertEqual(jumpStrength['1.7.10'].minecraftId, 'horse.jumpStrength')
-    self.assertEqual(jumpStrength['1.20.5'].minecraftId,
+    self.assertEqual(maxHealth[Version.V1_21_2].minecraftId,
+                     'minecraft:max_health')
+    jumpStrength = MCAttributes.JUMP_STRENGTH
+    self.assertEqual(jumpStrength[Version.V1_7_10].minecraftId,
+                     'horse.jumpStrength')
+    self.assertEqual(jumpStrength[Version.V1_20_5].minecraftId,
                      'minecraft:generic.jump_strength')
     with self.assertRaises(NotInVersion) as context:
-      _ = MCAttributes['attack_speed']['1.8.9']
+      _ = MCAttributes.ATTACK_SPEED[Version.V1_8_9]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.8.9 has no 'attack_speed'; vanilla added it in 1.9!",

@@ -20,7 +20,7 @@ class MCBlockEntities(MCThing):
 
     chest = MCBlockEntities.CHEST
     chest is MCBlockEntities['chest']  # True
-    chest['1.10.2']  # BlockEntityId('chest', 'Chest')
+    chest[Version.V1_10_2]  # BlockEntityId('chest', 'Chest')
     len(MCBlockEntities)
 
   Implementation

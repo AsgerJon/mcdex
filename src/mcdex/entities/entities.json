@@ -724,6 +724,12 @@
     "26.3": "minecraft:poplar_chest_boat"
    }
   },
+  "primed_tnt": {
+   "ids": {
+    "1.7.2": "PrimedTnt",
+    "1.11": "minecraft:tnt"
+   }
+  },
   "pufferfish": {
    "ids": {
     "1.7.2": "",
@@ -894,6 +900,26 @@
    "ids": {
     "1.7.2": "",
     "1.19.4": "minecraft:text_display"
+   }
+  },
+  "thrown_bottle_o_enchanting": {
+   "ids": {
+    "1.7.2": "ThrownExpBottle",
+    "1.11": "minecraft:xp_bottle",
+    "1.13": "minecraft:experience_bottle"
+   }
+  },
+  "thrown_egg": {
+   "ids": {
+    "1.7.2": "",
+    "1.8.2": "ThrownEgg",
+    "1.11": "minecraft:egg"
+   }
+  },
+  "thrown_ender_pearl": {
+   "ids": {
+    "1.7.2": "ThrownEnderpearl",
+    "1.11": "minecraft:ender_pearl"
    }
   },
   "tnt": {

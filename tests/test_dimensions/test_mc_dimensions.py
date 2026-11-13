@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from worktoy.work_test import BaseTest
 
-from mcdex import BiomeId, DimensionId, GameId, MCDimensions
+from mcdex import BiomeId, DimensionId, GameId, MCDimensions, Version
 from mcdex import MCThing
 
 
@@ -18,10 +18,10 @@ class TestMCDimensions(BaseTest):
   """
 
   def test_dimensions(self) -> None:
-    theNether = MCDimensions['the_nether']
+    theNether = MCDimensions.THE_NETHER
     self.assertIsInstance(theNether, MCDimensions)
     self.assertIsInstance(theNether, MCThing)
-    self.assertIsInstance(theNether['26.3'], GameId)
+    self.assertIsInstance(theNether[Version.V26_3], GameId)
     self.assertEqual(repr(theNether), "<MCDimensions>.THE_NETHER")
     self.assertEqual(len(MCDimensions), 3)
     self.assertNotEqual(DimensionId('x', 'minecraft:x'),
@@ -31,11 +31,13 @@ class TestMCDimensions(BaseTest):
 
   def test_numbers_then_names(self) -> None:
     """Up to 1.12.2 a dimension is its number; from 1.13 its name."""
-    theNether = MCDimensions['the_nether']
-    self.assertEqual(theNether['1.7.2'], DimensionId('the_nether', '-1'))
-    self.assertEqual(theNether['1.12.2'].minecraftId, '-1')
-    self.assertEqual(theNether['1.13'].minecraftId, 'minecraft:the_nether')
-    self.assertEqual(MCDimensions['overworld']['1.12.2'].minecraftId, '0')
-    self.assertEqual(MCDimensions['the_end']['1.12.2'].minecraftId, '1')
-    self.assertEqual(MCDimensions['the_end']['26.3'].minecraftId,
+    theNether = MCDimensions.THE_NETHER
+    self.assertEqual(theNether[Version.V1_7_2],
+                     DimensionId('the_nether', '-1'))
+    self.assertEqual(theNether[Version.V1_12_2].minecraftId, '-1')
+    self.assertEqual(theNether[Version.V1_13].minecraftId,
+                     'minecraft:the_nether')
+    self.assertEqual(MCDimensions.OVERWORLD[Version.V1_12_2].minecraftId, '0')
+    self.assertEqual(MCDimensions.THE_END[Version.V1_12_2].minecraftId, '1')
+    self.assertEqual(MCDimensions.THE_END[Version.V26_3].minecraftId,
                      'minecraft:the_end')

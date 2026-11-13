@@ -20,7 +20,8 @@ class MCGameRules(MCThing):
 
     keepInventory = MCGameRules.KEEP_INVENTORY
     keepInventory is MCGameRules['keep_inventory']  # True
-    keepInventory['1.12.2']  # GameRuleId('keep_inventory', 'keepInventory')
+    keepInventory[Version.V1_12_2]
+    # GameRuleId('keep_inventory', 'keepInventory')
     len(MCGameRules)
 
   Implementation

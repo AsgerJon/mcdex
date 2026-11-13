@@ -20,7 +20,7 @@ class MCDimensions(MCThing):
 
     theNether = MCDimensions.THE_NETHER
     theNether is MCDimensions['the_nether']  # True
-    theNether['1.12.2']  # DimensionId('the_nether', '-1')
+    theNether[Version.V1_12_2]  # DimensionId('the_nether', '-1')
     len(MCDimensions)
 
   Implementation

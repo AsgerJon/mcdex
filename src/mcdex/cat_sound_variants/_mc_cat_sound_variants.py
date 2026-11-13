@@ -20,7 +20,7 @@ class MCCatSoundVariants(MCThing):
 
     royal = MCCatSoundVariants.ROYAL
     royal is MCCatSoundVariants['royal']  # True
-    royal['26.1']
+    royal[Version.V26_1]
     # CatSoundVariantId('royal',
     #   'minecraft:cat{sound_variant:"minecraft:royal"}')
     len(MCCatSoundVariants)

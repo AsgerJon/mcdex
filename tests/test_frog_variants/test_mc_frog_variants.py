@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from worktoy.work_test import BaseTest
 
-from mcdex import CatVariantId, FrogVariantId, GameId, MCFrogVariants
+from mcdex import CatVariantId, FrogVariantId, GameId, MCFrogVariants, Version
 from mcdex import MCFrogVariants, MCThing, NotInVersion
 
 
@@ -18,20 +18,20 @@ class TestMCFrogVariants(BaseTest):
   """
 
   def test_frog_variants(self) -> None:
-    temperate = MCFrogVariants['temperate']
+    temperate = MCFrogVariants.TEMPERATE
     self.assertIsInstance(temperate, MCFrogVariants)
     self.assertIsInstance(temperate, MCThing)
-    self.assertEqual(temperate['1.19'],
+    self.assertEqual(temperate[Version.V1_19],
                      FrogVariantId(
                          'temperate', 'minecraft:frog'
                                       '{variant:"minecraft:temperate"}'))
-    self.assertIsInstance(temperate['26.3'], GameId)
+    self.assertIsInstance(temperate[Version.V26_3], GameId)
     self.assertEqual(repr(temperate), "<MCFrogVariants>.TEMPERATE")
     self.assertEqual(len(MCFrogVariants), 3)
     self.assertNotEqual(FrogVariantId('x', 'minecraft:x'),
                         CatVariantId('x', 'minecraft:x'))
     with self.assertRaises(NotInVersion) as context:
-      _ = temperate['1.18.2']
+      _ = temperate[Version.V1_18_2]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.18.2 has no 'temperate'; vanilla added it in 1.19!",

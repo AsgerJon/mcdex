@@ -31,11 +31,11 @@ class TestMCGameRules(BaseTest):
     cls.records = _records()
 
   def test_kind(self) -> None:
-    keepInventory = MCGameRules['keep_inventory']
+    keepInventory = MCGameRules.KEEP_INVENTORY
     self.assertIsInstance(keepInventory, MCGameRules)
     self.assertIsInstance(keepInventory, MCThing)
-    self.assertIs(type(keepInventory['26.3']), GameRuleId)
-    self.assertIsInstance(keepInventory['26.3'], GameId)
+    self.assertIs(type(keepInventory[Version.V26_3]), GameRuleId)
+    self.assertIsInstance(keepInventory[Version.V26_3], GameId)
     self.assertEqual(repr(keepInventory), "<MCGameRules>.KEEP_INVENTORY")
     self.assertNotEqual(GameRuleId('x', 'minecraft:x'),
                         StatisticId('x', 'minecraft:x'))
@@ -67,16 +67,16 @@ class TestMCGameRules(BaseTest):
     self.assertEqual(len(latest), 59)
 
   def test_known_rules(self) -> None:
-    self.assertEqual(MCGameRules['keep_inventory']['1.7.10'],
+    self.assertEqual(MCGameRules.KEEP_INVENTORY[Version.V1_7_10],
                      GameRuleId('keep_inventory', 'keepInventory'))
-    self.assertEqual(MCGameRules['advance_time']['1.21.10'].minecraftId,
+    self.assertEqual(MCGameRules.ADVANCE_TIME[Version.V1_21_10].minecraftId,
                      'doDaylightCycle')
-    self.assertEqual(MCGameRules['advance_time']['1.21.11'].minecraftId,
+    self.assertEqual(MCGameRules.ADVANCE_TIME[Version.V1_21_11].minecraftId,
                      'minecraft:advance_time')
-    fire = MCGameRules['fire_spread_radius_around_player']
-    self.assertEqual(fire['1.7.2'].minecraftId, 'doFireTick')
+    fire = MCGameRules.FIRE_SPREAD_RADIUS_AROUND_PLAYER
+    self.assertEqual(fire[Version.V1_7_2].minecraftId, 'doFireTick')
     with self.assertRaises(NotInVersion) as context:
-      _ = MCGameRules['allow_fire_ticks_away_from_player']['1.21.11']
+      _ = MCGameRules.ALLOW_FIRE_TICKS_AWAY_FROM_PLAYER[Version.V1_21_11]
     self.assertIn('removed it in 1.21.11', str(context.exception))
     with self.assertRaises(NotInVersion):
-      _ = MCGameRules['random_tick_speed']['1.7.10']
+      _ = MCGameRules.RANDOM_TICK_SPEED[Version.V1_7_10]

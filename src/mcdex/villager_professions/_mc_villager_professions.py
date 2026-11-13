@@ -21,7 +21,7 @@ class MCVillagerProfessions(MCThing):
 
     fisherman = MCVillagerProfessions.FISHERMAN
     fisherman is MCVillagerProfessions['fisherman']  # True
-    fisherman['1.13.2']
+    fisherman[Version.V1_13_2]
     # VillagerProfessionId('fisherman',
     #   'minecraft:villager{Profession:0,Career:2}')
     len(MCVillagerProfessions)

@@ -13,6 +13,12 @@
     "1.8": "minecraft:absorption"
    }
   },
+  "bad_luck": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "minecraft:unluck"
+   }
+  },
   "bad_omen": {
    "ids": {
     "1.7.2": "",

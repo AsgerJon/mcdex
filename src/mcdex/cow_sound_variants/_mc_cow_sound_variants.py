@@ -20,7 +20,7 @@ class MCCowSoundVariants(MCThing):
 
     moody = MCCowSoundVariants.MOODY
     moody is MCCowSoundVariants['moody']  # True
-    moody['26.1']
+    moody[Version.V26_1]
     # CowSoundVariantId('moody',
     #   'minecraft:cow{sound_variant:"minecraft:moody"}')
     len(MCCowSoundVariants)

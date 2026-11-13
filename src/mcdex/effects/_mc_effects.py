@@ -20,7 +20,7 @@ class MCEffects(MCThing):
 
     speed = MCEffects.SPEED
     speed is MCEffects['speed']  # True
-    speed['1.7.10']  # EffectId('speed', '1')
+    speed[Version.V1_7_10]  # EffectId('speed', '1')
     len(MCEffects)
 
   Implementation
@@ -42,6 +42,7 @@ class MCEffects(MCThing):
 
   #  Members, one for every name of 'effects.json'
   ABSORPTION = Kee[str]('absorption')
+  BAD_LUCK = Kee[str]('bad_luck')
   BAD_OMEN = Kee[str]('bad_omen')
   BLINDNESS = Kee[str]('blindness')
   BREATH_OF_THE_NAUTILUS = Kee[str]('breath_of_the_nautilus')
