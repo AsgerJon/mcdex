@@ -1,0 +1,21 @@
+"""
+GameRuleId pairs a game rule's unique name with the id a version of the game
+needs to identify it.
+"""
+#  Apache-2.0 license
+#  Copyright (c) 2026 Asger Jon Vistisen
+from __future__ import annotations
+
+from . import GameId
+
+
+class GameRuleId(GameId):
+  """
+  The id of a game rule in one version: its 'uniqueName', the same in
+  every version, and its 'minecraftId', what '/gamerule' takes in that version.
+
+  Implementation
+  --------------
+
+  All of it is 'GameId's: a 'GameRuleId' is equal only to a 'GameRuleId'.
+  """

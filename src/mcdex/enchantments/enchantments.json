@@ -1,0 +1,270 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such enchantment in this version"
+ },
+ "enchantments": {
+  "aqua_affinity": {
+   "ids": {
+    "1.7.2": "6",
+    "1.8": "minecraft:aqua_affinity"
+   }
+  },
+  "bane_of_arthropods": {
+   "ids": {
+    "1.7.2": "18",
+    "1.8": "minecraft:bane_of_arthropods"
+   }
+  },
+  "binding_curse": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "minecraft:binding_curse"
+   }
+  },
+  "blast_protection": {
+   "ids": {
+    "1.7.2": "3",
+    "1.8": "minecraft:blast_protection"
+   }
+  },
+  "breach": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:breach"
+   }
+  },
+  "channeling": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:channeling"
+   }
+  },
+  "density": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:density"
+   }
+  },
+  "depth_strider": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "minecraft:depth_strider"
+   }
+  },
+  "efficiency": {
+   "ids": {
+    "1.7.2": "32",
+    "1.8": "minecraft:efficiency"
+   }
+  },
+  "feather_falling": {
+   "ids": {
+    "1.7.2": "2",
+    "1.8": "minecraft:feather_falling"
+   }
+  },
+  "fire_aspect": {
+   "ids": {
+    "1.7.2": "20",
+    "1.8": "minecraft:fire_aspect"
+   }
+  },
+  "fire_protection": {
+   "ids": {
+    "1.7.2": "1",
+    "1.8": "minecraft:fire_protection"
+   }
+  },
+  "flame": {
+   "ids": {
+    "1.7.2": "50",
+    "1.8": "minecraft:flame"
+   }
+  },
+  "fortune": {
+   "ids": {
+    "1.7.2": "35",
+    "1.8": "minecraft:fortune"
+   }
+  },
+  "frost_walker": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "minecraft:frost_walker"
+   }
+  },
+  "impaling": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:impaling"
+   }
+  },
+  "infinity": {
+   "ids": {
+    "1.7.2": "51",
+    "1.8": "minecraft:infinity"
+   }
+  },
+  "knockback": {
+   "ids": {
+    "1.7.2": "19",
+    "1.8": "minecraft:knockback"
+   }
+  },
+  "looting": {
+   "ids": {
+    "1.7.2": "21",
+    "1.8": "minecraft:looting"
+   }
+  },
+  "loyalty": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:loyalty"
+   }
+  },
+  "luck_of_the_sea": {
+   "ids": {
+    "1.7.2": "61",
+    "1.8": "minecraft:luck_of_the_sea"
+   }
+  },
+  "lunge": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.11": "minecraft:lunge"
+   }
+  },
+  "lure": {
+   "ids": {
+    "1.7.2": "62",
+    "1.8": "minecraft:lure"
+   }
+  },
+  "mending": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "minecraft:mending"
+   }
+  },
+  "multishot": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:multishot"
+   }
+  },
+  "piercing": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:piercing"
+   }
+  },
+  "power": {
+   "ids": {
+    "1.7.2": "48",
+    "1.8": "minecraft:power"
+   }
+  },
+  "projectile_protection": {
+   "ids": {
+    "1.7.2": "4",
+    "1.8": "minecraft:projectile_protection"
+   }
+  },
+  "protection": {
+   "ids": {
+    "1.7.2": "0",
+    "1.8": "minecraft:protection"
+   }
+  },
+  "punch": {
+   "ids": {
+    "1.7.2": "49",
+    "1.8": "minecraft:punch"
+   }
+  },
+  "quick_charge": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:quick_charge"
+   }
+  },
+  "respiration": {
+   "ids": {
+    "1.7.2": "5",
+    "1.8": "minecraft:respiration"
+   }
+  },
+  "riptide": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:riptide"
+   }
+  },
+  "sharpness": {
+   "ids": {
+    "1.7.2": "16",
+    "1.8": "minecraft:sharpness"
+   }
+  },
+  "silk_touch": {
+   "ids": {
+    "1.7.2": "33",
+    "1.8": "minecraft:silk_touch"
+   }
+  },
+  "smite": {
+   "ids": {
+    "1.7.2": "17",
+    "1.8": "minecraft:smite"
+   }
+  },
+  "soul_speed": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:soul_speed"
+   }
+  },
+  "sweeping_edge": {
+   "ids": {
+    "1.7.2": "",
+    "1.11.1": "minecraft:sweeping",
+    "1.20.5": "minecraft:sweeping_edge"
+   }
+  },
+  "swift_sneak": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:swift_sneak"
+   }
+  },
+  "thorns": {
+   "ids": {
+    "1.7.2": "7",
+    "1.8": "minecraft:thorns"
+   }
+  },
+  "unbreaking": {
+   "ids": {
+    "1.7.2": "34",
+    "1.8": "minecraft:unbreaking"
+   }
+  },
+  "vanishing_curse": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "minecraft:vanishing_curse"
+   }
+  },
+  "wind_burst": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:wind_burst"
+   }
+  }
+ }
+}

@@ -1,0 +1,369 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such painting variant in this version"
+ },
+ "painting_variants": {
+  "alban": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Alban\"}",
+    "1.11": "minecraft:painting{Motive:\"Alban\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:alban\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:alban\"}"
+   }
+  },
+  "aztec": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Aztec\"}",
+    "1.11": "minecraft:painting{Motive:\"Aztec\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:aztec\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:aztec\"}"
+   }
+  },
+  "aztec2": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Aztec2\"}",
+    "1.11": "minecraft:painting{Motive:\"Aztec2\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:aztec2\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:aztec2\"}"
+   }
+  },
+  "backyard": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:backyard\"}"
+   }
+  },
+  "baroque": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:baroque\"}"
+   }
+  },
+  "bomb": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Bomb\"}",
+    "1.11": "minecraft:painting{Motive:\"Bomb\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:bomb\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:bomb\"}"
+   }
+  },
+  "bouquet": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:bouquet\"}"
+   }
+  },
+  "burning_skull": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"BurningSkull\"}",
+    "1.11": "minecraft:painting{Motive:\"BurningSkull\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:burning_skull\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:burning_skull\"}"
+   }
+  },
+  "bust": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Bust\"}",
+    "1.11": "minecraft:painting{Motive:\"Bust\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:bust\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:bust\"}"
+   }
+  },
+  "cavebird": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:cavebird\"}"
+   }
+  },
+  "changing": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:changing\"}"
+   }
+  },
+  "cotan": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:cotan\"}"
+   }
+  },
+  "courbet": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Courbet\"}",
+    "1.11": "minecraft:painting{Motive:\"Courbet\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:courbet\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:courbet\"}"
+   }
+  },
+  "creebet": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Creebet\"}",
+    "1.11": "minecraft:painting{Motive:\"Creebet\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:creebet\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:creebet\"}"
+   }
+  },
+  "dennis": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.7": "minecraft:painting{variant:\"minecraft:dennis\"}"
+   }
+  },
+  "donkey_kong": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"DonkeyKong\"}",
+    "1.11": "minecraft:painting{Motive:\"DonkeyKong\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:donkey_kong\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:donkey_kong\"}"
+   }
+  },
+  "earth": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:painting{variant:\"minecraft:earth\"}"
+   }
+  },
+  "endboss": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:endboss\"}"
+   }
+  },
+  "fern": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:fern\"}"
+   }
+  },
+  "fighters": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Fighters\"}",
+    "1.11": "minecraft:painting{Motive:\"Fighters\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:fighters\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:fighters\"}"
+   }
+  },
+  "finding": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:finding\"}"
+   }
+  },
+  "fire": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:painting{variant:\"minecraft:fire\"}"
+   }
+  },
+  "graham": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Graham\"}",
+    "1.11": "minecraft:painting{Motive:\"Graham\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:graham\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:graham\"}"
+   }
+  },
+  "humble": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:humble\"}"
+   }
+  },
+  "kebab": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Kebab\"}",
+    "1.11": "minecraft:painting{Motive:\"Kebab\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:kebab\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:kebab\"}"
+   }
+  },
+  "lowmist": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:lowmist\"}"
+   }
+  },
+  "match": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Match\"}",
+    "1.11": "minecraft:painting{Motive:\"Match\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:match\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:match\"}"
+   }
+  },
+  "meditative": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:meditative\"}"
+   }
+  },
+  "orb": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:orb\"}"
+   }
+  },
+  "owlemons": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:owlemons\"}"
+   }
+  },
+  "passage": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:passage\"}"
+   }
+  },
+  "pigscene": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Pigscene\"}",
+    "1.11": "minecraft:painting{Motive:\"Pigscene\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:pigscene\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:pigscene\"}"
+   }
+  },
+  "plant": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Plant\"}",
+    "1.11": "minecraft:painting{Motive:\"Plant\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:plant\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:plant\"}"
+   }
+  },
+  "pointer": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Pointer\"}",
+    "1.11": "minecraft:painting{Motive:\"Pointer\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:pointer\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:pointer\"}"
+   }
+  },
+  "pond": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:pond\"}"
+   }
+  },
+  "pool": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Pool\"}",
+    "1.11": "minecraft:painting{Motive:\"Pool\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:pool\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:pool\"}"
+   }
+  },
+  "prairie_ride": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:prairie_ride\"}"
+   }
+  },
+  "sea": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Sea\"}",
+    "1.11": "minecraft:painting{Motive:\"Sea\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:sea\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:sea\"}"
+   }
+  },
+  "skeleton": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Skeleton\"}",
+    "1.11": "minecraft:painting{Motive:\"Skeleton\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:skeleton\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:skeleton\"}"
+   }
+  },
+  "skull_and_roses": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"SkullAndRoses\"}",
+    "1.11": "minecraft:painting{Motive:\"SkullAndRoses\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:skull_and_roses\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:skull_and_roses\"}"
+   }
+  },
+  "stage": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Stage\"}",
+    "1.11": "minecraft:painting{Motive:\"Stage\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:stage\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:stage\"}"
+   }
+  },
+  "sunflowers": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:sunflowers\"}"
+   }
+  },
+  "sunset": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Sunset\"}",
+    "1.11": "minecraft:painting{Motive:\"Sunset\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:sunset\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:sunset\"}"
+   }
+  },
+  "tides": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:tides\"}"
+   }
+  },
+  "unpacked": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:painting{variant:\"minecraft:unpacked\"}"
+   }
+  },
+  "void": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Void\"}",
+    "1.11": "minecraft:painting{Motive:\"Void\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:void\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:void\"}"
+   }
+  },
+  "wanderer": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Wanderer\"}",
+    "1.11": "minecraft:painting{Motive:\"Wanderer\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:wanderer\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:wanderer\"}"
+   }
+  },
+  "wasteland": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Wasteland\"}",
+    "1.11": "minecraft:painting{Motive:\"Wasteland\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:wasteland\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:wasteland\"}"
+   }
+  },
+  "water": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:painting{variant:\"minecraft:water\"}"
+   }
+  },
+  "wind": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:painting{variant:\"minecraft:wind\"}"
+   }
+  },
+  "wither": {
+   "ids": {
+    "1.7.2": "Painting{Motive:\"Wither\"}",
+    "1.11": "minecraft:painting{Motive:\"Wither\"}",
+    "1.13": "minecraft:painting{Motive:\"minecraft:wither\"}",
+    "1.19": "minecraft:painting{variant:\"minecraft:wither\"}"
+   }
+  }
+ }
+}

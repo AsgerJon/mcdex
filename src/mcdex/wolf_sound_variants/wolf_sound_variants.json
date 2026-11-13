@@ -1,0 +1,54 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such wolf sound variant in this version"
+ },
+ "wolf_sound_variants": {
+  "angry": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.5": "minecraft:wolf{sound_variant:\"minecraft:angry\"}"
+   }
+  },
+  "big": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.5": "minecraft:wolf{sound_variant:\"minecraft:big\"}"
+   }
+  },
+  "classic": {
+   "ids": {
+    "1.7.2": "Wolf",
+    "1.11": "minecraft:wolf",
+    "1.21.5": "minecraft:wolf{sound_variant:\"minecraft:classic\"}"
+   }
+  },
+  "cute": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.5": "minecraft:wolf{sound_variant:\"minecraft:cute\"}"
+   }
+  },
+  "grumpy": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.5": "minecraft:wolf{sound_variant:\"minecraft:grumpy\"}"
+   }
+  },
+  "puglin": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.5": "minecraft:wolf{sound_variant:\"minecraft:puglin\"}"
+   }
+  },
+  "sad": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.5": "minecraft:wolf{sound_variant:\"minecraft:sad\"}"
+   }
+  }
+ }
+}

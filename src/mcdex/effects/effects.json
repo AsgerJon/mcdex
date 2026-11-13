@@ -1,0 +1,251 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such effect in this version"
+ },
+ "effects": {
+  "absorption": {
+   "ids": {
+    "1.7.2": "22",
+    "1.8": "minecraft:absorption"
+   }
+  },
+  "bad_omen": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:bad_omen"
+   }
+  },
+  "blindness": {
+   "ids": {
+    "1.7.2": "15",
+    "1.8": "minecraft:blindness"
+   }
+  },
+  "breath_of_the_nautilus": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.11": "minecraft:breath_of_the_nautilus"
+   }
+  },
+  "conduit_power": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:conduit_power"
+   }
+  },
+  "darkness": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:darkness"
+   }
+  },
+  "dolphins_grace": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:dolphins_grace"
+   }
+  },
+  "fire_resistance": {
+   "ids": {
+    "1.7.2": "12",
+    "1.8": "minecraft:fire_resistance"
+   }
+  },
+  "glowing": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "minecraft:glowing"
+   }
+  },
+  "haste": {
+   "ids": {
+    "1.7.2": "3",
+    "1.8": "minecraft:haste"
+   }
+  },
+  "health_boost": {
+   "ids": {
+    "1.7.2": "21",
+    "1.8": "minecraft:health_boost"
+   }
+  },
+  "hero_of_the_village": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:hero_of_the_village"
+   }
+  },
+  "hunger": {
+   "ids": {
+    "1.7.2": "17",
+    "1.8": "minecraft:hunger"
+   }
+  },
+  "infested": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:infested"
+   }
+  },
+  "instant_damage": {
+   "ids": {
+    "1.7.2": "7",
+    "1.8": "minecraft:instant_damage"
+   }
+  },
+  "instant_health": {
+   "ids": {
+    "1.7.2": "6",
+    "1.8": "minecraft:instant_health"
+   }
+  },
+  "invisibility": {
+   "ids": {
+    "1.7.2": "14",
+    "1.8": "minecraft:invisibility"
+   }
+  },
+  "jump_boost": {
+   "ids": {
+    "1.7.2": "8",
+    "1.8": "minecraft:jump_boost"
+   }
+  },
+  "levitation": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "minecraft:levitation"
+   }
+  },
+  "luck": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "minecraft:luck"
+   }
+  },
+  "mining_fatigue": {
+   "ids": {
+    "1.7.2": "4",
+    "1.8": "minecraft:mining_fatigue"
+   }
+  },
+  "nausea": {
+   "ids": {
+    "1.7.2": "9",
+    "1.8": "minecraft:nausea"
+   }
+  },
+  "night_vision": {
+   "ids": {
+    "1.7.2": "16",
+    "1.8": "minecraft:night_vision"
+   }
+  },
+  "oozing": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:oozing"
+   }
+  },
+  "poison": {
+   "ids": {
+    "1.7.2": "19",
+    "1.8": "minecraft:poison"
+   }
+  },
+  "raid_omen": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:raid_omen"
+   }
+  },
+  "regeneration": {
+   "ids": {
+    "1.7.2": "10",
+    "1.8": "minecraft:regeneration"
+   }
+  },
+  "resistance": {
+   "ids": {
+    "1.7.2": "11",
+    "1.8": "minecraft:resistance"
+   }
+  },
+  "saturation": {
+   "ids": {
+    "1.7.2": "23",
+    "1.8": "minecraft:saturation"
+   }
+  },
+  "slow_falling": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:slow_falling"
+   }
+  },
+  "slowness": {
+   "ids": {
+    "1.7.2": "2",
+    "1.8": "minecraft:slowness"
+   }
+  },
+  "speed": {
+   "ids": {
+    "1.7.2": "1",
+    "1.8": "minecraft:speed"
+   }
+  },
+  "strength": {
+   "ids": {
+    "1.7.2": "5",
+    "1.8": "minecraft:strength"
+   }
+  },
+  "trial_omen": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:trial_omen"
+   }
+  },
+  "unluck": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "minecraft:unluck"
+   }
+  },
+  "water_breathing": {
+   "ids": {
+    "1.7.2": "13",
+    "1.8": "minecraft:water_breathing"
+   }
+  },
+  "weakness": {
+   "ids": {
+    "1.7.2": "18",
+    "1.8": "minecraft:weakness"
+   }
+  },
+  "weaving": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:weaving"
+   }
+  },
+  "wind_charged": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:wind_charged"
+   }
+  },
+  "wither": {
+   "ids": {
+    "1.7.2": "20",
+    "1.8": "minecraft:wither"
+   }
+  }
+ }
+}

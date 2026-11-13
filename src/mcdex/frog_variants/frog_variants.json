@@ -1,0 +1,29 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such frog variant in this version"
+ },
+ "frog_variants": {
+  "cold": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:frog{variant:\"minecraft:cold\"}"
+   }
+  },
+  "temperate": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:frog{variant:\"minecraft:temperate\"}"
+   }
+  },
+  "warm": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:frog{variant:\"minecraft:warm\"}"
+   }
+  }
+ }
+}

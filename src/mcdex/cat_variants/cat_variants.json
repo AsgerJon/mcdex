@@ -1,0 +1,91 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such cat variant in this version"
+ },
+ "cat_variants": {
+  "all_black": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:cat{CatType:10}",
+    "1.19": "minecraft:cat{variant:\"minecraft:all_black\"}"
+   }
+  },
+  "black": {
+   "ids": {
+    "1.7.2": "Ozelot{CatType:1}",
+    "1.11": "minecraft:ocelot{CatType:1}",
+    "1.14": "minecraft:cat{CatType:1}",
+    "1.19": "minecraft:cat{variant:\"minecraft:black\"}"
+   }
+  },
+  "british_shorthair": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:cat{CatType:4}",
+    "1.19": "minecraft:cat{variant:\"minecraft:british_shorthair\"}"
+   }
+  },
+  "calico": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:cat{CatType:5}",
+    "1.19": "minecraft:cat{variant:\"minecraft:calico\"}"
+   }
+  },
+  "jellie": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:cat{CatType:9}",
+    "1.19": "minecraft:cat{variant:\"minecraft:jellie\"}"
+   }
+  },
+  "persian": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:cat{CatType:6}",
+    "1.19": "minecraft:cat{variant:\"minecraft:persian\"}"
+   }
+  },
+  "ragdoll": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:cat{CatType:7}",
+    "1.19": "minecraft:cat{variant:\"minecraft:ragdoll\"}"
+   }
+  },
+  "red": {
+   "ids": {
+    "1.7.2": "Ozelot{CatType:2}",
+    "1.11": "minecraft:ocelot{CatType:2}",
+    "1.14": "minecraft:cat{CatType:2}",
+    "1.19": "minecraft:cat{variant:\"minecraft:red\"}"
+   }
+  },
+  "siamese": {
+   "ids": {
+    "1.7.2": "Ozelot{CatType:3}",
+    "1.11": "minecraft:ocelot{CatType:3}",
+    "1.14": "minecraft:cat{CatType:3}",
+    "1.19": "minecraft:cat{variant:\"minecraft:siamese\"}"
+   }
+  },
+  "tabby": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:cat{CatType:0}",
+    "1.19": "minecraft:cat{variant:\"minecraft:tabby\"}"
+   }
+  },
+  "white": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:cat{CatType:8}",
+    "1.19": "minecraft:cat{variant:\"minecraft:white\"}"
+   }
+  }
+ }
+}

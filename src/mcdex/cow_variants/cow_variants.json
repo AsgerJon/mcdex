@@ -1,0 +1,30 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such cow variant in this version"
+ },
+ "cow_variants": {
+  "cold": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.5": "minecraft:cow{variant:\"minecraft:cold\"}"
+   }
+  },
+  "temperate": {
+   "ids": {
+    "1.7.2": "Cow",
+    "1.11": "minecraft:cow",
+    "1.21.5": "minecraft:cow{variant:\"minecraft:temperate\"}"
+   }
+  },
+  "warm": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.5": "minecraft:cow{variant:\"minecraft:warm\"}"
+   }
+  }
+ }
+}

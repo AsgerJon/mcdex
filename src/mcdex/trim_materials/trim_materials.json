@@ -1,0 +1,77 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such trim material in this version"
+ },
+ "trim_materials": {
+  "amethyst": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:amethyst"
+   }
+  },
+  "copper": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:copper"
+   }
+  },
+  "diamond": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:diamond"
+   }
+  },
+  "emerald": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:emerald"
+   }
+  },
+  "gold": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:gold"
+   }
+  },
+  "iron": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:iron"
+   }
+  },
+  "lapis": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:lapis"
+   }
+  },
+  "netherite": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:netherite"
+   }
+  },
+  "quartz": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:quartz"
+   }
+  },
+  "redstone": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:redstone"
+   }
+  },
+  "resin": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.4": "minecraft:resin"
+   }
+  }
+ }
+}

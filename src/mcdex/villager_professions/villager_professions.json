@@ -1,0 +1,125 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such villager profession in this version"
+ },
+ "villager_professions": {
+  "armorer": {
+   "ids": {
+    "1.7.2": "Villager{Profession:3}",
+    "1.8": "Villager{Profession:3,Career:1}",
+    "1.11": "minecraft:villager{Profession:3,Career:1}",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:armorer\"}}"
+   }
+  },
+  "butcher": {
+   "ids": {
+    "1.7.2": "Villager{Profession:4}",
+    "1.8": "Villager{Profession:4,Career:1}",
+    "1.11": "minecraft:villager{Profession:4,Career:1}",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:butcher\"}}"
+   }
+  },
+  "cartographer": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "minecraft:villager{Profession:1,Career:2}",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:cartographer\"}}"
+   }
+  },
+  "cleric": {
+   "ids": {
+    "1.7.2": "Villager{Profession:2}",
+    "1.8": "Villager{Profession:2,Career:1}",
+    "1.11": "minecraft:villager{Profession:2,Career:1}",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:cleric\"}}"
+   }
+  },
+  "farmer": {
+   "ids": {
+    "1.7.2": "Villager{Profession:0}",
+    "1.8": "Villager{Profession:0,Career:1}",
+    "1.11": "minecraft:villager{Profession:0,Career:1}",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:farmer\"}}"
+   }
+  },
+  "fisherman": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "Villager{Profession:0,Career:2}",
+    "1.11": "minecraft:villager{Profession:0,Career:2}",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:fisherman\"}}"
+   }
+  },
+  "fletcher": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "Villager{Profession:0,Career:4}",
+    "1.11": "minecraft:villager{Profession:0,Career:4}",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:fletcher\"}}"
+   }
+  },
+  "leatherworker": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "Villager{Profession:4,Career:2}",
+    "1.11": "minecraft:villager{Profession:4,Career:2}",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:leatherworker\"}}"
+   }
+  },
+  "librarian": {
+   "ids": {
+    "1.7.2": "Villager{Profession:1}",
+    "1.8": "Villager{Profession:1,Career:1}",
+    "1.11": "minecraft:villager{Profession:1,Career:1}",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:librarian\"}}"
+   }
+  },
+  "mason": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:mason\"}}"
+   }
+  },
+  "nitwit": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "minecraft:villager{Profession:5,Career:1}",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:nitwit\"}}"
+   }
+  },
+  "none": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:none\"}}"
+   }
+  },
+  "shepherd": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "Villager{Profession:0,Career:3}",
+    "1.11": "minecraft:villager{Profession:0,Career:3}",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:shepherd\"}}"
+   }
+  },
+  "toolsmith": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "Villager{Profession:3,Career:3}",
+    "1.11": "minecraft:villager{Profession:3,Career:3}",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:toolsmith\"}}"
+   }
+  },
+  "weaponsmith": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "Villager{Profession:3,Career:2}",
+    "1.11": "minecraft:villager{Profession:3,Career:2}",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:weaponsmith\"}}"
+   }
+  }
+ }
+}

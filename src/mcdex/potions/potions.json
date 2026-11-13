@@ -1,0 +1,297 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such potion in this version"
+ },
+ "potions": {
+  "awkward": {
+   "ids": {
+    "1.7.2": "16",
+    "1.9": "minecraft:awkward"
+   }
+  },
+  "empty": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "minecraft:empty",
+    "1.20.5": ""
+   }
+  },
+  "fire_resistance": {
+   "ids": {
+    "1.7.2": "3",
+    "1.9": "minecraft:fire_resistance"
+   },
+   "long": {
+    "ids": {
+     "1.7.2": "67",
+     "1.9": "minecraft:long_fire_resistance"
+    }
+   }
+  },
+  "harming": {
+   "ids": {
+    "1.7.2": "12",
+    "1.9": "minecraft:harming"
+   },
+   "strong": {
+    "ids": {
+     "1.7.2": "44",
+     "1.9": "minecraft:strong_harming"
+    }
+   }
+  },
+  "healing": {
+   "ids": {
+    "1.7.2": "5",
+    "1.9": "minecraft:healing"
+   },
+   "strong": {
+    "ids": {
+     "1.7.2": "37",
+     "1.9": "minecraft:strong_healing"
+    }
+   }
+  },
+  "infested": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:infested"
+   }
+  },
+  "invisibility": {
+   "ids": {
+    "1.7.2": "14",
+    "1.9": "minecraft:invisibility"
+   },
+   "long": {
+    "ids": {
+     "1.7.2": "78",
+     "1.9": "minecraft:long_invisibility"
+    }
+   }
+  },
+  "leaping": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "11",
+    "1.9": "minecraft:leaping"
+   },
+   "long": {
+    "ids": {
+     "1.7.2": "",
+     "1.8": "75",
+     "1.9": "minecraft:long_leaping"
+    }
+   },
+   "strong": {
+    "ids": {
+     "1.7.2": "",
+     "1.8": "43",
+     "1.9": "minecraft:strong_leaping"
+    }
+   }
+  },
+  "luck": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "minecraft:luck"
+   }
+  },
+  "mundane": {
+   "ids": {
+    "1.7.2": "64",
+    "1.9": "minecraft:mundane"
+   }
+  },
+  "night_vision": {
+   "ids": {
+    "1.7.2": "6",
+    "1.9": "minecraft:night_vision"
+   },
+   "long": {
+    "ids": {
+     "1.7.2": "70",
+     "1.9": "minecraft:long_night_vision"
+    }
+   }
+  },
+  "oozing": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:oozing"
+   }
+  },
+  "poison": {
+   "ids": {
+    "1.7.2": "4",
+    "1.9": "minecraft:poison"
+   },
+   "long": {
+    "ids": {
+     "1.7.2": "68",
+     "1.9": "minecraft:long_poison"
+    }
+   },
+   "strong": {
+    "ids": {
+     "1.7.2": "36",
+     "1.9": "minecraft:strong_poison"
+    }
+   }
+  },
+  "regeneration": {
+   "ids": {
+    "1.7.2": "1",
+    "1.9": "minecraft:regeneration"
+   },
+   "long": {
+    "ids": {
+     "1.7.2": "65",
+     "1.9": "minecraft:long_regeneration"
+    }
+   },
+   "strong": {
+    "ids": {
+     "1.7.2": "33",
+     "1.9": "minecraft:strong_regeneration"
+    }
+   }
+  },
+  "slow_falling": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:slow_falling"
+   },
+   "long": {
+    "ids": {
+     "1.7.2": "",
+     "1.13": "minecraft:long_slow_falling"
+    }
+   }
+  },
+  "slowness": {
+   "ids": {
+    "1.7.2": "10",
+    "1.9": "minecraft:slowness"
+   },
+   "long": {
+    "ids": {
+     "1.7.2": "74",
+     "1.9": "minecraft:long_slowness"
+    }
+   },
+   "strong": {
+    "ids": {
+     "1.7.2": "",
+     "1.13": "minecraft:strong_slowness"
+    }
+   }
+  },
+  "strength": {
+   "ids": {
+    "1.7.2": "9",
+    "1.9": "minecraft:strength"
+   },
+   "long": {
+    "ids": {
+     "1.7.2": "73",
+     "1.9": "minecraft:long_strength"
+    }
+   },
+   "strong": {
+    "ids": {
+     "1.7.2": "41",
+     "1.9": "minecraft:strong_strength"
+    }
+   }
+  },
+  "swiftness": {
+   "ids": {
+    "1.7.2": "2",
+    "1.9": "minecraft:swiftness"
+   },
+   "long": {
+    "ids": {
+     "1.7.2": "66",
+     "1.9": "minecraft:long_swiftness"
+    }
+   },
+   "strong": {
+    "ids": {
+     "1.7.2": "34",
+     "1.9": "minecraft:strong_swiftness"
+    }
+   }
+  },
+  "thick": {
+   "ids": {
+    "1.7.2": "32",
+    "1.9": "minecraft:thick"
+   }
+  },
+  "turtle_master": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:turtle_master"
+   },
+   "long": {
+    "ids": {
+     "1.7.2": "",
+     "1.13": "minecraft:long_turtle_master"
+    }
+   },
+   "strong": {
+    "ids": {
+     "1.7.2": "",
+     "1.13": "minecraft:strong_turtle_master"
+    }
+   }
+  },
+  "water": {
+   "ids": {
+    "1.7.2": "0",
+    "1.9": "minecraft:water"
+   }
+  },
+  "water_breathing": {
+   "ids": {
+    "1.7.2": "13",
+    "1.9": "minecraft:water_breathing"
+   },
+   "long": {
+    "ids": {
+     "1.7.2": "77",
+     "1.9": "minecraft:long_water_breathing"
+    }
+   }
+  },
+  "weakness": {
+   "ids": {
+    "1.7.2": "8",
+    "1.9": "minecraft:weakness"
+   },
+   "long": {
+    "ids": {
+     "1.7.2": "72",
+     "1.9": "minecraft:long_weakness"
+    }
+   }
+  },
+  "weaving": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:weaving"
+   }
+  },
+  "wind_charged": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:wind_charged"
+   }
+  }
+ }
+}

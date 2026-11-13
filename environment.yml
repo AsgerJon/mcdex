@@ -1,0 +1,17 @@
+name: mcdex_env
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.14
+  - pip>=24.0
+  - setuptools>=80
+  - wheel>=0.43.0
+  - pytest>=9.2  # Development only
+  - pytest-cov>=7.1  # Development only
+  - pip:
+      - -r requirements.txt
+      - cosmic-ray>=8.7  # Development only
+      #  The documentation build, Sphinx, the furo theme and markwork,
+      #  comes from docs/requirements.txt, the one list Read the Docs and
+      #  the lts release workflows install from.
+      - -r docs/requirements.txt

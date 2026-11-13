@@ -1,0 +1,23 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such zombie nautilus variant in this version"
+ },
+ "zombie_nautilus_variants": {
+  "temperate": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.11": "minecraft:zombie_nautilus{variant:\"minecraft:temperate\"}"
+   }
+  },
+  "warm": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.11": "minecraft:zombie_nautilus{variant:\"minecraft:warm\"}"
+   }
+  }
+ }
+}

@@ -1,0 +1,1042 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such entity in this version"
+ },
+ "entities": {
+  "acacia_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "Boat{Type:\"acacia\"}",
+    "1.11": "minecraft:boat{Type:\"acacia\"}",
+    "1.21.2": "minecraft:acacia_boat"
+   }
+  },
+  "acacia_chest_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:chest_boat{Type:\"acacia\"}",
+    "1.21.2": "minecraft:acacia_chest_boat"
+   }
+  },
+  "allay": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:allay"
+   }
+  },
+  "area_effect_cloud": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "AreaEffectCloud",
+    "1.11": "minecraft:area_effect_cloud"
+   }
+  },
+  "armadillo": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:armadillo"
+   }
+  },
+  "armor_stand": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "ArmorStand",
+    "1.11": "minecraft:armor_stand"
+   }
+  },
+  "arrow": {
+   "ids": {
+    "1.7.2": "Arrow",
+    "1.11": "minecraft:arrow"
+   }
+  },
+  "axolotl": {
+   "ids": {
+    "1.7.2": "",
+    "1.17": "minecraft:axolotl"
+   }
+  },
+  "bamboo_chest_raft": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.3": "minecraft:chest_boat{Type:\"bamboo\"}",
+    "1.21.2": "minecraft:bamboo_chest_raft"
+   }
+  },
+  "bamboo_raft": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.3": "minecraft:boat{Type:\"bamboo\"}",
+    "1.21.2": "minecraft:bamboo_raft"
+   }
+  },
+  "bat": {
+   "ids": {
+    "1.7.2": "Bat",
+    "1.11": "minecraft:bat"
+   }
+  },
+  "bee": {
+   "ids": {
+    "1.7.2": "",
+    "1.15": "minecraft:bee"
+   }
+  },
+  "birch_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "Boat{Type:\"birch\"}",
+    "1.11": "minecraft:boat{Type:\"birch\"}",
+    "1.21.2": "minecraft:birch_boat"
+   }
+  },
+  "birch_chest_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:chest_boat{Type:\"birch\"}",
+    "1.21.2": "minecraft:birch_chest_boat"
+   }
+  },
+  "blaze": {
+   "ids": {
+    "1.7.2": "Blaze",
+    "1.11": "minecraft:blaze"
+   }
+  },
+  "block_display": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:block_display"
+   }
+  },
+  "bogged": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:bogged"
+   }
+  },
+  "breeze": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.3": "minecraft:breeze"
+   }
+  },
+  "breeze_wind_charge": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:breeze_wind_charge"
+   }
+  },
+  "camel": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.3": "minecraft:camel"
+   }
+  },
+  "camel_husk": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.11": "minecraft:camel_husk"
+   }
+  },
+  "cat": {
+   "ids": {
+    "1.7.2": "Ozelot{CatType:1}",
+    "1.11": "minecraft:ocelot{CatType:1}",
+    "1.14": "minecraft:cat"
+   }
+  },
+  "cave_spider": {
+   "ids": {
+    "1.7.2": "CaveSpider",
+    "1.11": "minecraft:cave_spider"
+   }
+  },
+  "cherry_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:boat{Type:\"cherry\"}",
+    "1.21.2": "minecraft:cherry_boat"
+   }
+  },
+  "cherry_chest_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:chest_boat{Type:\"cherry\"}",
+    "1.21.2": "minecraft:cherry_chest_boat"
+   }
+  },
+  "chest_minecart": {
+   "ids": {
+    "1.7.2": "MinecartChest",
+    "1.11": "minecraft:chest_minecart"
+   }
+  },
+  "chicken": {
+   "ids": {
+    "1.7.2": "Chicken",
+    "1.11": "minecraft:chicken"
+   }
+  },
+  "cod": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:cod"
+   }
+  },
+  "command_block_minecart": {
+   "ids": {
+    "1.7.2": "MinecartCommandBlock",
+    "1.11": "minecraft:commandblock_minecart",
+    "1.13": "minecraft:command_block_minecart"
+   }
+  },
+  "copper_golem": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.9": "minecraft:copper_golem"
+   }
+  },
+  "cow": {
+   "ids": {
+    "1.7.2": "Cow",
+    "1.11": "minecraft:cow"
+   }
+  },
+  "creaking": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.2": "minecraft:creaking"
+   }
+  },
+  "creaking_transient": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.2": "minecraft:creaking_transient",
+    "1.21.4": ""
+   }
+  },
+  "creeper": {
+   "ids": {
+    "1.7.2": "Creeper",
+    "1.11": "minecraft:creeper"
+   }
+  },
+  "cushion": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:cushion"
+   }
+  },
+  "dark_oak_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "Boat{Type:\"dark_oak\"}",
+    "1.11": "minecraft:boat{Type:\"dark_oak\"}",
+    "1.21.2": "minecraft:dark_oak_boat"
+   }
+  },
+  "dark_oak_chest_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:chest_boat{Type:\"dark_oak\"}",
+    "1.21.2": "minecraft:dark_oak_chest_boat"
+   }
+  },
+  "dolphin": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:dolphin"
+   }
+  },
+  "donkey": {
+   "ids": {
+    "1.7.2": "EntityHorse{Type:1}",
+    "1.11": "minecraft:donkey"
+   }
+  },
+  "dragon_fireball": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "DragonFireball",
+    "1.11": "minecraft:dragon_fireball"
+   }
+  },
+  "drowned": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:drowned"
+   }
+  },
+  "egg": {
+   "ids": {
+    "1.7.2": "",
+    "1.8.2": "ThrownEgg",
+    "1.11": "minecraft:egg"
+   }
+  },
+  "elder_guardian": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "Guardian{Elder:1b}",
+    "1.11": "minecraft:elder_guardian"
+   }
+  },
+  "end_crystal": {
+   "ids": {
+    "1.7.2": "EnderCrystal",
+    "1.11": "minecraft:ender_crystal",
+    "1.13": "minecraft:end_crystal"
+   }
+  },
+  "ender_dragon": {
+   "ids": {
+    "1.7.2": "EnderDragon",
+    "1.11": "minecraft:ender_dragon"
+   }
+  },
+  "ender_pearl": {
+   "ids": {
+    "1.7.2": "ThrownEnderpearl",
+    "1.11": "minecraft:ender_pearl"
+   }
+  },
+  "enderman": {
+   "ids": {
+    "1.7.2": "Enderman",
+    "1.11": "minecraft:enderman"
+   }
+  },
+  "endermite": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "Endermite",
+    "1.11": "minecraft:endermite"
+   }
+  },
+  "evoker": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "minecraft:evocation_illager",
+    "1.13": "minecraft:evoker"
+   }
+  },
+  "evoker_fangs": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "minecraft:evocation_fangs",
+    "1.13": "minecraft:evoker_fangs"
+   }
+  },
+  "experience_bottle": {
+   "ids": {
+    "1.7.2": "ThrownExpBottle",
+    "1.11": "minecraft:xp_bottle",
+    "1.13": "minecraft:experience_bottle"
+   }
+  },
+  "experience_orb": {
+   "ids": {
+    "1.7.2": "XPOrb",
+    "1.11": "minecraft:xp_orb",
+    "1.13": "minecraft:experience_orb"
+   }
+  },
+  "eye_of_ender": {
+   "ids": {
+    "1.7.2": "EyeOfEnderSignal",
+    "1.11": "minecraft:eye_of_ender_signal",
+    "1.13": "minecraft:eye_of_ender"
+   }
+  },
+  "falling_block": {
+   "ids": {
+    "1.7.2": "FallingSand",
+    "1.11": "minecraft:falling_block"
+   }
+  },
+  "fireball": {
+   "ids": {
+    "1.7.2": "Fireball",
+    "1.11": "minecraft:fireball"
+   }
+  },
+  "firework_rocket": {
+   "ids": {
+    "1.7.2": "FireworksRocketEntity",
+    "1.11": "minecraft:fireworks_rocket",
+    "1.13": "minecraft:firework_rocket"
+   }
+  },
+  "fishing_bobber": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:fishing_bobber"
+   }
+  },
+  "fox": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:fox"
+   }
+  },
+  "frog": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:frog"
+   }
+  },
+  "furnace_minecart": {
+   "ids": {
+    "1.7.2": "MinecartFurnace",
+    "1.11": "minecraft:furnace_minecart"
+   }
+  },
+  "ghast": {
+   "ids": {
+    "1.7.2": "Ghast",
+    "1.11": "minecraft:ghast"
+   }
+  },
+  "giant": {
+   "ids": {
+    "1.7.2": "Giant",
+    "1.11": "minecraft:giant"
+   }
+  },
+  "glow_item_frame": {
+   "ids": {
+    "1.7.2": "",
+    "1.17": "minecraft:glow_item_frame"
+   }
+  },
+  "glow_squid": {
+   "ids": {
+    "1.7.2": "",
+    "1.17": "minecraft:glow_squid"
+   }
+  },
+  "goat": {
+   "ids": {
+    "1.7.2": "",
+    "1.17": "minecraft:goat"
+   }
+  },
+  "guardian": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "Guardian",
+    "1.11": "minecraft:guardian"
+   }
+  },
+  "happy_ghast": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.6": "minecraft:happy_ghast"
+   }
+  },
+  "hoglin": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:hoglin"
+   }
+  },
+  "hopper_minecart": {
+   "ids": {
+    "1.7.2": "MinecartHopper",
+    "1.11": "minecraft:hopper_minecart"
+   }
+  },
+  "horse": {
+   "ids": {
+    "1.7.2": "EntityHorse",
+    "1.11": "minecraft:horse"
+   }
+  },
+  "husk": {
+   "ids": {
+    "1.7.2": "",
+    "1.10": "Zombie{ZombieType:6}",
+    "1.11": "minecraft:husk"
+   }
+  },
+  "illusioner": {
+   "ids": {
+    "1.7.2": "",
+    "1.12": "minecraft:illusion_illager",
+    "1.13": "minecraft:illusioner"
+   }
+  },
+  "interaction": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:interaction"
+   }
+  },
+  "iron_golem": {
+   "ids": {
+    "1.7.2": "VillagerGolem",
+    "1.11": "minecraft:villager_golem",
+    "1.13": "minecraft:iron_golem"
+   }
+  },
+  "item": {
+   "ids": {
+    "1.7.2": "Item",
+    "1.11": "minecraft:item"
+   }
+  },
+  "item_display": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:item_display"
+   }
+  },
+  "item_frame": {
+   "ids": {
+    "1.7.2": "ItemFrame",
+    "1.11": "minecraft:item_frame"
+   }
+  },
+  "jungle_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "Boat{Type:\"jungle\"}",
+    "1.11": "minecraft:boat{Type:\"jungle\"}",
+    "1.21.2": "minecraft:jungle_boat"
+   }
+  },
+  "jungle_chest_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:chest_boat{Type:\"jungle\"}",
+    "1.21.2": "minecraft:jungle_chest_boat"
+   }
+  },
+  "leash_knot": {
+   "ids": {
+    "1.7.2": "LeashKnot",
+    "1.11": "minecraft:leash_knot"
+   }
+  },
+  "lightning_bolt": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "LightningBolt",
+    "1.11": "minecraft:lightning_bolt"
+   }
+  },
+  "lingering_potion": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:potion{Item:{id:\"minecraft:lingering_potion\",Count:1b}}",
+    "1.20.5": "minecraft:potion{Item:{id:\"minecraft:lingering_potion\"}}",
+    "1.21.5": "minecraft:lingering_potion"
+   }
+  },
+  "llama": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "minecraft:llama"
+   }
+  },
+  "llama_spit": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "minecraft:llama_spit"
+   }
+  },
+  "magma_cube": {
+   "ids": {
+    "1.7.2": "LavaSlime",
+    "1.11": "minecraft:magma_cube"
+   }
+  },
+  "mangrove_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:boat{Type:\"mangrove\"}",
+    "1.21.2": "minecraft:mangrove_boat"
+   }
+  },
+  "mangrove_chest_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:chest_boat{Type:\"mangrove\"}",
+    "1.21.2": "minecraft:mangrove_chest_boat"
+   }
+  },
+  "mannequin": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.9": "minecraft:mannequin"
+   }
+  },
+  "marker": {
+   "ids": {
+    "1.7.2": "",
+    "1.17": "minecraft:marker"
+   }
+  },
+  "minecart": {
+   "ids": {
+    "1.7.2": "MinecartRideable",
+    "1.11": "minecraft:minecart"
+   }
+  },
+  "mooshroom": {
+   "ids": {
+    "1.7.2": "MushroomCow",
+    "1.11": "minecraft:mooshroom"
+   }
+  },
+  "mule": {
+   "ids": {
+    "1.7.2": "EntityHorse{Type:2}",
+    "1.11": "minecraft:mule"
+   }
+  },
+  "nautilus": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.11": "minecraft:nautilus"
+   }
+  },
+  "oak_boat": {
+   "ids": {
+    "1.7.2": "Boat",
+    "1.11": "minecraft:boat",
+    "1.21.2": "minecraft:oak_boat"
+   }
+  },
+  "oak_chest_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:chest_boat",
+    "1.21.2": "minecraft:oak_chest_boat"
+   }
+  },
+  "ocelot": {
+   "ids": {
+    "1.7.2": "Ozelot",
+    "1.11": "minecraft:ocelot"
+   }
+  },
+  "ominous_item_spawner": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:ominous_item_spawner"
+   }
+  },
+  "painting": {
+   "ids": {
+    "1.7.2": "Painting",
+    "1.11": "minecraft:painting"
+   }
+  },
+  "pale_oak_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.2": "minecraft:pale_oak_boat"
+   }
+  },
+  "pale_oak_chest_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.2": "minecraft:pale_oak_chest_boat"
+   }
+  },
+  "panda": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:panda"
+   }
+  },
+  "parched": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.11": "minecraft:parched"
+   }
+  },
+  "parrot": {
+   "ids": {
+    "1.7.2": "",
+    "1.12": "minecraft:parrot"
+   }
+  },
+  "phantom": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:phantom"
+   }
+  },
+  "pig": {
+   "ids": {
+    "1.7.2": "Pig",
+    "1.11": "minecraft:pig"
+   }
+  },
+  "piglin": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:piglin"
+   }
+  },
+  "piglin_brute": {
+   "ids": {
+    "1.7.2": "",
+    "1.16.2": "minecraft:piglin_brute"
+   }
+  },
+  "pillager": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:pillager"
+   }
+  },
+  "player": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "Player",
+    "1.11": "minecraft:player"
+   }
+  },
+  "polar_bear": {
+   "ids": {
+    "1.7.2": "",
+    "1.10": "PolarBear",
+    "1.11": "minecraft:polar_bear"
+   }
+  },
+  "poplar_boat": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:poplar_boat"
+   }
+  },
+  "poplar_chest_boat": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:poplar_chest_boat"
+   }
+  },
+  "pufferfish": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:pufferfish"
+   }
+  },
+  "rabbit": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "Rabbit",
+    "1.11": "minecraft:rabbit"
+   }
+  },
+  "ravager": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:ravager"
+   }
+  },
+  "salmon": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:salmon"
+   }
+  },
+  "sheep": {
+   "ids": {
+    "1.7.2": "Sheep",
+    "1.11": "minecraft:sheep"
+   }
+  },
+  "shulker": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "Shulker",
+    "1.11": "minecraft:shulker"
+   }
+  },
+  "shulker_bullet": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "ShulkerBullet",
+    "1.11": "minecraft:shulker_bullet"
+   }
+  },
+  "silverfish": {
+   "ids": {
+    "1.7.2": "Silverfish",
+    "1.11": "minecraft:silverfish"
+   }
+  },
+  "skeleton": {
+   "ids": {
+    "1.7.2": "Skeleton",
+    "1.11": "minecraft:skeleton"
+   }
+  },
+  "skeleton_horse": {
+   "ids": {
+    "1.7.2": "EntityHorse{Type:4}",
+    "1.11": "minecraft:skeleton_horse"
+   }
+  },
+  "slime": {
+   "ids": {
+    "1.7.2": "Slime",
+    "1.11": "minecraft:slime"
+   }
+  },
+  "small_fireball": {
+   "ids": {
+    "1.7.2": "SmallFireball",
+    "1.11": "minecraft:small_fireball"
+   }
+  },
+  "sniffer": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:sniffer"
+   }
+  },
+  "snow_golem": {
+   "ids": {
+    "1.7.2": "SnowMan",
+    "1.11": "minecraft:snowman",
+    "1.13": "minecraft:snow_golem"
+   }
+  },
+  "snowball": {
+   "ids": {
+    "1.7.2": "Snowball",
+    "1.11": "minecraft:snowball"
+   }
+  },
+  "spawner_minecart": {
+   "ids": {
+    "1.7.2": "MinecartSpawner",
+    "1.11": "minecraft:spawner_minecart"
+   }
+  },
+  "spectral_arrow": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "SpectralArrow",
+    "1.11": "minecraft:spectral_arrow"
+   }
+  },
+  "spider": {
+   "ids": {
+    "1.7.2": "Spider",
+    "1.11": "minecraft:spider"
+   }
+  },
+  "splash_potion": {
+   "ids": {
+    "1.7.2": "ThrownPotion",
+    "1.11": "minecraft:potion",
+    "1.21.5": "minecraft:splash_potion"
+   }
+  },
+  "spruce_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "Boat{Type:\"spruce\"}",
+    "1.11": "minecraft:boat{Type:\"spruce\"}",
+    "1.21.2": "minecraft:spruce_boat"
+   }
+  },
+  "spruce_chest_boat": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:chest_boat{Type:\"spruce\"}",
+    "1.21.2": "minecraft:spruce_chest_boat"
+   }
+  },
+  "squid": {
+   "ids": {
+    "1.7.2": "Squid",
+    "1.11": "minecraft:squid"
+   }
+  },
+  "stray": {
+   "ids": {
+    "1.7.2": "",
+    "1.10": "Skeleton{SkeletonType:2}",
+    "1.11": "minecraft:stray"
+   }
+  },
+  "strider": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:strider"
+   }
+  },
+  "sulfur_cube": {
+   "ids": {
+    "1.7.2": "",
+    "26.2": "minecraft:sulfur_cube"
+   }
+  },
+  "tadpole": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:tadpole"
+   }
+  },
+  "text_display": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:text_display"
+   }
+  },
+  "tnt": {
+   "ids": {
+    "1.7.2": "PrimedTnt",
+    "1.11": "minecraft:tnt"
+   }
+  },
+  "tnt_minecart": {
+   "ids": {
+    "1.7.2": "MinecartTNT",
+    "1.11": "minecraft:tnt_minecart"
+   }
+  },
+  "trader_llama": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:trader_llama"
+   }
+  },
+  "trident": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:trident"
+   }
+  },
+  "tropical_fish": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:tropical_fish"
+   }
+  },
+  "turtle": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:turtle"
+   }
+  },
+  "vex": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "minecraft:vex"
+   }
+  },
+  "villager": {
+   "ids": {
+    "1.7.2": "Villager",
+    "1.11": "minecraft:villager"
+   }
+  },
+  "vindicator": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "minecraft:vindication_illager",
+    "1.13": "minecraft:vindicator"
+   }
+  },
+  "wandering_trader": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:wandering_trader"
+   }
+  },
+  "warden": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:warden"
+   }
+  },
+  "wind_charge": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.3": "minecraft:wind_charge"
+   }
+  },
+  "witch": {
+   "ids": {
+    "1.7.2": "Witch",
+    "1.11": "minecraft:witch"
+   }
+  },
+  "wither": {
+   "ids": {
+    "1.7.2": "WitherBoss",
+    "1.11": "minecraft:wither"
+   }
+  },
+  "wither_skeleton": {
+   "ids": {
+    "1.7.2": "Skeleton{SkeletonType:1}",
+    "1.11": "minecraft:wither_skeleton"
+   }
+  },
+  "wither_skull": {
+   "ids": {
+    "1.7.2": "WitherSkull",
+    "1.11": "minecraft:wither_skull"
+   }
+  },
+  "wolf": {
+   "ids": {
+    "1.7.2": "Wolf",
+    "1.11": "minecraft:wolf"
+   }
+  },
+  "zoglin": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:zoglin"
+   }
+  },
+  "zombie": {
+   "ids": {
+    "1.7.2": "Zombie",
+    "1.11": "minecraft:zombie"
+   }
+  },
+  "zombie_horse": {
+   "ids": {
+    "1.7.2": "EntityHorse{Type:3}",
+    "1.11": "minecraft:zombie_horse"
+   }
+  },
+  "zombie_nautilus": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.11": "minecraft:zombie_nautilus"
+   }
+  },
+  "zombie_villager": {
+   "ids": {
+    "1.7.2": "Zombie{IsVillager:1b}",
+    "1.9": "Zombie{IsVillager:1b,VillagerProfession:1}",
+    "1.10": "Zombie{ZombieType:1}",
+    "1.11": "minecraft:zombie_villager"
+   }
+  },
+  "zombified_piglin": {
+   "ids": {
+    "1.7.2": "PigZombie",
+    "1.11": "minecraft:zombie_pigman",
+    "1.16": "minecraft:zombified_piglin"
+   }
+  }
+ }
+}

@@ -1,0 +1,331 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such block entity in this version"
+ },
+ "block_entities": {
+  "banner": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "Banner",
+    "1.11": "minecraft:banner"
+   }
+  },
+  "barrel": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:barrel"
+   }
+  },
+  "beacon": {
+   "ids": {
+    "1.7.2": "Beacon",
+    "1.11": "minecraft:beacon"
+   }
+  },
+  "bed": {
+   "ids": {
+    "1.7.2": "",
+    "1.12": "minecraft:bed",
+    "26.2": ""
+   }
+  },
+  "beehive": {
+   "ids": {
+    "1.7.2": "",
+    "1.15": "minecraft:beehive"
+   }
+  },
+  "bell": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:bell"
+   }
+  },
+  "blast_furnace": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:blast_furnace"
+   }
+  },
+  "brewing_stand": {
+   "ids": {
+    "1.7.2": "Cauldron",
+    "1.11": "minecraft:brewing_stand"
+   }
+  },
+  "brushable_block": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:suspicious_sand",
+    "1.20": "minecraft:brushable_block"
+   }
+  },
+  "calibrated_sculk_sensor": {
+   "ids": {
+    "1.7.2": "",
+    "1.20": "minecraft:calibrated_sculk_sensor"
+   }
+  },
+  "campfire": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:campfire"
+   }
+  },
+  "chest": {
+   "ids": {
+    "1.7.2": "Chest",
+    "1.11": "minecraft:chest"
+   }
+  },
+  "chiseled_bookshelf": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.3": "minecraft:chiseled_bookshelf"
+   }
+  },
+  "command_block": {
+   "ids": {
+    "1.7.2": "Control",
+    "1.11": "minecraft:command_block"
+   }
+  },
+  "comparator": {
+   "ids": {
+    "1.7.2": "Comparator",
+    "1.11": "minecraft:comparator"
+   }
+  },
+  "conduit": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "minecraft:conduit"
+   }
+  },
+  "copper_golem_statue": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.9": "minecraft:copper_golem_statue"
+   }
+  },
+  "crafter": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.3": "minecraft:crafter"
+   }
+  },
+  "creaking_heart": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.2": "minecraft:creaking_heart"
+   }
+  },
+  "daylight_detector": {
+   "ids": {
+    "1.7.2": "DLDetector",
+    "1.11": "minecraft:daylight_detector"
+   }
+  },
+  "decorated_pot": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:decorated_pot"
+   }
+  },
+  "dispenser": {
+   "ids": {
+    "1.7.2": "Trap",
+    "1.11": "minecraft:dispenser"
+   }
+  },
+  "dropper": {
+   "ids": {
+    "1.7.2": "Dropper",
+    "1.11": "minecraft:dropper"
+   }
+  },
+  "enchanting_table": {
+   "ids": {
+    "1.7.2": "EnchantTable",
+    "1.11": "minecraft:enchanting_table"
+   }
+  },
+  "end_gateway": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "EndGateway",
+    "1.11": "minecraft:end_gateway"
+   }
+  },
+  "end_portal": {
+   "ids": {
+    "1.7.2": "Airportal",
+    "1.11": "minecraft:end_portal"
+   }
+  },
+  "ender_chest": {
+   "ids": {
+    "1.7.2": "EnderChest",
+    "1.11": "minecraft:ender_chest"
+   }
+  },
+  "flower_pot": {
+   "ids": {
+    "1.7.2": "FlowerPot",
+    "1.11": "minecraft:flower_pot",
+    "1.13": ""
+   }
+  },
+  "furnace": {
+   "ids": {
+    "1.7.2": "Furnace",
+    "1.11": "minecraft:furnace"
+   }
+  },
+  "hanging_sign": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.3": "minecraft:hanging_sign"
+   }
+  },
+  "hopper": {
+   "ids": {
+    "1.7.2": "Hopper",
+    "1.11": "minecraft:hopper"
+   }
+  },
+  "jigsaw": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:jigsaw"
+   }
+  },
+  "jukebox": {
+   "ids": {
+    "1.7.2": "RecordPlayer",
+    "1.11": "minecraft:jukebox"
+   }
+  },
+  "lectern": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:lectern"
+   }
+  },
+  "mob_spawner": {
+   "ids": {
+    "1.7.2": "MobSpawner",
+    "1.11": "minecraft:mob_spawner"
+   }
+  },
+  "noteblock": {
+   "ids": {
+    "1.7.2": "Music",
+    "1.11": "minecraft:noteblock",
+    "1.13": ""
+   }
+  },
+  "piston": {
+   "ids": {
+    "1.7.2": "Piston",
+    "1.11": "minecraft:piston"
+   }
+  },
+  "potent_sulfur": {
+   "ids": {
+    "1.7.2": "",
+    "26.2": "minecraft:potent_sulfur"
+   }
+  },
+  "sculk_catalyst": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:sculk_catalyst"
+   }
+  },
+  "sculk_sensor": {
+   "ids": {
+    "1.7.2": "",
+    "1.17": "minecraft:sculk_sensor"
+   }
+  },
+  "sculk_shrieker": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:sculk_shrieker"
+   }
+  },
+  "shelf": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.9": "minecraft:shelf"
+   }
+  },
+  "shulker_box": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "minecraft:shulker_box"
+   }
+  },
+  "sign": {
+   "ids": {
+    "1.7.2": "Sign",
+    "1.11": "minecraft:sign"
+   }
+  },
+  "skull": {
+   "ids": {
+    "1.7.2": "Skull",
+    "1.11": "minecraft:skull"
+   }
+  },
+  "smoker": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:smoker"
+   }
+  },
+  "structure_block": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "Structure",
+    "1.11": "minecraft:structure_block"
+   }
+  },
+  "test_block": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.5": "minecraft:test_block"
+   }
+  },
+  "test_instance_block": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.5": "minecraft:test_instance_block"
+   }
+  },
+  "trapped_chest": {
+   "ids": {
+    "1.7.2": "Chest",
+    "1.11": "minecraft:chest",
+    "1.13": "minecraft:trapped_chest"
+   }
+  },
+  "trial_spawner": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.3": "minecraft:trial_spawner"
+   }
+  },
+  "vault": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:vault"
+   }
+  }
+ }
+}

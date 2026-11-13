@@ -1,0 +1,54 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such villager type in this version"
+ },
+ "villager_types": {
+  "desert": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:villager{VillagerData:{type:\"minecraft:desert\"}}"
+   }
+  },
+  "jungle": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:villager{VillagerData:{type:\"minecraft:jungle\"}}"
+   }
+  },
+  "plains": {
+   "ids": {
+    "1.7.2": "Villager",
+    "1.11": "minecraft:villager",
+    "1.14": "minecraft:villager{VillagerData:{type:\"minecraft:plains\"}}"
+   }
+  },
+  "savanna": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:villager{VillagerData:{type:\"minecraft:savanna\"}}"
+   }
+  },
+  "snow": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:villager{VillagerData:{type:\"minecraft:snow\"}}"
+   }
+  },
+  "swamp": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:villager{VillagerData:{type:\"minecraft:swamp\"}}"
+   }
+  },
+  "taiga": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:villager{VillagerData:{type:\"minecraft:taiga\"}}"
+   }
+  }
+ }
+}

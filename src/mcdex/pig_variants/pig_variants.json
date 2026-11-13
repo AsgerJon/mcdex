@@ -1,0 +1,30 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such pig variant in this version"
+ },
+ "pig_variants": {
+  "cold": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.5": "minecraft:pig{variant:\"minecraft:cold\"}"
+   }
+  },
+  "temperate": {
+   "ids": {
+    "1.7.2": "Pig",
+    "1.11": "minecraft:pig",
+    "1.21.5": "minecraft:pig{variant:\"minecraft:temperate\"}"
+   }
+  },
+  "warm": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.5": "minecraft:pig{variant:\"minecraft:warm\"}"
+   }
+  }
+ }
+}

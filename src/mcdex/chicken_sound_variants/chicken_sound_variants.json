@@ -1,0 +1,24 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such chicken sound variant in this version"
+ },
+ "chicken_sound_variants": {
+  "classic": {
+   "ids": {
+    "1.7.2": "Chicken",
+    "1.11": "minecraft:chicken",
+    "26.1": "minecraft:chicken{sound_variant:\"minecraft:classic\"}"
+   }
+  },
+  "picky": {
+   "ids": {
+    "1.7.2": "",
+    "26.1": "minecraft:chicken{sound_variant:\"minecraft:picky\"}"
+   }
+  }
+ }
+}

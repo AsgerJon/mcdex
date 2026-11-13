@@ -1,0 +1,317 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such damage type in this version"
+ },
+ "damage_types": {
+  "arrow": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:arrow"
+   }
+  },
+  "bad_respawn_point": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:bad_respawn_point"
+   }
+  },
+  "cactus": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:cactus"
+   }
+  },
+  "campfire": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:campfire"
+   }
+  },
+  "cramming": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:cramming"
+   }
+  },
+  "dragon_breath": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:dragon_breath"
+   }
+  },
+  "drown": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:drown"
+   }
+  },
+  "dry_out": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:dry_out"
+   }
+  },
+  "ender_pearl": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.2": "minecraft:ender_pearl"
+   }
+  },
+  "explosion": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:explosion"
+   }
+  },
+  "fall": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:fall"
+   }
+  },
+  "falling_anvil": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:falling_anvil"
+   }
+  },
+  "falling_block": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:falling_block"
+   }
+  },
+  "falling_stalactite": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:falling_stalactite"
+   }
+  },
+  "fireball": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:fireball"
+   }
+  },
+  "fireworks": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:fireworks"
+   }
+  },
+  "fly_into_wall": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:fly_into_wall"
+   }
+  },
+  "freeze": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:freeze"
+   }
+  },
+  "generic": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:generic"
+   }
+  },
+  "generic_kill": {
+   "ids": {
+    "1.7.2": "",
+    "1.20": "minecraft:generic_kill"
+   }
+  },
+  "hot_floor": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:hot_floor"
+   }
+  },
+  "in_fire": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:in_fire"
+   }
+  },
+  "in_wall": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:in_wall"
+   }
+  },
+  "indirect_magic": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:indirect_magic"
+   }
+  },
+  "lava": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:lava"
+   }
+  },
+  "lightning_bolt": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:lightning_bolt"
+   }
+  },
+  "mace_smash": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.2": "minecraft:mace_smash"
+   }
+  },
+  "magic": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:magic"
+   }
+  },
+  "mob_attack": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:mob_attack"
+   }
+  },
+  "mob_attack_no_aggro": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:mob_attack_no_aggro"
+   }
+  },
+  "mob_projectile": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:mob_projectile"
+   }
+  },
+  "on_fire": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:on_fire"
+   }
+  },
+  "out_of_world": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:out_of_world"
+   }
+  },
+  "outside_border": {
+   "ids": {
+    "1.7.2": "",
+    "1.20": "minecraft:outside_border"
+   }
+  },
+  "player_attack": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:player_attack"
+   }
+  },
+  "player_explosion": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:player_explosion"
+   }
+  },
+  "sonic_boom": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:sonic_boom"
+   }
+  },
+  "spear": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.11": "minecraft:spear"
+   }
+  },
+  "spit": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:spit"
+   }
+  },
+  "stalagmite": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:stalagmite"
+   }
+  },
+  "starve": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:starve"
+   }
+  },
+  "sting": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:sting"
+   }
+  },
+  "sulfur_cube_hot": {
+   "ids": {
+    "1.7.2": "",
+    "26.2": "minecraft:sulfur_cube_hot"
+   }
+  },
+  "sweet_berry_bush": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:sweet_berry_bush"
+   }
+  },
+  "thorns": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:thorns"
+   }
+  },
+  "thrown": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:thrown"
+   }
+  },
+  "trident": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:trident"
+   }
+  },
+  "unattributed_fireball": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:unattributed_fireball"
+   }
+  },
+  "wind_charge": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:wind_charge"
+   }
+  },
+  "wither": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:wither"
+   }
+  },
+  "wither_skull": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:wither_skull"
+   }
+  }
+ }
+}

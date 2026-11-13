@@ -1,0 +1,25 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such cat sound variant in this version"
+ },
+ "cat_sound_variants": {
+  "classic": {
+   "ids": {
+    "1.7.2": "Ozelot{CatType:1}",
+    "1.11": "minecraft:ocelot{CatType:1}",
+    "1.14": "minecraft:cat",
+    "26.1": "minecraft:cat{sound_variant:\"minecraft:classic\"}"
+   }
+  },
+  "royal": {
+   "ids": {
+    "1.7.2": "",
+    "26.1": "minecraft:cat{sound_variant:\"minecraft:royal\"}"
+   }
+  }
+ }
+}

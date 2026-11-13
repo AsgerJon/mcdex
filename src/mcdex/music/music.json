@@ -1,0 +1,143 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such song in this version"
+ },
+ "music": {
+  "11": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:11"
+   }
+  },
+  "13": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:13"
+   }
+  },
+  "5": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:5"
+   }
+  },
+  "blocks": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:blocks"
+   }
+  },
+  "bounce": {
+   "ids": {
+    "1.7.2": "",
+    "26.2": "minecraft:bounce"
+   }
+  },
+  "cat": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:cat"
+   }
+  },
+  "chirp": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:chirp"
+   }
+  },
+  "creator": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:creator"
+   }
+  },
+  "creator_music_box": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:creator_music_box"
+   }
+  },
+  "far": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:far"
+   }
+  },
+  "lava_chicken": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.7": "minecraft:lava_chicken"
+   }
+  },
+  "mall": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:mall"
+   }
+  },
+  "mellohi": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:mellohi"
+   }
+  },
+  "otherside": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:otherside"
+   }
+  },
+  "pigstep": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:pigstep"
+   }
+  },
+  "precipice": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:precipice"
+   }
+  },
+  "relic": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:relic"
+   }
+  },
+  "stal": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:stal"
+   }
+  },
+  "strad": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:strad"
+   }
+  },
+  "tears": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.6": "minecraft:tears"
+   }
+  },
+  "wait": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:wait"
+   }
+  },
+  "ward": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:ward"
+   }
+  }
+ }
+}

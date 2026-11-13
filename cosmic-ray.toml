@@ -1,0 +1,15 @@
+#  Mutation testing of mcdex. Cosmic-ray rewrites the source files in
+#  place while it runs, so run it on a copy of the repository:
+#
+#    cosmic-ray init cosmic-ray.toml session.sqlite
+#    cr-filter-pragma session.sqlite
+#    cosmic-ray exec cosmic-ray.toml session.sqlite
+#    cr-report session.sqlite
+[cosmic-ray]
+module-path = "src/mcdex"
+timeout = 60.0
+excluded-modules = []
+test-command = "python -m pytest -x -q -p no:cacheprovider tests"
+
+[cosmic-ray.distributor]
+name = "local"

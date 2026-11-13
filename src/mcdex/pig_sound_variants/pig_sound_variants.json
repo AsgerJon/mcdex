@@ -1,0 +1,30 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such pig sound variant in this version"
+ },
+ "pig_sound_variants": {
+  "big": {
+   "ids": {
+    "1.7.2": "",
+    "26.1": "minecraft:pig{sound_variant:\"minecraft:big\"}"
+   }
+  },
+  "classic": {
+   "ids": {
+    "1.7.2": "Pig",
+    "1.11": "minecraft:pig",
+    "26.1": "minecraft:pig{sound_variant:\"minecraft:classic\"}"
+   }
+  },
+  "mini": {
+   "ids": {
+    "1.7.2": "",
+    "26.1": "minecraft:pig{sound_variant:\"minecraft:mini\"}"
+   }
+  }
+ }
+}

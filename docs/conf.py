@@ -1,0 +1,84 @@
+"""Sphinx configuration: render the mcdex source verbatim.
+
+This build does NOT import mcdex, does NOT introspect it, and does
+NOT parse docstrings as markup. Every page is one source file rendered
+by the markwork extension: the file is highlighted into an HTML
+fragment, every name becomes a link to its definition, and the page is
+wired into a navigation tree alongside a mirror of the test suite.
+
+Sphinx is used only for the parts it is genuinely good at: building
+the multi-page navigable, searchable, themed site and hosting it on
+Read the Docs / GitHub Pages. None of the autodoc machinery is loaded.
+markwork itself began life as this project's docs/_gen.py before
+moving to its own package.
+"""
+from __future__ import annotations
+
+from pathlib import Path
+
+# ============================================================
+# Project metadata
+# ============================================================
+project = "mcdex"
+author = "Asger Jon Vistisen"
+copyright = "2026, Asger Jon Vistisen"
+
+#  The header version is read from pyproject.toml, the same file the
+#  build takes its version from, so the docs always show the built
+#  version. Both 'release' and 'version' hold the full string.
+_pyproject = Path(__file__).parent.parent / "pyproject.toml"
+_handle = None
+try:
+  _handle = open(_pyproject, "r", encoding="utf-8")
+except FileNotFoundError as exception:
+  raise FileNotFoundError(str(_pyproject)) from exception
+else:
+  release = ""
+  for _line in _handle:
+    if _line.lstrip().startswith("version") and "=" in _line:
+      release = _line.split("=", 1)[1].strip().strip("'\"")
+      break
+finally:
+  try:
+    _handle.close()
+  except AttributeError:
+    pass
+
+version = release
+
+# ============================================================
+# General configuration
+# ============================================================
+#
+# markwork generates the verbatim source pages into docs/_source/ at
+# builder-inited and ships its own stylesheet for the go-to-definition
+# anchors. We deliberately do NOT load autodoc, autosummary, or
+# napoleon.
+extensions = ["markwork"]
+
+#  The package under src/ to document. markwork would auto-detect a
+#  lone package, but the explicit declaration is cheap and survives
+#  the day a second package appears under src/.
+markwork_package = "mcdex"
+
+#  rst.txt is Asger's plain-text cheat sheet, not a doc page. The
+#  generated _source/ pages ARE read (they are the site); _build is
+#  the output directory.
+exclude_patterns = ["_build", "rst.txt"]
+
+# ============================================================
+# HTML output
+# ============================================================
+html_theme = "furo"
+
+#  Custom CSS / JS.
+#    custom.css  : styles the version switcher box. The line-jump
+#                  highlight and the link underlines ship with
+#                  markwork in its own markwork.css.
+#    versions.js : the version switcher. On the multi-version GitHub
+#                  Pages build it reads versions.json and shows a
+#                  dropdown; on a local single-version build it finds
+#                  no versions.json and stays silent.
+html_static_path = ["_static"]
+html_css_files = ["custom.css"]
+html_js_files = ["versions.js"]

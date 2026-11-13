@@ -1,0 +1,119 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such trim pattern in this version"
+ },
+ "trim_patterns": {
+  "bolt": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:bolt"
+   }
+  },
+  "coast": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:coast"
+   }
+  },
+  "dune": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:dune"
+   }
+  },
+  "eye": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:eye"
+   }
+  },
+  "flow": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:flow"
+   }
+  },
+  "host": {
+   "ids": {
+    "1.7.2": "",
+    "1.20": "minecraft:host"
+   }
+  },
+  "raiser": {
+   "ids": {
+    "1.7.2": "",
+    "1.20": "minecraft:raiser"
+   }
+  },
+  "rib": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:rib"
+   }
+  },
+  "sentry": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:sentry"
+   }
+  },
+  "shaper": {
+   "ids": {
+    "1.7.2": "",
+    "1.20": "minecraft:shaper"
+   }
+  },
+  "silence": {
+   "ids": {
+    "1.7.2": "",
+    "1.20": "minecraft:silence"
+   }
+  },
+  "snout": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:snout"
+   }
+  },
+  "spire": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:spire"
+   }
+  },
+  "tide": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:tide"
+   }
+  },
+  "vex": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:vex"
+   }
+  },
+  "ward": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:ward"
+   }
+  },
+  "wayfinder": {
+   "ids": {
+    "1.7.2": "",
+    "1.20": "minecraft:wayfinder"
+   }
+  },
+  "wild": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "minecraft:wild"
+   }
+  }
+ }
+}

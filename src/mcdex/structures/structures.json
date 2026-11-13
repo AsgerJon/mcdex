@@ -1,0 +1,367 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such structure in this version"
+ },
+ "structures": {
+  "abandoned_camp_bamboo_jungle": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_bamboo_jungle"
+   }
+  },
+  "abandoned_camp_birch_forest": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_birch_forest"
+   }
+  },
+  "abandoned_camp_cherry_grove": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_cherry_grove"
+   }
+  },
+  "abandoned_camp_dappled_forest": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_dappled_forest"
+   }
+  },
+  "abandoned_camp_flower_forest": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_flower_forest"
+   }
+  },
+  "abandoned_camp_forest": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_forest"
+   }
+  },
+  "abandoned_camp_meadow": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_meadow"
+   }
+  },
+  "abandoned_camp_old_growth_birch_forest": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_old_growth_birch_forest"
+   }
+  },
+  "abandoned_camp_old_growth_pine_taiga": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_old_growth_pine_taiga"
+   }
+  },
+  "abandoned_camp_old_growth_spruce_taiga": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_old_growth_spruce_taiga"
+   }
+  },
+  "abandoned_camp_pale_garden": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_pale_garden"
+   }
+  },
+  "abandoned_camp_savanna": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_savanna"
+   }
+  },
+  "abandoned_camp_snowy_taiga": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_snowy_taiga"
+   }
+  },
+  "abandoned_camp_sparse_jungle": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_sparse_jungle"
+   }
+  },
+  "abandoned_camp_swamp": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_swamp"
+   }
+  },
+  "abandoned_camp_taiga": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_taiga"
+   }
+  },
+  "abandoned_camp_windswept_forest": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_windswept_forest"
+   }
+  },
+  "abandoned_camp_wooded_badlands": {
+   "ids": {
+    "1.7.2": "",
+    "26.3": "minecraft:abandoned_camp_wooded_badlands"
+   }
+  },
+  "ancient_city": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "minecraft:ancient_city"
+   }
+  },
+  "bastion_remnant": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:bastion_remnant"
+   }
+  },
+  "buried_treasure": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "Buried_Treasure",
+    "1.16": "minecraft:buried_treasure"
+   }
+  },
+  "desert_pyramid": {
+   "ids": {
+    "1.7.2": "Temple{Children:[{id:\"TeDP\"}]}",
+    "1.13": "Desert_Pyramid",
+    "1.16": "minecraft:desert_pyramid"
+   }
+  },
+  "end_city": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "EndCity",
+    "1.16": "minecraft:endcity",
+    "1.19": "minecraft:end_city"
+   }
+  },
+  "fortress": {
+   "ids": {
+    "1.7.2": "Fortress",
+    "1.16": "minecraft:fortress"
+   }
+  },
+  "igloo": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "Temple{Children:[{id:\"Iglu\"}]}",
+    "1.13": "Igloo",
+    "1.16": "minecraft:igloo"
+   }
+  },
+  "jungle_pyramid": {
+   "ids": {
+    "1.7.2": "Temple{Children:[{id:\"TeJP\"}]}",
+    "1.13": "Jungle_Pyramid",
+    "1.16": "minecraft:jungle_pyramid"
+   }
+  },
+  "mansion": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "Mansion",
+    "1.16": "minecraft:mansion"
+   }
+  },
+  "mineshaft": {
+   "ids": {
+    "1.7.2": "Mineshaft",
+    "1.10": "Mineshaft{Children:[{MST:0}]}",
+    "1.16": "minecraft:mineshaft{Children:[{MST:0}]}",
+    "1.19": "minecraft:mineshaft"
+   }
+  },
+  "mineshaft_mesa": {
+   "ids": {
+    "1.7.2": "",
+    "1.10": "Mineshaft{Children:[{MST:1}]}",
+    "1.16": "minecraft:mineshaft{Children:[{MST:1}]}",
+    "1.19": "minecraft:mineshaft_mesa"
+   }
+  },
+  "monument": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "Monument",
+    "1.16": "minecraft:monument"
+   }
+  },
+  "nether_fossil": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:nether_fossil"
+   }
+  },
+  "ocean_ruin_cold": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "Ocean_Ruin{Children:[{BiomeType:\"COLD\"}]}",
+    "1.16": "minecraft:ocean_ruin{Children:[{BiomeType:\"COLD\"}]}",
+    "1.19": "minecraft:ocean_ruin_cold"
+   }
+  },
+  "ocean_ruin_warm": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "Ocean_Ruin{Children:[{BiomeType:\"WARM\"}]}",
+    "1.16": "minecraft:ocean_ruin{Children:[{BiomeType:\"WARM\"}]}",
+    "1.19": "minecraft:ocean_ruin_warm"
+   }
+  },
+  "pillager_outpost": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "Pillager_Outpost",
+    "1.16": "minecraft:pillager_outpost"
+   }
+  },
+  "ruined_portal": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:ruined_portal{portal_type:\"standard\"}",
+    "1.19": "minecraft:ruined_portal"
+   }
+  },
+  "ruined_portal_desert": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:ruined_portal{portal_type:\"desert\"}",
+    "1.19": "minecraft:ruined_portal_desert"
+   }
+  },
+  "ruined_portal_jungle": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:ruined_portal{portal_type:\"jungle\"}",
+    "1.19": "minecraft:ruined_portal_jungle"
+   }
+  },
+  "ruined_portal_mountain": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:ruined_portal{portal_type:\"mountain\"}",
+    "1.19": "minecraft:ruined_portal_mountain"
+   }
+  },
+  "ruined_portal_nether": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:ruined_portal{portal_type:\"nether\"}",
+    "1.19": "minecraft:ruined_portal_nether"
+   }
+  },
+  "ruined_portal_ocean": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:ruined_portal{portal_type:\"ocean\"}",
+    "1.19": "minecraft:ruined_portal_ocean"
+   }
+  },
+  "ruined_portal_swamp": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "minecraft:ruined_portal{portal_type:\"swamp\"}",
+    "1.19": "minecraft:ruined_portal_swamp"
+   }
+  },
+  "shipwreck": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "Shipwreck{Children:[{isBeached:0b}]}",
+    "1.16": "minecraft:shipwreck{Children:[{isBeached:0b}]}",
+    "1.19": "minecraft:shipwreck"
+   }
+  },
+  "shipwreck_beached": {
+   "ids": {
+    "1.7.2": "",
+    "1.13": "Shipwreck{Children:[{isBeached:1b}]}",
+    "1.16": "minecraft:shipwreck{Children:[{isBeached:1b}]}",
+    "1.19": "minecraft:shipwreck_beached"
+   }
+  },
+  "stronghold": {
+   "ids": {
+    "1.7.2": "Stronghold",
+    "1.16": "minecraft:stronghold"
+   }
+  },
+  "swamp_hut": {
+   "ids": {
+    "1.7.2": "Temple{Children:[{id:\"TeSH\"}]}",
+    "1.13": "Swamp_Hut",
+    "1.16": "minecraft:swamp_hut"
+   }
+  },
+  "trail_ruins": {
+   "ids": {
+    "1.7.2": "",
+    "1.20": "minecraft:trail_ruins"
+   }
+  },
+  "trial_chambers": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.3": "minecraft:trial_chambers"
+   }
+  },
+  "village_desert": {
+   "ids": {
+    "1.7.2": "Village{Children:[{Desert:1b}]}",
+    "1.10": "Village{Children:[{Type:1b}]}",
+    "1.14": "Village{start_pool:\"village/desert/town_centers\"}",
+    "1.16": "minecraft:village{start_pool:\"minecraft:village/desert/town_centers\"}",
+    "1.19": "minecraft:village_desert"
+   }
+  },
+  "village_plains": {
+   "ids": {
+    "1.7.2": "Village{Children:[{Desert:0b}]}",
+    "1.10": "Village{Children:[{Type:0b}]}",
+    "1.14": "Village{start_pool:\"village/plains/town_centers\"}",
+    "1.16": "minecraft:village{start_pool:\"minecraft:village/plains/town_centers\"}",
+    "1.19": "minecraft:village_plains"
+   }
+  },
+  "village_savanna": {
+   "ids": {
+    "1.7.2": "",
+    "1.10": "Village{Children:[{Type:2b}]}",
+    "1.14": "Village{start_pool:\"village/savanna/town_centers\"}",
+    "1.16": "minecraft:village{start_pool:\"minecraft:village/savanna/town_centers\"}",
+    "1.19": "minecraft:village_savanna"
+   }
+  },
+  "village_snowy": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "Village{start_pool:\"village/snowy/town_centers\"}",
+    "1.16": "minecraft:village{start_pool:\"minecraft:village/snowy/town_centers\"}",
+    "1.19": "minecraft:village_snowy"
+   }
+  },
+  "village_taiga": {
+   "ids": {
+    "1.7.2": "",
+    "1.10": "Village{Children:[{Type:3b}]}",
+    "1.14": "Village{start_pool:\"village/taiga/town_centers\"}",
+    "1.16": "minecraft:village{start_pool:\"minecraft:village/taiga/town_centers\"}",
+    "1.19": "minecraft:village_taiga"
+   }
+  }
+ }
+}

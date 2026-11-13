@@ -1,0 +1,24 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such cow sound variant in this version"
+ },
+ "cow_sound_variants": {
+  "classic": {
+   "ids": {
+    "1.7.2": "Cow",
+    "1.11": "minecraft:cow",
+    "26.1": "minecraft:cow{sound_variant:\"minecraft:classic\"}"
+   }
+  },
+  "moody": {
+   "ids": {
+    "1.7.2": "",
+    "26.1": "minecraft:cow{sound_variant:\"minecraft:moody\"}"
+   }
+  }
+ }
+}

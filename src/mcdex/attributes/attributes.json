@@ -1,0 +1,289 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such attribute in this version"
+ },
+ "attributes": {
+  "air_drag_modifier": {
+   "ids": {
+    "1.7.2": "",
+    "26.2": "minecraft:air_drag_modifier"
+   }
+  },
+  "armor": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "generic.armor",
+    "1.16": "minecraft:generic.armor",
+    "1.21.2": "minecraft:armor"
+   }
+  },
+  "armor_toughness": {
+   "ids": {
+    "1.7.2": "",
+    "1.9.1": "generic.armorToughness",
+    "1.16": "minecraft:generic.armor_toughness",
+    "1.21.2": "minecraft:armor_toughness"
+   }
+  },
+  "attack_damage": {
+   "ids": {
+    "1.7.2": "generic.attackDamage",
+    "1.16": "minecraft:generic.attack_damage",
+    "1.21.2": "minecraft:attack_damage"
+   }
+  },
+  "attack_knockback": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "generic.attackKnockback",
+    "1.16": "minecraft:generic.attack_knockback",
+    "1.21.2": "minecraft:attack_knockback"
+   }
+  },
+  "attack_speed": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "generic.attackSpeed",
+    "1.16": "minecraft:generic.attack_speed",
+    "1.21.2": "minecraft:attack_speed"
+   }
+  },
+  "below_name_distance": {
+   "ids": {
+    "1.7.2": "",
+    "26.2": "minecraft:below_name_distance"
+   }
+  },
+  "block_break_speed": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:player.block_break_speed",
+    "1.21.2": "minecraft:block_break_speed"
+   }
+  },
+  "block_interaction_range": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:player.block_interaction_range",
+    "1.21.2": "minecraft:block_interaction_range"
+   }
+  },
+  "bounciness": {
+   "ids": {
+    "1.7.2": "",
+    "26.2": "minecraft:bounciness"
+   }
+  },
+  "burning_time": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:generic.burning_time",
+    "1.21.2": "minecraft:burning_time"
+   }
+  },
+  "camera_distance": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.6": "minecraft:camera_distance"
+   }
+  },
+  "entity_interaction_range": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:player.entity_interaction_range",
+    "1.21.2": "minecraft:entity_interaction_range"
+   }
+  },
+  "explosion_knockback_resistance": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:generic.explosion_knockback_resistance",
+    "1.21.2": "minecraft:explosion_knockback_resistance"
+   }
+  },
+  "fall_damage_multiplier": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:generic.fall_damage_multiplier",
+    "1.21.2": "minecraft:fall_damage_multiplier"
+   }
+  },
+  "flying_speed": {
+   "ids": {
+    "1.7.2": "",
+    "1.12": "generic.flyingSpeed",
+    "1.16": "minecraft:generic.flying_speed",
+    "1.21.2": "minecraft:flying_speed"
+   }
+  },
+  "follow_range": {
+   "ids": {
+    "1.7.2": "generic.followRange",
+    "1.16": "minecraft:generic.follow_range",
+    "1.21.2": "minecraft:follow_range"
+   }
+  },
+  "friction_modifier": {
+   "ids": {
+    "1.7.2": "",
+    "26.2": "minecraft:friction_modifier"
+   }
+  },
+  "gravity": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:generic.gravity",
+    "1.21.2": "minecraft:gravity"
+   }
+  },
+  "jump_strength": {
+   "ids": {
+    "1.7.2": "horse.jumpStrength",
+    "1.16": "minecraft:horse.jump_strength",
+    "1.20.5": "minecraft:generic.jump_strength",
+    "1.21.2": "minecraft:jump_strength"
+   }
+  },
+  "knockback_resistance": {
+   "ids": {
+    "1.7.2": "generic.knockbackResistance",
+    "1.16": "minecraft:generic.knockback_resistance",
+    "1.21.2": "minecraft:knockback_resistance"
+   }
+  },
+  "luck": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "generic.luck",
+    "1.16": "minecraft:generic.luck",
+    "1.21.2": "minecraft:luck"
+   }
+  },
+  "max_absorption": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.2": "minecraft:generic.max_absorption",
+    "1.21.2": "minecraft:max_absorption"
+   }
+  },
+  "max_health": {
+   "ids": {
+    "1.7.2": "generic.maxHealth",
+    "1.16": "minecraft:generic.max_health",
+    "1.21.2": "minecraft:max_health"
+   }
+  },
+  "mining_efficiency": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:player.mining_efficiency",
+    "1.21.2": "minecraft:mining_efficiency"
+   }
+  },
+  "movement_efficiency": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:generic.movement_efficiency",
+    "1.21.2": "minecraft:movement_efficiency"
+   }
+  },
+  "movement_speed": {
+   "ids": {
+    "1.7.2": "generic.movementSpeed",
+    "1.16": "minecraft:generic.movement_speed",
+    "1.21.2": "minecraft:movement_speed"
+   }
+  },
+  "name_tag_distance": {
+   "ids": {
+    "1.7.2": "",
+    "26.2": "minecraft:name_tag_distance"
+   }
+  },
+  "oxygen_bonus": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:generic.oxygen_bonus",
+    "1.21.2": "minecraft:oxygen_bonus"
+   }
+  },
+  "safe_fall_distance": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:generic.safe_fall_distance",
+    "1.21.2": "minecraft:safe_fall_distance"
+   }
+  },
+  "scale": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:generic.scale",
+    "1.21.2": "minecraft:scale"
+   }
+  },
+  "sneaking_speed": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:player.sneaking_speed",
+    "1.21.2": "minecraft:sneaking_speed"
+   }
+  },
+  "spawn_reinforcements": {
+   "ids": {
+    "1.7.2": "zombie.spawnReinforcements",
+    "1.16": "minecraft:zombie.spawn_reinforcements",
+    "1.21.2": "minecraft:spawn_reinforcements"
+   }
+  },
+  "step_height": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "minecraft:generic.step_height",
+    "1.21.2": "minecraft:step_height"
+   }
+  },
+  "submerged_mining_speed": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:player.submerged_mining_speed",
+    "1.21.2": "minecraft:submerged_mining_speed"
+   }
+  },
+  "sweeping_damage_ratio": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:player.sweeping_damage_ratio",
+    "1.21.2": "minecraft:sweeping_damage_ratio"
+   }
+  },
+  "tempt_range": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.2": "minecraft:tempt_range"
+   }
+  },
+  "water_movement_efficiency": {
+   "ids": {
+    "1.7.2": "",
+    "1.21": "minecraft:generic.water_movement_efficiency",
+    "1.21.2": "minecraft:water_movement_efficiency"
+   }
+  },
+  "waypoint_receive_range": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.6": "minecraft:waypoint_receive_range"
+   }
+  },
+  "waypoint_transmit_range": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.6": "minecraft:waypoint_transmit_range"
+   }
+  }
+ }
+}

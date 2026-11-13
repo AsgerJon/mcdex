@@ -1,0 +1,4 @@
+#  The runtime dependencies of mcdex, the same as 'dependencies' in
+#  pyproject.toml. The test jobs of the release workflows install these
+#  and run the suite from 'src' without installing mcdex itself.
+worktoy>=1.2.1.dev1

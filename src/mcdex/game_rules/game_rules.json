@@ -1,0 +1,436 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such game rule in this version"
+ },
+ "game_rules": {
+  "advance_time": {
+   "ids": {
+    "1.7.2": "doDaylightCycle",
+    "1.21.11": "minecraft:advance_time"
+   }
+  },
+  "advance_weather": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "doWeatherCycle",
+    "1.21.11": "minecraft:advance_weather"
+   }
+  },
+  "allow_entering_nether_using_portals": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.9": "allowEnteringNetherUsingPortals",
+    "1.21.11": "minecraft:allow_entering_nether_using_portals"
+   }
+  },
+  "allow_fire_ticks_away_from_player": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.5": "allowFireTicksAwayFromPlayer",
+    "1.21.11": ""
+   }
+  },
+  "block_drops": {
+   "ids": {
+    "1.7.2": "doTileDrops",
+    "1.21.11": "minecraft:block_drops"
+   }
+  },
+  "block_explosion_drop_decay": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.3": "blockExplosionDropDecay",
+    "1.21.11": "minecraft:block_explosion_drop_decay"
+   }
+  },
+  "command_block_output": {
+   "ids": {
+    "1.7.2": "commandBlockOutput",
+    "1.21.11": "minecraft:command_block_output"
+   }
+  },
+  "command_blocks_work": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.9": "commandBlocksEnabled",
+    "1.21.11": "minecraft:command_blocks_work"
+   }
+  },
+  "drowning_damage": {
+   "ids": {
+    "1.7.2": "",
+    "1.15": "drowningDamage",
+    "1.21.11": "minecraft:drowning_damage"
+   }
+  },
+  "elytra_movement_check": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "disableElytraMovementCheck",
+    "1.21.11": "minecraft:elytra_movement_check"
+   }
+  },
+  "ender_pearls_vanish_on_death": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.2": "enderPearlsVanishOnDeath",
+    "1.21.11": "minecraft:ender_pearls_vanish_on_death"
+   }
+  },
+  "entity_drops": {
+   "ids": {
+    "1.7.2": "",
+    "1.8.1": "doEntityDrops",
+    "1.21.11": "minecraft:entity_drops"
+   }
+  },
+  "fall_damage": {
+   "ids": {
+    "1.7.2": "",
+    "1.15": "fallDamage",
+    "1.21.11": "minecraft:fall_damage"
+   }
+  },
+  "fire_damage": {
+   "ids": {
+    "1.7.2": "",
+    "1.15": "fireDamage",
+    "1.21.11": "minecraft:fire_damage"
+   }
+  },
+  "fire_spread_radius_around_player": {
+   "ids": {
+    "1.7.2": "doFireTick",
+    "1.21.11": "minecraft:fire_spread_radius_around_player"
+   }
+  },
+  "forgive_dead_players": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "forgiveDeadPlayers",
+    "1.21.11": "minecraft:forgive_dead_players"
+   }
+  },
+  "freeze_damage": {
+   "ids": {
+    "1.7.2": "",
+    "1.17": "freezeDamage",
+    "1.21.11": "minecraft:freeze_damage"
+   }
+  },
+  "game_loop_function": {
+   "ids": {
+    "1.7.2": "",
+    "1.12": "gameLoopFunction",
+    "1.13": ""
+   }
+  },
+  "global_sound_events": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.3": "globalSoundEvents",
+    "1.21.11": "minecraft:global_sound_events"
+   }
+  },
+  "immediate_respawn": {
+   "ids": {
+    "1.7.2": "",
+    "1.15": "doImmediateRespawn",
+    "1.21.11": "minecraft:immediate_respawn"
+   }
+  },
+  "keep_inventory": {
+   "ids": {
+    "1.7.2": "keepInventory",
+    "1.21.11": "minecraft:keep_inventory"
+   }
+  },
+  "lava_source_conversion": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.3": "lavaSourceConversion",
+    "1.21.11": "minecraft:lava_source_conversion"
+   }
+  },
+  "limited_crafting": {
+   "ids": {
+    "1.7.2": "",
+    "1.12": "doLimitedCrafting",
+    "1.21.11": "minecraft:limited_crafting"
+   }
+  },
+  "locator_bar": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.6": "locatorBar",
+    "1.21.11": "minecraft:locator_bar"
+   }
+  },
+  "log_admin_commands": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "logAdminCommands",
+    "1.21.11": "minecraft:log_admin_commands"
+   }
+  },
+  "max_block_modifications": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "commandModificationBlockLimit",
+    "1.21.11": "minecraft:max_block_modifications"
+   }
+  },
+  "max_command_forks": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.3": "maxCommandForkCount",
+    "1.21.11": "minecraft:max_command_forks"
+   }
+  },
+  "max_command_sequence_length": {
+   "ids": {
+    "1.7.2": "",
+    "1.12": "maxCommandChainLength",
+    "1.21.11": "minecraft:max_command_sequence_length"
+   }
+  },
+  "max_entity_cramming": {
+   "ids": {
+    "1.7.2": "",
+    "1.11": "maxEntityCramming",
+    "1.21.11": "minecraft:max_entity_cramming"
+   }
+  },
+  "max_minecart_speed": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.2": "minecartMaxSpeed",
+    "1.21.11": "minecraft:max_minecart_speed"
+   }
+  },
+  "max_snow_accumulation_height": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.3": "snowAccumulationHeight",
+    "1.21.11": "minecraft:max_snow_accumulation_height"
+   }
+  },
+  "mob_drops": {
+   "ids": {
+    "1.7.2": "doMobLoot",
+    "1.21.11": "minecraft:mob_drops"
+   }
+  },
+  "mob_explosion_drop_decay": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.3": "mobExplosionDropDecay",
+    "1.21.11": "minecraft:mob_explosion_drop_decay"
+   }
+  },
+  "mob_griefing": {
+   "ids": {
+    "1.7.2": "mobGriefing",
+    "1.21.11": "minecraft:mob_griefing"
+   }
+  },
+  "natural_health_regeneration": {
+   "ids": {
+    "1.7.2": "naturalRegeneration",
+    "1.21.11": "minecraft:natural_health_regeneration"
+   }
+  },
+  "player_movement_check": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.2": "disablePlayerMovementCheck",
+    "1.21.11": "minecraft:player_movement_check"
+   }
+  },
+  "players_nether_portal_creative_delay": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.3": "playersNetherPortalCreativeDelay",
+    "1.21.11": "minecraft:players_nether_portal_creative_delay"
+   }
+  },
+  "players_nether_portal_default_delay": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.3": "playersNetherPortalDefaultDelay",
+    "1.21.11": "minecraft:players_nether_portal_default_delay"
+   }
+  },
+  "players_sleeping_percentage": {
+   "ids": {
+    "1.7.2": "",
+    "1.17": "playersSleepingPercentage",
+    "1.21.11": "minecraft:players_sleeping_percentage"
+   }
+  },
+  "projectiles_can_break_blocks": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.3": "projectilesCanBreakBlocks",
+    "1.21.11": "minecraft:projectiles_can_break_blocks"
+   }
+  },
+  "pvp": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.9": "pvp",
+    "1.21.11": "minecraft:pvp"
+   }
+  },
+  "raids": {
+   "ids": {
+    "1.7.2": "",
+    "1.14.3": "disableRaids",
+    "1.21.11": "minecraft:raids"
+   }
+  },
+  "random_tick_speed": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "randomTickSpeed",
+    "1.21.11": "minecraft:random_tick_speed"
+   }
+  },
+  "reduced_debug_info": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "reducedDebugInfo",
+    "1.21.11": "minecraft:reduced_debug_info"
+   }
+  },
+  "respawn_radius": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "spawnRadius",
+    "1.21.11": "minecraft:respawn_radius"
+   }
+  },
+  "send_command_feedback": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "sendCommandFeedback",
+    "1.21.11": "minecraft:send_command_feedback"
+   }
+  },
+  "show_advancement_messages": {
+   "ids": {
+    "1.7.2": "",
+    "1.12": "announceAdvancements",
+    "1.21.11": "minecraft:show_advancement_messages"
+   }
+  },
+  "show_death_messages": {
+   "ids": {
+    "1.7.2": "",
+    "1.8": "showDeathMessages",
+    "1.21.11": "minecraft:show_death_messages"
+   }
+  },
+  "spawn_chunk_radius": {
+   "ids": {
+    "1.7.2": "",
+    "1.20.5": "spawnChunkRadius",
+    "1.21.9": ""
+   }
+  },
+  "spawn_mobs": {
+   "ids": {
+    "1.7.2": "doMobSpawning",
+    "1.21.11": "minecraft:spawn_mobs"
+   }
+  },
+  "spawn_monsters": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.9": "spawnMonsters",
+    "1.21.11": "minecraft:spawn_monsters"
+   }
+  },
+  "spawn_patrols": {
+   "ids": {
+    "1.7.2": "",
+    "1.15.2": "doPatrolSpawning",
+    "1.21.11": "minecraft:spawn_patrols"
+   }
+  },
+  "spawn_phantoms": {
+   "ids": {
+    "1.7.2": "",
+    "1.15": "doInsomnia",
+    "1.21.11": "minecraft:spawn_phantoms"
+   }
+  },
+  "spawn_wandering_traders": {
+   "ids": {
+    "1.7.2": "",
+    "1.15.2": "doTraderSpawning",
+    "1.21.11": "minecraft:spawn_wandering_traders"
+   }
+  },
+  "spawn_wardens": {
+   "ids": {
+    "1.7.2": "",
+    "1.19": "doWardenSpawning",
+    "1.21.11": "minecraft:spawn_wardens"
+   }
+  },
+  "spawner_blocks_work": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.9": "spawnerBlocksEnabled",
+    "1.21.11": "minecraft:spawner_blocks_work"
+   }
+  },
+  "spectators_generate_chunks": {
+   "ids": {
+    "1.7.2": "",
+    "1.9": "spectatorsGenerateChunks",
+    "1.21.11": "minecraft:spectators_generate_chunks"
+   }
+  },
+  "spread_vines": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.4": "doVinesSpread",
+    "1.21.11": "minecraft:spread_vines"
+   }
+  },
+  "tnt_explodes": {
+   "ids": {
+    "1.7.2": "",
+    "1.21.5": "tntExplodes",
+    "1.21.11": "minecraft:tnt_explodes"
+   }
+  },
+  "tnt_explosion_drop_decay": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.3": "tntExplosionDropDecay",
+    "1.21.11": "minecraft:tnt_explosion_drop_decay"
+   }
+  },
+  "universal_anger": {
+   "ids": {
+    "1.7.2": "",
+    "1.16": "universalAnger",
+    "1.21.11": "minecraft:universal_anger"
+   }
+  },
+  "water_source_conversion": {
+   "ids": {
+    "1.7.2": "",
+    "1.19.3": "waterSourceConversion",
+    "1.21.11": "minecraft:water_source_conversion"
+   }
+  }
+ }
+}

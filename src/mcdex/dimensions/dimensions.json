@@ -1,0 +1,29 @@
+{
+ "covers": [
+  "1.7.2",
+  "26.3"
+ ],
+ "legend": {
+  "": "vanilla has no such dimension in this version"
+ },
+ "dimensions": {
+  "overworld": {
+   "ids": {
+    "1.7.2": "0",
+    "1.13": "minecraft:overworld"
+   }
+  },
+  "the_end": {
+   "ids": {
+    "1.7.2": "1",
+    "1.13": "minecraft:the_end"
+   }
+  },
+  "the_nether": {
+   "ids": {
+    "1.7.2": "-1",
+    "1.13": "minecraft:the_nether"
+   }
+  }
+ }
+}
