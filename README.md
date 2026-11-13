@@ -3,7 +3,7 @@
 [![PyPI version](https://img.shields.io/pypi/v/mcdex)](https://pypi.org/project/mcdex/)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-# mcdex v0.1.0-dev0 (development build)
+# mcdex v0.1.0-dev1 (development build)
 A typed, version-agnostic catalogue of Minecraft for Python: every item, block and entity with one identity across all versions, carrying what it is, what it does and when it arrived. Name a thing once and it means the same on 1.7.10 and on 26.3. Not affiliated with Mojang or Microsoft.
 
 Items, entities, blocks, mob effects, enchantments, potions, biomes, block entities, particles, sounds, attributes, statistics, game rules, villager professions and types, dimensions, damage types, armor trims, music, mob variants, paintings, banner patterns, advancements and structures are in. The data covers every release from 1.7.2 to 26.3.
