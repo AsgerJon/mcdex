@@ -40,6 +40,7 @@ class MCSounds(MCThing):
   __data_key__ = 'sounds'
   __id_class__ = SoundId
   __kind__ = 'sound'
+  __game_names__ = True
 
   #  Members, one for every name of 'sounds.json'
   ALLAY_AMBIENT_WITH_ITEM = Kee[str]('allay_ambient_with_item')

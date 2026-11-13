@@ -25,7 +25,7 @@ class TestMCAdvancements(BaseTest):
                      AdvancementId('stone_age', 'minecraft:story/mine_stone'))
     self.assertIsInstance(stoneAge[Version.V26_3], GameId)
     self.assertEqual(repr(stoneAge), "<MCAdvancements>.STONE_AGE")
-    self.assertEqual(len(MCAdvancements), 1937)
+    self.assertEqual(len(MCAdvancements), 1938)
     self.assertNotEqual(AdvancementId('x', 'minecraft:x'),
                         StatisticId('x', 'minecraft:x'))
     with self.assertRaises(NotInVersion) as context:
@@ -69,17 +69,43 @@ class TestMCAdvancements(BaseTest):
     self.assertEqual(glisteringMelonSliceRecipe[Version.V1_12].minecraftId,
                      'minecraft:recipes/brewing/speckled_melon')
 
-  def test_moved(self) -> None:
+  def test_game_names(self) -> None:
     """
-    An advancement the game moved with no fixer to say so is one: the
-    title of the diamond hoe's went to the netherite hoe's in 1.16, and a
-    recipe moved from one category to another in 1.21.6.
+    The game's names find an advancement too, as '/advancement' takes
+    them, the old ones included.
+    """
+    self.assertIs(MCAdvancements['story/mine_stone'],
+                  MCAdvancements.STONE_AGE)
+    self.assertIs(MCAdvancements['minecraft:story/mine_stone'],
+                  MCAdvancements.STONE_AGE)
+    self.assertIs(MCAdvancements['nether/use_lodestone'],
+                  MCAdvancements.COUNTRY_LODE_TAKE_ME_HOME)
+    self.assertIs(MCAdvancements['recipes/brewing/speckled_melon'],
+                  MCAdvancements.GLISTERING_MELON_SLICE_RECIPE)
+    #  1.12's name of the cobblestone stairs' recipe, the stone stairs'
+    #  from 1.14: the name finds the one that held it last.
+    self.assertIs(MCAdvancements['recipes/building_blocks/stone_stairs'],
+                  MCAdvancements.STONE_STAIRS_RECIPE)
+
+  def test_same_title_other_goal(self) -> None:
+    """
+    An advancement whose title went to another goal is two: "Serious
+    Dedication" wore out a diamond hoe to 1.15.2 and makes a netherite hoe
+    from 1.16. The newer has the title, the older its own name.
     """
     seriousDedication = MCAdvancements.SERIOUS_DEDICATION
-    self.assertEqual(seriousDedication[Version.V1_15_2].minecraftId,
-                     'minecraft:husbandry/break_diamond_hoe')
+    breakDiamondHoe = MCAdvancements.BREAK_DIAMOND_HOE
     self.assertEqual(seriousDedication[Version.V1_16].minecraftId,
                      'minecraft:husbandry/obtain_netherite_hoe')
+    self.assertEqual(breakDiamondHoe[Version.V1_15_2].minecraftId,
+                     'minecraft:husbandry/break_diamond_hoe')
+    with self.assertRaises(NotInVersion):
+      _ = seriousDedication[Version.V1_15_2]
+    with self.assertRaises(NotInVersion):
+      _ = breakDiamondHoe[Version.V1_16]
+
+  def test_moved(self) -> None:
+    """A recipe moved from one category to another in 1.21.6 is one."""
     dyeBlackBedRecipe = MCAdvancements.DYE_BLACK_BED_RECIPE
     self.assertEqual(dyeBlackBedRecipe[Version.V1_21_5].minecraftId,
                      'minecraft:recipes/building_blocks/dye_black_bed')

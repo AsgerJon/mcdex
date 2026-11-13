@@ -91,7 +91,7 @@ MCItems.Diamond is diamond     # True
 
 Every catalogue of mcdex is such an enumeration, built on worktoy's `KeeNum`, so an editor can complete `MCItems.PINK_WOOL`. A unique name that is no member's name, as the jukebox song `13`, is found by indexing: `Music['13']` is `Music.THIRTEEN`.
 
-A thing's name is the one a person would use. Most often that is the game's own name; where the game's name is code-speak or misleading, it is Mojang's own English name for the thing: `MCItems.EYE_OF_ENDER` (the game's `ender_eye`), `MCItems.STEAK` (`cooked_beef`), `MCStatistics.DISTANCE_BY_BOAT` (`boat_one_cm`). The game's name stays valid too: `MCItems.ENDER_EYE` is the same item, with the same data.
+A thing's name is the one a person would use. Most often that is the game's own name; where the game's name is code-speak or misleading, it is Mojang's own English name for the thing: `MCItems.EYE_OF_ENDER` (the game's `ender_eye`), `MCItems.STEAK` (`cooked_beef`), `MCStatistics.DISTANCE_BY_BOAT` (`boat_one_cm`). The game's name stays valid too: `MCItems.ENDER_EYE` is the same item, with the same data. Sounds and advancements, whose game names are paths, keep no members of those names; their catalogues find a thing by any name the game gave it instead: `MCSounds['entity.creeper.primed']` is `MCSounds.CREEPER_HISS`.
 
 The data ships inside the package, in `mcdex/items/items.json`. Importing mcdex makes the members but reads none of the data: the first use of a catalogue reads its file, in a few milliseconds, and an item's record is read at the item's first use.
 
@@ -544,6 +544,8 @@ creeperHiss[Version.V1_9].minecraftId                    # 'minecraft:entity.cre
 MCSounds.GOAT_HORN_SOUND_7[Version.V1_19].minecraftId    # 'minecraft:item.goat_horn.sound.7'
 MCSounds.ENDERMAN_VWOOP[Version.V1_12_2].minecraftId     # 'minecraft:entity.endermen.ambient'
 MCSounds.ENDERMAN_VWOOP[Version.V1_13].minecraftId       # 'minecraft:entity.enderman.ambient'
+MCSounds['entity.creeper.primed'] is creeperHiss         # True, as /playsound takes it
+MCSounds['entity.endermen.ambient'] is MCSounds.ENDERMAN_VWOOP   # True, 1.12.2's name
 len(MCSounds)                                            # 2006
 creeperHiss[Version.V1_8_9]
 # ValueError: mcdex has no data on 'creeper_hiss' before 1.9
@@ -770,10 +772,11 @@ stoneAge[Version.V1_12].minecraftId                  # 'minecraft:story/mine_sto
 countryLodeTakeMeHome[Version.V1_16].minecraftId     # 'minecraft:nether/use_lodestone'
 countryLodeTakeMeHome[Version.V1_21_5].minecraftId   # 'minecraft:adventure/use_lodestone'
 acaciaPlanksRecipe[Version.V1_12].minecraftId        # 'minecraft:recipes/building_blocks/acacia_planks'
-len(MCAdvancements)                                  # 1937
+MCAdvancements['story/mine_stone'] is stoneAge       # True, as /advancement takes it
+len(MCAdvancements)                                  # 1938
 ```
 
-Each version's advancements are the files of its own data pack, which the game loads them from. Which old advancement is which comes from the game's own advancement renames. Where the game moved one with no such rename, it is still one advancement when the new takes up in the version the old leaves off and the name says it is the same: the diamond hoe's "Serious Dedication" became the netherite hoe's in 1.16, and 46 recipe advancements moved to another category in 1.21.6.
+Each version's advancements are the files of its own data pack, which the game loads them from. Which old advancement is which comes from the game's own advancement renames. The game's names find an advancement too, the old ones included; a name the game gave two advancements finds the one that held it last, as `recipes/building_blocks/stone_stairs`, the cobblestone stairs' recipe in 1.12 and the stone stairs' from 1.14. A recipe advancement the game moved to another category with no such rename is still one, where the new takes up in the version the old leaves off: 46 of them moved in 1.21.6. A title alone does not make two advancements one: "Serious Dedication" wore out a diamond hoe to 1.15.2 and makes a netherite hoe from 1.16, so the newer has the title and the older is `BREAK_DIAMOND_HOE`, the last part of its own name.
 
 ## Structures
 
@@ -1186,9 +1189,9 @@ from mcdex import EquipmentSlot, MCItems, Version
 [item.uniqueName for item in MCItems
  if item.equipmentSlot.get(Version.V26_3) is EquipmentSlot.HEAD]
 # ['carved_pumpkin', 'chainmail_helmet', 'copper_helmet', 'creeper_head',
-#  'diamond_helmet', 'dragon_head', 'golden_helmet', 'iron_helmet', 'leather_helmet',
-#  'netherite_helmet', 'piglin_head', 'player_head', 'skeleton_skull', 'turtle_helmet',
-#  'wither_skeleton_skull', 'zombie_head']
+#  'diamond_helmet', 'dragon_head', 'golden_helmet', 'iron_helmet', 'leather_cap',
+#  'leather_helmet', 'netherite_helmet', 'piglin_head', 'player_head', 'skeleton_skull',
+#  'turtle_helmet', 'turtle_shell', 'wither_skeleton_skull', 'zombie_head']
 
 [item.uniqueName for item in MCItems if not item.versionIds[Version.V26_3]]
 # ['carrots', 'cocoa', 'double_stone_slab', 'double_wooden_slab', 'end_portal', 'fire',
@@ -1232,7 +1235,7 @@ All of it comes from Mojang's own files: the server jar of every release, the ve
 - **Mob variants.** From the version each came in, they come from the keys each jar's code declares for them, or the entries it registers, each checked against the jar's own data pack. From 1.14 to 1.18.2 the cats are the numbers of each jar's own table of cat textures, and before 1.14 the ocelot numbers the game's own upgrade code makes cats. A default variant is the one the mob's code defines its data with, as the wolf's `PALE`. Each id's key is checked against the mob's own code in each version.
 - **Paintings.** Each id is the painting with its picture, under the key each jar's painting code saves it under. To 1.12.2 they come from each jar's enum of paintings, to 1.14.3 from its registration, and from 1.14.4 from running the code that registers them or declares their keys, found through Mojang's mappings and checked against the jar's own data pack from 1.21. Which old title is which painting comes from running the game's own painting upgrade code.
 - **Banner patterns.** To 1.18.2 they come from each jar's enum of patterns, to 1.20.4 from the code that registers each with its code, and from 1.20.5 from the keys each jar's code declares, checked against its data pack. Which old code is which pattern comes from the game's own table for upgrading banners.
-- **Advancements.** From 1.12 they come from the files of each jar's own data pack, which the game loads them from. Which old advancement is which comes from the game's own advancement renames.
+- **Advancements.** From 1.12 they come from the files of each jar's own data pack, which the game loads them from. Which old advancement is which comes from the game's own advancement renames, and, for a recipe advancement the game moved to another category with no rename, from the recipe it unlocks: one taking up in the version the other leaves off is the same advancement, as the 46 that moved in 1.21.6. An advancement's title comes from its own file.
 - **Structures.** To 1.15.2 they come from the names each jar registers its structures' starts with, to 1.18.2 from its structure features, and from 1.19 from the keys its code declares, checked against its data pack. The kinds of an old structure come from the data its pieces are saved with, or what it is configured with. Which old structure is which comes from the game's own upgrade code, and from the names 1.16.2 to 1.18.2 give each configured kind.
 - **Entities.**
   - Up to 1.12.2, the names come from each server jar's entity list: every class it registers that is not abstract, and the names its code adds itself, `LightningBolt` and `Player`. From 1.13 they come from the entity type registry, read the same way as the items.

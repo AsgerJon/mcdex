@@ -148,6 +148,23 @@ class TestMCSounds(BaseTest):
         self.assertEqual(sound[before].minecraftId, 'minecraft:' + old)
         self.assertEqual(sound[renamed].minecraftId, 'minecraft:' + new)
 
+  def test_game_names(self) -> None:
+    """
+    The game's names find a sound too, as '/playsound' takes them, the
+    old ones included: 1.12.2 called the enderman's 'entity.endermen.'.
+    """
+    self.assertIs(MCSounds['entity.creeper.primed'], MCSounds.CREEPER_HISS)
+    self.assertIs(MCSounds['minecraft:entity.creeper.primed'],
+                  MCSounds.CREEPER_HISS)
+    self.assertIs(MCSounds['entity.endermen.ambient'],
+                  MCSounds.ENDERMAN_VWOOP)
+    self.assertIs(MCSounds['entity.enderman.ambient'],
+                  MCSounds.ENDERMAN_VWOOP)
+    with self.assertRaises(KeyError) as context:
+      _ = MCSounds['entity.creeper.prime']
+    self.assertIn("mcdex has no sound named 'entity.creeper.prime'",
+                  str(context.exception))
+
   def test_removed_sounds(self) -> None:
     """A sound the game dropped with no successor stays dropped."""
     parrotImitateWolf = MCSounds.PARROT_IMITATE_WOLF

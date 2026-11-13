@@ -9140,10 +9140,16 @@
     "1.20": "minecraft:recipes/misc/sentry_armor_trim_smithing_template_smithing_trim"
    }
   },
-  "serious_dedication": {
+  "break_diamond_hoe": {
    "ids": {
     "1.7.2": "",
     "1.12": "minecraft:husbandry/break_diamond_hoe",
+    "1.16": ""
+   }
+  },
+  "serious_dedication": {
+   "ids": {
+    "1.7.2": "",
     "1.16": "minecraft:husbandry/obtain_netherite_hoe"
    }
   },

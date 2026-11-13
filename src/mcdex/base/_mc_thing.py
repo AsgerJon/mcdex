@@ -69,7 +69,13 @@ class MCThing(CatalogueMeta.keeNum):
 
   A member is found by its name in any case, 'MCItems.Pink_Wool', by its
   unique name, as 'MCItems["pink_wool"]', or by its
-  position. A unique name the catalogue lacks raises 'KeyError'. An
+  position. A catalogue whose things the game names by a path, as the
+  sounds and the advancements, sets '__game_names__': it finds a member
+  by any name the game gave it in any version too, with or without its
+  namespace, as 'MCSounds["entity.creeper.primed"]'. A name the game gave
+  two things finds the one that held it last; two holding it as long
+  raise 'ValueError'. A name the catalogue lacks raises
+  'KeyError'. An
   empty unique name, a name the data lacks, a missing or empty table, or
   ids that leave the thing in no version raise 'ValueError' at the first
   use of the member; a version text that names no release raises
@@ -89,11 +95,13 @@ class MCThing(CatalogueMeta.keeNum):
   __data_file__ = ''
   __data_key__ = ''
   __data_records__: dict = {}
+  __game_names__: bool = False
 
   #  Private Variables
   __all_versions__: dict = {}
   __catalogue_records__: dict = {}
   __unique_names__: dict = {}
+  __game_name_tables__: dict = {}
   __thing_tables__: dict = {}
 
   #  Public Variables
@@ -153,13 +161,16 @@ class MCThing(CatalogueMeta.keeNum):
   def __class_resolve__(cls, identifier: Any) -> Any:
     """
     A member by its unique name, where its name in capitals does not
-    find it, as '13' for 'THIRTEEN'. A
-    unique name the catalogue lacks raises 'KeyError'; anything else
-    goes on to the enumeration's other steps.
+    find it, as '13' for 'THIRTEEN'; in a catalogue that sets
+    '__game_names__', by a name the game gave it too. A name the
+    catalogue lacks raises 'KeyError'; anything else goes on to the
+    enumeration's other steps.
     """
     if not isinstance(identifier, str):
       return NotImplemented
     found = cls._byUniqueName().get(identifier)
+    if found is None and cls.__game_names__:
+      found = cls._byGameName().get(identifier.removeprefix('minecraft:'))
     if found is None:
       infoSpec = """mcdex has no %s named '%s'"""
       raise KeyError(textFmt(infoSpec % (cls.__kind__, identifier)))
@@ -210,6 +221,34 @@ class MCThing(CatalogueMeta.keeNum):
       named = {member.value: member for member in cls}
       MCThing.__unique_names__[cls] = named
     return MCThing.__unique_names__[cls]
+
+  @classmethod
+  def _byGameName(cls, ) -> dict:
+    """
+    The members by every name the game gave them, in any version, without
+    the namespace, listed at the first call. A name the game gave two
+    things is the one's that held it last; two holding it as long raise
+    'ValueError'.
+    """
+    if cls not in MCThing.__game_name_tables__:
+      records = cls._records()
+      end = len(cls._versions())
+      named, until = {}, {}
+      for member in cls:
+        changes = [(cls._position(Version(key)), id_)
+                   for key, id_ in records[member.value]['ids'].items()]
+        for index, (_, id_) in enumerate(changes):
+          path = id_.removeprefix('minecraft:')
+          if not path:
+            continue
+          last = changes[index + 1][0] if index + 1 < len(changes) else end
+          if path not in named or last > until[path]:
+            named[path], until[path] = member, last
+          elif last == until[path]:
+            infoSpec = """two members of %s have the game name '%s'"""
+            raise ValueError(infoSpec % (cls.__name__, path))
+      MCThing.__game_name_tables__[cls] = named
+    return MCThing.__game_name_tables__[cls]
 
   def _record(self, ) -> dict:
     """The member's record in the data, checked for its 'ids'."""

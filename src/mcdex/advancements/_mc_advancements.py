@@ -40,6 +40,7 @@ class MCAdvancements(MCThing):
   __data_key__ = 'advancements'
   __id_class__ = AdvancementId
   __kind__ = 'advancement'
+  __game_names__ = True
 
   #  Members, one for every name of 'advancements.json'
   A_BALANCED_DIET = Kee[str]('a_balanced_diet')
@@ -1992,6 +1993,7 @@ class MCAdvancements(MCThing):
     'sentry_armor_trim_smithing_template_recipe')
   SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE_SMITHING_TRIM_RECIPE = Kee[str](
     'sentry_armor_trim_smithing_template_smithing_trim_recipe')
+  BREAK_DIAMOND_HOE = Kee[str]('break_diamond_hoe')
   SERIOUS_DEDICATION = Kee[str]('serious_dedication')
   SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE_RECIPE = Kee[str](
     'shaper_armor_trim_smithing_template_recipe')

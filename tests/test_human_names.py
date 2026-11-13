@@ -20,10 +20,14 @@ class TestHumanNames(BaseTest):
   """
 
   def assertSameThing(self, pairs: tuple) -> None:
+    """Each pair two members with the same tables: ids, and an item's."""
     for human, game in pairs:
       with self.subTest(human=human, game=game):
         self.assertIsNot(human, game)
         self.assertEqual(human.versionIds, game.versionIds)
+        if isinstance(game, MCItems):
+          self.assertEqual(human.maxStackSize, game.maxStackSize)
+          self.assertEqual(human.equipmentSlot, game.equipmentSlot)
 
   def test_items(self) -> None:
     self.assertSameThing((
