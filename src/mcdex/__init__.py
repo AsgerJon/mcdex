@@ -48,7 +48,7 @@ mcdex is not affiliated with Mojang or Microsoft.
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
-__version__ = '0.1.0-dev1'
+__version__ = '0.1.0-dev2'
 
 from . import base
 from . import items

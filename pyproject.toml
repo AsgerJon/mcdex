@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mcdex"
-version = "0.1.0-dev1"
+version = "0.1.0-dev2"
 description = "A typed, version-agnostic catalogue of Minecraft for Python: every item, block and entity as a class with one identity across all versions. Not affiliated with Mojang or Microsoft."
 readme = "README.md"
 license = "Apache-2.0"
