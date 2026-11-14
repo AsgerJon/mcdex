@@ -534,7 +534,7 @@ No world saves a particle, so the game has no table for upgrading them. Which pa
 
 ## Sounds
 
-`MCSounds` is the catalogue of sound events: what `/playsound` takes. The game first listed its sounds in 1.9; before, a sound was any name its code handed the client, and the game kept no list, so the data begins at 1.9, and mcdex has no data on a sound before it. A sound's name is the one a person would use: the game's newest name for it, without the `entity.`, `block.` or `item.` it begins with, its glued words split (`flintandsteel` is `FLINT_AND_STEEL`). Where the game's last word is code-speak, `ambient` or `primed`, the verb of Mojang's own English subtitle takes its place: the creeper's `entity.creeper.primed`, "Creeper hisses", is `CREEPER_HISS`, and the cow's `entity.cow.ambient`, "Cow moos", is `COW_MOO`:
+`MCSounds` is the catalogue of sound events: what `/playsound` takes, from 1.7.2. From 1.9 the game's code lists its sounds; before, a sound was a name of the client's own list of them, its `sounds.json`, which is what `/playsound` took. A sound's name is the one a person would use: the game's newest name for it, without the `entity.`, `block.` or `item.` it begins with, its glued words split (`flintandsteel` is `FLINT_AND_STEEL`). Where the game's last word is code-speak, `ambient` or `primed`, the verb of Mojang's own English subtitle takes its place: the creeper's `entity.creeper.primed`, "Creeper hisses", is `CREEPER_HISS`, and the cow's `entity.cow.ambient`, "Cow moos", is `COW_MOO`:
 
 ```python
 from mcdex import MCSounds, Version
@@ -546,12 +546,17 @@ MCSounds.ENDERMAN_VWOOP[Version.V1_12_2].minecraftId     # 'minecraft:entity.end
 MCSounds.ENDERMAN_VWOOP[Version.V1_13].minecraftId       # 'minecraft:entity.enderman.ambient'
 MCSounds['entity.creeper.primed'] is creeperHiss         # True, as /playsound takes it
 MCSounds['entity.endermen.ambient'] is MCSounds.ENDERMAN_VWOOP   # True, 1.12.2's name
-len(MCSounds)                                            # 2006
-creeperHiss[Version.V1_8_9]
-# ValueError: mcdex has no data on 'creeper_hiss' before 1.9
+creeperHiss[Version.V1_8_9].minecraftId                  # 'minecraft:creeper.primed'
+MCSounds.WOOL_BREAK[Version.V1_8_9].minecraftId          # 'minecraft:dig.cloth'
+MCSounds.WOOL_PLACE[Version.V1_8_9].minecraftId          # 'minecraft:dig.cloth'
+len(MCSounds)                                            # 2007
+creeperHiss[Version.V1_6_4]
+# ValueError: mcdex has no data on 'creeper_hiss' before 1.7.2
 ```
 
-A sound the game renamed is one sound, its old name in the versions before. No world saves a sound, so the game has no table for upgrading them; the evidence is each version's `sounds.json` asset, which says what sound files each name plays. A name a version drops is the name it adds that plays exactly the same files, where no other name dropped or added there plays them. That links 89 renames, among them `record.cat` to `music_disc.cat` in 1.13. Where several names play one set of files, as the wool's break and place, or the files changed with the name, as the zombie pigman's sounds became the zombified piglin's in 1.16, the generator lists the rename itself: 56 more. A sound that split names the one that carries on the old: `music.nether` is the nether wastes' music from 1.16. The 15 other names the game dropped are sounds it removed, as the parrot's imitations of five mobs in 1.15.
+A sound the game renamed is one sound, its old name in the versions before. No world saves a sound, so the game has no table for upgrading them; the evidence is each version's `sounds.json` asset, which says what sound files each name plays. A name a version drops is the name it adds that plays exactly the same files, where no other name dropped or added there plays them. That links 89 renames, among them `record.cat` to `music_disc.cat` in 1.13. Where several names play one set of files, as the wool's break and place, or the files changed with the name, as the zombie pigman's sounds became the zombified piglin's in 1.16, the generator lists the rename itself: 56 more. A sound that split names the one that carries on the old: `music.nether` is the nether wastes' music from 1.16.
+
+1.9 renamed nearly every sound, and made many one sound several: 1.8.9 broke and placed wool with `dig.cloth`, and shot an arrow and threw an egg with `random.bow`. A thing that was part of a bigger one carries the old name, so each sound 1.9 made of one is that one before it: `WOOL_BREAK` and `WOOL_PLACE` are both `dig.cloth` in 1.8.9, and that game name finds neither of them alone. Where several names of 1.8.9 play one set of files, as the creeper's fuse and TNT's, `creeper.primed` and `game.tnt.primed`, the generator pairs them by name. The 16 other names the game dropped are sounds it removed, as 1.8's unused `note.bass` in 1.9 and the parrot's imitations of five mobs in 1.15.
 
 ## Attributes
 
@@ -1221,7 +1226,7 @@ All of it comes from Mojang's own files: the server jar of every release, the ve
   - Up to 1.12.2 they come from the names each jar maps its block entity classes to. From 1.13 they come from the block entity type registry.
   - Which old name is which comes from the game's own table of old names and its renames. The trapped chest shares the chest's old id, as its upgrade fix shows.
 - **Particles.** From 1.8 to 1.12.2 they come from each jar's particle enum, and from 1.13 from the particle type registry. They are linked across 1.13 by Mojang's own names and by the code of the server and client jars, as the section above says.
-- **Sounds.** From 1.9 to 1.13.2 they come from each jar's sound registration method, and from 1.14 from the sound event registry. Sounds the game registers in loops, as the goat horns, come from running those methods on their own. Renames come from each version's `sounds.json` asset, downloaded from Mojang's resource server by the hash its asset index gives.
+- **Sounds.** From 1.7.2 to 1.8.9 they are the names of each version's `sounds.json` asset, downloaded from Mojang's resource server. From 1.9 to 1.13.2 they come from each jar's sound registration method, and from 1.14 from the sound event registry. Sounds the game registers in loops, as the goat horns, come from running those methods on their own. Renames come from each version's `sounds.json` asset, downloaded from Mojang's resource server by the hash its asset index gives.
 - **Attributes.** To 1.15.2 they come from every attribute any class of each jar makes. From 1.16 they come from the attribute registry. Which old name is which comes from the game's own attribute renames.
 - **Statistics.** To 1.12.2 they come from each jar's list of statistics, and from 1.13 from the custom stat registry. Which old name is which comes from the game's own table of statistics and its renames.
 - **Game rules.** Until 1.21.11 they come from every call of the helper each jar adds its rules with, and since from the game rule registry. Which old rule is which comes from running the game's own rule upgrade code on each.
@@ -1265,7 +1270,7 @@ Checks made while building the data:
 - 26.3's statistics equal the generator report, in the same order. 1.14 read without its mappings equals 1.14.4.
 - 26.3's attributes equal the generator report, in the same order.
 - 26.3's sounds are the generator report's 1,991. Those not made in loops come in the report's order. 1.14 read without its mappings equals 1.14.4.
-- Every sound name a version drops is linked to the name it became, or is one of the 15 the game removed; no two sounds share a unique name.
+- Every sound name a version drops, 1.8.9's included, is linked to the names it became, or is one of the 16 the game removed; no two sounds share a unique name.
 - 26.3's particles equal the generator report, in the same order. 1.14 read without its mappings equals 1.14.4.
 - 26.3's block entities equal the generator report, in the same order.
 - 26.3's biomes are the 67 the code declares, each with its data-pack file. Every version from 1.7.2 to 1.8.9 has its 60 numbered biomes.

@@ -88,8 +88,9 @@ class TestGameNames(BaseTest):
   def test_two_things_one_game_name(self) -> None:
     with self.assertRaises(ValueError) as context:
       _ = Echoes['echo']
-    self.assertIn("two members of Echoes have the game name 'echo'",
-                  str(context.exception))
+    self.assertIn("the game's 'echo' names several members of Echoes: "
+                  "first_echo, second_echo", str(context.exception))
+    self.assertIs(Echoes['first_echo'], Echoes.FIRST_ECHO)
 
   def test_only_where_asked(self) -> None:
     self.assertIs(Murmurs['hum'], Murmurs.HUM)

@@ -73,8 +73,9 @@ class MCThing(CatalogueMeta.keeNum):
   sounds and the advancements, sets '__game_names__': it finds a member
   by any name the game gave it in any version too, with or without its
   namespace, as 'MCSounds["entity.creeper.primed"]'. A name the game gave
-  two things finds the one that held it last; two holding it as long
-  raise 'ValueError'. A name the catalogue lacks raises
+  two things finds the one that held it last; a name several things held
+  to its last version, as 1.8.9's 'dig.cloth' for breaking and placing
+  wool, raises 'ValueError'. A name the catalogue lacks raises
   'KeyError'. An
   empty unique name, a name the data lacks, a missing or empty table, or
   ids that leave the thing in no version raise 'ValueError' at the first
@@ -170,7 +171,13 @@ class MCThing(CatalogueMeta.keeNum):
       return NotImplemented
     found = cls._byUniqueName().get(identifier)
     if found is None and cls.__game_names__:
-      found = cls._byGameName().get(identifier.removeprefix('minecraft:'))
+      path = identifier.removeprefix('minecraft:')
+      members = cls._byGameName().get(path, ())
+      if len(members) > 1:
+        infoSpec = """the game's '%s' names several members of %s: %s"""
+        names = str.join(', ', [member.uniqueName for member in members])
+        raise ValueError(infoSpec % (path, cls.__name__, names))
+      found = members[0] if members else None
     if found is None:
       infoSpec = """mcdex has no %s named '%s'"""
       raise KeyError(textFmt(infoSpec % (cls.__kind__, identifier)))
@@ -226,9 +233,9 @@ class MCThing(CatalogueMeta.keeNum):
   def _byGameName(cls, ) -> dict:
     """
     The members by every name the game gave them, in any version, without
-    the namespace, listed at the first call. A name the game gave two
-    things is the one's that held it last; two holding it as long raise
-    'ValueError'.
+    the namespace, each name to a tuple, listed at the first call. A name
+    the game gave two things is the one's that held it last; one several
+    held to its last version is each of theirs.
     """
     if cls not in MCThing.__game_name_tables__:
       records = cls._records()
@@ -243,10 +250,9 @@ class MCThing(CatalogueMeta.keeNum):
             continue
           last = changes[index + 1][0] if index + 1 < len(changes) else end
           if path not in named or last > until[path]:
-            named[path], until[path] = member, last
+            named[path], until[path] = (member,), last
           elif last == until[path]:
-            infoSpec = """two members of %s have the game name '%s'"""
-            raise ValueError(infoSpec % (cls.__name__, path))
+            named[path] += (member,)
       MCThing.__game_name_tables__[cls] = named
     return MCThing.__game_name_tables__[cls]
 

@@ -1194,6 +1194,7 @@ class MCSounds(MCThing):
   NETHERRACK_HIT = Kee[str]('netherrack_hit')
   NETHERRACK_PLACE = Kee[str]('netherrack_place')
   NETHERRACK_STEP = Kee[str]('netherrack_step')
+  NOTE_BASS = Kee[str]('note_bass')
   NOTE_BLOCK_BANJO = Kee[str]('note_block_banjo')
   NOTE_BLOCK_BASS = Kee[str]('note_block_bass')
   NOTE_BLOCK_BASS_DRUM = Kee[str]('note_block_bass_drum')

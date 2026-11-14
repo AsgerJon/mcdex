@@ -46,13 +46,18 @@ class TestMCSounds(BaseTest):
                   str(context.exception))
 
   def test_ids_fit_their_era(self) -> None:
-    """The data begins at 1.9; each id 'minecraft:' and the game's name."""
+    """
+    The data begins at 1.7.2; each id 'minecraft:' and the game's name,
+    which before 1.9 had capitals in a few, as 'item.fireCharge.use'.
+    """
     for name, record in self.records.items():
-      self.assertEqual(next(iter(record['ids'])), '1.9')
+      self.assertEqual(next(iter(record['ids'])), '1.7.2')
       self.assertRegex(name, r'^[a-z0-9_]+$')
       for text, minecraftId in record['ids'].items():
         with self.subTest(name=name, version=text):
-          if minecraftId:
+          if minecraftId and Version(text) < Version.V1_9:
+            self.assertRegex(minecraftId, r'^minecraft:[a-zA-Z0-9_.]+$')
+          elif minecraftId:
             self.assertRegex(minecraftId, r'^minecraft:[a-z0-9_.]+$')
 
   def test_unique_names(self) -> None:
@@ -107,10 +112,14 @@ class TestMCSounds(BaseTest):
     creeperHiss = MCSounds.CREEPER_HISS
     self.assertEqual(creeperHiss[Version.V1_9], SoundId(
         'creeper_hiss', 'minecraft:entity.creeper.primed'))
+    self.assertEqual(creeperHiss[Version.V1_8_9].minecraftId,
+                     'minecraft:creeper.primed')
+    self.assertEqual(creeperHiss[Version.V1_7_2].minecraftId,
+                     'minecraft:creeper.primed')
     with self.assertRaises(ValueError) as context:
-      _ = creeperHiss[Version.V1_8_9]
+      _ = creeperHiss[Version.V1_6_4]
     self.assertEqual(str(context.exception),
-                     "mcdex has no data on 'creeper_hiss' before 1.9")
+                     "mcdex has no data on 'creeper_hiss' before 1.7.2")
     self.assertEqual(MCSounds.GOAT_HORN_SOUND_7[Version.V1_19].minecraftId,
                      'minecraft:item.goat_horn.sound.7')
     self.assertEqual(MCSounds.CAT_ROYAL_PURR[Version.V26_3].minecraftId,
@@ -164,6 +173,45 @@ class TestMCSounds(BaseTest):
       _ = MCSounds['entity.creeper.prime']
     self.assertIn("mcdex has no sound named 'entity.creeper.prime'",
                   str(context.exception))
+
+  def test_before_1_9(self) -> None:
+    """
+    Before 1.9 a sound was a name of the client's sound list, linked to
+    1.9's by the sound files each plays, and by the generator's list where
+    several names play one set: TNT's and the creeper's fuse were two.
+    """
+    for sound, minecraftId in (
+        (MCSounds.TNT_FIZZ, 'minecraft:game.tnt.primed'),
+        (MCSounds.GENERIC_HURT, 'minecraft:game.neutral.hurt'),
+        (MCSounds.PLAYER_HURT, 'minecraft:game.player.hurt'),
+        (MCSounds.AMBIENT_CAVE, 'minecraft:ambient.cave.cave'),
+        (MCSounds.ENDERMAN_VWOOP, 'minecraft:mob.endermen.idle')):
+      with self.subTest(sound=sound):
+        self.assertEqual(sound[Version.V1_8_9].minecraftId, minecraftId)
+    self.assertEqual(MCSounds.TNT_FIZZ[Version.V1_7_2].minecraftId,
+                     'minecraft:game.tnt.primed')
+    with self.assertRaises(NotInVersion) as context:
+      _ = MCSounds.GUARDIAN_HURT_LAND[Version.V1_7_10]
+    self.assertIn('vanilla added it in 1.8', str(context.exception))
+
+  def test_split_in_1_9(self) -> None:
+    """
+    A sound 1.9 made several of is each of them before: 1.8.9 broke and
+    placed wool with one sound, and shot an arrow and threw an egg with
+    another. A game name of several sounds finds none of them.
+    """
+    for sound, minecraftId in (
+        (MCSounds.WOOL_BREAK, 'minecraft:dig.cloth'),
+        (MCSounds.WOOL_PLACE, 'minecraft:dig.cloth'),
+        (MCSounds.ARROW_SHOOT, 'minecraft:random.bow'),
+        (MCSounds.EGG_THROW, 'minecraft:random.bow')):
+      with self.subTest(sound=sound):
+        self.assertEqual(sound[Version.V1_8_9].minecraftId, minecraftId)
+    self.assertIs(MCSounds['creeper.primed'], MCSounds.CREEPER_HISS)
+    with self.assertRaises(ValueError) as context:
+      _ = MCSounds['dig.cloth']
+    self.assertIn("the game's 'dig.cloth' names several members of "
+                  "MCSounds", str(context.exception))
 
   def test_removed_sounds(self) -> None:
     """A sound the game dropped with no successor stays dropped."""
