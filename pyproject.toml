@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mcdex"
-version = "0.1.0-dev3"
+version = "0.1.0-rc0"
 description = """\
   A typed, version-agnostic catalogue of Minecraft for Python: every \
   item, block, entity, sound and more, with one identity across \
