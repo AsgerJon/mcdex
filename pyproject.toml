@@ -1,3 +1,8 @@
+#  The packaging of mcdex. The release buttons own the version line:
+#  bin/release_tooling/version_stamp.py rewrites the first line whose
+#  stripped form starts with 'version' at every press, so no line above
+#  it may start with that word and it is never edited by hand.
+
 [build-system]
 requires = ["setuptools>=80"]
 build-backend = "setuptools.build_meta"
@@ -5,22 +10,39 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "mcdex"
 version = "0.1.0-dev2"
-description = "A typed, version-agnostic catalogue of Minecraft for Python: every item, block and entity as a class with one identity across all versions. Not affiliated with Mojang or Microsoft."
+description = """\
+  A typed, version-agnostic catalogue of Minecraft for Python: every \
+  item, block, entity, sound and more, with one identity across \
+  all versions and the game's own id in each. Not affiliated with \
+  Mojang or Microsoft.\
+  """
 readme = "README.md"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 authors = [{ name = "Asger Jon Vistisen", email = "asgerjon2@gmail.com" }]
 requires-python = ">=3.14"
+#  The same as requirements.txt, which the release workflows' test jobs
+#  install.
 dependencies = ["worktoy>=1.2.1.dev1"]
+keywords = [
+  "minecraft",
+  "catalogue",
+  "items",
+  "blocks",
+  "entities",
+  "versions",
+]
 classifiers = [
-  "Programming Language :: Python :: 3.14",
-  "Programming Language :: Python :: 3.15",
-  "Programming Language :: Python :: Implementation :: CPython",
-  "Operating System :: OS Independent",
   "Development Status :: 2 - Pre-Alpha",
   "Intended Audience :: Developers",
   "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: 3.15",
+  "Programming Language :: Python :: Implementation :: CPython",
   "Topic :: Games/Entertainment",
+  "Topic :: Software Development :: Libraries :: Python Modules",
   "Typing :: Typed",
 ]
 
@@ -37,7 +59,7 @@ test = [
 ]
 #  The same packages as docs/requirements.txt.
 docs = [
-  "sphinx>=7.0.0",
+  "sphinx>=7",
   "furo>=2024.1",
   "markwork>=0.1.0",
 ]
@@ -50,7 +72,10 @@ dev = [
 where = ["src"]
 
 [tool.setuptools.package-data]
-mcdex = ["py.typed", "items/items.json", "entities/entities.json", "blocks/blocks.json", "structures/structures.json", "advancements/advancements.json", "banner_patterns/banner_patterns.json", "painting_variants/painting_variants.json", "chicken_sound_variants/chicken_sound_variants.json", "cow_sound_variants/cow_sound_variants.json", "pig_sound_variants/pig_sound_variants.json", "cat_sound_variants/cat_sound_variants.json", "wolf_sound_variants/wolf_sound_variants.json", "zombie_nautilus_variants/zombie_nautilus_variants.json", "chicken_variants/chicken_variants.json", "cow_variants/cow_variants.json", "pig_variants/pig_variants.json", "frog_variants/frog_variants.json", "cat_variants/cat_variants.json", "wolf_variants/wolf_variants.json", "trim_materials/trim_materials.json", "trim_patterns/trim_patterns.json", "music/music.json", "damage_types/damage_types.json", "dimensions/dimensions.json", "villager_types/villager_types.json", "villager_professions/villager_professions.json", "game_rules/game_rules.json", "statistics/statistics.json", "attributes/attributes.json", "sounds/sounds.json", "particles/particles.json", "block_entities/block_entities.json", "biomes/biomes.json", "potions/potions.json", "enchantments/enchantments.json", "effects/effects.json"]
+#  Each catalogue's data file sits in its own package beside its module,
+#  as 'items/items.json'. The glob takes a new catalogue's file with no
+#  edit here.
+mcdex = ["py.typed", "*/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
