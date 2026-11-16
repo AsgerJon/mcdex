@@ -23,8 +23,8 @@
 #    publishes the release and sets LEVEL back to none.
 #  Every other press is refused in the first job of its workflow.
 MAJOR=0
-MINOR=0
+MINOR=1
 MICRO=1
 RC=0
-DEV=3
-LEVEL=minor
+DEV=0
+LEVEL=none
