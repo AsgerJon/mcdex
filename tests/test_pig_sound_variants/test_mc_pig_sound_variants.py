@@ -18,7 +18,7 @@ class TestMCPigSoundVariants(BaseTest):
   """
 
   def test_pig_sound_variants(self) -> None:
-    mini = MCPigSoundVariants.MINI
+    mini = MCPigSoundVariants.Mini
     self.assertIsInstance(mini, MCPigSoundVariants)
     self.assertIsInstance(mini, MCThing)
     self.assertEqual(mini[Version.V26_1],
@@ -26,7 +26,7 @@ class TestMCPigSoundVariants(BaseTest):
                          'mini', 'minecraft:pig'
                                  '{sound_variant:"minecraft:mini"}'))
     self.assertIsInstance(mini[Version.V26_3], GameId)
-    self.assertEqual(repr(mini), "<MCPigSoundVariants>.MINI")
+    self.assertEqual(repr(mini), "<MCPigSoundVariants>.Mini")
     self.assertEqual(len(MCPigSoundVariants), 3)
     self.assertNotEqual(PigSoundVariantId('x', 'minecraft:x'),
                         PigVariantId('x', 'minecraft:x'))

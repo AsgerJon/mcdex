@@ -18,11 +18,11 @@ class TestMCCatVariants(BaseTest):
   """
 
   def test_cat_variants(self) -> None:
-    black = MCCatVariants.BLACK
+    black = MCCatVariants.Black
     self.assertIsInstance(black, MCCatVariants)
     self.assertIsInstance(black, MCThing)
     self.assertIsInstance(black[Version.V26_3], GameId)
-    self.assertEqual(repr(black), "<MCCatVariants>.BLACK")
+    self.assertEqual(repr(black), "<MCCatVariants>.Black")
     self.assertEqual(len(MCCatVariants), 11)
     self.assertNotEqual(CatVariantId('x', 'minecraft:x'),
                         WolfVariantId('x', 'minecraft:x'))
@@ -31,7 +31,7 @@ class TestMCCatVariants(BaseTest):
 
   def test_numbers_then_names(self) -> None:
     """A tamed ocelot's number to 1.13.2, a cat's to 1.18.2, then names."""
-    black = MCCatVariants.BLACK
+    black = MCCatVariants.Black
     self.assertEqual(black[Version.V1_7_2],
                      CatVariantId('black', 'Ozelot{CatType:1}'))
     self.assertEqual(black[Version.V1_12_2].minecraftId,
@@ -40,13 +40,13 @@ class TestMCCatVariants(BaseTest):
                      'minecraft:cat{CatType:1}')
     self.assertEqual(black[Version.V1_19].minecraftId,
                      'minecraft:cat{variant:"minecraft:black"}')
-    britishShorthair = MCCatVariants.BRITISH_SHORTHAIR
+    britishShorthair = MCCatVariants.BritishShorthair
     self.assertEqual(britishShorthair[Version.V1_14].minecraftId,
                      'minecraft:cat{CatType:4}')
     self.assertEqual(britishShorthair[Version.V1_19].minecraftId,
                      'minecraft:cat{variant:"minecraft:british_shorthair"}')
     with self.assertRaises(NotInVersion) as context:
-      _ = MCCatVariants.TABBY[Version.V1_13_2]
+      _ = MCCatVariants.Tabby[Version.V1_13_2]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.13.2 has no 'tabby'; vanilla added it in 1.14!",

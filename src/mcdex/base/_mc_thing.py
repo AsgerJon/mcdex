@@ -31,9 +31,9 @@ class MCThing(CatalogueMeta.keeNum):
   version calls it. A catalogue is an enumeration of the things of one
   kind, and each thing is a member of it, made once as the catalogue is:
 
-    pinkWool = MCItems.PINK_WOOL
+    pinkWool = MCItems.PinkWool
     pinkWool is MCItems['pink_wool']             # True
-    pinkWool['1.12.2']
+    pinkWool[Version.V1_12_2]
     # ItemId('pink_wool', 'minecraft:wool:6')
     for item in MCItems: ...                     # every item, in order
     len(MCItems)
@@ -47,15 +47,22 @@ class MCThing(CatalogueMeta.keeNum):
   Implementation
   --------------
 
-  'MCThing' is the root of 'CatalogueMeta', worktoy's enumeration
-  metaclass with membership by unique name too, and has no members of its
-  own: each catalogue is a subclass
-  declaring one per name of its data file, 'PINK_WOOL = Kee[str](
-  "pink_wool")', the member named by the unique name in capitals. A
-  subclass names its data file, beside its module ('__data_file__'), the
-  key the file keeps the records under ('__data_key__'), its id class
-  and, for messages, the word for one ('__kind__'). A test may give the
-  records itself instead ('__data_records__').
+  'MCThing' is the root of 'CatalogueMeta', worktoy's enumeration metaclass
+  with membership by unique name too, and has no members of its own: each
+  catalogue is a subclass declaring one per thing of its data file,
+  'PinkWool = Kee[str]("pink_wool")', named by the unique name in
+  PascalCase, each word capitalised and the underscores dropped, a name of
+  digits alone spelled out, as 'Thirteen' for a jukebox song's '13'. worktoy
+  holds the names of members to upper case unless the class statement says
+  'strictCase=False', and each catalogue's does. A name of the data no
+  member can take has no member of its own, and finds the one member with
+  the same data: the game's 'slime_ball', the same name in PascalCase as
+  mcdex's 'slimeball', is 'Slimeball', and 'none', the keyword 'None' in
+  PascalCase, is 'Unemployed'. A subclass
+  names its data file, beside its module ('__data_file__'), the key the file
+  keeps the records under ('__data_key__'), its id class and, for messages,
+  the word for one ('__kind__'). A test may give the records itself instead
+  ('__data_records__').
 
   The data file is read at the first use of the catalogue, not at
   import, and a member's record at the first use of the member, each
@@ -67,22 +74,23 @@ class MCThing(CatalogueMeta.keeNum):
   full table of ids, with a key for every 'Version' from the first
   version of the data, built at its first read and returned as a copy.
 
-  A member is found by its name in any case, 'MCItems.Pink_Wool', by its
-  unique name, as 'MCItems["pink_wool"]', or by its
-  position. A catalogue whose things the game names by a path, as the
-  sounds and the advancements, sets '__game_names__': it finds a member
-  by any name the game gave it in any version too, with or without its
-  namespace, as 'MCSounds["entity.creeper.primed"]'. A name the game gave
-  two things finds the one that held it last; a name several things held
-  to its last version, as 1.8.9's 'dig.cloth' for breaking and placing
-  wool, raises 'ValueError'. A name the catalogue lacks raises
-  'KeyError'. An
-  empty unique name, a name the data lacks, a missing or empty table, or
-  ids that leave the thing in no version raise 'ValueError' at the first
-  use of the member; a version text that names no release raises
-  'KeeResolveError'; an id other than a 'str' raises 'TypeException'.
-  Versions are compared by their position in 'Version', as comparing the
-  members themselves is slow.
+  A member is found by its name in any case, 'MCItems["pinkwool"]', by its
+  unique name or another name of the data, as 'MCItems["pink_wool"]' and
+  'MCItems["slime_ball"]', or by its position. A catalogue whose things the
+  game names by a path, as the sounds and the advancements, sets
+  '__game_names__': it finds a member by any name the game gave it in any
+  version too, with or without its namespace, as
+  'MCSounds["entity.creeper.primed"]'. A name the game gave two things finds
+  the one that held it last; a name several things held to its last version,
+  as 1.8.9's 'dig.cloth' for breaking and placing wool, raises 'ValueError'.
+  A name the catalogue lacks raises 'KeyError'. A name of the data that is no
+  member's, nor has the data of one member, raises 'ValueError' at the
+  first lookup by a name. An empty unique name, a name the data lacks, a
+  missing or empty table, or ids that leave the thing in no version raise
+  'ValueError' at the first use of the member; a version text that names no
+  release raises 'KeeResolveError'; an id other than a 'str' raises
+  'TypeException'. Versions are compared by their position in 'Version', as
+  comparing the members themselves is slow.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -161,8 +169,9 @@ class MCThing(CatalogueMeta.keeNum):
   @classmethod
   def __class_resolve__(cls, identifier: Any) -> Any:
     """
-    A member by its unique name, where its name in capitals does not
-    find it, as '13' for 'THIRTEEN'; in a catalogue that sets
+    A member by its unique name or another name of the data, where its
+    name does not find it: 'pink_wool' for 'PinkWool', '13' for
+    'Thirteen', 'slime_ball' for 'Slimeball'; in a catalogue that sets
     '__game_names__', by a name the game gave it too. A name the
     catalogue lacks raises 'KeyError'; anything else goes on to the
     enumeration's other steps.
@@ -223,9 +232,25 @@ class MCThing(CatalogueMeta.keeNum):
 
   @classmethod
   def _byUniqueName(cls, ) -> dict:
-    """The members by their unique names, listed at the first call."""
+    """
+    The members by their unique names and by every other name of the
+    data: a name no member can take, as 'slime_ball' beside 'slimeball',
+    is the one member's with the same data. Listed at the first call; a
+    name of the data that has neither raises 'ValueError'.
+    """
     if cls not in MCThing.__unique_names__:
       named = {member.value: member for member in cls}
+      records = cls._records()
+      for name, record in records.items():
+        if name in named:
+          continue
+        twins = [member for member in cls
+                 if records.get(member.value) == record]
+        if len(twins) != 1:
+          infoSpec = """'%s' of the data is no %s's name, nor has the
+          data of one"""
+          raise ValueError(textFmt(infoSpec % (name, cls.__kind__)))
+        named[name] = twins[0]
       MCThing.__unique_names__[cls] = named
     return MCThing.__unique_names__[cls]
 

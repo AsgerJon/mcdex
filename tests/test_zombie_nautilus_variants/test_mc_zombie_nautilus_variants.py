@@ -20,7 +20,7 @@ class TestMCZombieNautilusVariants(BaseTest):
   """
 
   def test_zombie_nautilus_variants(self) -> None:
-    warm = MCZombieNautilusVariants.WARM
+    warm = MCZombieNautilusVariants.Warm
     self.assertIsInstance(warm, MCZombieNautilusVariants)
     self.assertIsInstance(warm, MCThing)
     self.assertEqual(warm[Version.V1_21_11],
@@ -28,7 +28,7 @@ class TestMCZombieNautilusVariants(BaseTest):
                          'warm', 'minecraft:zombie_nautilus'
                                  '{variant:"minecraft:warm"}'))
     self.assertIsInstance(warm[Version.V26_3], GameId)
-    self.assertEqual(repr(warm), "<MCZombieNautilusVariants>.WARM")
+    self.assertEqual(repr(warm), "<MCZombieNautilusVariants>.Warm")
     self.assertEqual(len(MCZombieNautilusVariants), 2)
     self.assertNotEqual(ZombieNautilusVariantId('x', 'minecraft:x'),
                         PigVariantId('x', 'minecraft:x'))

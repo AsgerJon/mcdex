@@ -11,14 +11,14 @@ Items, entities, blocks, mob effects, enchantments, potions, biomes, block entit
 ```python
 from mcdex import MCEntities, MCItems, Version
 
-pinkWool = MCItems.PINK_WOOL
+pinkWool = MCItems.PinkWool
 
 pinkWool[Version.V1_7_10].minecraftId    # 'minecraft:wool:6'
 pinkWool[Version.V1_12_2].minecraftId    # 'minecraft:wool:6'
 pinkWool[Version.V1_13].minecraftId      # 'minecraft:pink_wool'
 pinkWool[Version.V26_3].minecraftId      # 'minecraft:pink_wool'
 
-witherSkeleton = MCEntities.WITHER_SKELETON
+witherSkeleton = MCEntities.WitherSkeleton
 
 witherSkeleton[Version.V1_7_10].minecraftId    # 'Skeleton{SkeletonType:1}'
 witherSkeleton[Version.V1_10_2].minecraftId    # 'Skeleton{SkeletonType:1}'
@@ -77,28 +77,28 @@ Entities work the same way, and their ids are what `/summon` takes. Until 1.11 t
 
 ### Finding an item
 
-`MCItems` is the catalogue, and an enumeration: each item is one of its members, named by the item's unique name in capitals. A member is found by that name, in any case, or by indexing the catalogue with the unique name:
+`MCItems` is the catalogue, and an enumeration: each item is one of its members, named by the item's unique name in PascalCase, each word capitalised and the underscores dropped: `pink_wool` is `MCItems.PinkWool`. A member is found by that name, in any case, or by indexing the catalogue with the unique name:
 
 ```python
 from mcdex import MCItems
 
-diamond = MCItems.DIAMOND
-diamond                        # <MCItems>.DIAMOND
+diamond = MCItems.Diamond
+diamond                        # <MCItems>.Diamond
 diamond.uniqueName             # 'diamond'
 MCItems['diamond'] is diamond  # True
 MCItems.Diamond is diamond     # True
 ```
 
-Every catalogue of mcdex is such an enumeration, built on worktoy's `KeeNum`, so an editor can complete `MCItems.PINK_WOOL`. A unique name that is no member's name, as the jukebox song `13`, is found by indexing: `Music['13']` is `Music.THIRTEEN`.
+Every catalogue of mcdex is such an enumeration, built on worktoy's `KeeNum`, so an editor can complete `MCItems.PinkWool`. worktoy holds the names of members to upper case unless the class says `strictCase=False`, and every catalogue of mcdex says it. A unique name of digits alone, as the jukebox song `13`, is spelled out, and found by indexing too: `Music['13']` is `Music.Thirteen`.
 
-A thing's name is the one a person would use. Most often that is the game's own name; where the game's name is code-speak or misleading, it is Mojang's own English name for the thing: `MCItems.EYE_OF_ENDER` (the game's `ender_eye`), `MCItems.STEAK` (`cooked_beef`), `MCStatistics.DISTANCE_BY_BOAT` (`boat_one_cm`). The game's name stays valid too: `MCItems.ENDER_EYE` is the same item, with the same data. Sounds and advancements, whose game names are paths, keep no members of those names; their catalogues find a thing by any name the game gave it instead: `MCSounds['entity.creeper.primed']` is `MCSounds.CREEPER_HISS`.
+A thing's name is the one a person would use. Most often that is the game's own name; where the game's name is code-speak or misleading, it is Mojang's own English name for the thing: `MCItems.EyeOfEnder` (the game's `ender_eye`), `MCItems.Steak` (`cooked_beef`), `MCStatistics.DistanceByBoat` (`boat_one_cm`). The game's name stays valid too: `MCItems.EnderEye` is the same item, with the same data. A game's name that is mcdex's but for an underscore is the same name in PascalCase, so the thing is one member, found by both names: `MCItems['slime_ball']` is `MCItems.Slimeball`, and the banner patterns `stripe_downleft` and `stripe_downright` are `MCBannerPatterns.StripeDownLeft` and `MCBannerPatterns.StripeDownRight`. The villager profession `none` would be `None`, which Python keeps for itself; mcdex calls it `MCVillagerProfessions.Unemployed`, and `MCVillagerProfessions['none']` finds it. Sounds and advancements, whose game names are paths, keep no members of those names; their catalogues find a thing by any name the game gave it instead: `MCSounds['entity.creeper.primed']` is `MCSounds.CreeperHiss`.
 
 The data ships inside the package, in `mcdex/items/items.json`. Importing mcdex makes the members but reads none of the data: the first use of a catalogue reads its file, in a few milliseconds, and an item's record is read at the item's first use.
 
 The class itself is the catalogue. It has a length, it can be searched, and it can be iterated, in the order of the names:
 
 ```python
-len(MCItems)                   # 1697, the names a person would use beside the game's included
+len(MCItems)                   # 1696, the names a person would use beside the game's included
 'pink_wool' in MCItems         # True
 'grss' in MCItems              # False
 
@@ -121,7 +121,7 @@ Index an item with a version to get its `ItemId` in that version:
 ```python
 from mcdex import MCItems, MCVersion, Version
 
-pinkWool = MCItems.PINK_WOOL
+pinkWool = MCItems.PinkWool
 
 pinkWool[Version.V1_12_2]      # ItemId('pink_wool', 'minecraft:wool:6')
 pinkWool[Version.V1_12_2]             # the same: the version as the game reports it
@@ -144,26 +144,26 @@ Some items and what they were called over the years:
 
 ```python
 from mcdex import Version
-MCItems.GRASS[Version.V1_12_2].minecraftId              # 'minecraft:tallgrass:1'
-MCItems.GRASS[Version.V1_13].minecraftId                # 'minecraft:grass'
-MCItems.GRASS[Version.V26_3].minecraftId                # 'minecraft:short_grass'
+MCItems.Grass[Version.V1_12_2].minecraftId              # 'minecraft:tallgrass:1'
+MCItems.Grass[Version.V1_13].minecraftId                # 'minecraft:grass'
+MCItems.Grass[Version.V26_3].minecraftId                # 'minecraft:short_grass'
 
-MCItems.GRASS_BLOCK[Version.V1_12_2].minecraftId        # 'minecraft:grass'
-MCItems.GRASS_BLOCK[Version.V1_13].minecraftId          # 'minecraft:grass_block'
+MCItems.GrassBlock[Version.V1_12_2].minecraftId        # 'minecraft:grass'
+MCItems.GrassBlock[Version.V1_13].minecraftId          # 'minecraft:grass_block'
 
-MCItems.RED_BED[Version.V1_11_2].minecraftId            # 'minecraft:bed'
-MCItems.RED_BED[Version.V1_12_2].minecraftId            # 'minecraft:bed:14'
-MCItems.RED_BED[Version.V1_13].minecraftId              # 'minecraft:red_bed'
+MCItems.RedBed[Version.V1_11_2].minecraftId            # 'minecraft:bed'
+MCItems.RedBed[Version.V1_12_2].minecraftId            # 'minecraft:bed:14'
+MCItems.RedBed[Version.V1_13].minecraftId              # 'minecraft:red_bed'
 
-MCItems.COOKED_COD[Version.V1_7_10].minecraftId         # 'minecraft:cooked_fished:0'
-MCItems.COOKED_COD[Version.V1_8_9].minecraftId          # 'minecraft:cooked_fish:0'
-MCItems.COOKED_COD[Version.V1_13].minecraftId           # 'minecraft:cooked_cod'
+MCItems.CookedCod[Version.V1_7_10].minecraftId         # 'minecraft:cooked_fished:0'
+MCItems.CookedCod[Version.V1_8_9].minecraftId          # 'minecraft:cooked_fish:0'
+MCItems.CookedCod[Version.V1_13].minecraftId           # 'minecraft:cooked_cod'
 
-MCItems.OAK_DOOR[Version.V1_12_2].minecraftId           # 'minecraft:wooden_door'
-MCItems.DRAGON_HEAD[Version.V1_12_2].minecraftId        # 'minecraft:skull:5'
-MCItems.IRON_CHAIN[Version.V1_20_2].minecraftId         # 'minecraft:chain'
-MCItems.IRON_CHAIN[Version.V1_21_9].minecraftId         # 'minecraft:iron_chain'
-MCItems.SPLASH_POTION[Version.V1_8_9].minecraftId       # 'minecraft:potion:16384'
+MCItems.OakDoor[Version.V1_12_2].minecraftId           # 'minecraft:wooden_door'
+MCItems.DragonHead[Version.V1_12_2].minecraftId        # 'minecraft:skull:5'
+MCItems.IronChain[Version.V1_20_2].minecraftId         # 'minecraft:chain'
+MCItems.IronChain[Version.V1_21_9].minecraftId         # 'minecraft:iron_chain'
+MCItems.SplashPotion[Version.V1_8_9].minecraftId       # 'minecraft:potion:16384'
 ```
 
 ### When vanilla has no such item
@@ -173,16 +173,16 @@ A version without the item raises `NotInVersion`, a `LookupError`. Its message s
 ```python
 from mcdex import MCItems, NotInVersion, Version
 
-MCItems.ELYTRA[Version.V1_7_10]
+MCItems.Elytra[Version.V1_7_10]
 # NotInVersion: Vanilla 1.7.10 has no 'elytra'; vanilla added it in 1.9!
 
-MCItems.LIT_FURNACE[Version.V1_10]
+MCItems.LitFurnace[Version.V1_10]
 # NotInVersion: Vanilla 1.10 has no 'lit_furnace'; vanilla removed it in 1.9!
 
 try:
-    MCItems.ELYTRA[Version.V1_7_10]
+    MCItems.Elytra[Version.V1_7_10]
 except NotInVersion as exception:
-    exception.item             # <MCItems>.ELYTRA
+    exception.item             # <MCItems>.Elytra
     exception.version          # <Version>.V1_7_10
 ```
 
@@ -192,8 +192,8 @@ Two other failures are not `NotInVersion`. A version before the data raises `Val
 
 ```python
 from mcdex import Version
-MCItems.DIAMOND[Version.V1_6_4]             # ValueError: mcdex has no data on 'diamond' before 1.7.2
-MCItems.DIAMOND['26.4-snapshot-7']   # KeeResolveError
+MCItems.Diamond[Version.V1_6_4]      # ValueError: mcdex has no data on 'diamond' before 1.7.2
+MCItems.Diamond['26.4-snapshot-7']   # KeeResolveError
 ```
 
 ### The whole history of an item
@@ -207,12 +207,12 @@ Each item has three tables, built when first read and handed out as copies:
 ```python
 from mcdex import EquipmentSlot, MCItems, Version
 
-elytra = MCItems.ELYTRA
+elytra = MCItems.Elytra
 elytra.versionIds[Version.V1_8_9]       # ''
 elytra.versionIds[Version.V1_9]         # 'minecraft:elytra'
 len(elytra.versionIds)                  # 84, from 1.7.2 to 26.3
 elytra.maxStackSize[Version.V1_9]       # 1
-elytra.equipmentSlot[Version.V1_9]      # <EquipmentSlot>.CHEST
+elytra.equipmentSlot[Version.V1_9]      # <EquipmentSlot>.Chest
 Version.V1_8_9 in elytra.equipmentSlot  # False: vanilla 1.8.9 has no elytra
 ```
 
@@ -220,16 +220,16 @@ Stack sizes and slots change between versions, and mcdex reads them per version:
 
 ```python
 from mcdex import Version
-MCItems.OAK_DOOR.maxStackSize[Version.V1_7_10]       # 1
-MCItems.OAK_DOOR.maxStackSize[Version.V1_8]          # 64
+MCItems.OakDoor.maxStackSize[Version.V1_7_10]       # 1
+MCItems.OakDoor.maxStackSize[Version.V1_8]          # 64
 
-MCItems.SHIELD.equipmentSlot[Version.V1_9]           # <EquipmentSlot>.MAINHAND
-MCItems.SHIELD.equipmentSlot[Version.V1_10]          # <EquipmentSlot>.OFFHAND
+MCItems.Shield.equipmentSlot[Version.V1_9]           # <EquipmentSlot>.MainHand
+MCItems.Shield.equipmentSlot[Version.V1_10]          # <EquipmentSlot>.OffHand
 
-MCItems.CARVED_PUMPKIN.equipmentSlot[Version.V1_12_2]  # <EquipmentSlot>.HEAD
-MCItems.WHITE_CARPET.equipmentSlot[Version.V1_20_5]    # <EquipmentSlot>.BODY, for llamas
-MCItems.SADDLE.equipmentSlot[Version.V1_21_4]          # <EquipmentSlot>.MAINHAND
-MCItems.SADDLE.equipmentSlot[Version.V1_21_5]          # <EquipmentSlot>.SADDLE
+MCItems.CarvedPumpkin.equipmentSlot[Version.V1_12_2]  # <EquipmentSlot>.Head
+MCItems.WhiteCarpet.equipmentSlot[Version.V1_20_5]    # <EquipmentSlot>.Body, for llamas
+MCItems.Saddle.equipmentSlot[Version.V1_21_4]         # <EquipmentSlot>.MainHand
+MCItems.Saddle.equipmentSlot[Version.V1_21_5]         # <EquipmentSlot>.Saddle
 ```
 
 The 1.9 shield is no mistake. 1.9 added the offhand, but its code deciding an item's slot had no case for the shield yet; 1.10 added one.
@@ -240,17 +240,17 @@ A game id can belong to two items in one version, when the old item was both. In
 
 ```python
 from mcdex import Version
-MCItems.SHULKER_BOX[Version.V1_12_2].minecraftId          # 'minecraft:purple_shulker_box'
-MCItems.PURPLE_SHULKER_BOX[Version.V1_12_2].minecraftId   # 'minecraft:purple_shulker_box'
-MCItems.SHULKER_BOX[Version.V1_13].minecraftId            # 'minecraft:shulker_box'
+MCItems.ShulkerBox[Version.V1_12_2].minecraftId         # 'minecraft:purple_shulker_box'
+MCItems.PurpleShulkerBox[Version.V1_12_2].minecraftId   # 'minecraft:purple_shulker_box'
+MCItems.ShulkerBox[Version.V1_13].minecraftId           # 'minecraft:shulker_box'
 
-MCItems.PUMPKIN[Version.V1_12_2].minecraftId              # 'minecraft:pumpkin'
-MCItems.CARVED_PUMPKIN[Version.V1_12_2].minecraftId       # 'minecraft:pumpkin'
-MCItems.CARVED_PUMPKIN[Version.V1_13].minecraftId         # 'minecraft:carved_pumpkin'
+MCItems.Pumpkin[Version.V1_12_2].minecraftId             # 'minecraft:pumpkin'
+MCItems.CarvedPumpkin[Version.V1_12_2].minecraftId       # 'minecraft:pumpkin'
+MCItems.CarvedPumpkin[Version.V1_13].minecraftId         # 'minecraft:carved_pumpkin'
 
-MCItems.STONE_SLAB[Version.V1_13].minecraftId             # 'minecraft:stone_slab'
-MCItems.SMOOTH_STONE_SLAB[Version.V1_13].minecraftId      # 'minecraft:stone_slab'
-MCItems.SMOOTH_STONE_SLAB[Version.V1_14].minecraftId      # 'minecraft:smooth_stone_slab'
+MCItems.StoneSlab[Version.V1_13].minecraftId            # 'minecraft:stone_slab'
+MCItems.SmoothStoneSlab[Version.V1_13].minecraftId      # 'minecraft:stone_slab'
+MCItems.SmoothStoneSlab[Version.V1_14].minecraftId      # 'minecraft:smooth_stone_slab'
 ```
 
 Where a name was reused for a different thing, nothing is shared: 1.12.2's `minecraft:grass` is the grass block alone, and the old `minecraft:stone_stairs` were cobblestone stairs, so `stone_stairs` begins in 1.14.
@@ -264,7 +264,7 @@ Where a name was reused for a different thing, nothing is shared: 1.12.2's `mine
 ```python
 from mcdex import MCEntities
 
-creeper = MCEntities.CREEPER
+creeper = MCEntities.Creeper
 creeper.uniqueName                 # 'creeper'
 MCEntities['creeper'] is creeper   # True
 len(MCEntities)                    # 166, the names a person would use beside the game's included
@@ -280,7 +280,7 @@ from mcdex import Version
 creeper[Version.V1_10_2].minecraftId      # 'Creeper'
 creeper[Version.V1_11].minecraftId        # 'minecraft:creeper'
 
-zombifiedPiglin = MCEntities.ZOMBIFIED_PIGLIN
+zombifiedPiglin = MCEntities.ZombifiedPiglin
 zombifiedPiglin[Version.V1_10_2].minecraftId   # 'PigZombie'
 zombifiedPiglin[Version.V1_15_2].minecraftId   # 'minecraft:zombie_pigman'
 zombifiedPiglin[Version.V1_16].minecraftId     # 'minecraft:zombified_piglin'
@@ -294,16 +294,16 @@ Some entities were once one entity, told apart by a value in its data. Before 1.
 
 ```python
 from mcdex import Version
-witherSkeleton = MCEntities.WITHER_SKELETON
+witherSkeleton = MCEntities.WitherSkeleton
 witherSkeleton[Version.V1_10_2].minecraftId    # 'Skeleton{SkeletonType:1}'
 witherSkeleton[Version.V1_11].minecraftId      # 'minecraft:wither_skeleton'
 
-MCEntities.DONKEY[Version.V1_10_2].minecraftId            # 'EntityHorse{Type:1}'
-MCEntities.ZOMBIE_VILLAGER[Version.V1_8_9].minecraftId    # 'Zombie{IsVillager:1b}'
-MCEntities.ZOMBIE_VILLAGER[Version.V1_10].minecraftId     # 'Zombie{ZombieType:1}'
-MCEntities.CAT[Version.V1_13_2].minecraftId               # 'minecraft:ocelot{CatType:1}'
-MCEntities.SPRUCE_BOAT[Version.V1_21_1].minecraftId       # 'minecraft:boat{Type:"spruce"}'
-MCEntities.LINGERING_POTION[Version.V1_20_4].minecraftId
+MCEntities.Donkey[Version.V1_10_2].minecraftId           # 'EntityHorse{Type:1}'
+MCEntities.ZombieVillager[Version.V1_8_9].minecraftId    # 'Zombie{IsVillager:1b}'
+MCEntities.ZombieVillager[Version.V1_10].minecraftId     # 'Zombie{ZombieType:1}'
+MCEntities.Cat[Version.V1_13_2].minecraftId              # 'minecraft:ocelot{CatType:1}'
+MCEntities.SpruceBoat[Version.V1_21_1].minecraftId       # 'minecraft:boat{Type:"spruce"}'
+MCEntities.LingeringPotion[Version.V1_20_4].minecraftId
 # 'minecraft:potion{Item:{id:"minecraft:lingering_potion",Count:1b}}'
 ```
 
@@ -311,9 +311,9 @@ The entity without that data is the first of them. A plain `EntityHorse` is the 
 
 ```python
 from mcdex import Version
-MCEntities.HORSE[Version.V1_10_2].minecraftId             # 'EntityHorse'
-MCEntities.OAK_BOAT[Version.V1_21_1].minecraftId          # 'minecraft:boat'
-MCEntities.SPLASH_POTION[Version.V1_21_4].minecraftId     # 'minecraft:potion'
+MCEntities.Horse[Version.V1_10_2].minecraftId            # 'EntityHorse'
+MCEntities.OakBoat[Version.V1_21_1].minecraftId          # 'minecraft:boat'
+MCEntities.SplashPotion[Version.V1_21_4].minecraftId     # 'minecraft:potion'
 ```
 
 Each id uses the data in the form that version's own entity code reads it. A zombie villager is `Zombie{IsVillager:1b}` in 1.8.9, adds the `VillagerProfession` that 1.9 began to read, and becomes `Zombie{ZombieType:1}` in 1.10.
@@ -322,10 +322,10 @@ Each id uses the data in the form that version's own entity code reads it. A zom
 
 ```python
 from mcdex import Version
-MCEntities.STRAY[Version.V1_9_4]
+MCEntities.Stray[Version.V1_9_4]
 # NotInVersion: Vanilla 1.9.4 has no 'stray'; vanilla added it in 1.10!
 
-MCEntities.CREAKING_TRANSIENT[Version.V26_3]
+MCEntities.CreakingTransient[Version.V26_3]
 # NotInVersion: Vanilla 26.3 has no 'creaking_transient'; vanilla removed it in 1.21.4!
 ```
 
@@ -340,7 +340,7 @@ One gap is Mojang's own. Before 1.16 a thrown potion kept its item under `Potion
 ```python
 from mcdex import MCBlocks, Version
 
-pinkWool = MCBlocks.PINK_WOOL
+pinkWool = MCBlocks.PinkWool
 pinkWool[Version.V1_12_2].minecraftId     # 'minecraft:wool:6'
 pinkWool[Version.V1_13].minecraftId       # 'minecraft:pink_wool'
 len(MCBlocks)                      # 1295, the names a person would use beside the game's included
@@ -350,11 +350,11 @@ Before 1.13 a block was a name and a meta, a number from 0 to 15. The meta is pa
 
 ```python
 from mcdex import Version
-MCBlocks.OAK_STAIRS[Version.V1_12_2].minecraftId   # 'minecraft:oak_stairs'
-MCBlocks.OAK_WOOD[Version.V1_12_2].minecraftId     # 'minecraft:log:12'
-MCBlocks.WALL_TORCH[Version.V1_12_2].minecraftId   # 'minecraft:torch:1'
-MCBlocks.GRANITE[Version.V1_8].minecraftId         # 'minecraft:stone:1'
-MCBlocks.GRANITE[Version.V1_7_10]
+MCBlocks.OakStairs[Version.V1_12_2].minecraftId   # 'minecraft:oak_stairs'
+MCBlocks.OakWood[Version.V1_12_2].minecraftId     # 'minecraft:log:12'
+MCBlocks.WallTorch[Version.V1_12_2].minecraftId   # 'minecraft:torch:1'
+MCBlocks.Granite[Version.V1_8].minecraftId        # 'minecraft:stone:1'
+MCBlocks.Granite[Version.V1_7_10]
 # NotInVersion: Vanilla 1.7.10 has no 'granite'; vanilla added it in 1.8!
 ```
 
@@ -368,21 +368,21 @@ The data is written as that version's own code reads it:
 
 ```python
 from mcdex import Version
-MCBlocks.CREEPER_HEAD[Version.V1_12_2].minecraftId   # 'minecraft:skull:1{SkullType:4b}'
-MCBlocks.WHITE_BED[Version.V1_12].minecraftId        # 'minecraft:bed{color:0}'
-MCBlocks.RED_BED[Version.V1_11_2].minecraftId        # 'minecraft:bed'
-MCBlocks.POTTED_POPPY[Version.V1_7_10].minecraftId   # 'minecraft:flower_pot{Item:38,Data:0}'
-MCBlocks.POTTED_POPPY[Version.V1_8].minecraftId      # 'minecraft:flower_pot{Item:"minecraft:red_flower",Data:0}'
+MCBlocks.CreeperHead[Version.V1_12_2].minecraftId   # 'minecraft:skull:1{SkullType:4b}'
+MCBlocks.WhiteBed[Version.V1_12].minecraftId        # 'minecraft:bed{color:0}'
+MCBlocks.RedBed[Version.V1_11_2].minecraftId        # 'minecraft:bed'
+MCBlocks.PottedPoppy[Version.V1_7_10].minecraftId   # 'minecraft:flower_pot{Item:38,Data:0}'
+MCBlocks.PottedPoppy[Version.V1_8].minecraftId      # 'minecraft:flower_pot{Item:"minecraft:red_flower",Data:0}'
 ```
 
 A bed before 1.12 was always red, and 1.7's flower pot held its plant's number. Until 1.17 the water cauldron was a cauldron with water in it, and the old pumpkin is both the pumpkin and the carved pumpkin, as for the items:
 
 ```python
 from mcdex import Version
-MCBlocks.WATER_CAULDRON[Version.V1_16_5].minecraftId   # 'minecraft:cauldron[level=1]'
-MCBlocks.CARVED_PUMPKIN[Version.V1_12_2].minecraftId   # 'minecraft:pumpkin'
-MCBlocks.GRASS_BLOCK[Version.V1_12_2].minecraftId      # 'minecraft:grass'
-MCBlocks.GRASS[Version.V1_12_2].minecraftId            # 'minecraft:tallgrass:1'
+MCBlocks.WaterCauldron[Version.V1_16_5].minecraftId   # 'minecraft:cauldron[level=1]'
+MCBlocks.CarvedPumpkin[Version.V1_12_2].minecraftId   # 'minecraft:pumpkin'
+MCBlocks.GrassBlock[Version.V1_12_2].minecraftId      # 'minecraft:grass'
+MCBlocks.Grass[Version.V1_12_2].minecraftId           # 'minecraft:tallgrass:1'
 ```
 
 Where two old blocks became one, the block takes the old id nearest its default state:
@@ -396,12 +396,12 @@ Where two old blocks became one, the block takes the old id nearest its default 
 ```python
 from mcdex import MCEffects, Version
 
-speed = MCEffects.SPEED
-speed[Version.V1_7_10].minecraftId                      # '1'
-speed[Version.V1_8].minecraftId                         # 'minecraft:speed'
-MCEffects.INSTANT_HEALTH[Version.V1_7_10].minecraftId   # '6'
-len(MCEffects)                                   # 41, bad_luck beside unluck included
-MCEffects.GLOWING[Version.V1_8_9]
+speed = MCEffects.Speed
+speed[Version.V1_7_10].minecraftId                     # '1'
+speed[Version.V1_8].minecraftId                        # 'minecraft:speed'
+MCEffects.InstantHealth[Version.V1_7_10].minecraftId   # '6'
+len(MCEffects)                                         # 41, bad_luck beside unluck included
+MCEffects.Glowing[Version.V1_8_9]
 # NotInVersion: Vanilla 1.8.9 has no 'glowing'; vanilla added it in 1.9!
 ```
 
@@ -414,13 +414,13 @@ Which effect an old number is comes from the game's own table of numbers for upg
 ```python
 from mcdex import MCEnchantments, Version
 
-protection = MCEnchantments.PROTECTION
+protection = MCEnchantments.Protection
 protection[Version.V1_7_10].minecraftId                    # '0'
 protection[Version.V1_8].minecraftId                       # 'minecraft:protection'
-MCEnchantments.SWEEPING_EDGE[Version.V1_12_2].minecraftId   # 'minecraft:sweeping'
-MCEnchantments.SWEEPING_EDGE[Version.V1_20_5].minecraftId   # 'minecraft:sweeping_edge'
-len(MCEnchantments)                                 # 45, the two curses' English names included
-MCEnchantments.MENDING[Version.V1_8_9]
+MCEnchantments.SweepingEdge[Version.V1_12_2].minecraftId   # 'minecraft:sweeping'
+MCEnchantments.SweepingEdge[Version.V1_20_5].minecraftId   # 'minecraft:sweeping_edge'
+len(MCEnchantments)                                        # 45, the two curses' English names included
+MCEnchantments.Mending[Version.V1_8_9]
 # NotInVersion: Vanilla 1.8.9 has no 'mending'; vanilla added it in 1.9!
 ```
 
@@ -433,10 +433,10 @@ Since 1.21 the game defines its enchantments as data, in its own data pack. Its 
 ```python
 from mcdex import MCPotions, Version
 
-regeneration = MCPotions.REGENERATION
+regeneration = MCPotions.Regeneration
 regeneration[Version.V1_8_9].minecraftId                       # '1'
 regeneration[Version.V1_9].minecraftId                         # 'minecraft:regeneration'
-MCPotions.LEAPING[Version.V1_7_10]
+MCPotions.Leaping[Version.V1_7_10]
 # NotInVersion: Vanilla 1.7.10 has no 'leaping'; vanilla added it in 1.8!
 ```
 
@@ -445,12 +445,12 @@ The catalogue holds the base potions only. A long or a strong potion is a base p
 ```python
 from mcdex import MCPotions, PotionModifier, Version
 
-longNightVision = MCPotions[MCPotions.NIGHT_VISION, PotionModifier.LONG]
-longNightVision[Version.V1_12_2].minecraftId                   # 'minecraft:long_night_vision'
-longNightVision[Version.V1_8_9].minecraftId                    # '70'
-MCPotions[MCPotions.REGENERATION, PotionModifier.STRONG][Version.V1_8_9].minecraftId   # '33'
-longNightVision is MCPotions['night_vision', 'long']    # True
-len(MCPotions), len(PotionModifier)                     # (25, 2)
+longNightVision = MCPotions[MCPotions.NightVision, PotionModifier.Long]
+longNightVision[Version.V1_12_2].minecraftId                                           # 'minecraft:long_night_vision'
+longNightVision[Version.V1_8_9].minecraftId                                            # '70'
+MCPotions[MCPotions.Regeneration, PotionModifier.Strong][Version.V1_8_9].minecraftId   # '33'
+longNightVision is MCPotions['night_vision', 'long']                                   # True
+len(MCPotions), len(PotionModifier)                                                    # (25, 2)
 ```
 
 Which base potion and modifier a potion is comes from the game's own code: each long or strong potion is registered with its base potion's name, and its effects last longer or are stronger than the base potion's. Before 1.9 the same shows in the damage value: 64 for long and 32 for strong, on top of the base potion's number. Night vision is 6, so the long night vision is 70.
@@ -464,13 +464,13 @@ Which potion an old damage value is comes from the game's own table for upgradin
 ```python
 from mcdex import MCBiomes, Version
 
-windsweptHills = MCBiomes.WINDSWEPT_HILLS
-windsweptHills[Version.V1_8_9].minecraftId      # '3'
-windsweptHills[Version.V1_12_2].minecraftId     # 'minecraft:extreme_hills'
-windsweptHills[Version.V1_17_1].minecraftId     # 'minecraft:mountains'
-windsweptHills[Version.V1_18].minecraftId       # 'minecraft:windswept_hills'
-MCBiomes.SUNFLOWER_PLAINS[Version.V1_7_10].minecraftId   # '129'
-len(MCBiomes)                            # 93
+windsweptHills = MCBiomes.WindsweptHills
+windsweptHills[Version.V1_8_9].minecraftId              # '3'
+windsweptHills[Version.V1_12_2].minecraftId             # 'minecraft:extreme_hills'
+windsweptHills[Version.V1_17_1].minecraftId             # 'minecraft:mountains'
+windsweptHills[Version.V1_18].minecraftId               # 'minecraft:windswept_hills'
+MCBiomes.SunflowerPlains[Version.V1_7_10].minecraftId   # '129'
+len(MCBiomes)                                           # 93
 ```
 
 1.18 folded several biomes into one. Both the mountains and the mountain edge became windswept hills. One of them is the biome renamed:
@@ -481,8 +481,8 @@ The others were removed and keep their last names:
 
 ```python
 from mcdex import Version
-MCBiomes.MOUNTAIN_EDGE[Version.V1_17_1].minecraftId   # 'minecraft:mountain_edge'
-MCBiomes.MOUNTAIN_EDGE[Version.V1_18]
+MCBiomes.MountainEdge[Version.V1_17_1].minecraftId   # 'minecraft:mountain_edge'
+MCBiomes.MountainEdge[Version.V1_18]
 # NotInVersion: Vanilla 1.18 has no 'mountain_edge'; vanilla removed it in 1.18!
 ```
 
@@ -493,12 +493,12 @@ MCBiomes.MOUNTAIN_EDGE[Version.V1_18]
 ```python
 from mcdex import MCBlockEntities, Version
 
-MCBlockEntities.DISPENSER[Version.V1_10_2].minecraftId      # 'Trap'
-MCBlockEntities.DISPENSER[Version.V1_11].minecraftId        # 'minecraft:dispenser'
-MCBlockEntities.BREWING_STAND[Version.V1_10_2].minecraftId  # 'Cauldron'
-MCBlockEntities.TRAPPED_CHEST[Version.V1_12_2].minecraftId  # 'minecraft:chest'
-MCBlockEntities.TRAPPED_CHEST[Version.V1_13].minecraftId    # 'minecraft:trapped_chest'
-len(MCBlockEntities)                                    # 52
+MCBlockEntities.Dispenser[Version.V1_10_2].minecraftId     # 'Trap'
+MCBlockEntities.Dispenser[Version.V1_11].minecraftId       # 'minecraft:dispenser'
+MCBlockEntities.BrewingStand[Version.V1_10_2].minecraftId  # 'Cauldron'
+MCBlockEntities.TrappedChest[Version.V1_12_2].minecraftId  # 'minecraft:chest'
+MCBlockEntities.TrappedChest[Version.V1_13].minecraftId    # 'minecraft:trapped_chest'
+len(MCBlockEntities)                                       # 52
 ```
 
 Until 1.13 a trapped chest kept its items in a chest's block entity, so that old id belongs to both. The note block and the flower pot lost their block entities in 1.13, and the bed lost its own in 26.2.
@@ -510,17 +510,17 @@ Until 1.13 a trapped chest kept its items in a chest's block entity, so that old
 ```python
 from mcdex import MCParticles, Version
 
-MCParticles.FLAME[Version.V1_12_2].minecraftId              # 'flame'
-MCParticles.FLAME[Version.V1_13].minecraftId                # 'minecraft:flame'
-MCParticles.POOF[Version.V1_12_2].minecraftId               # 'explode'
-MCParticles.POOF[Version.V1_13].minecraftId                 # 'minecraft:poof'
-MCParticles.ENTITY_EFFECT[Version.V1_12_2].minecraftId      # 'mobSpell'
-MCParticles.WITCH[Version.V1_12_2].minecraftId              # 'witchMagic'
-MCParticles.DUST[Version.V1_12_2].minecraftId               # 'reddust'
-MCParticles.ITEM[Version.V1_8].minecraftId                  # 'iconcrack_'
-MCParticles.ITEM[Version.V1_9].minecraftId                  # 'iconcrack'
-MCParticles.ITEM[Version.V1_13].minecraftId                 # 'minecraft:item'
-len(MCParticles)                                        # 141
+MCParticles.Flame[Version.V1_12_2].minecraftId             # 'flame'
+MCParticles.Flame[Version.V1_13].minecraftId               # 'minecraft:flame'
+MCParticles.Poof[Version.V1_12_2].minecraftId              # 'explode'
+MCParticles.Poof[Version.V1_13].minecraftId                # 'minecraft:poof'
+MCParticles.EntityEffect[Version.V1_12_2].minecraftId      # 'mobSpell'
+MCParticles.Witch[Version.V1_12_2].minecraftId             # 'witchMagic'
+MCParticles.Dust[Version.V1_12_2].minecraftId              # 'reddust'
+MCParticles.Item[Version.V1_8].minecraftId                 # 'iconcrack_'
+MCParticles.Item[Version.V1_9].minecraftId                 # 'iconcrack'
+MCParticles.Item[Version.V1_13].minecraftId                # 'minecraft:item'
+len(MCParticles)                                           # 141
 ```
 
 No world saves a particle, so the game has no table for upgrading them. Which particle is which comes from the game's own code instead:
@@ -534,29 +534,29 @@ No world saves a particle, so the game has no table for upgrading them. Which pa
 
 ## Sounds
 
-`MCSounds` is the catalogue of sound events: what `/playsound` takes, from 1.7.2. From 1.9 the game's code lists its sounds; before, a sound was a name of the client's own list of them, its `sounds.json`, which is what `/playsound` took. A sound's name is the one a person would use: the game's newest name for it, without the `entity.`, `block.` or `item.` it begins with, its glued words split (`flintandsteel` is `FLINT_AND_STEEL`). Where the game's last word is code-speak, `ambient` or `primed`, the verb of Mojang's own English subtitle takes its place: the creeper's `entity.creeper.primed`, "Creeper hisses", is `CREEPER_HISS`, and the cow's `entity.cow.ambient`, "Cow moos", is `COW_MOO`:
+`MCSounds` is the catalogue of sound events: what `/playsound` takes, from 1.7.2. From 1.9 the game's code lists its sounds; before, a sound was a name of the client's own list of them, its `sounds.json`, which is what `/playsound` took. A sound's name is the one a person would use: the game's newest name for it, without the `entity.`, `block.` or `item.` it begins with, its glued words split (`flintandsteel` is `FlintAndSteel`). Where the game's last word is code-speak, `ambient` or `primed`, the verb of Mojang's own English subtitle takes its place: the creeper's `entity.creeper.primed`, "Creeper hisses", is `CreeperHiss`, and the cow's `entity.cow.ambient`, "Cow moos", is `CowMoo`:
 
 ```python
 from mcdex import MCSounds, Version
 
-creeperHiss = MCSounds.CREEPER_HISS
-creeperHiss[Version.V1_9].minecraftId                    # 'minecraft:entity.creeper.primed'
-MCSounds.GOAT_HORN_SOUND_7[Version.V1_19].minecraftId    # 'minecraft:item.goat_horn.sound.7'
-MCSounds.ENDERMAN_VWOOP[Version.V1_12_2].minecraftId     # 'minecraft:entity.endermen.ambient'
-MCSounds.ENDERMAN_VWOOP[Version.V1_13].minecraftId       # 'minecraft:entity.enderman.ambient'
-MCSounds['entity.creeper.primed'] is creeperHiss         # True, as /playsound takes it
-MCSounds['entity.endermen.ambient'] is MCSounds.ENDERMAN_VWOOP   # True, 1.12.2's name
-creeperHiss[Version.V1_8_9].minecraftId                  # 'minecraft:creeper.primed'
-MCSounds.WOOL_BREAK[Version.V1_8_9].minecraftId          # 'minecraft:dig.cloth'
-MCSounds.WOOL_PLACE[Version.V1_8_9].minecraftId          # 'minecraft:dig.cloth'
-len(MCSounds)                                            # 2007
+creeperHiss = MCSounds.CreeperHiss
+creeperHiss[Version.V1_9].minecraftId                           # 'minecraft:entity.creeper.primed'
+MCSounds.GoatHornSound7[Version.V1_19].minecraftId              # 'minecraft:item.goat_horn.sound.7'
+MCSounds.EndermanVwoop[Version.V1_12_2].minecraftId             # 'minecraft:entity.endermen.ambient'
+MCSounds.EndermanVwoop[Version.V1_13].minecraftId               # 'minecraft:entity.enderman.ambient'
+MCSounds['entity.creeper.primed'] is creeperHiss                # True, as /playsound takes it
+MCSounds['entity.endermen.ambient'] is MCSounds.EndermanVwoop   # True, 1.12.2's name
+creeperHiss[Version.V1_8_9].minecraftId                         # 'minecraft:creeper.primed'
+MCSounds.WoolBreak[Version.V1_8_9].minecraftId                  # 'minecraft:dig.cloth'
+MCSounds.WoolPlace[Version.V1_8_9].minecraftId                  # 'minecraft:dig.cloth'
+len(MCSounds)                                                   # 2007
 creeperHiss[Version.V1_6_4]
 # ValueError: mcdex has no data on 'creeper_hiss' before 1.7.2
 ```
 
 A sound the game renamed is one sound, its old name in the versions before. No world saves a sound, so the game has no table for upgrading them; the evidence is each version's `sounds.json` asset, which says what sound files each name plays. A name a version drops is the name it adds that plays exactly the same files, where no other name dropped or added there plays them. That links 89 renames, among them `record.cat` to `music_disc.cat` in 1.13. Where several names play one set of files, as the wool's break and place, or the files changed with the name, as the zombie pigman's sounds became the zombified piglin's in 1.16, the generator lists the rename itself: 56 more. A sound that split names the one that carries on the old: `music.nether` is the nether wastes' music from 1.16.
 
-1.9 renamed nearly every sound, and made many one sound several: 1.8.9 broke and placed wool with `dig.cloth`, and shot an arrow and threw an egg with `random.bow`. A thing that was part of a bigger one carries the old name, so each sound 1.9 made of one is that one before it: `WOOL_BREAK` and `WOOL_PLACE` are both `dig.cloth` in 1.8.9, and that game name finds neither of them alone. Where several names of 1.8.9 play one set of files, as the creeper's fuse and TNT's, `creeper.primed` and `game.tnt.primed`, the generator pairs them by name. The 16 other names the game dropped are sounds it removed, as 1.8's unused `note.bass` in 1.9 and the parrot's imitations of five mobs in 1.15.
+1.9 renamed nearly every sound, and made many one sound several: 1.8.9 broke and placed wool with `dig.cloth`, and shot an arrow and threw an egg with `random.bow`. A thing that was part of a bigger one carries the old name, so each sound 1.9 made of one is that one before it: `WoolBreak` and `WoolPlace` are both `dig.cloth` in 1.8.9, and that game name finds neither of them alone. Where several names of 1.8.9 play one set of files, as the creeper's fuse and TNT's, `creeper.primed` and `game.tnt.primed`, the generator pairs them by name. The 16 other names the game dropped are sounds it removed, as 1.8's unused `note.bass` in 1.9 and the parrot's imitations of five mobs in 1.15.
 
 ## Attributes
 
@@ -565,13 +565,13 @@ A sound the game renamed is one sound, its old name in the versions before. No w
 ```python
 from mcdex import MCAttributes, Version
 
-maxHealth = MCAttributes.MAX_HEALTH
-maxHealth[Version.V1_15_2].minecraftId     # 'generic.maxHealth'
-maxHealth[Version.V1_16].minecraftId       # 'minecraft:generic.max_health'
-maxHealth[Version.V1_21_2].minecraftId     # 'minecraft:max_health'
-MCAttributes.JUMP_STRENGTH[Version.V1_7_10].minecraftId   # 'horse.jumpStrength'
-MCAttributes.JUMP_STRENGTH[Version.V1_20_5].minecraftId   # 'minecraft:generic.jump_strength'
-len(MCAttributes)                   # 41, zombie_reinforcements beside spawn_reinforcements included
+maxHealth = MCAttributes.MaxHealth
+maxHealth[Version.V1_15_2].minecraftId                   # 'generic.maxHealth'
+maxHealth[Version.V1_16].minecraftId                     # 'minecraft:generic.max_health'
+maxHealth[Version.V1_21_2].minecraftId                   # 'minecraft:max_health'
+MCAttributes.JumpStrength[Version.V1_7_10].minecraftId   # 'horse.jumpStrength'
+MCAttributes.JumpStrength[Version.V1_20_5].minecraftId   # 'minecraft:generic.jump_strength'
+len(MCAttributes)                                        # 41, zombie_reinforcements beside spawn_reinforcements included
 ```
 
 Which attribute an old name is comes from the game's own renames for upgrading old worlds, its code run for the prefix it dropped.
@@ -583,11 +583,11 @@ Which attribute an old name is comes from the game's own renames for upgrading o
 ```python
 from mcdex import MCStatistics, Version
 
-MCStatistics.LEAVE_GAME[Version.V1_12_2].minecraftId    # 'stat.leaveGame'
-MCStatistics.LEAVE_GAME[Version.V1_13].minecraftId      # 'minecraft:leave_game'
-MCStatistics.PLAY_TIME[Version.V1_16_5].minecraftId     # 'minecraft:play_one_minute'
-MCStatistics.PLAY_TIME[Version.V1_17].minecraftId       # 'minecraft:play_time'
-len(MCStatistics)                                   # 146: 80, and 66 under the names their screen shows too
+MCStatistics.LeaveGame[Version.V1_12_2].minecraftId    # 'stat.leaveGame'
+MCStatistics.LeaveGame[Version.V1_13].minecraftId      # 'minecraft:leave_game'
+MCStatistics.PlayTime[Version.V1_16_5].minecraftId     # 'minecraft:play_one_minute'
+MCStatistics.PlayTime[Version.V1_17].minecraftId       # 'minecraft:play_time'
+len(MCStatistics)                                      # 146: 80, and 66 under the names their screen shows too
 ```
 
 Which statistic an old name is comes from the game's own 1.13 table of statistics and its renames since. Two statistics 1.11.1 removed have no later name. Their unique names, mcdex's own, are their old names in lower case, as `junk_fished`; their ids stay the game's.
@@ -599,11 +599,11 @@ Which statistic an old name is comes from the game's own 1.13 table of statistic
 ```python
 from mcdex import MCGameRules, Version
 
-MCGameRules.KEEP_INVENTORY[Version.V1_21_10].minecraftId   # 'keepInventory'
-MCGameRules.KEEP_INVENTORY[Version.V1_21_11].minecraftId   # 'minecraft:keep_inventory'
-MCGameRules.ADVANCE_TIME[Version.V1_21_10].minecraftId     # 'doDaylightCycle'
-MCGameRules.BLOCK_DROPS[Version.V1_12_2].minecraftId       # 'doTileDrops'
-len(MCGameRules)                                       # 62
+MCGameRules.KeepInventory[Version.V1_21_10].minecraftId   # 'keepInventory'
+MCGameRules.KeepInventory[Version.V1_21_11].minecraftId   # 'minecraft:keep_inventory'
+MCGameRules.AdvanceTime[Version.V1_21_10].minecraftId     # 'doDaylightCycle'
+MCGameRules.BlockDrops[Version.V1_12_2].minecraftId       # 'doTileDrops'
+len(MCGameRules)                                          # 62
 ```
 
 Which rule an old name is comes from the game's own code for upgrading a world's rules, run on each old rule. Where that code made two old rules one, the one registered first is the rule. `doFireTick` became the fire spread radius; the `allowFireTicksAwayFromPlayer` it was merged with was removed. Removed rules have unique names in lower case words, as `spawn_chunk_radius`.
@@ -615,17 +615,19 @@ Which rule an old name is comes from the game's own code for upgrading a world's
 ```python
 from mcdex import MCVillagerProfessions, MCVillagerTypes, Version
 
-MCVillagerProfessions.FARMER[Version.V1_7_10].minecraftId      # 'Villager{Profession:0}'
-MCVillagerProfessions.FISHERMAN[Version.V1_13_2].minecraftId   # 'minecraft:villager{Profession:0,Career:2}'
-MCVillagerProfessions.FISHERMAN[Version.V1_14].minecraftId
+MCVillagerProfessions.Farmer[Version.V1_7_10].minecraftId      # 'Villager{Profession:0}'
+MCVillagerProfessions.Fisherman[Version.V1_13_2].minecraftId   # 'minecraft:villager{Profession:0,Career:2}'
+MCVillagerProfessions.Fisherman[Version.V1_14].minecraftId
 # 'minecraft:villager{VillagerData:{profession:"minecraft:fisherman"}}'
-MCVillagerTypes.PLAINS[Version.V1_13_2].minecraftId            # 'minecraft:villager'
-MCVillagerTypes.DESERT[Version.V1_14].minecraftId
+MCVillagerProfessions.Unemployed[Version.V1_14].minecraftId
+# 'minecraft:villager{VillagerData:{profession:"minecraft:none"}}'
+MCVillagerTypes.Plains[Version.V1_13_2].minecraftId            # 'minecraft:villager'
+MCVillagerTypes.Desert[Version.V1_14].minecraftId
 # 'minecraft:villager{VillagerData:{type:"minecraft:desert"}}'
 len(MCVillagerProfessions), len(MCVillagerTypes)           # (15, 7)
 ```
 
-Which profession an old pair is comes from the game's own code for upgrading old villagers, run on each pair. The pairs an old version has are the ones its own trade table lists. That code also gives every old villager its type: plains.
+A villager with no profession is `MCVillagerProfessions.Unemployed`, the game's `none`, which as a member would be Python's `None`. Which profession an old pair is comes from the game's own code for upgrading old villagers, run on each pair. The pairs an old version has are the ones its own trade table lists. That code also gives every old villager its type: plains.
 
 ## Dimensions
 
@@ -634,12 +636,12 @@ Which profession an old pair is comes from the game's own code for upgrading old
 ```python
 from mcdex import MCDimensions, Version
 
-theNether = MCDimensions.THE_NETHER
+theNether = MCDimensions.TheNether
 
-theNether[Version.V1_12_2].minecraftId                   # '-1'
-theNether[Version.V1_13].minecraftId                     # 'minecraft:the_nether'
-MCDimensions.THE_END[Version.V1_7_10].minecraftId     # '1'
-len(MCDimensions)                                 # 3
+theNether[Version.V1_12_2].minecraftId               # '-1'
+theNether[Version.V1_13].minecraftId                 # 'minecraft:the_nether'
+MCDimensions.TheEnd[Version.V1_7_10].minecraftId     # '1'
+len(MCDimensions)                                    # 3
 ```
 
 Each version's dimensions come from its own code. 1.7 and 1.8 make a dimension's world from its number, and that code is run on every number. 1.9 to 1.13 list them in one enum, and later versions register them by name. Which old number is which dimension comes from the game's own code for upgrading old dimension numbers.
@@ -651,11 +653,11 @@ Each version's dimensions come from its own code. 1.7 and 1.8 make a dimension's
 ```python
 from mcdex import MCDamageTypes, Version
 
-inFire = MCDamageTypes.IN_FIRE
+inFire = MCDamageTypes.InFire
 
-inFire[Version.V1_19_4].minecraftId                         # 'minecraft:in_fire'
-MCDamageTypes.MACE_SMASH[Version.V1_21_2].minecraftId    # 'minecraft:mace_smash'
-len(MCDamageTypes)                                   # 51
+inFire[Version.V1_19_4].minecraftId                     # 'minecraft:in_fire'
+MCDamageTypes.MaceSmash[Version.V1_21_2].minecraftId    # 'minecraft:mace_smash'
+len(MCDamageTypes)                                      # 51
 ```
 
 Each version's damage types are the keys its code declares for them, each checked against the version's data pack. None has been renamed or removed yet.
@@ -667,10 +669,10 @@ Each version's damage types are the keys its code declares for them, each checke
 ```python
 from mcdex import MCTrimMaterials, MCTrimPatterns, Version
 
-MCTrimPatterns.COAST[Version.V1_19_4].minecraftId      # 'minecraft:coast'
-MCTrimPatterns.BOLT[Version.V1_20_5].minecraftId       # 'minecraft:bolt'
-MCTrimMaterials.RESIN[Version.V1_21_4].minecraftId     # 'minecraft:resin'
-len(MCTrimPatterns), len(MCTrimMaterials)          # (18, 11)
+MCTrimPatterns.Coast[Version.V1_19_4].minecraftId      # 'minecraft:coast'
+MCTrimPatterns.Bolt[Version.V1_20_5].minecraftId       # 'minecraft:bolt'
+MCTrimMaterials.Resin[Version.V1_21_4].minecraftId     # 'minecraft:resin'
+len(MCTrimPatterns), len(MCTrimMaterials)              # (18, 11)
 ```
 
 Each version's patterns and materials are the keys its code declares for them, each checked against the version's data pack or its experimental packs. How it goes inside an item in each version, and the command that gives one: [Ids that go inside an item](#ids-that-go-inside-an-item).
@@ -700,17 +702,17 @@ The mobs that come in variants each have a catalogue of them: their looks, and f
 from mcdex import MCCatVariants, MCFrogVariants, MCWolfSoundVariants, Version
 from mcdex import MCWolfVariants
 
-black = MCCatVariants.BLACK
+black = MCCatVariants.Black
 
-black[Version.V1_12_2].minecraftId                            # 'minecraft:ocelot{CatType:1}'
-black[Version.V1_18_2].minecraftId                            # 'minecraft:cat{CatType:1}'
-black[Version.V1_19].minecraftId                              # 'minecraft:cat{variant:"minecraft:black"}'
-MCCatVariants.TABBY[Version.V1_14].minecraftId             # 'minecraft:cat{CatType:0}'
-MCFrogVariants.WARM[Version.V1_19].minecraftId             # 'minecraft:frog{variant:"minecraft:warm"}'
-MCWolfVariants.PALE[Version.V1_12_2].minecraftId           # 'minecraft:wolf'
-MCWolfVariants.ASHEN[Version.V1_20_5].minecraftId          # 'minecraft:wolf{variant:"minecraft:ashen"}'
-MCWolfSoundVariants.CLASSIC[Version.V1_20_4].minecraftId   # 'minecraft:wolf'
-MCWolfSoundVariants.PUGLIN[Version.V1_21_5].minecraftId    # 'minecraft:wolf{sound_variant:"minecraft:puglin"}'
+black[Version.V1_12_2].minecraftId                         # 'minecraft:ocelot{CatType:1}'
+black[Version.V1_18_2].minecraftId                         # 'minecraft:cat{CatType:1}'
+black[Version.V1_19].minecraftId                           # 'minecraft:cat{variant:"minecraft:black"}'
+MCCatVariants.Tabby[Version.V1_14].minecraftId             # 'minecraft:cat{CatType:0}'
+MCFrogVariants.Warm[Version.V1_19].minecraftId             # 'minecraft:frog{variant:"minecraft:warm"}'
+MCWolfVariants.Pale[Version.V1_12_2].minecraftId           # 'minecraft:wolf'
+MCWolfVariants.Ashen[Version.V1_20_5].minecraftId          # 'minecraft:wolf{variant:"minecraft:ashen"}'
+MCWolfSoundVariants.Classic[Version.V1_20_4].minecraftId   # 'minecraft:wolf'
+MCWolfSoundVariants.Puglin[Version.V1_21_5].minecraftId    # 'minecraft:wolf{sound_variant:"minecraft:puglin"}'
 ```
 
 Before 1.19 a cat's variant was its number, its `CatType`. Before 1.14, when the cat was not yet an entity of its own, it was a tamed ocelot's number, so only the black, red and siamese cats go back that far. Which number is which variant comes from the game's own code for upgrading old cats: its split of the ocelot, its names for the numbers, and its rename of `british` to `british_shorthair`.
@@ -734,13 +736,13 @@ So a variant's id splits into a `/summon` command as an entity's does, as the re
 ```python
 from mcdex import MCPaintingVariants, Version
 
-donkeyKong = MCPaintingVariants.DONKEY_KONG
+donkeyKong = MCPaintingVariants.DonkeyKong
 
-donkeyKong[Version.V1_7_10].minecraftId                     # 'Painting{Motive:"DonkeyKong"}'
-donkeyKong[Version.V1_12_2].minecraftId                     # 'minecraft:painting{Motive:"DonkeyKong"}'
-donkeyKong[Version.V1_13].minecraftId                       # 'minecraft:painting{Motive:"minecraft:donkey_kong"}'
-MCPaintingVariants.EARTH[Version.V1_19].minecraftId      # 'minecraft:painting{variant:"minecraft:earth"}'
-len(MCPaintingVariants)                              # 51
+donkeyKong[Version.V1_7_10].minecraftId                  # 'Painting{Motive:"DonkeyKong"}'
+donkeyKong[Version.V1_12_2].minecraftId                  # 'minecraft:painting{Motive:"DonkeyKong"}'
+donkeyKong[Version.V1_13].minecraftId                    # 'minecraft:painting{Motive:"minecraft:donkey_kong"}'
+MCPaintingVariants.Earth[Version.V1_19].minecraftId      # 'minecraft:painting{variant:"minecraft:earth"}'
+len(MCPaintingVariants)                                  # 51
 ```
 
 Which old title is which painting comes from the game's own code for upgrading old paintings, run on each title. No painting has been removed.
@@ -752,26 +754,26 @@ Which old title is which painting comes from the game's own code for upgrading o
 ```python
 from mcdex import MCBannerPatterns, Version
 
-squareBottomLeft = MCBannerPatterns.SQUARE_BOTTOM_LEFT
+squareBottomLeft = MCBannerPatterns.SquareBottomLeft
 
-squareBottomLeft[Version.V1_8].minecraftId              # 'bl'
-squareBottomLeft[Version.V1_20_5].minecraftId           # 'minecraft:square_bottom_left'
-MCBannerPatterns.GLOBE[Version.V1_14].minecraftId    # 'glb'
-len(MCBannerPatterns)                            # 45, two under a second name included
+squareBottomLeft[Version.V1_8].minecraftId           # 'bl'
+squareBottomLeft[Version.V1_20_5].minecraftId        # 'minecraft:square_bottom_left'
+MCBannerPatterns.Globe[Version.V1_14].minecraftId    # 'glb'
+len(MCBannerPatterns)                                # 43
 ```
 
 Which code is which pattern comes from the game's own table for upgrading old banners. From 1.19 to 1.20.4 the game registered each pattern with its code, and each of those agrees with the table. How it goes inside an item in each version, and the command that gives one: [Ids that go inside an item](#ids-that-go-inside-an-item).
 
 ## Advancements
 
-`MCAdvancements` is the catalogue of advancements: what `/advancement` takes, from 1.12, when advancements came. The advancements that unlock recipes, `recipes/...`, are in too. An advancement's name is its title, Mojang's English, as its own file names it: `story/mine_stone` is "Stone Age", `STONE_AGE`. The root of a tab, whose title is the tab's, is that tab's root: `end/root` is `END_ROOT`, beside `story/enter_the_end`, "The End?", which is `THE_END`. An advancement that unlocks a recipe has no title, and is its recipe and `recipe`:
+`MCAdvancements` is the catalogue of advancements: what `/advancement` takes, from 1.12, when advancements came. The advancements that unlock recipes, `recipes/...`, are in too. An advancement's name is its title, Mojang's English, as its own file names it: `story/mine_stone` is "Stone Age", `StoneAge`. The root of a tab, whose title is the tab's, is that tab's root: `end/root` is `EndRoot`, beside `story/enter_the_end`, "The End?", which is `TheEnd`. An advancement that unlocks a recipe has no title, and is its recipe and `recipe`:
 
 ```python
 from mcdex import MCAdvancements, Version
 
-stoneAge = MCAdvancements.STONE_AGE
-countryLodeTakeMeHome = MCAdvancements.COUNTRY_LODE_TAKE_ME_HOME
-acaciaPlanksRecipe = MCAdvancements.ACACIA_PLANKS_RECIPE
+stoneAge = MCAdvancements.StoneAge
+countryLodeTakeMeHome = MCAdvancements.CountryLodeTakeMeHome
+acaciaPlanksRecipe = MCAdvancements.AcaciaPlanksRecipe
 
 stoneAge[Version.V1_12].minecraftId                  # 'minecraft:story/mine_stone'
 countryLodeTakeMeHome[Version.V1_16].minecraftId     # 'minecraft:nether/use_lodestone'
@@ -781,7 +783,7 @@ MCAdvancements['story/mine_stone'] is stoneAge       # True, as /advancement tak
 len(MCAdvancements)                                  # 1938
 ```
 
-Each version's advancements are the files of its own data pack, which the game loads them from. Which old advancement is which comes from the game's own advancement renames. The game's names find an advancement too, the old ones included; a name the game gave two advancements finds the one that held it last, as `recipes/building_blocks/stone_stairs`, the cobblestone stairs' recipe in 1.12 and the stone stairs' from 1.14. A recipe advancement the game moved to another category with no such rename is still one, where the new takes up in the version the old leaves off: 46 of them moved in 1.21.6. A title alone does not make two advancements one: "Serious Dedication" wore out a diamond hoe to 1.15.2 and makes a netherite hoe from 1.16, so the newer has the title and the older is `BREAK_DIAMOND_HOE`, the last part of its own name.
+Each version's advancements are the files of its own data pack, which the game loads them from. Which old advancement is which comes from the game's own advancement renames. The game's names find an advancement too, the old ones included; a name the game gave two advancements finds the one that held it last, as `recipes/building_blocks/stone_stairs`, the cobblestone stairs' recipe in 1.12 and the stone stairs' from 1.14. A recipe advancement the game moved to another category with no such rename is still one, where the new takes up in the version the old leaves off: 46 of them moved in 1.21.6. A title alone does not make two advancements one: "Serious Dedication" wore out a diamond hoe to 1.15.2 and makes a netherite hoe from 1.16, so the newer has the title and the older is `BreakDiamondHoe`, the last part of its own name.
 
 ## Structures
 
@@ -790,15 +792,15 @@ Each version's advancements are the files of its own data pack, which the game l
 ```python
 from mcdex import MCStructures, Version
 
-villagePlains = MCStructures.VILLAGE_PLAINS
+villagePlains = MCStructures.VillagePlains
 
 villagePlains[Version.V1_7_10].minecraftId      # 'Village{Children:[{Desert:0b}]}'
 villagePlains[Version.V1_12_2].minecraftId      # 'Village{Children:[{Type:0b}]}'
 villagePlains[Version.V1_14].minecraftId        # 'Village{start_pool:"village/plains/town_centers"}'
 villagePlains[Version.V1_19].minecraftId        # 'minecraft:village_plains'
-MCStructures.DESERT_PYRAMID[Version.V1_12_2].minecraftId
+MCStructures.DesertPyramid[Version.V1_12_2].minecraftId
 # 'Temple{Children:[{id:"TeDP"}]}'
-MCStructures.MINESHAFT_MESA[Version.V1_18_2].minecraftId
+MCStructures.MineshaftMesa[Version.V1_18_2].minecraftId
 # 'minecraft:mineshaft{Children:[{MST:1}]}'
 len(MCStructures)                        # 52
 ```
@@ -842,12 +844,12 @@ str(MCVersion(1, 8, 0))                  # '1.8'
 from mcdex import EquipmentSlot
 
 list(EquipmentSlot)
-# [<EquipmentSlot>.MAINHAND, <EquipmentSlot>.OFFHAND, <EquipmentSlot>.FEET,
-#  <EquipmentSlot>.LEGS, <EquipmentSlot>.CHEST, <EquipmentSlot>.HEAD,
-#  <EquipmentSlot>.BODY, <EquipmentSlot>.SADDLE]
+# [<EquipmentSlot>.MainHand, <EquipmentSlot>.OffHand, <EquipmentSlot>.Feet,
+#  <EquipmentSlot>.Legs, <EquipmentSlot>.Chest, <EquipmentSlot>.Head,
+#  <EquipmentSlot>.Body, <EquipmentSlot>.Saddle]
 
-EquipmentSlot('chest')         # <EquipmentSlot>.CHEST
-EquipmentSlot.CHEST.value      # 'chest'
+EquipmentSlot('chest')         # <EquipmentSlot>.Chest
+EquipmentSlot.Chest.value      # 'chest'
 ```
 
 The offhand arrived in 1.9, the body in 1.20.5 and the saddle in 1.21.5. Before each, an item that would go there went to the main hand.
@@ -949,7 +951,7 @@ giveCommand('splash_potion', '1.8.9')
 
 ### Ids that go inside an item
 
-A potion, a banner pattern, an armor trim and a jukebox song are each right on their own, but a command takes them only inside an item's data: `MCPotions.SWIFTNESS[Version.V1_20_4].minecraftId` is what a potion item's `Potion` holds. Where that data is, and its shape, changed over the versions. Each version's own code was read for it; the colours of a banner's layers come from the game's own upgrade code for banners.
+A potion, a banner pattern, an armor trim and a jukebox song are each right on their own, but a command takes them only inside an item's data: `MCPotions.Swiftness[Version.V1_20_4].minecraftId` is what a potion item's `Potion` holds. Where that data is, and its shape, changed over the versions. Each version's own code was read for it; the colours of a banner's layers come from the game's own upgrade code for banners.
 
 | What | Inside the item | Versions |
 |---|---|---|
@@ -1066,13 +1068,13 @@ from mcdex import EquipmentSlot, MCItems, NotInVersion, Version
 
 
 def elytraPreTest(version: str) -> str:
-    elytra = MCItems.ELYTRA
+    elytra = MCItems.Elytra
     try:
         id_ = elytra[version]
     except NotInVersion as exception:
         return 'FAIL: %s' % exception
     slot = elytra.equipmentSlot[Version(version)]
-    if slot is not EquipmentSlot.CHEST:
+    if slot is not EquipmentSlot.Chest:
         return 'FAIL: the elytra goes to %s, not the chest' % slot.value
     return 'ok: equip %s to the chest' % id_.minecraftId
 
@@ -1192,7 +1194,7 @@ history('red_bed')
 from mcdex import EquipmentSlot, MCItems, Version
 
 [item.uniqueName for item in MCItems
- if item.equipmentSlot.get(Version.V26_3) is EquipmentSlot.HEAD]
+ if item.equipmentSlot.get(Version.V26_3) is EquipmentSlot.Head]
 # ['carved_pumpkin', 'chainmail_helmet', 'copper_helmet', 'creeper_head',
 #  'diamond_helmet', 'dragon_head', 'golden_helmet', 'iron_helmet', 'leather_cap',
 #  'leather_helmet', 'netherite_helmet', 'piglin_head', 'player_head', 'skeleton_skull',
@@ -1237,7 +1239,7 @@ All of it comes from Mojang's own files: the server jar of every release, the ve
 - **Damage types.** From 1.19.4 they come from the keys each jar's code declares for them, found through Mojang's mappings, each checked against the jar's own data pack.
 - **Armor trims.** From 1.19.4 the patterns and materials come from the keys each jar's code declares for them, each checked against the jar's own data pack or its experimental packs.
 - **Music.** From 1.21 the songs come from the keys each jar's code declares for them, each checked against the jar's own data pack.
-- **Mob variants.** From the version each came in, they come from the keys each jar's code declares for them, or the entries it registers, each checked against the jar's own data pack. From 1.14 to 1.18.2 the cats are the numbers of each jar's own table of cat textures, and before 1.14 the ocelot numbers the game's own upgrade code makes cats. A default variant is the one the mob's code defines its data with, as the wolf's `PALE`. Each id's key is checked against the mob's own code in each version.
+- **Mob variants.** From the version each came in, they come from the keys each jar's code declares for them, or the entries it registers, each checked against the jar's own data pack. From 1.14 to 1.18.2 the cats are the numbers of each jar's own table of cat textures, and before 1.14 the ocelot numbers the game's own upgrade code makes cats. A default variant is the one the mob's code defines its data with, as the wolf's `Pale`. Each id's key is checked against the mob's own code in each version.
 - **Paintings.** Each id is the painting with its picture, under the key each jar's painting code saves it under. To 1.12.2 they come from each jar's enum of paintings, to 1.14.3 from its registration, and from 1.14.4 from running the code that registers them or declares their keys, found through Mojang's mappings and checked against the jar's own data pack from 1.21. Which old title is which painting comes from running the game's own painting upgrade code.
 - **Banner patterns.** To 1.18.2 they come from each jar's enum of patterns, to 1.20.4 from the code that registers each with its code, and from 1.20.5 from the keys each jar's code declares, checked against its data pack. Which old code is which pattern comes from the game's own table for upgrading banners.
 - **Advancements.** From 1.12 they come from the files of each jar's own data pack, which the game loads them from. Which old advancement is which comes from the game's own advancement renames, and, for a recipe advancement the game moved to another category with no rename, from the recipe it unlocks: one taking up in the version the other leaves off is the same advancement, as the 46 that moved in 1.21.6. An advancement's title comes from its own file.

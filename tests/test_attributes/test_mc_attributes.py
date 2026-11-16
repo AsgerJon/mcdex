@@ -31,12 +31,12 @@ class TestMCAttributes(BaseTest):
     cls.records = _records()
 
   def test_kind(self) -> None:
-    maxHealth = MCAttributes.MAX_HEALTH
+    maxHealth = MCAttributes.MaxHealth
     self.assertIsInstance(maxHealth, MCAttributes)
     self.assertIsInstance(maxHealth, MCThing)
     self.assertIs(type(maxHealth[Version.V26_3]), AttributeId)
     self.assertIsInstance(maxHealth[Version.V26_3], GameId)
-    self.assertEqual(repr(maxHealth), "<MCAttributes>.MAX_HEALTH")
+    self.assertEqual(repr(maxHealth), "<MCAttributes>.MaxHealth")
     self.assertNotEqual(AttributeId('x', 'minecraft:x'), EffectId('x', 'minecraft:x'))
 
   def test_catalogue(self) -> None:
@@ -70,20 +70,20 @@ class TestMCAttributes(BaseTest):
     self.assertEqual(len(latest), 40)
 
   def test_known_attributes(self) -> None:
-    maxHealth = MCAttributes.MAX_HEALTH
+    maxHealth = MCAttributes.MaxHealth
     self.assertEqual(maxHealth[Version.V1_15_2],
                      AttributeId('max_health', 'generic.maxHealth'))
     self.assertEqual(maxHealth[Version.V1_16].minecraftId,
                      'minecraft:generic.max_health')
     self.assertEqual(maxHealth[Version.V1_21_2].minecraftId,
                      'minecraft:max_health')
-    jumpStrength = MCAttributes.JUMP_STRENGTH
+    jumpStrength = MCAttributes.JumpStrength
     self.assertEqual(jumpStrength[Version.V1_7_10].minecraftId,
                      'horse.jumpStrength')
     self.assertEqual(jumpStrength[Version.V1_20_5].minecraftId,
                      'minecraft:generic.jump_strength')
     with self.assertRaises(NotInVersion) as context:
-      _ = MCAttributes.ATTACK_SPEED[Version.V1_8_9]
+      _ = MCAttributes.AttackSpeed[Version.V1_8_9]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.8.9 has no 'attack_speed'; vanilla added it in 1.9!",

@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import MCThing, TrimMaterialId
 
 
-class MCTrimMaterials(MCThing):
+class MCTrimMaterials(MCThing, strictCase=False):
   """
-  The catalogue of the game's trim materials, each a member, found by its name
-  in capitals, in any case, or by its unique name:
+  The catalogue of the game's trim materials, each a member. A member is named
+  by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    amethyst = MCTrimMaterials.AMETHYST
+    amethyst = MCTrimMaterials.Amethyst
     amethyst is MCTrimMaterials['amethyst']  # True
     amethyst[Version.V1_20]  # TrimMaterialId('amethyst', 'minecraft:amethyst')
     len(MCTrimMaterials)
@@ -27,7 +28,7 @@ class MCTrimMaterials(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'trim_materials.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -40,15 +41,15 @@ class MCTrimMaterials(MCThing):
   __id_class__ = TrimMaterialId
   __kind__ = 'trim material'
 
-  #  Members, one for every name of 'trim_materials.json'
-  AMETHYST = Kee[str]('amethyst')
-  COPPER = Kee[str]('copper')
-  DIAMOND = Kee[str]('diamond')
-  EMERALD = Kee[str]('emerald')
-  GOLD = Kee[str]('gold')
-  IRON = Kee[str]('iron')
-  LAPIS = Kee[str]('lapis')
-  NETHERITE = Kee[str]('netherite')
-  QUARTZ = Kee[str]('quartz')
-  REDSTONE = Kee[str]('redstone')
-  RESIN = Kee[str]('resin')
+  #  Members, one for every thing of 'trim_materials.json'
+  Amethyst = Kee[str]('amethyst')
+  Copper = Kee[str]('copper')
+  Diamond = Kee[str]('diamond')
+  Emerald = Kee[str]('emerald')
+  Gold = Kee[str]('gold')
+  Iron = Kee[str]('iron')
+  Lapis = Kee[str]('lapis')
+  Netherite = Kee[str]('netherite')
+  Quartz = Kee[str]('quartz')
+  Redstone = Kee[str]('redstone')
+  Resin = Kee[str]('resin')

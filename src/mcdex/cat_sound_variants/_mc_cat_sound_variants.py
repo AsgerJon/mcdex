@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import CatSoundVariantId, MCThing
 
 
-class MCCatSoundVariants(MCThing):
+class MCCatSoundVariants(MCThing, strictCase=False):
   """
-  The catalogue of the game's cat sound variants, each a member, found by its
-  name in capitals, in any case, or by its unique name:
+  The catalogue of the game's cat sound variants, each a member. A member is
+  named by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    royal = MCCatSoundVariants.ROYAL
+    royal = MCCatSoundVariants.Royal
     royal is MCCatSoundVariants['royal']  # True
     royal[Version.V26_1]
     # CatSoundVariantId('royal',
@@ -29,7 +30,7 @@ class MCCatSoundVariants(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'cat_sound_variants.json' beside this
-  module. mcdex's tools write the members, one for every name of that file.
+  module. mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -42,6 +43,6 @@ class MCCatSoundVariants(MCThing):
   __id_class__ = CatSoundVariantId
   __kind__ = 'cat sound variant'
 
-  #  Members, one for every name of 'cat_sound_variants.json'
-  CLASSIC = Kee[str]('classic')
-  ROYAL = Kee[str]('royal')
+  #  Members, one for every thing of 'cat_sound_variants.json'
+  Classic = Kee[str]('classic')
+  Royal = Kee[str]('royal')

@@ -18,7 +18,7 @@ class TestMCWolfSoundVariants(BaseTest):
   """
 
   def test_wolf_sound_variants(self) -> None:
-    puglin = MCWolfSoundVariants.PUGLIN
+    puglin = MCWolfSoundVariants.Puglin
     self.assertIsInstance(puglin, MCWolfSoundVariants)
     self.assertIsInstance(puglin, MCThing)
     self.assertEqual(puglin[Version.V1_21_5],
@@ -26,7 +26,7 @@ class TestMCWolfSoundVariants(BaseTest):
                          'puglin', 'minecraft:wolf'
                                    '{sound_variant:"minecraft:puglin"}'))
     self.assertIsInstance(puglin[Version.V26_3], GameId)
-    self.assertEqual(repr(puglin), "<MCWolfSoundVariants>.PUGLIN")
+    self.assertEqual(repr(puglin), "<MCWolfSoundVariants>.Puglin")
     self.assertEqual(len(MCWolfSoundVariants), 7)
     self.assertNotEqual(WolfSoundVariantId('x', 'minecraft:x'),
                         WolfVariantId('x', 'minecraft:x'))
@@ -36,7 +36,7 @@ class TestMCWolfSoundVariants(BaseTest):
         str(context.exception),
         "Vanilla 1.21.4 has no 'puglin'; vanilla added it in 1.21.5!",
     )
-    self.assertEqual(MCWolfSoundVariants.CLASSIC[Version.V1_21_4].minecraftId,
+    self.assertEqual(MCWolfSoundVariants.Classic[Version.V1_21_4].minecraftId,
                      'minecraft:wolf')
     with self.assertRaises(KeyError):
       _ = MCWolfSoundVariants['puglinx']

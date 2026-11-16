@@ -28,11 +28,11 @@ class ModifiedPotion(BaseObject):
   1.8.9, the night vision's 6 with the bit for long. 'MCPotions' gives
   it, the same object every time:
 
-    longNightVision = MCPotions[MCPotions.NIGHT_VISION, PotionModifier.LONG]
+    longNightVision = MCPotions[MCPotions.NightVision, PotionModifier.Long]
     longNightVision['1.12.2']
     # PotionId('night_vision', 'minecraft:long_night_vision')
-    longNightVision.base        # <MCPotions>.NIGHT_VISION
-    longNightVision.modifier    # <PotionModifier>.LONG
+    longNightVision.base        # <MCPotions>.NightVision
+    longNightVision.modifier    # <PotionModifier>.Long
 
   Implementation
   --------------
@@ -78,7 +78,7 @@ class ModifiedPotion(BaseObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def __str__(self, ) -> str:
-    """"MCPotions[<MCPotions>.NIGHT_VISION, <PotionModifier>.LONG]"."""
+    """"MCPotions[<MCPotions>.NightVision, <PotionModifier>.Long]"."""
     clsName = type(self.base).__name__
     return '%s[%s, %s]' % (clsName, self.base, self.modifier)
 

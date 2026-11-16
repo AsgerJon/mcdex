@@ -18,21 +18,21 @@ class TestMCWolfVariants(BaseTest):
   """
 
   def test_wolf_variants(self) -> None:
-    pale = MCWolfVariants.PALE
+    pale = MCWolfVariants.Pale
     self.assertIsInstance(pale, MCWolfVariants)
     self.assertIsInstance(pale, MCThing)
     self.assertEqual(pale[Version.V1_20_5],
                      WolfVariantId(
                          'pale', 'minecraft:wolf{variant:"minecraft:pale"}'))
     self.assertIsInstance(pale[Version.V26_3], GameId)
-    self.assertEqual(repr(pale), "<MCWolfVariants>.PALE")
+    self.assertEqual(repr(pale), "<MCWolfVariants>.Pale")
     self.assertEqual(len(MCWolfVariants), 9)
     self.assertNotEqual(WolfVariantId('x', 'minecraft:x'),
                         EntityId('x', 'minecraft:x'))
     self.assertEqual(pale[Version.V1_20_4].minecraftId, 'minecraft:wolf')
     self.assertEqual(pale[Version.V1_7_10].minecraftId, 'Wolf')
     with self.assertRaises(NotInVersion) as context:
-      _ = MCWolfVariants.ASHEN[Version.V1_20_4]
+      _ = MCWolfVariants.Ashen[Version.V1_20_4]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.20.4 has no 'ashen'; vanilla added it in 1.20.5!",
@@ -41,6 +41,6 @@ class TestMCWolfVariants(BaseTest):
       _ = MCWolfVariants['palex']
 
   def test_added_later(self) -> None:
-    ashen = MCWolfVariants.ASHEN
+    ashen = MCWolfVariants.Ashen
     self.assertEqual(ashen[Version.V26_3].minecraftId,
                      'minecraft:wolf{variant:"minecraft:ashen"}')

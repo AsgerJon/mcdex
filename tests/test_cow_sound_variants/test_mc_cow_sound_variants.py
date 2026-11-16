@@ -18,7 +18,7 @@ class TestMCCowSoundVariants(BaseTest):
   """
 
   def test_cow_sound_variants(self) -> None:
-    moody = MCCowSoundVariants.MOODY
+    moody = MCCowSoundVariants.Moody
     self.assertIsInstance(moody, MCCowSoundVariants)
     self.assertIsInstance(moody, MCThing)
     self.assertEqual(moody[Version.V26_1],
@@ -26,7 +26,7 @@ class TestMCCowSoundVariants(BaseTest):
                          'moody', 'minecraft:cow'
                                   '{sound_variant:"minecraft:moody"}'))
     self.assertIsInstance(moody[Version.V26_3], GameId)
-    self.assertEqual(repr(moody), "<MCCowSoundVariants>.MOODY")
+    self.assertEqual(repr(moody), "<MCCowSoundVariants>.Moody")
     self.assertEqual(len(MCCowSoundVariants), 2)
     self.assertNotEqual(CowSoundVariantId('x', 'minecraft:x'),
                         CowVariantId('x', 'minecraft:x'))

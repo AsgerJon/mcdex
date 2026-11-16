@@ -18,13 +18,13 @@ class TestMCTrimMaterials(BaseTest):
   """
 
   def test_trim_materials(self) -> None:
-    amethyst = MCTrimMaterials.AMETHYST
+    amethyst = MCTrimMaterials.Amethyst
     self.assertIsInstance(amethyst, MCTrimMaterials)
     self.assertIsInstance(amethyst, MCThing)
     self.assertEqual(amethyst[Version.V1_19_4],
                      TrimMaterialId('amethyst', 'minecraft:amethyst'))
     self.assertIsInstance(amethyst[Version.V26_3], GameId)
-    self.assertEqual(repr(amethyst), "<MCTrimMaterials>.AMETHYST")
+    self.assertEqual(repr(amethyst), "<MCTrimMaterials>.Amethyst")
     self.assertEqual(len(MCTrimMaterials), 11)
     self.assertNotEqual(TrimMaterialId('x', 'minecraft:x'),
                         TrimPatternId('x', 'minecraft:x'))
@@ -38,7 +38,7 @@ class TestMCTrimMaterials(BaseTest):
       _ = MCTrimMaterials['amethystx']
 
   def test_added_later(self) -> None:
-    resin = MCTrimMaterials.RESIN
+    resin = MCTrimMaterials.Resin
     self.assertEqual(resin[Version.V1_21_4].minecraftId, 'minecraft:resin')
     with self.assertRaises(NotInVersion):
       _ = resin[Version.V1_21_3]

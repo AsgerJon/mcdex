@@ -32,12 +32,12 @@ class TestMCEnchantments(BaseTest):
     cls.records = _records()
 
   def test_kind(self) -> None:
-    protection = MCEnchantments.PROTECTION
+    protection = MCEnchantments.Protection
     self.assertIsInstance(protection, MCEnchantments)
     self.assertIsInstance(protection, MCThing)
     self.assertIs(type(protection[Version.V26_3]), EnchantmentId)
     self.assertIsInstance(protection[Version.V26_3], GameId)
-    self.assertEqual(repr(protection), "<MCEnchantments>.PROTECTION")
+    self.assertEqual(repr(protection), "<MCEnchantments>.Protection")
     self.assertNotEqual(EnchantmentId('x', 'minecraft:x'),
                         EffectId('x', 'minecraft:x'))
 
@@ -69,21 +69,21 @@ class TestMCEnchantments(BaseTest):
     self.assertEqual(len(latest), 43)
 
   def test_known_enchantments(self) -> None:
-    protection = MCEnchantments.PROTECTION
+    protection = MCEnchantments.Protection
     self.assertEqual(protection[Version.V1_7_10],
                      EnchantmentId('protection', '0'))
     self.assertEqual(protection[Version.V1_8].minecraftId,
                      'minecraft:protection')
-    self.assertEqual(MCEnchantments.SHARPNESS[Version.V1_7_2].minecraftId,
+    self.assertEqual(MCEnchantments.Sharpness[Version.V1_7_2].minecraftId,
                      '16')
-    self.assertEqual(MCEnchantments.LURE[Version.V1_7_10].minecraftId, '62')
-    sweepingEdge = MCEnchantments.SWEEPING_EDGE
+    self.assertEqual(MCEnchantments.Lure[Version.V1_7_10].minecraftId, '62')
+    sweepingEdge = MCEnchantments.SweepingEdge
     self.assertEqual(sweepingEdge[Version.V1_11_1].minecraftId,
                      'minecraft:sweeping')
     self.assertEqual(sweepingEdge[Version.V1_20_5].minecraftId,
                      'minecraft:sweeping_edge')
     with self.assertRaises(NotInVersion) as context:
-      _ = MCEnchantments.MENDING[Version.V1_8_9]
+      _ = MCEnchantments.Mending[Version.V1_8_9]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.8.9 has no 'mending'; vanilla added it in 1.9!",

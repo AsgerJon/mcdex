@@ -32,12 +32,12 @@ class TestMCBlockEntities(BaseTest):
     cls.records = _records()
 
   def test_kind(self) -> None:
-    chest = MCBlockEntities.CHEST
+    chest = MCBlockEntities.Chest
     self.assertIsInstance(chest, MCBlockEntities)
     self.assertIsInstance(chest, MCThing)
     self.assertIs(type(chest[Version.V26_3]), BlockEntityId)
     self.assertIsInstance(chest[Version.V26_3], GameId)
-    self.assertEqual(repr(chest), "<MCBlockEntities>.CHEST")
+    self.assertEqual(repr(chest), "<MCBlockEntities>.Chest")
     self.assertNotEqual(BlockEntityId('chest', 'minecraft:chest'),
                         BlockId('chest', 'minecraft:chest'))
 
@@ -67,29 +67,29 @@ class TestMCBlockEntities(BaseTest):
     self.assertEqual(len(latest), 49)
 
   def test_known_block_entities(self) -> None:
-    self.assertEqual(MCBlockEntities.DISPENSER[Version.V1_10_2],
+    self.assertEqual(MCBlockEntities.Dispenser[Version.V1_10_2],
                      BlockEntityId('dispenser', 'Trap'))
-    self.assertEqual(MCBlockEntities.DISPENSER[Version.V1_11].minecraftId,
+    self.assertEqual(MCBlockEntities.Dispenser[Version.V1_11].minecraftId,
                      'minecraft:dispenser')
-    brewingStand = MCBlockEntities.BREWING_STAND
+    brewingStand = MCBlockEntities.BrewingStand
     self.assertEqual(brewingStand[Version.V1_7_10].minecraftId, 'Cauldron')
-    brushableBlock = MCBlockEntities.BRUSHABLE_BLOCK
+    brushableBlock = MCBlockEntities.BrushableBlock
     self.assertEqual(brushableBlock[Version.V1_19_4].minecraftId,
                      'minecraft:suspicious_sand')
     self.assertEqual(brushableBlock[Version.V1_20].minecraftId,
                      'minecraft:brushable_block')
 
   def test_shared_and_removed(self) -> None:
-    trappedChest = MCBlockEntities.TRAPPED_CHEST
+    trappedChest = MCBlockEntities.TrappedChest
     self.assertEqual(trappedChest[Version.V1_12_2].minecraftId,
                      'minecraft:chest')
     self.assertEqual(trappedChest[Version.V1_13].minecraftId,
                      'minecraft:trapped_chest')
     with self.assertRaises(NotInVersion) as context:
-      _ = MCBlockEntities.FLOWER_POT[Version.V1_13]
+      _ = MCBlockEntities.FlowerPot[Version.V1_13]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.13 has no 'flower_pot'; vanilla removed it in 1.13!",
     )
     with self.assertRaises(NotInVersion):
-      _ = MCBlockEntities.BED[Version.V26_2]
+      _ = MCBlockEntities.Bed[Version.V26_2]

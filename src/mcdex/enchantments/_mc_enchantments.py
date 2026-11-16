@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import EnchantmentId, MCThing
 
 
-class MCEnchantments(MCThing):
+class MCEnchantments(MCThing, strictCase=False):
   """
-  The catalogue of the game's enchantments, each a member, found by its name in
-  capitals, in any case, or by its unique name:
+  The catalogue of the game's enchantments, each a member. A member is named
+  by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    protection = MCEnchantments.PROTECTION
+    protection = MCEnchantments.Protection
     protection is MCEnchantments['protection']  # True
     protection[Version.V1_7_10]  # EnchantmentId('protection', '0')
     len(MCEnchantments)
@@ -27,7 +28,7 @@ class MCEnchantments(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'enchantments.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -40,49 +41,49 @@ class MCEnchantments(MCThing):
   __id_class__ = EnchantmentId
   __kind__ = 'enchantment'
 
-  #  Members, one for every name of 'enchantments.json'
-  AQUA_AFFINITY = Kee[str]('aqua_affinity')
-  BANE_OF_ARTHROPODS = Kee[str]('bane_of_arthropods')
-  BINDING_CURSE = Kee[str]('binding_curse')
-  BLAST_PROTECTION = Kee[str]('blast_protection')
-  BREACH = Kee[str]('breach')
-  CHANNELING = Kee[str]('channeling')
-  CURSE_OF_BINDING = Kee[str]('curse_of_binding')
-  CURSE_OF_VANISHING = Kee[str]('curse_of_vanishing')
-  DENSITY = Kee[str]('density')
-  DEPTH_STRIDER = Kee[str]('depth_strider')
-  EFFICIENCY = Kee[str]('efficiency')
-  FEATHER_FALLING = Kee[str]('feather_falling')
-  FIRE_ASPECT = Kee[str]('fire_aspect')
-  FIRE_PROTECTION = Kee[str]('fire_protection')
-  FLAME = Kee[str]('flame')
-  FORTUNE = Kee[str]('fortune')
-  FROST_WALKER = Kee[str]('frost_walker')
-  IMPALING = Kee[str]('impaling')
-  INFINITY = Kee[str]('infinity')
-  KNOCKBACK = Kee[str]('knockback')
-  LOOTING = Kee[str]('looting')
-  LOYALTY = Kee[str]('loyalty')
-  LUCK_OF_THE_SEA = Kee[str]('luck_of_the_sea')
-  LUNGE = Kee[str]('lunge')
-  LURE = Kee[str]('lure')
-  MENDING = Kee[str]('mending')
-  MULTISHOT = Kee[str]('multishot')
-  PIERCING = Kee[str]('piercing')
-  POWER = Kee[str]('power')
-  PROJECTILE_PROTECTION = Kee[str]('projectile_protection')
-  PROTECTION = Kee[str]('protection')
-  PUNCH = Kee[str]('punch')
-  QUICK_CHARGE = Kee[str]('quick_charge')
-  RESPIRATION = Kee[str]('respiration')
-  RIPTIDE = Kee[str]('riptide')
-  SHARPNESS = Kee[str]('sharpness')
-  SILK_TOUCH = Kee[str]('silk_touch')
-  SMITE = Kee[str]('smite')
-  SOUL_SPEED = Kee[str]('soul_speed')
-  SWEEPING_EDGE = Kee[str]('sweeping_edge')
-  SWIFT_SNEAK = Kee[str]('swift_sneak')
-  THORNS = Kee[str]('thorns')
-  UNBREAKING = Kee[str]('unbreaking')
-  VANISHING_CURSE = Kee[str]('vanishing_curse')
-  WIND_BURST = Kee[str]('wind_burst')
+  #  Members, one for every thing of 'enchantments.json'
+  AquaAffinity = Kee[str]('aqua_affinity')
+  BaneOfArthropods = Kee[str]('bane_of_arthropods')
+  BindingCurse = Kee[str]('binding_curse')
+  BlastProtection = Kee[str]('blast_protection')
+  Breach = Kee[str]('breach')
+  Channeling = Kee[str]('channeling')
+  CurseOfBinding = Kee[str]('curse_of_binding')
+  CurseOfVanishing = Kee[str]('curse_of_vanishing')
+  Density = Kee[str]('density')
+  DepthStrider = Kee[str]('depth_strider')
+  Efficiency = Kee[str]('efficiency')
+  FeatherFalling = Kee[str]('feather_falling')
+  FireAspect = Kee[str]('fire_aspect')
+  FireProtection = Kee[str]('fire_protection')
+  Flame = Kee[str]('flame')
+  Fortune = Kee[str]('fortune')
+  FrostWalker = Kee[str]('frost_walker')
+  Impaling = Kee[str]('impaling')
+  Infinity = Kee[str]('infinity')
+  Knockback = Kee[str]('knockback')
+  Looting = Kee[str]('looting')
+  Loyalty = Kee[str]('loyalty')
+  LuckOfTheSea = Kee[str]('luck_of_the_sea')
+  Lunge = Kee[str]('lunge')
+  Lure = Kee[str]('lure')
+  Mending = Kee[str]('mending')
+  Multishot = Kee[str]('multishot')
+  Piercing = Kee[str]('piercing')
+  Power = Kee[str]('power')
+  ProjectileProtection = Kee[str]('projectile_protection')
+  Protection = Kee[str]('protection')
+  Punch = Kee[str]('punch')
+  QuickCharge = Kee[str]('quick_charge')
+  Respiration = Kee[str]('respiration')
+  Riptide = Kee[str]('riptide')
+  Sharpness = Kee[str]('sharpness')
+  SilkTouch = Kee[str]('silk_touch')
+  Smite = Kee[str]('smite')
+  SoulSpeed = Kee[str]('soul_speed')
+  SweepingEdge = Kee[str]('sweeping_edge')
+  SwiftSneak = Kee[str]('swift_sneak')
+  Thorns = Kee[str]('thorns')
+  Unbreaking = Kee[str]('unbreaking')
+  VanishingCurse = Kee[str]('vanishing_curse')
+  WindBurst = Kee[str]('wind_burst')

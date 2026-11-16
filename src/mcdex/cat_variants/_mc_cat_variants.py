@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import CatVariantId, MCThing
 
 
-class MCCatVariants(MCThing):
+class MCCatVariants(MCThing, strictCase=False):
   """
-  The catalogue of the game's cat variants, each a member, found by its name in
-  capitals, in any case, or by its unique name:
+  The catalogue of the game's cat variants, each a member. A member is named
+  by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    black = MCCatVariants.BLACK
+    black = MCCatVariants.Black
     black is MCCatVariants['black']  # True
     black[Version.V1_12_2]
     # CatVariantId('black', 'minecraft:ocelot{CatType:1}')
@@ -28,7 +29,7 @@ class MCCatVariants(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'cat_variants.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -41,15 +42,15 @@ class MCCatVariants(MCThing):
   __id_class__ = CatVariantId
   __kind__ = 'cat variant'
 
-  #  Members, one for every name of 'cat_variants.json'
-  ALL_BLACK = Kee[str]('all_black')
-  BLACK = Kee[str]('black')
-  BRITISH_SHORTHAIR = Kee[str]('british_shorthair')
-  CALICO = Kee[str]('calico')
-  JELLIE = Kee[str]('jellie')
-  PERSIAN = Kee[str]('persian')
-  RAGDOLL = Kee[str]('ragdoll')
-  RED = Kee[str]('red')
-  SIAMESE = Kee[str]('siamese')
-  TABBY = Kee[str]('tabby')
-  WHITE = Kee[str]('white')
+  #  Members, one for every thing of 'cat_variants.json'
+  AllBlack = Kee[str]('all_black')
+  Black = Kee[str]('black')
+  BritishShorthair = Kee[str]('british_shorthair')
+  Calico = Kee[str]('calico')
+  Jellie = Kee[str]('jellie')
+  Persian = Kee[str]('persian')
+  Ragdoll = Kee[str]('ragdoll')
+  Red = Kee[str]('red')
+  Siamese = Kee[str]('siamese')
+  Tabby = Kee[str]('tabby')
+  White = Kee[str]('white')

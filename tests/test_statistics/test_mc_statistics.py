@@ -31,12 +31,12 @@ class TestMCStatistics(BaseTest):
     cls.records = _records()
 
   def test_kind(self) -> None:
-    leaveGame = MCStatistics.LEAVE_GAME
+    leaveGame = MCStatistics.LeaveGame
     self.assertIsInstance(leaveGame, MCStatistics)
     self.assertIsInstance(leaveGame, MCThing)
     self.assertIs(type(leaveGame[Version.V26_3]), StatisticId)
     self.assertIsInstance(leaveGame[Version.V26_3], GameId)
-    self.assertEqual(repr(leaveGame), "<MCStatistics>.LEAVE_GAME")
+    self.assertEqual(repr(leaveGame), "<MCStatistics>.LeaveGame")
     self.assertNotEqual(StatisticId('x', 'minecraft:x'), SoundId('x', 'minecraft:x'))
 
   def test_catalogue(self) -> None:
@@ -66,16 +66,16 @@ class TestMCStatistics(BaseTest):
     self.assertEqual(len(latest), 78)
 
   def test_known_statistics(self) -> None:
-    self.assertEqual(MCStatistics.LEAVE_GAME[Version.V1_12_2],
+    self.assertEqual(MCStatistics.LeaveGame[Version.V1_12_2],
                      StatisticId('leave_game', 'stat.leaveGame'))
-    playTime = MCStatistics.PLAY_TIME
+    playTime = MCStatistics.PlayTime
     self.assertEqual(playTime[Version.V1_12_2].minecraftId,
                      'stat.playOneMinute')
     self.assertEqual(playTime[Version.V1_16_5].minecraftId,
                      'minecraft:play_one_minute')
     self.assertEqual(playTime[Version.V1_17].minecraftId,
                      'minecraft:play_time')
-    junkFished = MCStatistics.JUNK_FISHED
+    junkFished = MCStatistics.JunkFished
     self.assertEqual(junkFished[Version.V1_11].minecraftId, 'stat.junkFished')
     with self.assertRaises(NotInVersion) as context:
       _ = junkFished[Version.V1_12_2]

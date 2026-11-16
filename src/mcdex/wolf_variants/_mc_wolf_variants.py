@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import MCThing, WolfVariantId
 
 
-class MCWolfVariants(MCThing):
+class MCWolfVariants(MCThing, strictCase=False):
   """
-  The catalogue of the game's wolf variants, each a member, found by its name
-  in capitals, in any case, or by its unique name:
+  The catalogue of the game's wolf variants, each a member. A member is named
+  by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    ashen = MCWolfVariants.ASHEN
+    ashen = MCWolfVariants.Ashen
     ashen is MCWolfVariants['ashen']  # True
     ashen[Version.V1_20_5]
     # WolfVariantId('ashen', 'minecraft:wolf{variant:"minecraft:ashen"}')
@@ -28,7 +29,7 @@ class MCWolfVariants(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'wolf_variants.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -41,13 +42,13 @@ class MCWolfVariants(MCThing):
   __id_class__ = WolfVariantId
   __kind__ = 'wolf variant'
 
-  #  Members, one for every name of 'wolf_variants.json'
-  ASHEN = Kee[str]('ashen')
-  BLACK = Kee[str]('black')
-  CHESTNUT = Kee[str]('chestnut')
-  PALE = Kee[str]('pale')
-  RUSTY = Kee[str]('rusty')
-  SNOWY = Kee[str]('snowy')
-  SPOTTED = Kee[str]('spotted')
-  STRIPED = Kee[str]('striped')
-  WOODS = Kee[str]('woods')
+  #  Members, one for every thing of 'wolf_variants.json'
+  Ashen = Kee[str]('ashen')
+  Black = Kee[str]('black')
+  Chestnut = Kee[str]('chestnut')
+  Pale = Kee[str]('pale')
+  Rusty = Kee[str]('rusty')
+  Snowy = Kee[str]('snowy')
+  Spotted = Kee[str]('spotted')
+  Striped = Kee[str]('striped')
+  Woods = Kee[str]('woods')

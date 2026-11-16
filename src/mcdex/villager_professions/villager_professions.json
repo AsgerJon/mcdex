@@ -113,6 +113,12 @@
     "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:toolsmith\"}}"
    }
   },
+  "unemployed": {
+   "ids": {
+    "1.7.2": "",
+    "1.14": "minecraft:villager{VillagerData:{profession:\"minecraft:none\"}}"
+   }
+  },
   "weaponsmith": {
    "ids": {
     "1.7.2": "",

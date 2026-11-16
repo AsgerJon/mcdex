@@ -19,7 +19,7 @@ class TestMCCatSoundVariants(BaseTest):
   """
 
   def test_cat_sound_variants(self) -> None:
-    royal = MCCatSoundVariants.ROYAL
+    royal = MCCatSoundVariants.Royal
     self.assertIsInstance(royal, MCCatSoundVariants)
     self.assertIsInstance(royal, MCThing)
     self.assertEqual(royal[Version.V26_1],
@@ -27,7 +27,7 @@ class TestMCCatSoundVariants(BaseTest):
                          'royal', 'minecraft:cat'
                                   '{sound_variant:"minecraft:royal"}'))
     self.assertIsInstance(royal[Version.V26_3], GameId)
-    self.assertEqual(repr(royal), "<MCCatSoundVariants>.ROYAL")
+    self.assertEqual(repr(royal), "<MCCatSoundVariants>.Royal")
     self.assertEqual(len(MCCatSoundVariants), 2)
     self.assertNotEqual(CatSoundVariantId('x', 'minecraft:x'),
                         WolfSoundVariantId('x', 'minecraft:x'))
@@ -37,7 +37,7 @@ class TestMCCatSoundVariants(BaseTest):
         str(context.exception),
         "Vanilla 1.21.11 has no 'royal'; vanilla added it in 26.1!",
     )
-    classic = MCCatSoundVariants.CLASSIC
+    classic = MCCatSoundVariants.Classic
     self.assertEqual(classic[Version.V1_21_11].minecraftId, 'minecraft:cat')
     self.assertEqual(classic[Version.V26_1].minecraftId,
                      'minecraft:cat{sound_variant:"minecraft:classic"}')

@@ -18,7 +18,7 @@ class TestMCVillagerTypes(BaseTest):
   """
 
   def test_types(self) -> None:
-    desert = MCVillagerTypes.DESERT
+    desert = MCVillagerTypes.Desert
     self.assertIsInstance(desert, MCVillagerTypes)
     self.assertIsInstance(desert, MCThing)
     self.assertEqual(
@@ -26,7 +26,7 @@ class TestMCVillagerTypes(BaseTest):
         VillagerTypeId('desert', 'minecraft:villager{VillagerData:'
                                  '{type:"minecraft:desert"}}'))
     self.assertIsInstance(desert[Version.V26_3], GameId)
-    self.assertEqual(repr(desert), "<MCVillagerTypes>.DESERT")
+    self.assertEqual(repr(desert), "<MCVillagerTypes>.Desert")
     self.assertEqual(len(MCVillagerTypes), 7)
     self.assertNotEqual(VillagerTypeId('x', 'minecraft:x'),
                         VillagerProfessionId('x', 'minecraft:x'))
@@ -41,7 +41,7 @@ class TestMCVillagerTypes(BaseTest):
 
   def test_plains_before_types(self) -> None:
     """Every villager before 1.14 is of the type Mojang gives it: plains."""
-    plains = MCVillagerTypes.PLAINS
+    plains = MCVillagerTypes.Plains
     self.assertEqual(plains[Version.V1_7_10],
                      VillagerTypeId('plains', 'Villager'))
     self.assertEqual(plains[Version.V1_13_2].minecraftId, 'minecraft:villager')

@@ -20,14 +20,15 @@ class CatalogueMeta(KeeMeta):
   whether a thing is its own:
 
     'pink_wool' in MCItems          # True
-    MCItems.PINK_WOOL in MCItems    # True
-    MCBlocks.PINK_WOOL in MCItems   # False
+    MCItems.PinkWool in MCItems     # True
+    MCBlocks.PinkWool in MCItems    # False
 
   Implementation
   --------------
 
   All of it is 'KeeMeta's, but for a 'str', which is in the catalogue
-  when it is the unique name of one of its members. The catalogues are
+  when it is the unique name of one of its members, or another name of
+  its data, as 'slime_ball'. The catalogues are
   built on 'CatalogueMeta.keeNum', the root this metaclass gives its
   enumerations.
   """

@@ -7,7 +7,7 @@ words alone ('# the same: ...') states no result and is not checked.
 
 The examples run in a process of their own, as a user runs them: a test
 that subclasses a catalogue changes how its members print for the rest
-of its process ('<CatalogueMetaNum>.DIAMOND'), worktoy naming a member
+of its process ('<CatalogueMetaNum>.Diamond'), worktoy naming a member
 several enumerations hold by the root of their family.
 """
 #  Apache-2.0 license

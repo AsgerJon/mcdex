@@ -18,7 +18,7 @@ class TestMCPigVariants(BaseTest):
   """
 
   def test_pig_variants(self) -> None:
-    temperate = MCPigVariants.TEMPERATE
+    temperate = MCPigVariants.Temperate
     self.assertIsInstance(temperate, MCPigVariants)
     self.assertIsInstance(temperate, MCThing)
     self.assertEqual(temperate[Version.V1_21_5],
@@ -26,14 +26,14 @@ class TestMCPigVariants(BaseTest):
                          'temperate', 'minecraft:pig'
                                       '{variant:"minecraft:temperate"}'))
     self.assertIsInstance(temperate[Version.V26_3], GameId)
-    self.assertEqual(repr(temperate), "<MCPigVariants>.TEMPERATE")
+    self.assertEqual(repr(temperate), "<MCPigVariants>.Temperate")
     self.assertEqual(len(MCPigVariants), 3)
     self.assertNotEqual(PigVariantId('x', 'minecraft:x'),
                         FrogVariantId('x', 'minecraft:x'))
     self.assertEqual(temperate[Version.V1_21_4].minecraftId, 'minecraft:pig')
     self.assertEqual(temperate[Version.V1_7_10].minecraftId, 'Pig')
     with self.assertRaises(NotInVersion) as context:
-      _ = MCPigVariants.WARM[Version.V1_21_4]
+      _ = MCPigVariants.Warm[Version.V1_21_4]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.21.4 has no 'warm'; vanilla added it in 1.21.5!",

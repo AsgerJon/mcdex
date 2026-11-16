@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import EffectId, MCThing
 
 
-class MCEffects(MCThing):
+class MCEffects(MCThing, strictCase=False):
   """
-  The catalogue of the game's effects, each a member, found by its name in
-  capitals, in any case, or by its unique name:
+  The catalogue of the game's effects, each a member. A member is named
+  by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    speed = MCEffects.SPEED
+    speed = MCEffects.Speed
     speed is MCEffects['speed']  # True
     speed[Version.V1_7_10]  # EffectId('speed', '1')
     len(MCEffects)
@@ -27,7 +28,7 @@ class MCEffects(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'effects.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -40,45 +41,45 @@ class MCEffects(MCThing):
   __id_class__ = EffectId
   __kind__ = 'effect'
 
-  #  Members, one for every name of 'effects.json'
-  ABSORPTION = Kee[str]('absorption')
-  BAD_LUCK = Kee[str]('bad_luck')
-  BAD_OMEN = Kee[str]('bad_omen')
-  BLINDNESS = Kee[str]('blindness')
-  BREATH_OF_THE_NAUTILUS = Kee[str]('breath_of_the_nautilus')
-  CONDUIT_POWER = Kee[str]('conduit_power')
-  DARKNESS = Kee[str]('darkness')
-  DOLPHINS_GRACE = Kee[str]('dolphins_grace')
-  FIRE_RESISTANCE = Kee[str]('fire_resistance')
-  GLOWING = Kee[str]('glowing')
-  HASTE = Kee[str]('haste')
-  HEALTH_BOOST = Kee[str]('health_boost')
-  HERO_OF_THE_VILLAGE = Kee[str]('hero_of_the_village')
-  HUNGER = Kee[str]('hunger')
-  INFESTED = Kee[str]('infested')
-  INSTANT_DAMAGE = Kee[str]('instant_damage')
-  INSTANT_HEALTH = Kee[str]('instant_health')
-  INVISIBILITY = Kee[str]('invisibility')
-  JUMP_BOOST = Kee[str]('jump_boost')
-  LEVITATION = Kee[str]('levitation')
-  LUCK = Kee[str]('luck')
-  MINING_FATIGUE = Kee[str]('mining_fatigue')
-  NAUSEA = Kee[str]('nausea')
-  NIGHT_VISION = Kee[str]('night_vision')
-  OOZING = Kee[str]('oozing')
-  POISON = Kee[str]('poison')
-  RAID_OMEN = Kee[str]('raid_omen')
-  REGENERATION = Kee[str]('regeneration')
-  RESISTANCE = Kee[str]('resistance')
-  SATURATION = Kee[str]('saturation')
-  SLOW_FALLING = Kee[str]('slow_falling')
-  SLOWNESS = Kee[str]('slowness')
-  SPEED = Kee[str]('speed')
-  STRENGTH = Kee[str]('strength')
-  TRIAL_OMEN = Kee[str]('trial_omen')
-  UNLUCK = Kee[str]('unluck')
-  WATER_BREATHING = Kee[str]('water_breathing')
-  WEAKNESS = Kee[str]('weakness')
-  WEAVING = Kee[str]('weaving')
-  WIND_CHARGED = Kee[str]('wind_charged')
-  WITHER = Kee[str]('wither')
+  #  Members, one for every thing of 'effects.json'
+  Absorption = Kee[str]('absorption')
+  BadLuck = Kee[str]('bad_luck')
+  BadOmen = Kee[str]('bad_omen')
+  Blindness = Kee[str]('blindness')
+  BreathOfTheNautilus = Kee[str]('breath_of_the_nautilus')
+  ConduitPower = Kee[str]('conduit_power')
+  Darkness = Kee[str]('darkness')
+  DolphinsGrace = Kee[str]('dolphins_grace')
+  FireResistance = Kee[str]('fire_resistance')
+  Glowing = Kee[str]('glowing')
+  Haste = Kee[str]('haste')
+  HealthBoost = Kee[str]('health_boost')
+  HeroOfTheVillage = Kee[str]('hero_of_the_village')
+  Hunger = Kee[str]('hunger')
+  Infested = Kee[str]('infested')
+  InstantDamage = Kee[str]('instant_damage')
+  InstantHealth = Kee[str]('instant_health')
+  Invisibility = Kee[str]('invisibility')
+  JumpBoost = Kee[str]('jump_boost')
+  Levitation = Kee[str]('levitation')
+  Luck = Kee[str]('luck')
+  MiningFatigue = Kee[str]('mining_fatigue')
+  Nausea = Kee[str]('nausea')
+  NightVision = Kee[str]('night_vision')
+  Oozing = Kee[str]('oozing')
+  Poison = Kee[str]('poison')
+  RaidOmen = Kee[str]('raid_omen')
+  Regeneration = Kee[str]('regeneration')
+  Resistance = Kee[str]('resistance')
+  Saturation = Kee[str]('saturation')
+  SlowFalling = Kee[str]('slow_falling')
+  Slowness = Kee[str]('slowness')
+  Speed = Kee[str]('speed')
+  Strength = Kee[str]('strength')
+  TrialOmen = Kee[str]('trial_omen')
+  Unluck = Kee[str]('unluck')
+  WaterBreathing = Kee[str]('water_breathing')
+  Weakness = Kee[str]('weakness')
+  Weaving = Kee[str]('weaving')
+  WindCharged = Kee[str]('wind_charged')
+  Wither = Kee[str]('wither')

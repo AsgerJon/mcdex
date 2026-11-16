@@ -18,14 +18,14 @@ class TestMCCowVariants(BaseTest):
   """
 
   def test_cow_variants(self) -> None:
-    warm = MCCowVariants.WARM
+    warm = MCCowVariants.Warm
     self.assertIsInstance(warm, MCCowVariants)
     self.assertIsInstance(warm, MCThing)
     self.assertEqual(warm[Version.V1_21_5],
                      CowVariantId(
                          'warm', 'minecraft:cow{variant:"minecraft:warm"}'))
     self.assertIsInstance(warm[Version.V26_3], GameId)
-    self.assertEqual(repr(warm), "<MCCowVariants>.WARM")
+    self.assertEqual(repr(warm), "<MCCowVariants>.Warm")
     self.assertEqual(len(MCCowVariants), 3)
     self.assertNotEqual(CowVariantId('x', 'minecraft:x'),
                         PigVariantId('x', 'minecraft:x'))

@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import AttributeId, MCThing
 
 
-class MCAttributes(MCThing):
+class MCAttributes(MCThing, strictCase=False):
   """
-  The catalogue of the game's attributes, each a member, found by its name in
-  capitals, in any case, or by its unique name:
+  The catalogue of the game's attributes, each a member. A member is named
+  by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    maxHealth = MCAttributes.MAX_HEALTH
+    maxHealth = MCAttributes.MaxHealth
     maxHealth is MCAttributes['max_health']  # True
     maxHealth[Version.V1_15_2]
     # AttributeId('max_health', 'generic.maxHealth')
@@ -28,7 +29,7 @@ class MCAttributes(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'attributes.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -41,45 +42,45 @@ class MCAttributes(MCThing):
   __id_class__ = AttributeId
   __kind__ = 'attribute'
 
-  #  Members, one for every name of 'attributes.json'
-  AIR_DRAG_MODIFIER = Kee[str]('air_drag_modifier')
-  ARMOR = Kee[str]('armor')
-  ARMOR_TOUGHNESS = Kee[str]('armor_toughness')
-  ATTACK_DAMAGE = Kee[str]('attack_damage')
-  ATTACK_KNOCKBACK = Kee[str]('attack_knockback')
-  ATTACK_SPEED = Kee[str]('attack_speed')
-  BELOW_NAME_DISTANCE = Kee[str]('below_name_distance')
-  BLOCK_BREAK_SPEED = Kee[str]('block_break_speed')
-  BLOCK_INTERACTION_RANGE = Kee[str]('block_interaction_range')
-  BOUNCINESS = Kee[str]('bounciness')
-  BURNING_TIME = Kee[str]('burning_time')
-  CAMERA_DISTANCE = Kee[str]('camera_distance')
-  ENTITY_INTERACTION_RANGE = Kee[str]('entity_interaction_range')
-  EXPLOSION_KNOCKBACK_RESISTANCE = Kee[str]('explosion_knockback_resistance')
-  FALL_DAMAGE_MULTIPLIER = Kee[str]('fall_damage_multiplier')
-  FLYING_SPEED = Kee[str]('flying_speed')
-  FOLLOW_RANGE = Kee[str]('follow_range')
-  FRICTION_MODIFIER = Kee[str]('friction_modifier')
-  GRAVITY = Kee[str]('gravity')
-  JUMP_STRENGTH = Kee[str]('jump_strength')
-  KNOCKBACK_RESISTANCE = Kee[str]('knockback_resistance')
-  LUCK = Kee[str]('luck')
-  MAX_ABSORPTION = Kee[str]('max_absorption')
-  MAX_HEALTH = Kee[str]('max_health')
-  MINING_EFFICIENCY = Kee[str]('mining_efficiency')
-  MOVEMENT_EFFICIENCY = Kee[str]('movement_efficiency')
-  MOVEMENT_SPEED = Kee[str]('movement_speed')
-  NAME_TAG_DISTANCE = Kee[str]('name_tag_distance')
-  OXYGEN_BONUS = Kee[str]('oxygen_bonus')
-  SAFE_FALL_DISTANCE = Kee[str]('safe_fall_distance')
-  SCALE = Kee[str]('scale')
-  SNEAKING_SPEED = Kee[str]('sneaking_speed')
-  SPAWN_REINFORCEMENTS = Kee[str]('spawn_reinforcements')
-  STEP_HEIGHT = Kee[str]('step_height')
-  SUBMERGED_MINING_SPEED = Kee[str]('submerged_mining_speed')
-  SWEEPING_DAMAGE_RATIO = Kee[str]('sweeping_damage_ratio')
-  TEMPT_RANGE = Kee[str]('tempt_range')
-  WATER_MOVEMENT_EFFICIENCY = Kee[str]('water_movement_efficiency')
-  WAYPOINT_RECEIVE_RANGE = Kee[str]('waypoint_receive_range')
-  WAYPOINT_TRANSMIT_RANGE = Kee[str]('waypoint_transmit_range')
-  ZOMBIE_REINFORCEMENTS = Kee[str]('zombie_reinforcements')
+  #  Members, one for every thing of 'attributes.json'
+  AirDragModifier = Kee[str]('air_drag_modifier')
+  Armor = Kee[str]('armor')
+  ArmorToughness = Kee[str]('armor_toughness')
+  AttackDamage = Kee[str]('attack_damage')
+  AttackKnockback = Kee[str]('attack_knockback')
+  AttackSpeed = Kee[str]('attack_speed')
+  BelowNameDistance = Kee[str]('below_name_distance')
+  BlockBreakSpeed = Kee[str]('block_break_speed')
+  BlockInteractionRange = Kee[str]('block_interaction_range')
+  Bounciness = Kee[str]('bounciness')
+  BurningTime = Kee[str]('burning_time')
+  CameraDistance = Kee[str]('camera_distance')
+  EntityInteractionRange = Kee[str]('entity_interaction_range')
+  ExplosionKnockbackResistance = Kee[str]('explosion_knockback_resistance')
+  FallDamageMultiplier = Kee[str]('fall_damage_multiplier')
+  FlyingSpeed = Kee[str]('flying_speed')
+  FollowRange = Kee[str]('follow_range')
+  FrictionModifier = Kee[str]('friction_modifier')
+  Gravity = Kee[str]('gravity')
+  JumpStrength = Kee[str]('jump_strength')
+  KnockbackResistance = Kee[str]('knockback_resistance')
+  Luck = Kee[str]('luck')
+  MaxAbsorption = Kee[str]('max_absorption')
+  MaxHealth = Kee[str]('max_health')
+  MiningEfficiency = Kee[str]('mining_efficiency')
+  MovementEfficiency = Kee[str]('movement_efficiency')
+  MovementSpeed = Kee[str]('movement_speed')
+  NameTagDistance = Kee[str]('name_tag_distance')
+  OxygenBonus = Kee[str]('oxygen_bonus')
+  SafeFallDistance = Kee[str]('safe_fall_distance')
+  Scale = Kee[str]('scale')
+  SneakingSpeed = Kee[str]('sneaking_speed')
+  SpawnReinforcements = Kee[str]('spawn_reinforcements')
+  StepHeight = Kee[str]('step_height')
+  SubmergedMiningSpeed = Kee[str]('submerged_mining_speed')
+  SweepingDamageRatio = Kee[str]('sweeping_damage_ratio')
+  TemptRange = Kee[str]('tempt_range')
+  WaterMovementEfficiency = Kee[str]('water_movement_efficiency')
+  WaypointReceiveRange = Kee[str]('waypoint_receive_range')
+  WaypointTransmitRange = Kee[str]('waypoint_transmit_range')
+  ZombieReinforcements = Kee[str]('zombie_reinforcements')

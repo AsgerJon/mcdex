@@ -23,7 +23,7 @@ authors = [{ name = "Asger Jon Vistisen", email = "asgerjon2@gmail.com" }]
 requires-python = ">=3.14"
 #  The same as requirements.txt, which the release workflows' test jobs
 #  install.
-dependencies = ["worktoy>=1.2.1.dev1"]
+dependencies = ["worktoy>=1.2.2"]
 keywords = [
   "minecraft",
   "catalogue",

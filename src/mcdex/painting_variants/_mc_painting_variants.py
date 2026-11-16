@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import MCThing, PaintingVariantId
 
 
-class MCPaintingVariants(MCThing):
+class MCPaintingVariants(MCThing, strictCase=False):
   """
-  The catalogue of the game's painting variants, each a member, found by its
-  name in capitals, in any case, or by its unique name:
+  The catalogue of the game's painting variants, each a member. A member is
+  named by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    donkeyKong = MCPaintingVariants.DONKEY_KONG
+    donkeyKong = MCPaintingVariants.DonkeyKong
     donkeyKong is MCPaintingVariants['donkey_kong']  # True
     donkeyKong[Version.V1_12_2]
     # PaintingVariantId('donkey_kong',
@@ -29,7 +30,7 @@ class MCPaintingVariants(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'painting_variants.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -42,55 +43,55 @@ class MCPaintingVariants(MCThing):
   __id_class__ = PaintingVariantId
   __kind__ = 'painting variant'
 
-  #  Members, one for every name of 'painting_variants.json'
-  ALBAN = Kee[str]('alban')
-  AZTEC = Kee[str]('aztec')
-  AZTEC2 = Kee[str]('aztec2')
-  BACKYARD = Kee[str]('backyard')
-  BAROQUE = Kee[str]('baroque')
-  BOMB = Kee[str]('bomb')
-  BOUQUET = Kee[str]('bouquet')
-  BURNING_SKULL = Kee[str]('burning_skull')
-  BUST = Kee[str]('bust')
-  CAVEBIRD = Kee[str]('cavebird')
-  CHANGING = Kee[str]('changing')
-  COTAN = Kee[str]('cotan')
-  COURBET = Kee[str]('courbet')
-  CREEBET = Kee[str]('creebet')
-  DENNIS = Kee[str]('dennis')
-  DONKEY_KONG = Kee[str]('donkey_kong')
-  EARTH = Kee[str]('earth')
-  ENDBOSS = Kee[str]('endboss')
-  FERN = Kee[str]('fern')
-  FIGHTERS = Kee[str]('fighters')
-  FINDING = Kee[str]('finding')
-  FIRE = Kee[str]('fire')
-  GRAHAM = Kee[str]('graham')
-  HUMBLE = Kee[str]('humble')
-  KEBAB = Kee[str]('kebab')
-  LOWMIST = Kee[str]('lowmist')
-  MATCH = Kee[str]('match')
-  MEDITATIVE = Kee[str]('meditative')
-  ORB = Kee[str]('orb')
-  OWLEMONS = Kee[str]('owlemons')
-  PASSAGE = Kee[str]('passage')
-  PIGSCENE = Kee[str]('pigscene')
-  PLANT = Kee[str]('plant')
-  POINTER = Kee[str]('pointer')
-  POND = Kee[str]('pond')
-  POOL = Kee[str]('pool')
-  PRAIRIE_RIDE = Kee[str]('prairie_ride')
-  SEA = Kee[str]('sea')
-  SKELETON = Kee[str]('skeleton')
-  SKULL_AND_ROSES = Kee[str]('skull_and_roses')
-  STAGE = Kee[str]('stage')
-  SUNFLOWERS = Kee[str]('sunflowers')
-  SUNSET = Kee[str]('sunset')
-  TIDES = Kee[str]('tides')
-  UNPACKED = Kee[str]('unpacked')
-  VOID = Kee[str]('void')
-  WANDERER = Kee[str]('wanderer')
-  WASTELAND = Kee[str]('wasteland')
-  WATER = Kee[str]('water')
-  WIND = Kee[str]('wind')
-  WITHER = Kee[str]('wither')
+  #  Members, one for every thing of 'painting_variants.json'
+  Alban = Kee[str]('alban')
+  Aztec = Kee[str]('aztec')
+  Aztec2 = Kee[str]('aztec2')
+  Backyard = Kee[str]('backyard')
+  Baroque = Kee[str]('baroque')
+  Bomb = Kee[str]('bomb')
+  Bouquet = Kee[str]('bouquet')
+  BurningSkull = Kee[str]('burning_skull')
+  Bust = Kee[str]('bust')
+  Cavebird = Kee[str]('cavebird')
+  Changing = Kee[str]('changing')
+  Cotan = Kee[str]('cotan')
+  Courbet = Kee[str]('courbet')
+  Creebet = Kee[str]('creebet')
+  Dennis = Kee[str]('dennis')
+  DonkeyKong = Kee[str]('donkey_kong')
+  Earth = Kee[str]('earth')
+  Endboss = Kee[str]('endboss')
+  Fern = Kee[str]('fern')
+  Fighters = Kee[str]('fighters')
+  Finding = Kee[str]('finding')
+  Fire = Kee[str]('fire')
+  Graham = Kee[str]('graham')
+  Humble = Kee[str]('humble')
+  Kebab = Kee[str]('kebab')
+  Lowmist = Kee[str]('lowmist')
+  Match = Kee[str]('match')
+  Meditative = Kee[str]('meditative')
+  Orb = Kee[str]('orb')
+  Owlemons = Kee[str]('owlemons')
+  Passage = Kee[str]('passage')
+  Pigscene = Kee[str]('pigscene')
+  Plant = Kee[str]('plant')
+  Pointer = Kee[str]('pointer')
+  Pond = Kee[str]('pond')
+  Pool = Kee[str]('pool')
+  PrairieRide = Kee[str]('prairie_ride')
+  Sea = Kee[str]('sea')
+  Skeleton = Kee[str]('skeleton')
+  SkullAndRoses = Kee[str]('skull_and_roses')
+  Stage = Kee[str]('stage')
+  Sunflowers = Kee[str]('sunflowers')
+  Sunset = Kee[str]('sunset')
+  Tides = Kee[str]('tides')
+  Unpacked = Kee[str]('unpacked')
+  Void = Kee[str]('void')
+  Wanderer = Kee[str]('wanderer')
+  Wasteland = Kee[str]('wasteland')
+  Water = Kee[str]('water')
+  Wind = Kee[str]('wind')
+  Wither = Kee[str]('wither')

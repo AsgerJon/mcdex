@@ -18,11 +18,11 @@ class TestMCPaintingVariants(BaseTest):
   """
 
   def test_painting_variants(self) -> None:
-    kebab = MCPaintingVariants.KEBAB
+    kebab = MCPaintingVariants.Kebab
     self.assertIsInstance(kebab, MCPaintingVariants)
     self.assertIsInstance(kebab, MCThing)
     self.assertIsInstance(kebab[Version.V26_3], GameId)
-    self.assertEqual(repr(kebab), "<MCPaintingVariants>.KEBAB")
+    self.assertEqual(repr(kebab), "<MCPaintingVariants>.Kebab")
     self.assertEqual(len(MCPaintingVariants), 51)
     self.assertNotEqual(PaintingVariantId('x', 'minecraft:x'),
                         CatVariantId('x', 'minecraft:x'))
@@ -34,7 +34,7 @@ class TestMCPaintingVariants(BaseTest):
     What /summon takes: the painting with its picture, to 1.12.2 its
     title, from 1.13 its name, from 1.19 under 'variant'.
     """
-    donkeyKong = MCPaintingVariants.DONKEY_KONG
+    donkeyKong = MCPaintingVariants.DonkeyKong
     self.assertEqual(donkeyKong[Version.V1_7_2],
                      PaintingVariantId('donkey_kong',
                                        'Painting{Motive:"DonkeyKong"}'))
@@ -44,7 +44,7 @@ class TestMCPaintingVariants(BaseTest):
                      'minecraft:painting{Motive:"minecraft:donkey_kong"}')
     self.assertEqual(donkeyKong[Version.V1_19].minecraftId,
                      'minecraft:painting{variant:"minecraft:donkey_kong"}')
-    earth = MCPaintingVariants.EARTH
+    earth = MCPaintingVariants.Earth
     self.assertEqual(earth[Version.V1_19].minecraftId,
                      'minecraft:painting{variant:"minecraft:earth"}')
     with self.assertRaises(NotInVersion) as context:

@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import CowSoundVariantId, MCThing
 
 
-class MCCowSoundVariants(MCThing):
+class MCCowSoundVariants(MCThing, strictCase=False):
   """
-  The catalogue of the game's cow sound variants, each a member, found by its
-  name in capitals, in any case, or by its unique name:
+  The catalogue of the game's cow sound variants, each a member. A member is
+  named by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    moody = MCCowSoundVariants.MOODY
+    moody = MCCowSoundVariants.Moody
     moody is MCCowSoundVariants['moody']  # True
     moody[Version.V26_1]
     # CowSoundVariantId('moody',
@@ -29,7 +30,7 @@ class MCCowSoundVariants(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'cow_sound_variants.json' beside this
-  module. mcdex's tools write the members, one for every name of that file.
+  module. mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -42,6 +43,6 @@ class MCCowSoundVariants(MCThing):
   __id_class__ = CowSoundVariantId
   __kind__ = 'cow sound variant'
 
-  #  Members, one for every name of 'cow_sound_variants.json'
-  CLASSIC = Kee[str]('classic')
-  MOODY = Kee[str]('moody')
+  #  Members, one for every thing of 'cow_sound_variants.json'
+  Classic = Kee[str]('classic')
+  Moody = Kee[str]('moody')

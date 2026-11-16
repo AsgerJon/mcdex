@@ -50,23 +50,23 @@ _RECORDS = {
 }
 
 
-class TrialItems(MCItems):
+class TrialItems(MCItems, strictCase=False):
   """A catalogue of test items, its records given here."""
 
   __data_records__ = _RECORDS
 
-  TEST_TUFT = Kee[str]('test_tuft')
-  TEST_GADGET = Kee[str]('test_gadget')
-  TEST_RELIC = Kee[str]('test_relic')
-  TEST_EGG = Kee[str]('test_egg')
-  TEST_LACKING_STACKS = Kee[str]('test_lacking_stacks')
-  TEST_LACKING_SLOTS = Kee[str]('test_lacking_slots')
-  TEST_UNSIZED_TEXT = Kee[str]('test_unsized_text')
-  TEST_UNSIZED_FLOAT = Kee[str]('test_unsized_float')
-  TEST_OVERSIZED_ZERO = Kee[str]('test_oversized_zero')
-  TEST_OVERSIZED_HUNDRED = Kee[str]('test_oversized_hundred')
-  TEST_UNSLOTTED = Kee[str]('test_unslotted')
-  TEST_PATCHY = Kee[str]('test_patchy')
+  TestTuft = Kee[str]('test_tuft')
+  TestGadget = Kee[str]('test_gadget')
+  TestRelic = Kee[str]('test_relic')
+  TestEgg = Kee[str]('test_egg')
+  TestLackingStacks = Kee[str]('test_lacking_stacks')
+  TestLackingSlots = Kee[str]('test_lacking_slots')
+  TestUnsizedText = Kee[str]('test_unsized_text')
+  TestUnsizedFloat = Kee[str]('test_unsized_float')
+  TestOversizedZero = Kee[str]('test_oversized_zero')
+  TestOversizedHundred = Kee[str]('test_oversized_hundred')
+  TestUnslotted = Kee[str]('test_unslotted')
+  TestPatchy = Kee[str]('test_patchy')
 
 
 class TestItemTables(BaseTest):
@@ -79,8 +79,8 @@ class TestItemTables(BaseTest):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def test_record_lacks_a_table(self) -> None:
-    for item, table in ((TrialItems.TEST_LACKING_STACKS, 'maxStackSize'),
-                        (TrialItems.TEST_LACKING_SLOTS, 'equipmentSlot')):
+    for item, table in ((TrialItems.TestLackingStacks, 'maxStackSize'),
+                        (TrialItems.TestLackingSlots, 'equipmentSlot')):
       with self.subTest(table=table):
         with self.assertRaises(ValueError) as context:
           _ = item[Version.V1_7_2]
@@ -88,13 +88,13 @@ class TestItemTables(BaseTest):
           item.uniqueName, table), str(context.exception))
 
   def test_stack_size_not_int(self) -> None:
-    for item in (TrialItems.TEST_UNSIZED_TEXT, TrialItems.TEST_UNSIZED_FLOAT):
+    for item in (TrialItems.TestUnsizedText, TrialItems.TestUnsizedFloat):
       with self.subTest(item=item):
         with self.assertRaises(TypeException):
           _ = item.maxStackSize
 
   def test_stack_size_out_of_bounds(self) -> None:
-    for item in (TrialItems.TEST_OVERSIZED_ZERO, TrialItems.TEST_OVERSIZED_HUNDRED):
+    for item in (TrialItems.TestOversizedZero, TrialItems.TestOversizedHundred):
       with self.subTest(item=item):
         with self.assertRaises(ValueError) as context:
           _ = item.maxStackSize
@@ -102,11 +102,11 @@ class TestItemTables(BaseTest):
 
   def test_unknown_slot(self) -> None:
     with self.assertRaises(KeeResolveError):
-      _ = TrialItems.TEST_UNSLOTTED.equipmentSlot
+      _ = TrialItems.TestUnslotted.equipmentSlot
 
   def test_stack_size_missing_for_a_version(self) -> None:
     with self.assertRaises(ValueError) as context:
-      _ = TrialItems.TEST_PATCHY.maxStackSize
+      _ = TrialItems.TestPatchy.maxStackSize
     self.assertIn("TrialItems('test_patchy') has no 'maxStackSize' for 1.7.2",
                   str(context.exception))
 
@@ -117,31 +117,31 @@ class TestItemTables(BaseTest):
   def test_max_stack_size_versions(self) -> None:
     """A key for every version vanilla has the item in."""
     present = [v for v in Version if Version.V1_9 <= v]
-    self.assertEqual(list(TrialItems.TEST_GADGET.maxStackSize), present)
+    self.assertEqual(list(TrialItems.TestGadget.maxStackSize), present)
     gone = [v for v in Version if Version.V1_7_2 <= v < Version.V1_9]
-    self.assertEqual(list(TrialItems.TEST_RELIC.maxStackSize), gone)
+    self.assertEqual(list(TrialItems.TestRelic.maxStackSize), gone)
 
   def test_max_stack_size_values(self) -> None:
-    sizes = TrialItems.TEST_RELIC.maxStackSize
+    sizes = TrialItems.TestRelic.maxStackSize
     self.assertEqual(sizes[Version.V1_7_10], 1)
     self.assertEqual(sizes[Version.V1_8], 64)
     self.assertEqual(sizes[Version.V1_8_9], 64)
-    self.assertEqual(set(TrialItems.TEST_TUFT.maxStackSize.values()), {64})
+    self.assertEqual(set(TrialItems.TestTuft.maxStackSize.values()), {64})
 
   def test_equipment_slot(self) -> None:
-    slots = TrialItems.TEST_GADGET.equipmentSlot
+    slots = TrialItems.TestGadget.equipmentSlot
     self.assertEqual(list(slots), [v for v in Version if Version.V1_9 <= v])
-    self.assertIs(slots[Version.V1_9], EquipmentSlot.MAINHAND)
-    self.assertIs(slots[Version.V1_10], EquipmentSlot.CHEST)
-    self.assertIs(slots[Version.V26_3], EquipmentSlot.CHEST)
+    self.assertIs(slots[Version.V1_9], EquipmentSlot.MainHand)
+    self.assertIs(slots[Version.V1_10], EquipmentSlot.Chest)
+    self.assertIs(slots[Version.V26_3], EquipmentSlot.Chest)
 
   def test_stack_and_slot_are_copies(self) -> None:
-    gadget = TrialItems.TEST_GADGET
+    gadget = TrialItems.TestGadget
     sizes, slots = gadget.maxStackSize, gadget.equipmentSlot
     sizes[Version.V26_3] = 99
-    slots[Version.V26_3] = EquipmentSlot.HEAD
+    slots[Version.V26_3] = EquipmentSlot.Head
     self.assertEqual(gadget.maxStackSize[Version.V26_3], 1)
-    self.assertIs(gadget.equipmentSlot[Version.V26_3], EquipmentSlot.CHEST)
+    self.assertIs(gadget.equipmentSlot[Version.V26_3], EquipmentSlot.Chest)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  IDS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -156,16 +156,16 @@ class TestItemTables(BaseTest):
     }
     for version_, minecraftId in cases.items():
       with self.subTest(version=version_.name):
-        self.assertEqual(TrialItems.TEST_TUFT[version_],
+        self.assertEqual(TrialItems.TestTuft[version_],
                          ItemId('test_tuft', minecraftId))
 
   def test_version_ids(self) -> None:
-    ids = TrialItems.TEST_GADGET.versionIds
+    ids = TrialItems.TestGadget.versionIds
     self.assertEqual(ids[Version.V1_8_9], '')
     self.assertEqual(ids[Version.V1_9], 'test:gadget')
 
   def test_nbt_id(self) -> None:
-    egg = TrialItems.TEST_EGG
+    egg = TrialItems.TestEgg
     self.assertEqual(egg[Version.V1_12_2].minecraftId,
                      'test:egg{EntityTag:{id:"Creeper"}}')
     self.assertEqual(egg[Version.V1_8_9].minecraftId, 'test:egg:50')

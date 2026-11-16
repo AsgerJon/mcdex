@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import FrogVariantId, MCThing
 
 
-class MCFrogVariants(MCThing):
+class MCFrogVariants(MCThing, strictCase=False):
   """
-  The catalogue of the game's frog variants, each a member, found by its name
-  in capitals, in any case, or by its unique name:
+  The catalogue of the game's frog variants, each a member. A member is named
+  by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    warm = MCFrogVariants.WARM
+    warm = MCFrogVariants.Warm
     warm is MCFrogVariants['warm']  # True
     warm[Version.V1_19]
     # FrogVariantId('warm', 'minecraft:frog{variant:"minecraft:warm"}')
@@ -28,7 +29,7 @@ class MCFrogVariants(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'frog_variants.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -41,7 +42,7 @@ class MCFrogVariants(MCThing):
   __id_class__ = FrogVariantId
   __kind__ = 'frog variant'
 
-  #  Members, one for every name of 'frog_variants.json'
-  COLD = Kee[str]('cold')
-  TEMPERATE = Kee[str]('temperate')
-  WARM = Kee[str]('warm')
+  #  Members, one for every thing of 'frog_variants.json'
+  Cold = Kee[str]('cold')
+  Temperate = Kee[str]('temperate')
+  Warm = Kee[str]('warm')

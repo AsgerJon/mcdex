@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import MCThing, TrimPatternId
 
 
-class MCTrimPatterns(MCThing):
+class MCTrimPatterns(MCThing, strictCase=False):
   """
-  The catalogue of the game's trim patterns, each a member, found by its name
-  in capitals, in any case, or by its unique name:
+  The catalogue of the game's trim patterns, each a member. A member is named
+  by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    coast = MCTrimPatterns.COAST
+    coast = MCTrimPatterns.Coast
     coast is MCTrimPatterns['coast']  # True
     coast[Version.V1_20]  # TrimPatternId('coast', 'minecraft:coast')
     len(MCTrimPatterns)
@@ -27,7 +28,7 @@ class MCTrimPatterns(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'trim_patterns.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -40,22 +41,22 @@ class MCTrimPatterns(MCThing):
   __id_class__ = TrimPatternId
   __kind__ = 'trim pattern'
 
-  #  Members, one for every name of 'trim_patterns.json'
-  BOLT = Kee[str]('bolt')
-  COAST = Kee[str]('coast')
-  DUNE = Kee[str]('dune')
-  EYE = Kee[str]('eye')
-  FLOW = Kee[str]('flow')
-  HOST = Kee[str]('host')
-  RAISER = Kee[str]('raiser')
-  RIB = Kee[str]('rib')
-  SENTRY = Kee[str]('sentry')
-  SHAPER = Kee[str]('shaper')
-  SILENCE = Kee[str]('silence')
-  SNOUT = Kee[str]('snout')
-  SPIRE = Kee[str]('spire')
-  TIDE = Kee[str]('tide')
-  VEX = Kee[str]('vex')
-  WARD = Kee[str]('ward')
-  WAYFINDER = Kee[str]('wayfinder')
-  WILD = Kee[str]('wild')
+  #  Members, one for every thing of 'trim_patterns.json'
+  Bolt = Kee[str]('bolt')
+  Coast = Kee[str]('coast')
+  Dune = Kee[str]('dune')
+  Eye = Kee[str]('eye')
+  Flow = Kee[str]('flow')
+  Host = Kee[str]('host')
+  Raiser = Kee[str]('raiser')
+  Rib = Kee[str]('rib')
+  Sentry = Kee[str]('sentry')
+  Shaper = Kee[str]('shaper')
+  Silence = Kee[str]('silence')
+  Snout = Kee[str]('snout')
+  Spire = Kee[str]('spire')
+  Tide = Kee[str]('tide')
+  Vex = Kee[str]('vex')
+  Ward = Kee[str]('ward')
+  Wayfinder = Kee[str]('wayfinder')
+  Wild = Kee[str]('wild')

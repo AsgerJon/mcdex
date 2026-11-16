@@ -8,7 +8,7 @@ from __future__ import annotations
 from worktoy.keenum import KeeNum, Kee
 
 
-class EquipmentSlot(KeeNum):
+class EquipmentSlot(KeeNum, strictCase=False):
   """
   An item goes to one slot when an entity equips it: the elytra to the
   chest, a helmet to the head, a shield to the offhand, horse armor to a
@@ -17,18 +17,21 @@ class EquipmentSlot(KeeNum):
   own enumeration as of 26.3, each holding the name the game serializes
   it by:
 
-    EquipmentSlot('chest') is EquipmentSlot.CHEST
+    EquipmentSlot('chest') is EquipmentSlot.Chest
 
   The offhand arrived in 1.9, the body in 1.20.5 and the saddle in
   1.21.5; before each, an item that would go there went to the main
   hand.
+
+  The members are named in PascalCase, the game's glued words split as a
+  person writes them: 'MainHand' for 'mainhand'.
   """
 
-  MAINHAND = Kee[str]('mainhand')
-  OFFHAND = Kee[str]('offhand')
-  FEET = Kee[str]('feet')
-  LEGS = Kee[str]('legs')
-  CHEST = Kee[str]('chest')
-  HEAD = Kee[str]('head')
-  BODY = Kee[str]('body')
-  SADDLE = Kee[str]('saddle')
+  MainHand = Kee[str]('mainhand')
+  OffHand = Kee[str]('offhand')
+  Feet = Kee[str]('feet')
+  Legs = Kee[str]('legs')
+  Chest = Kee[str]('chest')
+  Head = Kee[str]('head')
+  Body = Kee[str]('body')
+  Saddle = Kee[str]('saddle')

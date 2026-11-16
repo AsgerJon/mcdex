@@ -24,6 +24,8 @@ _RECORDS = {
   'ghost': {'ids': {'1.7.2': '', '1.21.2': 'test:ghost', '1.21.4': ''}},
   #  A unique name no member's name can be.
   'creeper.primed': {'ids': {'1.7.2': 'test:creeper.primed'}},
+  #  The same data under a name no member takes: no member of its own.
+  'creeper_primed': {'ids': {'1.7.2': 'test:creeper.primed'}},
   'lacking_none': {},
   'lacking_empty': {'ids': {}},
   'lacking_names': {'names': {'1.7.2': 'Blob'}},
@@ -37,29 +39,42 @@ _RECORDS = {
 }
 
 
-class Beasts(MCThing):
+class Beasts(MCThing, strictCase=False):
   """A catalogue of test things, its records given here."""
 
   __data_records__ = _RECORDS
   __id_class__ = EntityId
   __kind__ = 'beast'
 
-  BLOB = Kee[str]('blob')
-  HUSK = Kee[str]('husk')
-  GHOST = Kee[str]('ghost')
-  CREEPER_PRIMED = Kee[str]('creeper.primed')
-  LACKING_NONE = Kee[str]('lacking_none')
-  LACKING_EMPTY = Kee[str]('lacking_empty')
-  LACKING_NAMES = Kee[str]('lacking_names')
-  PHANTOM = Kee[str]('phantom')
-  MISDATED_OLD = Kee[str]('misdated_old')
-  MISDATED_SNAPSHOT = Kee[str]('misdated_snapshot')
-  MISDATED_WORD = Kee[str]('misdated_word')
-  MISLABELED_INT = Kee[str]('mislabeled_int')
-  MISLABELED_NONE = Kee[str]('mislabeled_none')
-  MISLABELED_ID = Kee[str]('mislabeled_id')
-  NAMELESS = Kee[str]('')
-  STRAY = Kee[str]('stray')
+  Blob = Kee[str]('blob')
+  Husk = Kee[str]('husk')
+  Ghost = Kee[str]('ghost')
+  CreeperPrimed = Kee[str]('creeper.primed')
+  LackingNone = Kee[str]('lacking_none')
+  LackingEmpty = Kee[str]('lacking_empty')
+  LackingNames = Kee[str]('lacking_names')
+  Phantom = Kee[str]('phantom')
+  MisdatedOld = Kee[str]('misdated_old')
+  MisdatedSnapshot = Kee[str]('misdated_snapshot')
+  MisdatedWord = Kee[str]('misdated_word')
+  MislabeledInt = Kee[str]('mislabeled_int')
+  MislabeledNone = Kee[str]('mislabeled_none')
+  MislabeledId = Kee[str]('mislabeled_id')
+  Nameless = Kee[str]('')
+  Stray = Kee[str]('stray')
+
+
+class Strays(MCThing, strictCase=False):
+  """A catalogue whose data names a thing it has no member for."""
+
+  __data_records__ = {
+    'kept': {'ids': {'1.7.2': 'test:kept'}},
+    'lost': {'ids': {'1.7.2': 'test:lost'}},
+  }
+  __id_class__ = EntityId
+  __kind__ = 'stray'
+
+  Kept = Kee[str]('kept')
 
 
 class TestMCThing(BaseTest):
@@ -72,7 +87,7 @@ class TestMCThing(BaseTest):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def test_members(self) -> None:
-    blob = Beasts.BLOB
+    blob = Beasts.Blob
     self.assertIsInstance(blob, Beasts)
     self.assertIsInstance(blob, MCThing)
     self.assertEqual(len(Beasts), 16)
@@ -80,12 +95,27 @@ class TestMCThing(BaseTest):
 
   def test_found_by_name(self) -> None:
     """By the member's name in any case, by its unique name, by position."""
-    blob = Beasts.BLOB
+    blob = Beasts.Blob
     self.assertIs(Beasts['blob'], blob)
     self.assertIs(Beasts['BLOB'], blob)
     self.assertIs(Beasts.Blob, blob)
-    self.assertIs(Beasts['creeper.primed'], Beasts.CREEPER_PRIMED)
-    self.assertIs(Beasts[1], Beasts.HUSK)
+    self.assertIs(Beasts['creeper.primed'], Beasts.CreeperPrimed)
+    self.assertIs(Beasts['creeper_primed'], Beasts.CreeperPrimed)
+    self.assertIs(Beasts[1], Beasts.Husk)
+
+  def test_names_are_pascal_case(self) -> None:
+    self.assertEqual(Beasts.CreeperPrimed.name, 'CreeperPrimed')
+    self.assertEqual(Beasts.MisdatedSnapshot.name, 'MisdatedSnapshot')
+
+  def test_data_name_without_member(self) -> None:
+    """
+    A name of the data that no member has, nor any member's data, is a
+    mistake of the data, raised at the first lookup by a name.
+    """
+    with self.assertRaises(ValueError) as context:
+      _ = Strays['lost']
+    self.assertIn("'lost' of the data is no stray's name, nor has the "
+                  "data of one", str(context.exception))
 
   def test_unknown_name(self) -> None:
     with self.assertRaises(KeyError) as context:
@@ -101,7 +131,8 @@ class TestMCThing(BaseTest):
   def test_contains(self) -> None:
     self.assertIn('blob', Beasts)
     self.assertIn('creeper.primed', Beasts)
-    self.assertIn(Beasts.BLOB, Beasts)
+    self.assertIn('creeper_primed', Beasts)
+    self.assertIn(Beasts.Blob, Beasts)
     self.assertNotIn('blop', Beasts)
     self.assertNotIn(1, Beasts)
 
@@ -110,17 +141,17 @@ class TestMCThing(BaseTest):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def test_unique_name(self) -> None:
-    self.assertEqual(Beasts.BLOB.uniqueName, 'blob')
-    self.assertIs(type(Beasts.BLOB.uniqueName), str)
-    self.assertEqual(Beasts.CREEPER_PRIMED.uniqueName, 'creeper.primed')
+    self.assertEqual(Beasts.Blob.uniqueName, 'blob')
+    self.assertIs(type(Beasts.Blob.uniqueName), str)
+    self.assertEqual(Beasts.CreeperPrimed.uniqueName, 'creeper.primed')
 
   def test_frozen(self) -> None:
     with self.assertRaises(KeeWriteOnceError):
-      Beasts.BLOB.uniqueName = 'slime'
+      Beasts.Blob.uniqueName = 'slime'
 
   def test_text(self) -> None:
-    self.assertEqual(str(Beasts.BLOB), '<Beasts>.BLOB')
-    self.assertEqual(repr(Beasts.BLOB), '<Beasts>.BLOB')
+    self.assertEqual(str(Beasts.Blob), '<Beasts>.Blob')
+    self.assertEqual(repr(Beasts.Blob), '<Beasts>.Blob')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  THE RECORD   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -128,19 +159,19 @@ class TestMCThing(BaseTest):
 
   def test_empty_name(self) -> None:
     with self.assertRaises(ValueError) as context:
-      _ = Beasts.NAMELESS['1.7.2']
-    self.assertIn("Beasts.NAMELESS has an empty 'uniqueName'",
+      _ = Beasts.Nameless['1.7.2']
+    self.assertIn("Beasts.Nameless has an empty 'uniqueName'",
                   str(context.exception))
 
   def test_no_record(self) -> None:
     with self.assertRaises(ValueError) as context:
-      _ = Beasts.STRAY['1.7.2']
+      _ = Beasts.Stray['1.7.2']
     self.assertIn("Beasts('stray') has no record in the data",
                   str(context.exception))
 
   def test_record_lacks_ids(self) -> None:
-    for beast in (Beasts.LACKING_NONE, Beasts.LACKING_EMPTY,
-                  Beasts.LACKING_NAMES):
+    for beast in (Beasts.LackingNone, Beasts.LackingEmpty,
+                  Beasts.LackingNames):
       with self.subTest(beast=beast):
         with self.assertRaises(ValueError) as context:
           _ = beast.versionIds
@@ -149,20 +180,20 @@ class TestMCThing(BaseTest):
 
   def test_in_no_version(self) -> None:
     with self.assertRaises(ValueError) as context:
-      _ = Beasts.PHANTOM['1.9']
+      _ = Beasts.Phantom['1.9']
     self.assertIn("Beasts('phantom') is in no version",
                   str(context.exception))
 
   def test_unknown_version(self) -> None:
-    for beast in (Beasts.MISDATED_OLD, Beasts.MISDATED_SNAPSHOT,
-                  Beasts.MISDATED_WORD):
+    for beast in (Beasts.MisdatedOld, Beasts.MisdatedSnapshot,
+                  Beasts.MisdatedWord):
       with self.subTest(beast=beast):
         with self.assertRaises(KeeResolveError):
           _ = beast['1.7.2']
 
   def test_id_not_str(self) -> None:
-    for beast in (Beasts.MISLABELED_INT, Beasts.MISLABELED_NONE,
-                  Beasts.MISLABELED_ID):
+    for beast in (Beasts.MislabeledInt, Beasts.MislabeledNone,
+                  Beasts.MislabeledId):
       with self.subTest(beast=beast):
         with self.assertRaises(TypeException):
           _ = beast['1.7.2']
@@ -174,12 +205,12 @@ class TestMCThing(BaseTest):
   def test_version_ids_every_version(self) -> None:
     """A key for every 'Version' from the first version of the data."""
     expected = [v for v in Version if v >= Version.V1_7_2]
-    for beast in (Beasts.BLOB, Beasts.HUSK, Beasts.GHOST):
+    for beast in (Beasts.Blob, Beasts.Husk, Beasts.Ghost):
       with self.subTest(beast=beast):
         self.assertEqual(list(beast.versionIds), expected)
 
   def test_version_ids_values(self) -> None:
-    ids = Beasts.BLOB.versionIds
+    ids = Beasts.Blob.versionIds
     for version_ in ids:
       with self.subTest(version=version_.name):
         if version_ < Version.V1_11:
@@ -188,15 +219,15 @@ class TestMCThing(BaseTest):
           self.assertEqual(ids[version_], 'test:blob')
 
   def test_version_ids_absent(self) -> None:
-    self.assertEqual(Beasts.HUSK.versionIds[Version.V1_9_4], '')
-    self.assertEqual(Beasts.HUSK.versionIds[Version.V1_10],
+    self.assertEqual(Beasts.Husk.versionIds[Version.V1_9_4], '')
+    self.assertEqual(Beasts.Husk.versionIds[Version.V1_10],
                      'Zombie{ZombieType:6}')
-    self.assertEqual(Beasts.GHOST.versionIds[Version.V26_3], '')
+    self.assertEqual(Beasts.Ghost.versionIds[Version.V26_3], '')
 
   def test_version_ids_is_a_copy(self) -> None:
-    ids = Beasts.BLOB.versionIds
+    ids = Beasts.Blob.versionIds
     ids[Version.V26_3] = 'test:changed'
-    self.assertEqual(Beasts.BLOB.versionIds[Version.V26_3], 'test:blob')
+    self.assertEqual(Beasts.Blob.versionIds[Version.V26_3], 'test:blob')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  ID IN A VERSION  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -211,16 +242,16 @@ class TestMCThing(BaseTest):
     }
     for version_, minecraftId in cases.items():
       with self.subTest(version=version_.name):
-        self.assertEqual(Beasts.BLOB[version_],
+        self.assertEqual(Beasts.Blob[version_],
                          EntityId('blob', minecraftId))
 
   def test_getitem_split(self) -> None:
-    self.assertEqual(Beasts.HUSK['1.10.2'],
+    self.assertEqual(Beasts.Husk['1.10.2'],
                      EntityId('husk', 'Zombie{ZombieType:6}'))
-    self.assertEqual(Beasts.HUSK['1.11'].minecraftId, 'test:husk')
+    self.assertEqual(Beasts.Husk['1.11'].minecraftId, 'test:husk')
 
   def test_getitem_text_and_mc_version(self) -> None:
-    blob = Beasts.BLOB
+    blob = Beasts.Blob
     self.assertEqual(blob['1.10.2'].minecraftId, 'Blob')
     self.assertEqual(blob[MCVersion(1, 11)].minecraftId, 'test:blob')
     self.assertEqual(blob['V1_12_2'].minecraftId, 'test:blob')
@@ -229,10 +260,10 @@ class TestMCThing(BaseTest):
     for version_ in ('26.4-snapshot-7', '1.2', MCVersion(26, 4), 7):
       with self.subTest(version=version_):
         with self.assertRaises(KeeResolveError):
-          _ = Beasts.BLOB[version_]
+          _ = Beasts.Blob[version_]
 
   def test_not_in_version_before(self) -> None:
-    husk = Beasts.HUSK
+    husk = Beasts.Husk
     with self.assertRaises(NotInVersion) as context:
       _ = husk['1.9.4']
     exception = context.exception
@@ -246,7 +277,7 @@ class TestMCThing(BaseTest):
 
   def test_not_in_version_after(self) -> None:
     with self.assertRaises(NotInVersion) as context:
-      _ = Beasts.GHOST['26.3']
+      _ = Beasts.Ghost['26.3']
     self.assertEqual(
         str(context.exception),
         "Vanilla 26.3 has no 'ghost'; vanilla removed it in 1.21.4!",
@@ -254,6 +285,6 @@ class TestMCThing(BaseTest):
 
   def test_before_the_data(self) -> None:
     with self.assertRaises(ValueError) as context:
-      _ = Beasts.BLOB['1.6.4']
+      _ = Beasts.Blob['1.6.4']
     self.assertNotIsInstance(context.exception, NotInVersion)
     self.assertIn("no data on 'blob' before 1.7.2", str(context.exception))

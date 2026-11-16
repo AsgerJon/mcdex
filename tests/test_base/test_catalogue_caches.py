@@ -22,14 +22,14 @@ from mcdex import EntityId, MCThing, Version
 def _things(minecraftId: str) -> type:
   """A catalogue named 'Things', its one thing known by 'minecraftId'."""
 
-  class Things(MCThing):
+  class Things(MCThing, strictCase=False):
     """A catalogue of one test thing, its record given here."""
 
     __data_records__ = {'a.b': {'ids': {'1.7.2': minecraftId}}}
     __id_class__ = EntityId
     __kind__ = 'thing'
 
-    A_B = Kee[str]('a.b')
+    AB = Kee[str]('a.b')
 
   return Things
 
@@ -42,19 +42,19 @@ from mcdex import MCPotions, Version
 
 
 def tonics(longId):
-  class Tonics(MCPotions):
+  class Tonics(MCPotions, strictCase=False):
     __data_records__ = {
       'test_tonic': {'ids': {'1.7.2': '1'}, 'long': {'ids': {'1.7.2': longId}}},
     }
-    TEST_TONIC = Kee[str]('test_tonic')
+    TestTonic = Kee[str]('test_tonic')
   return Tonics
 
 
 first, second = tonics('65'), tonics('66')
 firstLongTestTonic = first['test_tonic', 'long']
 secondLongTestTonic = second['test_tonic', 'long']
-print(firstLongTestTonic.base is first.TEST_TONIC,
-      secondLongTestTonic.base is second.TEST_TONIC)
+print(firstLongTestTonic.base is first.TestTonic,
+      secondLongTestTonic.base is second.TestTonic)
 print(firstLongTestTonic[Version.V1_8_9].minecraftId,
       secondLongTestTonic[Version.V1_8_9].minecraftId)
 """
@@ -67,21 +67,21 @@ class TestCatalogueCaches(BaseTest):
 
   def test_ids(self) -> None:
     first, second = _things('test:first'), _things('test:second')
-    self.assertEqual(first.A_B[Version.V1_12_2].minecraftId, 'test:first')
-    self.assertEqual(second.A_B[Version.V1_12_2].minecraftId, 'test:second')
-    self.assertEqual(second.A_B.versionIds, {
-      version_: 'test:second' for version_ in second.A_B.versionIds})
+    self.assertEqual(first.AB[Version.V1_12_2].minecraftId, 'test:first')
+    self.assertEqual(second.AB[Version.V1_12_2].minecraftId, 'test:second')
+    self.assertEqual(second.AB.versionIds, {
+      version_: 'test:second' for version_ in second.AB.versionIds})
 
   def test_unique_names(self) -> None:
     first, second = _things('test:first'), _things('test:second')
-    self.assertIs(first['a.b'], first.A_B)
-    self.assertIs(second['a.b'], second.A_B)
+    self.assertIs(first['a.b'], first.AB)
+    self.assertIs(second['a.b'], second.AB)
 
   def test_modified_potions(self) -> None:
     """
     In a process of its own: a subclass of 'MCPotions' shares the
     potions of 'MCPotions', and worktoy then names each of them by the
-    root of their family, '<CatalogueMetaNum>.SWIFTNESS', for the rest
+    root of their family, '<CatalogueMetaNum>.Swiftness', for the rest
     of the process.
     """
     env = dict(os.environ, PYTHONPATH=str.join(os.pathsep, sys.path))

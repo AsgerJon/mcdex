@@ -19,12 +19,13 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any
 
 
-class MCPotions(MCThing):
+class MCPotions(MCThing, strictCase=False):
   """
-  The catalogue of the game's potions, each a member, found by its name in
-  capitals, in any case, or by its unique name:
+  The catalogue of the game's potions, each a member. A member is named
+  by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    swiftness = MCPotions.SWIFTNESS
+    swiftness = MCPotions.Swiftness
     swiftness is MCPotions['swiftness']  # True
     swiftness[Version.V1_8_9]  # PotionId('swiftness', '2')
     len(MCPotions)
@@ -33,7 +34,7 @@ class MCPotions(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'potions.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -57,8 +58,8 @@ class MCPotions(MCThing):
   def __class_resolve__(cls, identifier: Any) -> Any:
     """
     A potion by its unique name, as in any catalogue; or a base potion
-    with a modifier, 'MCPotions[MCPotions.NIGHT_VISION,
-    PotionModifier.LONG]' or 'MCPotions["night_vision", "long"]': the
+    with a modifier, 'MCPotions[MCPotions.NightVision,
+    PotionModifier.Long]' or 'MCPotions["night_vision", "long"]': the
     long or strong potion, a 'ModifiedPotion', the same object every
     time. A base potion the game has no such potion of raises 'KeyError'.
     """
@@ -73,29 +74,29 @@ class MCPotions(MCThing):
       cls.__modified_potions__[key] = ModifiedPotion(base, modifier)
     return cls.__modified_potions__[key]
 
-  #  Members, one for every name of 'potions.json'
-  AWKWARD = Kee[str]('awkward')
-  EMPTY = Kee[str]('empty')
-  FIRE_RESISTANCE = Kee[str]('fire_resistance')
-  HARMING = Kee[str]('harming')
-  HEALING = Kee[str]('healing')
-  INFESTED = Kee[str]('infested')
-  INVISIBILITY = Kee[str]('invisibility')
-  LEAPING = Kee[str]('leaping')
-  LUCK = Kee[str]('luck')
-  MUNDANE = Kee[str]('mundane')
-  NIGHT_VISION = Kee[str]('night_vision')
-  OOZING = Kee[str]('oozing')
-  POISON = Kee[str]('poison')
-  REGENERATION = Kee[str]('regeneration')
-  SLOW_FALLING = Kee[str]('slow_falling')
-  SLOWNESS = Kee[str]('slowness')
-  STRENGTH = Kee[str]('strength')
-  SWIFTNESS = Kee[str]('swiftness')
-  THICK = Kee[str]('thick')
-  TURTLE_MASTER = Kee[str]('turtle_master')
-  WATER = Kee[str]('water')
-  WATER_BREATHING = Kee[str]('water_breathing')
-  WEAKNESS = Kee[str]('weakness')
-  WEAVING = Kee[str]('weaving')
-  WIND_CHARGED = Kee[str]('wind_charged')
+  #  Members, one for every thing of 'potions.json'
+  Awkward = Kee[str]('awkward')
+  Empty = Kee[str]('empty')
+  FireResistance = Kee[str]('fire_resistance')
+  Harming = Kee[str]('harming')
+  Healing = Kee[str]('healing')
+  Infested = Kee[str]('infested')
+  Invisibility = Kee[str]('invisibility')
+  Leaping = Kee[str]('leaping')
+  Luck = Kee[str]('luck')
+  Mundane = Kee[str]('mundane')
+  NightVision = Kee[str]('night_vision')
+  Oozing = Kee[str]('oozing')
+  Poison = Kee[str]('poison')
+  Regeneration = Kee[str]('regeneration')
+  SlowFalling = Kee[str]('slow_falling')
+  Slowness = Kee[str]('slowness')
+  Strength = Kee[str]('strength')
+  Swiftness = Kee[str]('swiftness')
+  Thick = Kee[str]('thick')
+  TurtleMaster = Kee[str]('turtle_master')
+  Water = Kee[str]('water')
+  WaterBreathing = Kee[str]('water_breathing')
+  Weakness = Kee[str]('weakness')
+  Weaving = Kee[str]('weaving')
+  WindCharged = Kee[str]('wind_charged')

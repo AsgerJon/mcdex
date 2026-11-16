@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import MCThing, PigSoundVariantId
 
 
-class MCPigSoundVariants(MCThing):
+class MCPigSoundVariants(MCThing, strictCase=False):
   """
-  The catalogue of the game's pig sound variants, each a member, found by its
-  name in capitals, in any case, or by its unique name:
+  The catalogue of the game's pig sound variants, each a member. A member is
+  named by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    mini = MCPigSoundVariants.MINI
+    mini = MCPigSoundVariants.Mini
     mini is MCPigSoundVariants['mini']  # True
     mini[Version.V26_1]
     # PigSoundVariantId('mini',
@@ -29,7 +30,7 @@ class MCPigSoundVariants(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'pig_sound_variants.json' beside this
-  module. mcdex's tools write the members, one for every name of that file.
+  module. mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -42,7 +43,7 @@ class MCPigSoundVariants(MCThing):
   __id_class__ = PigSoundVariantId
   __kind__ = 'pig sound variant'
 
-  #  Members, one for every name of 'pig_sound_variants.json'
-  BIG = Kee[str]('big')
-  CLASSIC = Kee[str]('classic')
-  MINI = Kee[str]('mini')
+  #  Members, one for every thing of 'pig_sound_variants.json'
+  Big = Kee[str]('big')
+  Classic = Kee[str]('classic')
+  Mini = Kee[str]('mini')

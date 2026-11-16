@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import MCThing, MusicId
 
 
-class Music(MCThing):
+class Music(MCThing, strictCase=False):
   """
-  The catalogue of the game's songs, each a member, found by its name in
-  capitals, in any case, or by its unique name:
+  The catalogue of the game's songs, each a member. A member is named
+  by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    pigstep = Music.PIGSTEP
+    pigstep = Music.Pigstep
     pigstep is Music['pigstep']  # True
     pigstep[Version.V1_21]  # MusicId('pigstep', 'minecraft:pigstep')
     len(Music)
@@ -27,7 +28,7 @@ class Music(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'music.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -40,26 +41,26 @@ class Music(MCThing):
   __id_class__ = MusicId
   __kind__ = 'song'
 
-  #  Members, one for every name of 'music.json'
-  ELEVEN = Kee[str]('11')
-  THIRTEEN = Kee[str]('13')
-  FIVE = Kee[str]('5')
-  BLOCKS = Kee[str]('blocks')
-  BOUNCE = Kee[str]('bounce')
-  CAT = Kee[str]('cat')
-  CHIRP = Kee[str]('chirp')
-  CREATOR = Kee[str]('creator')
-  CREATOR_MUSIC_BOX = Kee[str]('creator_music_box')
-  FAR = Kee[str]('far')
-  LAVA_CHICKEN = Kee[str]('lava_chicken')
-  MALL = Kee[str]('mall')
-  MELLOHI = Kee[str]('mellohi')
-  OTHERSIDE = Kee[str]('otherside')
-  PIGSTEP = Kee[str]('pigstep')
-  PRECIPICE = Kee[str]('precipice')
-  RELIC = Kee[str]('relic')
-  STAL = Kee[str]('stal')
-  STRAD = Kee[str]('strad')
-  TEARS = Kee[str]('tears')
-  WAIT = Kee[str]('wait')
-  WARD = Kee[str]('ward')
+  #  Members, one for every thing of 'music.json'
+  Eleven = Kee[str]('11')
+  Thirteen = Kee[str]('13')
+  Five = Kee[str]('5')
+  Blocks = Kee[str]('blocks')
+  Bounce = Kee[str]('bounce')
+  Cat = Kee[str]('cat')
+  Chirp = Kee[str]('chirp')
+  Creator = Kee[str]('creator')
+  CreatorMusicBox = Kee[str]('creator_music_box')
+  Far = Kee[str]('far')
+  LavaChicken = Kee[str]('lava_chicken')
+  Mall = Kee[str]('mall')
+  Mellohi = Kee[str]('mellohi')
+  Otherside = Kee[str]('otherside')
+  Pigstep = Kee[str]('pigstep')
+  Precipice = Kee[str]('precipice')
+  Relic = Kee[str]('relic')
+  Stal = Kee[str]('stal')
+  Strad = Kee[str]('strad')
+  Tears = Kee[str]('tears')
+  Wait = Kee[str]('wait')
+  Ward = Kee[str]('ward')

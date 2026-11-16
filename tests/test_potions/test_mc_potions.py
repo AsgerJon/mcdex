@@ -32,12 +32,12 @@ class TestMCPotions(BaseTest):
     cls.records = _records()
 
   def test_kind(self) -> None:
-    swiftness = MCPotions.SWIFTNESS
+    swiftness = MCPotions.Swiftness
     self.assertIsInstance(swiftness, MCPotions)
     self.assertIsInstance(swiftness, MCThing)
     self.assertIs(type(swiftness[Version.V26_3]), PotionId)
     self.assertIsInstance(swiftness[Version.V26_3], GameId)
-    self.assertEqual(repr(swiftness), "<MCPotions>.SWIFTNESS")
+    self.assertEqual(repr(swiftness), "<MCPotions>.Swiftness")
     self.assertNotEqual(PotionId('x', 'minecraft:x'), EffectId('x', 'minecraft:x'))
 
   def test_catalogue(self) -> None:
@@ -76,21 +76,21 @@ class TestMCPotions(BaseTest):
     self.assertEqual(sum('strong' in r for r in self.records.values()), 9)
 
   def test_known_potions(self) -> None:
-    regeneration = MCPotions.REGENERATION
+    regeneration = MCPotions.Regeneration
     self.assertEqual(regeneration[Version.V1_8_9],
                      PotionId('regeneration', '1'))
     self.assertEqual(regeneration[Version.V1_9].minecraftId,
                      'minecraft:regeneration')
-    self.assertEqual(MCPotions.WATER[Version.V1_7_10].minecraftId, '0')
-    self.assertEqual(MCPotions.LEAPING[Version.V1_8].minecraftId, '11')
+    self.assertEqual(MCPotions.Water[Version.V1_7_10].minecraftId, '0')
+    self.assertEqual(MCPotions.Leaping[Version.V1_8].minecraftId, '11')
     with self.assertRaises(NotInVersion) as context:
-      _ = MCPotions.LEAPING[Version.V1_7_10]
+      _ = MCPotions.Leaping[Version.V1_7_10]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.7.10 has no 'leaping'; vanilla added it in 1.8!",
     )
     with self.assertRaises(NotInVersion) as context:
-      _ = MCPotions.EMPTY[Version.V26_3]
+      _ = MCPotions.Empty[Version.V26_3]
     self.assertIn("removed it in 1.20.5", str(context.exception))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -98,35 +98,35 @@ class TestMCPotions(BaseTest):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def test_modifiers(self) -> None:
-    self.assertEqual(list(PotionModifier), [PotionModifier.LONG,
-                                            PotionModifier.STRONG])
-    self.assertEqual(PotionModifier.LONG.value, 'long')
-    self.assertIs(PotionModifier('strong'), PotionModifier.STRONG)
+    self.assertEqual(list(PotionModifier), [PotionModifier.Long,
+                                            PotionModifier.Strong])
+    self.assertEqual(PotionModifier.Long.value, 'long')
+    self.assertIs(PotionModifier('strong'), PotionModifier.Strong)
 
   def test_modified_potion(self) -> None:
     """A base potion with a modifier, the same object every time."""
-    nightVision = MCPotions.NIGHT_VISION
-    longNightVision = MCPotions[nightVision, PotionModifier.LONG]
+    nightVision = MCPotions.NightVision
+    longNightVision = MCPotions[nightVision, PotionModifier.Long]
     self.assertIsInstance(longNightVision, ModifiedPotion)
     self.assertIs(MCPotions['night_vision', 'long'], longNightVision)
     self.assertIs(longNightVision.base, nightVision)
-    self.assertIs(longNightVision.modifier, PotionModifier.LONG)
+    self.assertIs(longNightVision.modifier, PotionModifier.Long)
     self.assertEqual(longNightVision.uniqueName, 'night_vision')
     self.assertEqual(
         repr(longNightVision),
-        'MCPotions[<MCPotions>.NIGHT_VISION, <PotionModifier>.LONG]')
+        'MCPotions[<MCPotions>.NightVision, <PotionModifier>.Long]')
     with self.assertRaises(WriteOnceError):
-      longNightVision.modifier = PotionModifier.STRONG
+      longNightVision.modifier = PotionModifier.Strong
 
   def test_modified_potion_ids(self) -> None:
     """The night vision's 6 with the bit for long, before 1.9: 70."""
-    longNightVision = MCPotions[MCPotions.NIGHT_VISION, PotionModifier.LONG]
+    longNightVision = MCPotions[MCPotions.NightVision, PotionModifier.Long]
     self.assertEqual(longNightVision[Version.V1_8_9],
                      PotionId('night_vision', '70'))
     self.assertEqual(longNightVision[Version.V1_12_2],
                      PotionId('night_vision', 'minecraft:long_night_vision'))
     strongRegeneration = MCPotions[
-        MCPotions.REGENERATION, PotionModifier.STRONG]
+        MCPotions.Regeneration, PotionModifier.Strong]
     self.assertEqual(strongRegeneration[Version.V1_7_2].minecraftId, '33')
     ids = longNightVision.versionIds
     self.assertEqual(ids[Version.V1_8_9], '70')
@@ -135,7 +135,7 @@ class TestMCPotions(BaseTest):
                      'minecraft:long_night_vision')
 
   def test_modified_potion_not_in_version(self) -> None:
-    strongLeaping = MCPotions[MCPotions.LEAPING, PotionModifier.STRONG]
+    strongLeaping = MCPotions[MCPotions.Leaping, PotionModifier.Strong]
     with self.assertRaises(NotInVersion) as context:
       _ = strongLeaping[Version.V1_7_10]
     self.assertEqual(
@@ -144,13 +144,13 @@ class TestMCPotions(BaseTest):
     )
     with self.assertRaises(ValueError) as context:
       _ = strongLeaping[Version.V1_6_4]
-    self.assertIn('no data on MCPotions[<MCPotions>.LEAPING, '
-                  '<PotionModifier>.STRONG] before 1.7.2',
+    self.assertIn('no data on MCPotions[<MCPotions>.Leaping, '
+                  '<PotionModifier>.Strong] before 1.7.2',
                   str(context.exception))
 
   def test_no_such_modified_potion(self) -> None:
     with self.assertRaises(KeyError) as context:
-      _ = MCPotions[MCPotions.NIGHT_VISION, PotionModifier.STRONG]
+      _ = MCPotions[MCPotions.NightVision, PotionModifier.Strong]
     self.assertIn('mcdex has no strong night_vision potion',
                   str(context.exception))
     for identifier in (('night_vision', 'lasting'),

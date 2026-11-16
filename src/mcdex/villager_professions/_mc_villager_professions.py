@@ -14,12 +14,13 @@ from worktoy.keenum import Kee
 from ..base import MCThing, VillagerProfessionId
 
 
-class MCVillagerProfessions(MCThing):
+class MCVillagerProfessions(MCThing, strictCase=False):
   """
-  The catalogue of the game's villager professions, each a member, found by its
-  name in capitals, in any case, or by its unique name:
+  The catalogue of the game's villager professions, each a member. A member is
+  named by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    fisherman = MCVillagerProfessions.FISHERMAN
+    fisherman = MCVillagerProfessions.Fisherman
     fisherman is MCVillagerProfessions['fisherman']  # True
     fisherman[Version.V1_13_2]
     # VillagerProfessionId('fisherman',
@@ -30,7 +31,7 @@ class MCVillagerProfessions(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'villager_professions.json' beside this
-  module. mcdex's tools write the members, one for every name of that file.
+  module. mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -43,19 +44,19 @@ class MCVillagerProfessions(MCThing):
   __id_class__ = VillagerProfessionId
   __kind__ = 'villager profession'
 
-  #  Members, one for every name of 'villager_professions.json'
-  ARMORER = Kee[str]('armorer')
-  BUTCHER = Kee[str]('butcher')
-  CARTOGRAPHER = Kee[str]('cartographer')
-  CLERIC = Kee[str]('cleric')
-  FARMER = Kee[str]('farmer')
-  FISHERMAN = Kee[str]('fisherman')
-  FLETCHER = Kee[str]('fletcher')
-  LEATHERWORKER = Kee[str]('leatherworker')
-  LIBRARIAN = Kee[str]('librarian')
-  MASON = Kee[str]('mason')
-  NITWIT = Kee[str]('nitwit')
-  NONE = Kee[str]('none')
-  SHEPHERD = Kee[str]('shepherd')
-  TOOLSMITH = Kee[str]('toolsmith')
-  WEAPONSMITH = Kee[str]('weaponsmith')
+  #  Members, one for every thing of 'villager_professions.json'
+  Armorer = Kee[str]('armorer')
+  Butcher = Kee[str]('butcher')
+  Cartographer = Kee[str]('cartographer')
+  Cleric = Kee[str]('cleric')
+  Farmer = Kee[str]('farmer')
+  Fisherman = Kee[str]('fisherman')
+  Fletcher = Kee[str]('fletcher')
+  Leatherworker = Kee[str]('leatherworker')
+  Librarian = Kee[str]('librarian')
+  Mason = Kee[str]('mason')
+  Nitwit = Kee[str]('nitwit')
+  Shepherd = Kee[str]('shepherd')
+  Toolsmith = Kee[str]('toolsmith')
+  Unemployed = Kee[str]('unemployed')
+  Weaponsmith = Kee[str]('weaponsmith')

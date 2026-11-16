@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import ChickenVariantId, MCThing
 
 
-class MCChickenVariants(MCThing):
+class MCChickenVariants(MCThing, strictCase=False):
   """
-  The catalogue of the game's chicken variants, each a member, found by its
-  name in capitals, in any case, or by its unique name:
+  The catalogue of the game's chicken variants, each a member. A member is
+  named by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    cold = MCChickenVariants.COLD
+    cold = MCChickenVariants.Cold
     cold is MCChickenVariants['cold']  # True
     cold[Version.V1_21_5]
     # ChickenVariantId('cold', 'minecraft:chicken{variant:"minecraft:cold"}')
@@ -28,7 +29,7 @@ class MCChickenVariants(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'chicken_variants.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -41,7 +42,7 @@ class MCChickenVariants(MCThing):
   __id_class__ = ChickenVariantId
   __kind__ = 'chicken variant'
 
-  #  Members, one for every name of 'chicken_variants.json'
-  COLD = Kee[str]('cold')
-  TEMPERATE = Kee[str]('temperate')
-  WARM = Kee[str]('warm')
+  #  Members, one for every thing of 'chicken_variants.json'
+  Cold = Kee[str]('cold')
+  Temperate = Kee[str]('temperate')
+  Warm = Kee[str]('warm')

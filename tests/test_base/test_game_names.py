@@ -16,7 +16,7 @@ from worktoy.work_test import BaseTest
 from mcdex import EntityId, MCThing
 
 
-class Chimes(MCThing):
+class Chimes(MCThing, strictCase=False):
   """A catalogue of test sounds, found by their game names too."""
 
   __data_records__ = {
@@ -33,13 +33,13 @@ class Chimes(MCThing):
   __game_names__ = True
 
   #  Each name the game gave twice, once with the newer first, once after.
-  TOLLING = Kee[str]('tolling')
-  BELL_RING = Kee[str]('bell_ring')
-  GONG_HIT = Kee[str]('gong_hit')
-  CLANG = Kee[str]('clang')
+  Tolling = Kee[str]('tolling')
+  BellRing = Kee[str]('bell_ring')
+  GongHit = Kee[str]('gong_hit')
+  Clang = Kee[str]('clang')
 
 
-class Echoes(MCThing):
+class Echoes(MCThing, strictCase=False):
   """A catalogue of test sounds, two of them with one game name."""
 
   __data_records__ = {
@@ -50,18 +50,18 @@ class Echoes(MCThing):
   __kind__ = 'echo'
   __game_names__ = True
 
-  FIRST_ECHO = Kee[str]('first_echo')
-  SECOND_ECHO = Kee[str]('second_echo')
+  FirstEcho = Kee[str]('first_echo')
+  SecondEcho = Kee[str]('second_echo')
 
 
-class Murmurs(MCThing):
+class Murmurs(MCThing, strictCase=False):
   """A catalogue of test sounds, found by their unique names only."""
 
   __data_records__ = {'hum': {'ids': {'1.7.2': 'minecraft:block.hum'}}}
   __id_class__ = EntityId
   __kind__ = 'murmur'
 
-  HUM = Kee[str]('hum')
+  Hum = Kee[str]('hum')
 
 
 class TestGameNames(BaseTest):
@@ -70,16 +70,16 @@ class TestGameNames(BaseTest):
   """
 
   def test_game_names(self) -> None:
-    self.assertIs(Chimes['bell_ring'], Chimes.BELL_RING)
-    self.assertIs(Chimes['block.bell.ring'], Chimes.BELL_RING)
-    self.assertIs(Chimes['minecraft:block.bell.ring'], Chimes.BELL_RING)
-    self.assertIs(Chimes['bell.ding'], Chimes.BELL_RING)
-    self.assertIs(Chimes['block.gong.hit'], Chimes.GONG_HIT)
+    self.assertIs(Chimes['bell_ring'], Chimes.BellRing)
+    self.assertIs(Chimes['block.bell.ring'], Chimes.BellRing)
+    self.assertIs(Chimes['minecraft:block.bell.ring'], Chimes.BellRing)
+    self.assertIs(Chimes['bell.ding'], Chimes.BellRing)
+    self.assertIs(Chimes['block.gong.hit'], Chimes.GongHit)
 
   def test_a_name_given_twice(self) -> None:
     """The thing that held the name last has it."""
-    self.assertIs(Chimes['old.bell'], Chimes.TOLLING)
-    self.assertIs(Chimes['old.gong'], Chimes.CLANG)
+    self.assertIs(Chimes['old.bell'], Chimes.Tolling)
+    self.assertIs(Chimes['old.gong'], Chimes.Clang)
     with self.assertRaises(KeyError) as context:
       _ = Chimes['block.bell.rung']
     self.assertIn("mcdex has no chime named 'block.bell.rung'",
@@ -90,9 +90,9 @@ class TestGameNames(BaseTest):
       _ = Echoes['echo']
     self.assertIn("the game's 'echo' names several members of Echoes: "
                   "first_echo, second_echo", str(context.exception))
-    self.assertIs(Echoes['first_echo'], Echoes.FIRST_ECHO)
+    self.assertIs(Echoes['first_echo'], Echoes.FirstEcho)
 
   def test_only_where_asked(self) -> None:
-    self.assertIs(Murmurs['hum'], Murmurs.HUM)
+    self.assertIs(Murmurs['hum'], Murmurs.Hum)
     with self.assertRaises(KeyError):
       _ = Murmurs['block.hum']

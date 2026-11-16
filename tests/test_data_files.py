@@ -2,7 +2,9 @@
 TestDataFiles tests every data file of mcdex at once, so a regenerated
 file cannot break what the spot checks of each catalogue do not reach:
 its names, the order of its versions, that it records changes only, the
-form of its ids, and that every member is found by its unique name.
+form of its ids, that every member is named by its unique name in
+PascalCase and found by it, and that every name of the data finds its
+member, a name no member can take the member with the same data.
 """
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
@@ -16,6 +18,26 @@ from worktoy.work_test import BaseTest
 
 import mcdex
 from mcdex import MCThing, Version
+
+
+#  A name of digits alone, as a jukebox song's '13', spelled out.
+ONES = ('', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight',
+        'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen',
+        'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen')
+
+#  The names of the data no member can take: the game's names of the human
+#  'slimeball' and of the diagonal stripes 'stripe_down_left' and
+#  '_right', the same names in PascalCase, and the villager profession
+#  'none', the keyword 'None' in PascalCase, mcdex's 'unemployed'.
+NO_MEMBER = ('none', 'slime_ball', 'stripe_downleft', 'stripe_downright')
+
+
+def _pascal(uniqueName: str) -> str:
+  """A unique name in PascalCase: 'pink_wool' is 'PinkWool'."""
+  if uniqueName.isdigit():
+    return ONES[int(uniqueName)]
+  words = str.split(uniqueName, '_')
+  return str.join('', [word[:1].upper() + word[1:] for word in words])
 
 
 def _catalogues() -> list:
@@ -83,6 +105,29 @@ class TestDataFiles(BaseTest):
           if values[-1]:
             self.assertTrue(values[-1].startswith('minecraft:'), values[-1])
       self.assertEqual(last, order[-1])
+
+  def test_member_names(self) -> None:
+    for catalogue in _catalogues():
+      for member in catalogue:
+        with self.subTest(member=member):
+          self.assertEqual(member.name, _pascal(member.uniqueName))
+
+  def test_data_names_find_members(self) -> None:
+    """
+    Each name of the data finds the member of that name; one no member
+    can take finds the member with the same data.
+    """
+    noMember = []
+    for catalogue, data in self.files.items():
+      records = data[catalogue.__data_key__]
+      for name, record in records.items():
+        member = catalogue[name]
+        with self.subTest(catalogue=catalogue.__name__, name=name):
+          self.assertIn(name, catalogue)
+          if member.uniqueName != name:
+            noMember.append(name)
+            self.assertEqual(records[member.uniqueName], record)
+    self.assertEqual(sorted(noMember), list(NO_MEMBER))
 
   def test_unique_names_find_members(self) -> None:
     for catalogue in _catalogues():

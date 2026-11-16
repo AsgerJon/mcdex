@@ -30,12 +30,12 @@ class TestMCSounds(BaseTest):
     cls.records = _records()
 
   def test_kind(self) -> None:
-    creeperHiss = MCSounds.CREEPER_HISS
+    creeperHiss = MCSounds.CreeperHiss
     self.assertIsInstance(creeperHiss, MCSounds)
     self.assertIsInstance(creeperHiss, MCThing)
     self.assertIs(type(creeperHiss[Version.V26_3]), SoundId)
     self.assertIsInstance(creeperHiss[Version.V26_3], GameId)
-    self.assertEqual(repr(creeperHiss), "<MCSounds>.CREEPER_HISS")
+    self.assertEqual(repr(creeperHiss), "<MCSounds>.CreeperHiss")
     self.assertNotEqual(SoundId('x', 'minecraft:x'), ParticleId('x', 'minecraft:x'))
 
   def test_catalogue(self) -> None:
@@ -89,16 +89,16 @@ class TestMCSounds(BaseTest):
   def test_human_names(self) -> None:
     """The verb of Mojang's subtitle where the game's word is code-speak."""
     for sound, gameName in (
-        (MCSounds.CREEPER_HISS, 'entity.creeper.primed'),
-        (MCSounds.TNT_FIZZ, 'entity.tnt.primed'),
-        (MCSounds.ZOMBIE_GROAN, 'entity.zombie.ambient'),
-        (MCSounds.COW_MOO, 'entity.cow.ambient'),
-        (MCSounds.DONKEY_HEE_HAW, 'entity.donkey.ambient'),
-        (MCSounds.BEACON_HUM, 'block.beacon.ambient'),
-        (MCSounds.COD_AMBIENT, 'entity.cod.ambient'),
-        (MCSounds.FLINT_AND_STEEL_USE, 'item.flintandsteel.use'),
-        (MCSounds.PLAYER_LEVEL_UP, 'entity.player.levelup'),
-        (MCSounds.NOTE_BLOCK_BASS_DRUM, 'block.note_block.basedrum')):
+        (MCSounds.CreeperHiss, 'entity.creeper.primed'),
+        (MCSounds.TntFizz, 'entity.tnt.primed'),
+        (MCSounds.ZombieGroan, 'entity.zombie.ambient'),
+        (MCSounds.CowMoo, 'entity.cow.ambient'),
+        (MCSounds.DonkeyHeeHaw, 'entity.donkey.ambient'),
+        (MCSounds.BeaconHum, 'block.beacon.ambient'),
+        (MCSounds.CodAmbient, 'entity.cod.ambient'),
+        (MCSounds.FlintAndSteelUse, 'item.flintandsteel.use'),
+        (MCSounds.PlayerLevelUp, 'entity.player.levelup'),
+        (MCSounds.NoteBlockBassDrum, 'block.note_block.basedrum')):
       with self.subTest(sound=sound):
         self.assertEqual(sound[Version.V26_3].minecraftId,
                          'minecraft:' + gameName)
@@ -109,7 +109,7 @@ class TestMCSounds(BaseTest):
     self.assertEqual(len(latest), 1991)
 
   def test_known_sounds(self) -> None:
-    creeperHiss = MCSounds.CREEPER_HISS
+    creeperHiss = MCSounds.CreeperHiss
     self.assertEqual(creeperHiss[Version.V1_9], SoundId(
         'creeper_hiss', 'minecraft:entity.creeper.primed'))
     self.assertEqual(creeperHiss[Version.V1_8_9].minecraftId,
@@ -120,36 +120,36 @@ class TestMCSounds(BaseTest):
       _ = creeperHiss[Version.V1_6_4]
     self.assertEqual(str(context.exception),
                      "mcdex has no data on 'creeper_hiss' before 1.7.2")
-    self.assertEqual(MCSounds.GOAT_HORN_SOUND_7[Version.V1_19].minecraftId,
+    self.assertEqual(MCSounds.GoatHornSound7[Version.V1_19].minecraftId,
                      'minecraft:item.goat_horn.sound.7')
-    self.assertEqual(MCSounds.CAT_ROYAL_PURR[Version.V26_3].minecraftId,
+    self.assertEqual(MCSounds.CatRoyalPurr[Version.V26_3].minecraftId,
                      'minecraft:entity.cat_royal.purr')
-    self.assertEqual(MCSounds.MUSIC_GAME[Version.V26_3].minecraftId,
+    self.assertEqual(MCSounds.MusicGame[Version.V26_3].minecraftId,
                      'minecraft:music.game')
 
   def test_renamed_sounds(self) -> None:
     """A sound the game renamed is one sound, its old name in old versions."""
     versions = list(Version)
     for sound, old, new, renamed in (
-        (MCSounds.ENDERMAN_VWOOP, 'entity.endermen.ambient',
+        (MCSounds.EndermanVwoop, 'entity.endermen.ambient',
          'entity.enderman.ambient', Version.V1_13),
-        (MCSounds.WOOL_BREAK, 'block.cloth.break', 'block.wool.break',
+        (MCSounds.WoolBreak, 'block.cloth.break', 'block.wool.break',
          Version.V1_13),
-        (MCSounds.SLIME_HURT_SMALL, 'entity.small_slime.hurt',
+        (MCSounds.SlimeHurtSmall, 'entity.small_slime.hurt',
          'entity.slime.hurt_small', Version.V1_13),
-        (MCSounds.PARROT_IMITATE_EVOKER,
+        (MCSounds.ParrotImitateEvoker,
          'entity.parrot.imitate.evocation_illager',
          'entity.parrot.imitate.evoker', Version.V1_13),
-        (MCSounds.MUSIC_DISC_CAT, 'record.cat', 'music_disc.cat',
+        (MCSounds.MusicDiscCat, 'record.cat', 'music_disc.cat',
          Version.V1_13),
-        (MCSounds.ZOMBIFIED_PIGLIN_GRUNT, 'entity.zombie_pigman.ambient',
+        (MCSounds.ZombifiedPiglinGrunt, 'entity.zombie_pigman.ambient',
          'entity.zombified_piglin.ambient', Version.V1_16),
-        (MCSounds.MUSIC_NETHER_NETHER_WASTES, 'music.nether',
+        (MCSounds.MusicNetherNetherWastes, 'music.nether',
          'music.nether.nether_wastes', Version.V1_16),
-        (MCSounds.SWEET_BERRY_BUSH_PICK_BERRIES,
+        (MCSounds.SweetBerryBushPickBerries,
          'item.sweet_berries.pick_from_bush',
          'block.sweet_berry_bush.pick_berries', Version.V1_17),
-        (MCSounds.TRIAL_SPAWNER_AMBIENT_OMINOUS,
+        (MCSounds.TrialSpawnerAmbientOminous,
          'block.trial_spawner.ambient_charged',
          'block.trial_spawner.ambient_ominous', Version.V1_21)):
       before = versions[versions.index(renamed) - 1]
@@ -162,13 +162,13 @@ class TestMCSounds(BaseTest):
     The game's names find a sound too, as '/playsound' takes them, the
     old ones included: 1.12.2 called the enderman's 'entity.endermen.'.
     """
-    self.assertIs(MCSounds['entity.creeper.primed'], MCSounds.CREEPER_HISS)
+    self.assertIs(MCSounds['entity.creeper.primed'], MCSounds.CreeperHiss)
     self.assertIs(MCSounds['minecraft:entity.creeper.primed'],
-                  MCSounds.CREEPER_HISS)
+                  MCSounds.CreeperHiss)
     self.assertIs(MCSounds['entity.endermen.ambient'],
-                  MCSounds.ENDERMAN_VWOOP)
+                  MCSounds.EndermanVwoop)
     self.assertIs(MCSounds['entity.enderman.ambient'],
-                  MCSounds.ENDERMAN_VWOOP)
+                  MCSounds.EndermanVwoop)
     with self.assertRaises(KeyError) as context:
       _ = MCSounds['entity.creeper.prime']
     self.assertIn("mcdex has no sound named 'entity.creeper.prime'",
@@ -181,17 +181,17 @@ class TestMCSounds(BaseTest):
     several names play one set: TNT's and the creeper's fuse were two.
     """
     for sound, minecraftId in (
-        (MCSounds.TNT_FIZZ, 'minecraft:game.tnt.primed'),
-        (MCSounds.GENERIC_HURT, 'minecraft:game.neutral.hurt'),
-        (MCSounds.PLAYER_HURT, 'minecraft:game.player.hurt'),
-        (MCSounds.AMBIENT_CAVE, 'minecraft:ambient.cave.cave'),
-        (MCSounds.ENDERMAN_VWOOP, 'minecraft:mob.endermen.idle')):
+        (MCSounds.TntFizz, 'minecraft:game.tnt.primed'),
+        (MCSounds.GenericHurt, 'minecraft:game.neutral.hurt'),
+        (MCSounds.PlayerHurt, 'minecraft:game.player.hurt'),
+        (MCSounds.AmbientCave, 'minecraft:ambient.cave.cave'),
+        (MCSounds.EndermanVwoop, 'minecraft:mob.endermen.idle')):
       with self.subTest(sound=sound):
         self.assertEqual(sound[Version.V1_8_9].minecraftId, minecraftId)
-    self.assertEqual(MCSounds.TNT_FIZZ[Version.V1_7_2].minecraftId,
+    self.assertEqual(MCSounds.TntFizz[Version.V1_7_2].minecraftId,
                      'minecraft:game.tnt.primed')
     with self.assertRaises(NotInVersion) as context:
-      _ = MCSounds.GUARDIAN_HURT_LAND[Version.V1_7_10]
+      _ = MCSounds.GuardianHurtLand[Version.V1_7_10]
     self.assertIn('vanilla added it in 1.8', str(context.exception))
 
   def test_split_in_1_9(self) -> None:
@@ -201,13 +201,13 @@ class TestMCSounds(BaseTest):
     another. A game name of several sounds finds none of them.
     """
     for sound, minecraftId in (
-        (MCSounds.WOOL_BREAK, 'minecraft:dig.cloth'),
-        (MCSounds.WOOL_PLACE, 'minecraft:dig.cloth'),
-        (MCSounds.ARROW_SHOOT, 'minecraft:random.bow'),
-        (MCSounds.EGG_THROW, 'minecraft:random.bow')):
+        (MCSounds.WoolBreak, 'minecraft:dig.cloth'),
+        (MCSounds.WoolPlace, 'minecraft:dig.cloth'),
+        (MCSounds.ArrowShoot, 'minecraft:random.bow'),
+        (MCSounds.EggThrow, 'minecraft:random.bow')):
       with self.subTest(sound=sound):
         self.assertEqual(sound[Version.V1_8_9].minecraftId, minecraftId)
-    self.assertIs(MCSounds['creeper.primed'], MCSounds.CREEPER_HISS)
+    self.assertIs(MCSounds['creeper.primed'], MCSounds.CreeperHiss)
     with self.assertRaises(ValueError) as context:
       _ = MCSounds['dig.cloth']
     self.assertIn("the game's 'dig.cloth' names several members of "
@@ -215,7 +215,7 @@ class TestMCSounds(BaseTest):
 
   def test_removed_sounds(self) -> None:
     """A sound the game dropped with no successor stays dropped."""
-    parrotImitateWolf = MCSounds.PARROT_IMITATE_WOLF
+    parrotImitateWolf = MCSounds.ParrotImitateWolf
     self.assertEqual(parrotImitateWolf[Version.V1_14_4].minecraftId,
                      'minecraft:entity.parrot.imitate.wolf')
     with self.assertRaises(NotInVersion) as context:

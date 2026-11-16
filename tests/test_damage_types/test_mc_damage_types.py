@@ -18,13 +18,13 @@ class TestMCDamageTypes(BaseTest):
   """
 
   def test_damage_types(self) -> None:
-    inFire = MCDamageTypes.IN_FIRE
+    inFire = MCDamageTypes.InFire
     self.assertIsInstance(inFire, MCDamageTypes)
     self.assertIsInstance(inFire, MCThing)
     self.assertEqual(inFire[Version.V1_19_4],
                      DamageTypeId('in_fire', 'minecraft:in_fire'))
     self.assertIsInstance(inFire[Version.V26_3], GameId)
-    self.assertEqual(repr(inFire), "<MCDamageTypes>.IN_FIRE")
+    self.assertEqual(repr(inFire), "<MCDamageTypes>.InFire")
     self.assertEqual(len(MCDamageTypes), 51)
     self.assertNotEqual(DamageTypeId('x', 'minecraft:x'),
                         BiomeId('x', 'minecraft:x'))
@@ -38,7 +38,7 @@ class TestMCDamageTypes(BaseTest):
       _ = MCDamageTypes['in_firex']
 
   def test_added_later(self) -> None:
-    maceSmash = MCDamageTypes.MACE_SMASH
+    maceSmash = MCDamageTypes.MaceSmash
     self.assertEqual(maceSmash[Version.V1_21_2].minecraftId,
                      'minecraft:mace_smash')
     with self.assertRaises(NotInVersion):

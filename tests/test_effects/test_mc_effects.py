@@ -31,12 +31,12 @@ class TestMCEffects(BaseTest):
     cls.records = _records()
 
   def test_kind(self) -> None:
-    speed = MCEffects.SPEED
+    speed = MCEffects.Speed
     self.assertIsInstance(speed, MCEffects)
     self.assertIsInstance(speed, MCThing)
     self.assertIs(type(speed[Version.V26_3]), EffectId)
     self.assertIsInstance(speed[Version.V26_3], GameId)
-    self.assertEqual(repr(speed), "<MCEffects>.SPEED")
+    self.assertEqual(repr(speed), "<MCEffects>.Speed")
     self.assertNotEqual(EffectId('x', 'minecraft:x'), BlockId('x', 'minecraft:x'))
 
   def test_catalogue(self) -> None:
@@ -69,15 +69,15 @@ class TestMCEffects(BaseTest):
     self.assertEqual(len(latest), 40)
 
   def test_known_effects(self) -> None:
-    speed = MCEffects.SPEED
+    speed = MCEffects.Speed
     self.assertEqual(speed[Version.V1_7_10], EffectId('speed', '1'))
     self.assertEqual(speed[Version.V1_8].minecraftId, 'minecraft:speed')
-    self.assertEqual(MCEffects.INSTANT_HEALTH[Version.V1_7_2].minecraftId, '6')
-    self.assertEqual(MCEffects.SATURATION[Version.V1_7_10].minecraftId, '23')
-    self.assertEqual(MCEffects.DARKNESS[Version.V1_19].minecraftId,
+    self.assertEqual(MCEffects.InstantHealth[Version.V1_7_2].minecraftId, '6')
+    self.assertEqual(MCEffects.Saturation[Version.V1_7_10].minecraftId, '23')
+    self.assertEqual(MCEffects.Darkness[Version.V1_19].minecraftId,
                      'minecraft:darkness')
     with self.assertRaises(NotInVersion) as context:
-      _ = MCEffects.GLOWING[Version.V1_8_9]
+      _ = MCEffects.Glowing[Version.V1_8_9]
     self.assertEqual(
         str(context.exception),
         "Vanilla 1.8.9 has no 'glowing'; vanilla added it in 1.9!",

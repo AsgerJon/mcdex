@@ -18,13 +18,13 @@ class TestMCBannerPatterns(BaseTest):
   """
 
   def test_banner_patterns(self) -> None:
-    base = MCBannerPatterns.BASE
+    base = MCBannerPatterns.Base
     self.assertIsInstance(base, MCBannerPatterns)
     self.assertIsInstance(base, MCThing)
     self.assertIsInstance(base[Version.V26_3], GameId)
-    self.assertEqual(repr(base), "<MCBannerPatterns>.BASE")
-    #  43 patterns, two of them under a second name too.
-    self.assertEqual(len(MCBannerPatterns), 45)
+    self.assertEqual(repr(base), "<MCBannerPatterns>.Base")
+    #  43 patterns; the data names two of them a second time.
+    self.assertEqual(len(MCBannerPatterns), 43)
     self.assertNotEqual(BannerPatternId('x', 'minecraft:x'),
                         PaintingVariantId('x', 'minecraft:x'))
     with self.assertRaises(NotInVersion) as context:
@@ -38,11 +38,11 @@ class TestMCBannerPatterns(BaseTest):
 
   def test_codes_then_names(self) -> None:
     """To 1.20.4 a pattern is its code; from 1.20.5 its name."""
-    squareBottomLeft = MCBannerPatterns.SQUARE_BOTTOM_LEFT
+    squareBottomLeft = MCBannerPatterns.SquareBottomLeft
     self.assertEqual(squareBottomLeft[Version.V1_8],
                      BannerPatternId('square_bottom_left', 'bl'))
     self.assertEqual(squareBottomLeft[Version.V1_20_4].minecraftId, 'bl')
     self.assertEqual(squareBottomLeft[Version.V1_20_5].minecraftId,
                      'minecraft:square_bottom_left')
-    self.assertEqual(MCBannerPatterns.GLOBE[Version.V1_14].minecraftId, 'glb')
-    self.assertEqual(MCBannerPatterns.PIGLIN[Version.V1_16].minecraftId, 'pig')
+    self.assertEqual(MCBannerPatterns.Globe[Version.V1_14].minecraftId, 'glb')
+    self.assertEqual(MCBannerPatterns.Piglin[Version.V1_16].minecraftId, 'pig')

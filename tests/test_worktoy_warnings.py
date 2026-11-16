@@ -20,7 +20,7 @@ from mcdex import EntityId, EquipmentSlot, MCItems, MCPotions, MCThing
 from mcdex import NotInVersion, PotionModifier, Version
 
 
-class Wisps(MCThing):
+class Wisps(MCThing, strictCase=False):
   """A catalogue of test things, its records given here."""
 
   __data_records__ = {
@@ -29,10 +29,10 @@ class Wisps(MCThing):
   __id_class__ = EntityId
   __kind__ = 'wisp'
 
-  WISP = Kee[str]('wisp')
+  Wisp = Kee[str]('wisp')
 
 
-class Trinkets(MCItems):
+class Trinkets(MCItems, strictCase=False):
   """A catalogue of test items, its records given here."""
 
   __data_records__ = {
@@ -43,7 +43,7 @@ class Trinkets(MCItems):
     },
   }
 
-  TEST_TRINKET = Kee[str]('test_trinket')
+  TestTrinket = Kee[str]('test_trinket')
 
 
 class TestWorktoyWarnings(BaseTest):
@@ -56,7 +56,7 @@ class TestWorktoyWarnings(BaseTest):
     """The ids of a thing, read and looked up, and a version before them."""
     with warnings.catch_warnings():
       warnings.simplefilter('error', WorkToyWarning)
-      wisp = Wisps.WISP
+      wisp = Wisps.Wisp
       self.assertEqual(wisp[Version.V1_10_2].minecraftId, 'Wisp')
       self.assertEqual(wisp[Version.V26_3].minecraftId, 'test:wisp')
       self.assertEqual(wisp.versionIds[Version.V1_11], 'test:wisp')
@@ -67,11 +67,11 @@ class TestWorktoyWarnings(BaseTest):
     """The stack sizes and slots of an item, read and looked up."""
     with warnings.catch_warnings():
       warnings.simplefilter('error', WorkToyWarning)
-      testTrinket = Trinkets.TEST_TRINKET
+      testTrinket = Trinkets.TestTrinket
       self.assertEqual(testTrinket[Version.V1_9].minecraftId, 'test:trinket')
       self.assertEqual(testTrinket.maxStackSize[Version.V1_9], 1)
       self.assertIs(testTrinket.equipmentSlot[Version.V1_10],
-                    EquipmentSlot.CHEST)
+                    EquipmentSlot.Chest)
       with self.assertRaises(NotInVersion):
         _ = testTrinket[Version.V1_8_9]
 
@@ -80,7 +80,7 @@ class TestWorktoyWarnings(BaseTest):
     with warnings.catch_warnings():
       warnings.simplefilter('error', WorkToyWarning)
       longNightVision = MCPotions[
-          MCPotions.NIGHT_VISION, PotionModifier.LONG]
+          MCPotions.NightVision, PotionModifier.Long]
       self.assertEqual(longNightVision[Version.V1_8_9].minecraftId, '70')
       with self.assertRaises(ValueError):
         _ = longNightVision[Version.V1_6_4]

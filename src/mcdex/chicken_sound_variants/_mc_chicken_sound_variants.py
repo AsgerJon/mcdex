@@ -14,12 +14,13 @@ from worktoy.keenum import Kee
 from ..base import ChickenSoundVariantId, MCThing
 
 
-class MCChickenSoundVariants(MCThing):
+class MCChickenSoundVariants(MCThing, strictCase=False):
   """
-  The catalogue of the game's chicken sound variants, each a member, found by
-  its name in capitals, in any case, or by its unique name:
+  The catalogue of the game's chicken sound variants, each a member. A member
+  is named by its unique name in PascalCase, and found by that name in any case
+  or by the unique name itself:
 
-    picky = MCChickenSoundVariants.PICKY
+    picky = MCChickenSoundVariants.Picky
     picky is MCChickenSoundVariants['picky']  # True
     picky[Version.V26_1]
     # ChickenSoundVariantId('picky',
@@ -30,7 +31,7 @@ class MCChickenSoundVariants(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'chicken_sound_variants.json' beside this
-  module. mcdex's tools write the members, one for every name of that file.
+  module. mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -43,6 +44,6 @@ class MCChickenSoundVariants(MCThing):
   __id_class__ = ChickenSoundVariantId
   __kind__ = 'chicken sound variant'
 
-  #  Members, one for every name of 'chicken_sound_variants.json'
-  CLASSIC = Kee[str]('classic')
-  PICKY = Kee[str]('picky')
+  #  Members, one for every thing of 'chicken_sound_variants.json'
+  Classic = Kee[str]('classic')
+  Picky = Kee[str]('picky')

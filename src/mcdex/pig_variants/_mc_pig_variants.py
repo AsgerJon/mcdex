@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import MCThing, PigVariantId
 
 
-class MCPigVariants(MCThing):
+class MCPigVariants(MCThing, strictCase=False):
   """
-  The catalogue of the game's pig variants, each a member, found by its name in
-  capitals, in any case, or by its unique name:
+  The catalogue of the game's pig variants, each a member. A member is named
+  by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    temperate = MCPigVariants.TEMPERATE
+    temperate = MCPigVariants.Temperate
     temperate is MCPigVariants['temperate']  # True
     temperate[Version.V1_12_2]  # PigVariantId('temperate', 'minecraft:pig')
     len(MCPigVariants)
@@ -27,7 +28,7 @@ class MCPigVariants(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'pig_variants.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -40,7 +41,7 @@ class MCPigVariants(MCThing):
   __id_class__ = PigVariantId
   __kind__ = 'pig variant'
 
-  #  Members, one for every name of 'pig_variants.json'
-  COLD = Kee[str]('cold')
-  TEMPERATE = Kee[str]('temperate')
-  WARM = Kee[str]('warm')
+  #  Members, one for every thing of 'pig_variants.json'
+  Cold = Kee[str]('cold')
+  Temperate = Kee[str]('temperate')
+  Warm = Kee[str]('warm')

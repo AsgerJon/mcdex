@@ -18,13 +18,13 @@ class TestMusic(BaseTest):
   """
 
   def test_jukebox_songs(self) -> None:
-    pigstep = Music.PIGSTEP
+    pigstep = Music.Pigstep
     self.assertIsInstance(pigstep, Music)
     self.assertIsInstance(pigstep, MCThing)
     self.assertEqual(pigstep[Version.V1_21],
                      MusicId('pigstep', 'minecraft:pigstep'))
     self.assertIsInstance(pigstep[Version.V26_3], GameId)
-    self.assertEqual(repr(pigstep), "<Music>.PIGSTEP")
+    self.assertEqual(repr(pigstep), "<Music>.Pigstep")
     self.assertEqual(len(Music), 22)
     self.assertNotEqual(MusicId('x', 'minecraft:x'),
                         SoundId('x', 'minecraft:x'))
@@ -38,7 +38,7 @@ class TestMusic(BaseTest):
       _ = Music['pigstepx']
 
   def test_added_later(self) -> None:
-    tears = Music.TEARS
+    tears = Music.Tears
     self.assertEqual(tears[Version.V1_21_6].minecraftId, 'minecraft:tears')
     with self.assertRaises(NotInVersion):
       _ = tears[Version.V1_21_5]

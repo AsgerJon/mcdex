@@ -18,7 +18,7 @@ class TestMCFrogVariants(BaseTest):
   """
 
   def test_frog_variants(self) -> None:
-    temperate = MCFrogVariants.TEMPERATE
+    temperate = MCFrogVariants.Temperate
     self.assertIsInstance(temperate, MCFrogVariants)
     self.assertIsInstance(temperate, MCThing)
     self.assertEqual(temperate[Version.V1_19],
@@ -26,7 +26,7 @@ class TestMCFrogVariants(BaseTest):
                          'temperate', 'minecraft:frog'
                                       '{variant:"minecraft:temperate"}'))
     self.assertIsInstance(temperate[Version.V26_3], GameId)
-    self.assertEqual(repr(temperate), "<MCFrogVariants>.TEMPERATE")
+    self.assertEqual(repr(temperate), "<MCFrogVariants>.Temperate")
     self.assertEqual(len(MCFrogVariants), 3)
     self.assertNotEqual(FrogVariantId('x', 'minecraft:x'),
                         CatVariantId('x', 'minecraft:x'))

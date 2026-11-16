@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import BannerPatternId, MCThing
 
 
-class MCBannerPatterns(MCThing):
+class MCBannerPatterns(MCThing, strictCase=False):
   """
-  The catalogue of the game's banner patterns, each a member, found by its name
-  in capitals, in any case, or by its unique name:
+  The catalogue of the game's banner patterns, each a member. A member is named
+  by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    squareBottomLeft = MCBannerPatterns.SQUARE_BOTTOM_LEFT
+    squareBottomLeft = MCBannerPatterns.SquareBottomLeft
     squareBottomLeft is MCBannerPatterns['square_bottom_left']  # True
     squareBottomLeft[Version.V1_8]
     # BannerPatternId('square_bottom_left', 'bl')
@@ -28,7 +29,7 @@ class MCBannerPatterns(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'banner_patterns.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -41,49 +42,47 @@ class MCBannerPatterns(MCThing):
   __id_class__ = BannerPatternId
   __kind__ = 'banner pattern'
 
-  #  Members, one for every name of 'banner_patterns.json'
-  BASE = Kee[str]('base')
-  BORDER = Kee[str]('border')
-  BRICKS = Kee[str]('bricks')
-  CIRCLE = Kee[str]('circle')
-  CREEPER = Kee[str]('creeper')
-  CROSS = Kee[str]('cross')
-  CURLY_BORDER = Kee[str]('curly_border')
-  DIAGONAL_LEFT = Kee[str]('diagonal_left')
-  DIAGONAL_RIGHT = Kee[str]('diagonal_right')
-  DIAGONAL_UP_LEFT = Kee[str]('diagonal_up_left')
-  DIAGONAL_UP_RIGHT = Kee[str]('diagonal_up_right')
-  FLOW = Kee[str]('flow')
-  FLOWER = Kee[str]('flower')
-  GLOBE = Kee[str]('globe')
-  GRADIENT = Kee[str]('gradient')
-  GRADIENT_UP = Kee[str]('gradient_up')
-  GUSTER = Kee[str]('guster')
-  HALF_HORIZONTAL = Kee[str]('half_horizontal')
-  HALF_HORIZONTAL_BOTTOM = Kee[str]('half_horizontal_bottom')
-  HALF_VERTICAL = Kee[str]('half_vertical')
-  HALF_VERTICAL_RIGHT = Kee[str]('half_vertical_right')
-  MOJANG = Kee[str]('mojang')
-  PIGLIN = Kee[str]('piglin')
-  RHOMBUS = Kee[str]('rhombus')
-  SKULL = Kee[str]('skull')
-  SMALL_STRIPES = Kee[str]('small_stripes')
-  SQUARE_BOTTOM_LEFT = Kee[str]('square_bottom_left')
-  SQUARE_BOTTOM_RIGHT = Kee[str]('square_bottom_right')
-  SQUARE_TOP_LEFT = Kee[str]('square_top_left')
-  SQUARE_TOP_RIGHT = Kee[str]('square_top_right')
-  STRAIGHT_CROSS = Kee[str]('straight_cross')
-  STRIPE_BOTTOM = Kee[str]('stripe_bottom')
-  STRIPE_CENTER = Kee[str]('stripe_center')
-  STRIPE_DOWN_LEFT = Kee[str]('stripe_down_left')
-  STRIPE_DOWN_RIGHT = Kee[str]('stripe_down_right')
-  STRIPE_DOWNLEFT = Kee[str]('stripe_downleft')
-  STRIPE_DOWNRIGHT = Kee[str]('stripe_downright')
-  STRIPE_LEFT = Kee[str]('stripe_left')
-  STRIPE_MIDDLE = Kee[str]('stripe_middle')
-  STRIPE_RIGHT = Kee[str]('stripe_right')
-  STRIPE_TOP = Kee[str]('stripe_top')
-  TRIANGLE_BOTTOM = Kee[str]('triangle_bottom')
-  TRIANGLE_TOP = Kee[str]('triangle_top')
-  TRIANGLES_BOTTOM = Kee[str]('triangles_bottom')
-  TRIANGLES_TOP = Kee[str]('triangles_top')
+  #  Members, one for every thing of 'banner_patterns.json'
+  Base = Kee[str]('base')
+  Border = Kee[str]('border')
+  Bricks = Kee[str]('bricks')
+  Circle = Kee[str]('circle')
+  Creeper = Kee[str]('creeper')
+  Cross = Kee[str]('cross')
+  CurlyBorder = Kee[str]('curly_border')
+  DiagonalLeft = Kee[str]('diagonal_left')
+  DiagonalRight = Kee[str]('diagonal_right')
+  DiagonalUpLeft = Kee[str]('diagonal_up_left')
+  DiagonalUpRight = Kee[str]('diagonal_up_right')
+  Flow = Kee[str]('flow')
+  Flower = Kee[str]('flower')
+  Globe = Kee[str]('globe')
+  Gradient = Kee[str]('gradient')
+  GradientUp = Kee[str]('gradient_up')
+  Guster = Kee[str]('guster')
+  HalfHorizontal = Kee[str]('half_horizontal')
+  HalfHorizontalBottom = Kee[str]('half_horizontal_bottom')
+  HalfVertical = Kee[str]('half_vertical')
+  HalfVerticalRight = Kee[str]('half_vertical_right')
+  Mojang = Kee[str]('mojang')
+  Piglin = Kee[str]('piglin')
+  Rhombus = Kee[str]('rhombus')
+  Skull = Kee[str]('skull')
+  SmallStripes = Kee[str]('small_stripes')
+  SquareBottomLeft = Kee[str]('square_bottom_left')
+  SquareBottomRight = Kee[str]('square_bottom_right')
+  SquareTopLeft = Kee[str]('square_top_left')
+  SquareTopRight = Kee[str]('square_top_right')
+  StraightCross = Kee[str]('straight_cross')
+  StripeBottom = Kee[str]('stripe_bottom')
+  StripeCenter = Kee[str]('stripe_center')
+  StripeDownLeft = Kee[str]('stripe_down_left')
+  StripeDownRight = Kee[str]('stripe_down_right')
+  StripeLeft = Kee[str]('stripe_left')
+  StripeMiddle = Kee[str]('stripe_middle')
+  StripeRight = Kee[str]('stripe_right')
+  StripeTop = Kee[str]('stripe_top')
+  TriangleBottom = Kee[str]('triangle_bottom')
+  TriangleTop = Kee[str]('triangle_top')
+  TrianglesBottom = Kee[str]('triangles_bottom')
+  TrianglesTop = Kee[str]('triangles_top')

@@ -31,12 +31,12 @@ class TestMCParticles(BaseTest):
     cls.records = _records()
 
   def test_kind(self) -> None:
-    flame = MCParticles.FLAME
+    flame = MCParticles.Flame
     self.assertIsInstance(flame, MCParticles)
     self.assertIsInstance(flame, MCThing)
     self.assertIs(type(flame[Version.V26_3]), ParticleId)
     self.assertIsInstance(flame[Version.V26_3], GameId)
-    self.assertEqual(repr(flame), "<MCParticles>.FLAME")
+    self.assertEqual(repr(flame), "<MCParticles>.Flame")
     self.assertNotEqual(ParticleId('x', 'minecraft:x'), BlockId('x', 'minecraft:x'))
 
   def test_catalogue(self) -> None:
@@ -62,46 +62,46 @@ class TestMCParticles(BaseTest):
     self.assertEqual(len(latest), 128)
 
   def test_known_particles(self) -> None:
-    flame = MCParticles.FLAME
+    flame = MCParticles.Flame
     self.assertEqual(flame[Version.V1_8], ParticleId('flame', 'flame'))
     self.assertEqual(flame[Version.V1_13].minecraftId, 'minecraft:flame')
-    damageIndicator = MCParticles.DAMAGE_INDICATOR
+    damageIndicator = MCParticles.DamageIndicator
     self.assertEqual(damageIndicator[Version.V1_12_2].minecraftId,
                      'damageIndicator')
     self.assertEqual(damageIndicator[Version.V1_13].minecraftId,
                      'minecraft:damage_indicator')
-    item = MCParticles.ITEM
+    item = MCParticles.Item
     self.assertEqual(item[Version.V1_8].minecraftId, 'iconcrack_')
     self.assertEqual(item[Version.V1_9].minecraftId, 'iconcrack')
     self.assertEqual(item[Version.V1_13].minecraftId, 'minecraft:item')
     with self.assertRaises(ValueError) as context:
-      _ = MCParticles.FLAME[Version.V1_7_10]
+      _ = MCParticles.Flame[Version.V1_7_10]
     self.assertEqual(str(context.exception),
                      "mcdex has no data on 'flame' before 1.8")
 
   def test_linked_by_code(self) -> None:
     """The class that spawns 1.12's explode spawns 1.13's poof."""
-    poof = MCParticles.POOF
+    poof = MCParticles.Poof
     self.assertEqual(poof[Version.V1_12_2], ParticleId('poof', 'explode'))
     self.assertEqual(poof[Version.V1_13].minecraftId, 'minecraft:poof')
-    self.assertEqual(MCParticles.ENTITY_EFFECT[Version.V1_12_2].minecraftId,
+    self.assertEqual(MCParticles.EntityEffect[Version.V1_12_2].minecraftId,
                      'mobSpell')
-    self.assertEqual(MCParticles.ITEM_SLIME[Version.V1_12_2].minecraftId,
+    self.assertEqual(MCParticles.ItemSlime[Version.V1_12_2].minecraftId,
                      'slime')
 
   def test_linked_by_client_code(self) -> None:
     """The client's code draws and spawns the rest: witchMagic is witch."""
-    witch = MCParticles.WITCH
+    witch = MCParticles.Witch
     self.assertEqual(witch[Version.V1_12_2], ParticleId('witch', 'witchMagic'))
     self.assertEqual(witch[Version.V1_13].minecraftId, 'minecraft:witch')
     self.assertNotIn('spell_witch', MCParticles)
-    self.assertEqual(MCParticles.FISHING[Version.V1_12_2].minecraftId, 'wake')
-    self.assertEqual(MCParticles.DUST[Version.V1_12_2].minecraftId, 'reddust')
-    self.assertEqual(MCParticles.MYCELIUM[Version.V1_12_2].minecraftId,
+    self.assertEqual(MCParticles.Fishing[Version.V1_12_2].minecraftId, 'wake')
+    self.assertEqual(MCParticles.Dust[Version.V1_12_2].minecraftId, 'reddust')
+    self.assertEqual(MCParticles.Mycelium[Version.V1_12_2].minecraftId,
                      'townaura')
-    self.assertEqual(MCParticles.DRIPPING_LAVA[Version.V1_12_2].minecraftId,
+    self.assertEqual(MCParticles.DrippingLava[Version.V1_12_2].minecraftId,
                      'dripLava')
-    block = MCParticles.BLOCK
+    block = MCParticles.Block
     self.assertEqual(block[Version.V1_8].minecraftId, 'blockcrack_')
     self.assertEqual(block[Version.V1_12_2].minecraftId, 'blockcrack')
 
@@ -111,7 +111,7 @@ class TestMCParticles(BaseTest):
                and not self._has(p, '1.13')}
     self.assertEqual(removed, {'block_dust', 'footstep', 'item_take',
                                'snow_shovel', 'suspended_depth'})
-    footstep = MCParticles.FOOTSTEP
+    footstep = MCParticles.Footstep
     self.assertEqual(footstep[Version.V1_12_2].minecraftId, 'footstep')
     with self.assertRaises(NotInVersion) as context:
       _ = footstep[Version.V1_13]

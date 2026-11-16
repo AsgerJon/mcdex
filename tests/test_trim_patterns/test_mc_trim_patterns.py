@@ -18,13 +18,13 @@ class TestMCTrimPatterns(BaseTest):
   """
 
   def test_trim_patterns(self) -> None:
-    coast = MCTrimPatterns.COAST
+    coast = MCTrimPatterns.Coast
     self.assertIsInstance(coast, MCTrimPatterns)
     self.assertIsInstance(coast, MCThing)
     self.assertEqual(coast[Version.V1_19_4],
                      TrimPatternId('coast', 'minecraft:coast'))
     self.assertIsInstance(coast[Version.V26_3], GameId)
-    self.assertEqual(repr(coast), "<MCTrimPatterns>.COAST")
+    self.assertEqual(repr(coast), "<MCTrimPatterns>.Coast")
     self.assertEqual(len(MCTrimPatterns), 18)
     self.assertNotEqual(TrimPatternId('x', 'minecraft:x'),
                         TrimMaterialId('x', 'minecraft:x'))
@@ -38,7 +38,7 @@ class TestMCTrimPatterns(BaseTest):
       _ = MCTrimPatterns['coastx']
 
   def test_added_later(self) -> None:
-    bolt = MCTrimPatterns.BOLT
+    bolt = MCTrimPatterns.Bolt
     self.assertEqual(bolt[Version.V1_20_5].minecraftId, 'minecraft:bolt')
     with self.assertRaises(NotInVersion):
       _ = bolt[Version.V1_20_4]

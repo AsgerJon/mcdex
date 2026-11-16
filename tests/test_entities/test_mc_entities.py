@@ -44,7 +44,7 @@ class TestMCEntities(BaseTest):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def test_getitem(self) -> None:
-    creeper = MCEntities.CREEPER
+    creeper = MCEntities.Creeper
     self.assertIsInstance(creeper, MCEntities)
     self.assertEqual(creeper.uniqueName, 'creeper')
 
@@ -88,7 +88,7 @@ class TestMCEntities(BaseTest):
   def test_items_are_not_entities(self) -> None:
     """The two catalogues are apart, though names may meet: an egg."""
     self.assertNotIn(MCItems['egg'], MCEntities)
-    self.assertIsNot(MCEntities.EGG, MCItems.EGG)
+    self.assertIsNot(MCEntities.Egg, MCItems.Egg)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  THE DATA   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -151,7 +151,7 @@ class TestMCEntities(BaseTest):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def test_creeper(self) -> None:
-    creeper = MCEntities.CREEPER
+    creeper = MCEntities.Creeper
     self.assertEqual(creeper[Version.V1_7_2], EntityId('creeper', 'Creeper'))
     self.assertEqual(creeper[Version.V1_10_2].minecraftId, 'Creeper')
     self.assertEqual(creeper[Version.V1_11].minecraftId, 'minecraft:creeper')
@@ -175,12 +175,12 @@ class TestMCEntities(BaseTest):
         self.assertEqual(MCEntities[name][text].minecraftId, minecraftId)
 
   def test_skeleton_split(self) -> None:
-    witherSkeleton = MCEntities.WITHER_SKELETON
+    witherSkeleton = MCEntities.WitherSkeleton
     self.assertEqual(witherSkeleton[Version.V1_7_2].minecraftId,
                      'Skeleton{SkeletonType:1}')
     self.assertEqual(witherSkeleton[Version.V1_11].minecraftId,
                      'minecraft:wither_skeleton')
-    stray = MCEntities.STRAY
+    stray = MCEntities.Stray
     self.assertEqual(stray[Version.V1_10].minecraftId,
                      'Skeleton{SkeletonType:2}')
     with self.assertRaises(NotInVersion) as context:
@@ -189,18 +189,18 @@ class TestMCEntities(BaseTest):
         str(context.exception),
         "Vanilla 1.9.4 has no 'stray'; vanilla added it in 1.10!",
     )
-    self.assertEqual(MCEntities.SKELETON[Version.V1_10_2].minecraftId,
+    self.assertEqual(MCEntities.Skeleton[Version.V1_10_2].minecraftId,
                      'Skeleton')
 
   def test_zombie_split(self) -> None:
-    zombieVillager = MCEntities.ZOMBIE_VILLAGER
+    zombieVillager = MCEntities.ZombieVillager
     self.assertEqual(zombieVillager[Version.V1_8_9].minecraftId,
                      'Zombie{IsVillager:1b}')
     self.assertEqual(zombieVillager[Version.V1_9_4].minecraftId,
                      'Zombie{IsVillager:1b,VillagerProfession:1}')
     self.assertEqual(zombieVillager[Version.V1_10].minecraftId,
                      'Zombie{ZombieType:1}')
-    self.assertEqual(MCEntities.HUSK[Version.V1_10_2].minecraftId,
+    self.assertEqual(MCEntities.Husk[Version.V1_10_2].minecraftId,
                      'Zombie{ZombieType:6}')
 
   def test_horse_split(self) -> None:
@@ -216,17 +216,17 @@ class TestMCEntities(BaseTest):
                          'minecraft:' + name)
 
   def test_cat(self) -> None:
-    cat = MCEntities.CAT
+    cat = MCEntities.Cat
     self.assertEqual(cat[Version.V1_7_10].minecraftId, 'Ozelot{CatType:1}')
     self.assertEqual(cat[Version.V1_13_2].minecraftId,
                      'minecraft:ocelot{CatType:1}')
     self.assertEqual(cat[Version.V1_14].minecraftId, 'minecraft:cat')
 
   def test_boats(self) -> None:
-    self.assertEqual(MCEntities.OAK_BOAT[Version.V1_7_2].minecraftId, 'Boat')
-    self.assertEqual(MCEntities.OAK_BOAT[Version.V1_21_1].minecraftId,
+    self.assertEqual(MCEntities.OakBoat[Version.V1_7_2].minecraftId, 'Boat')
+    self.assertEqual(MCEntities.OakBoat[Version.V1_21_1].minecraftId,
                      'minecraft:boat')
-    spruceBoat = MCEntities.SPRUCE_BOAT
+    spruceBoat = MCEntities.SpruceBoat
     self.assertEqual(spruceBoat[Version.V1_9].minecraftId,
                      'Boat{Type:"spruce"}')
     self.assertEqual(spruceBoat[Version.V1_21_1].minecraftId,
@@ -235,15 +235,15 @@ class TestMCEntities(BaseTest):
                      'minecraft:spruce_boat')
     with self.assertRaises(NotInVersion):
       _ = spruceBoat[Version.V1_8_9]
-    self.assertEqual(MCEntities.MANGROVE_BOAT[Version.V1_19].minecraftId,
+    self.assertEqual(MCEntities.MangroveBoat[Version.V1_19].minecraftId,
                      'minecraft:boat{Type:"mangrove"}')
 
   def test_potions(self) -> None:
-    self.assertEqual(MCEntities.SPLASH_POTION[Version.V1_8_9].minecraftId,
+    self.assertEqual(MCEntities.SplashPotion[Version.V1_8_9].minecraftId,
                      'ThrownPotion')
-    self.assertEqual(MCEntities.SPLASH_POTION[Version.V1_21_5].minecraftId,
+    self.assertEqual(MCEntities.SplashPotion[Version.V1_21_5].minecraftId,
                      'minecraft:splash_potion')
-    lingeringPotion = MCEntities.LINGERING_POTION
+    lingeringPotion = MCEntities.LingeringPotion
     self.assertEqual(
         lingeringPotion[Version.V1_20_4].minecraftId,
         'minecraft:potion{Item:{id:"minecraft:lingering_potion",Count:1b}}',
@@ -266,7 +266,7 @@ class TestMCEntities(BaseTest):
           _ = entity[Version.V1_7_10]
 
   def test_removed(self) -> None:
-    creakingTransient = MCEntities.CREAKING_TRANSIENT
+    creakingTransient = MCEntities.CreakingTransient
     self.assertEqual(creakingTransient[Version.V1_21_3].minecraftId,
                      'minecraft:creaking_transient')
     with self.assertRaises(NotInVersion) as context:

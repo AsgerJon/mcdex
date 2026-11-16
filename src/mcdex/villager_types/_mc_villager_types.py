@@ -13,12 +13,13 @@ from worktoy.keenum import Kee
 from ..base import MCThing, VillagerTypeId
 
 
-class MCVillagerTypes(MCThing):
+class MCVillagerTypes(MCThing, strictCase=False):
   """
-  The catalogue of the game's villager types, each a member, found by its name
-  in capitals, in any case, or by its unique name:
+  The catalogue of the game's villager types, each a member. A member is named
+  by its unique name in PascalCase, and found by that name in any case or
+  by the unique name itself:
 
-    desert = MCVillagerTypes.DESERT
+    desert = MCVillagerTypes.Desert
     desert is MCVillagerTypes['desert']  # True
     desert[Version.V1_14]
     # VillagerTypeId('desert',
@@ -29,7 +30,7 @@ class MCVillagerTypes(MCThing):
   --------------
 
   All of it is 'MCThing's, reading 'villager_types.json' beside this module.
-  mcdex's tools write the members, one for every name of that file.
+  mcdex's tools write the members, one for every thing of that file.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -42,11 +43,11 @@ class MCVillagerTypes(MCThing):
   __id_class__ = VillagerTypeId
   __kind__ = 'villager type'
 
-  #  Members, one for every name of 'villager_types.json'
-  DESERT = Kee[str]('desert')
-  JUNGLE = Kee[str]('jungle')
-  PLAINS = Kee[str]('plains')
-  SAVANNA = Kee[str]('savanna')
-  SNOW = Kee[str]('snow')
-  SWAMP = Kee[str]('swamp')
-  TAIGA = Kee[str]('taiga')
+  #  Members, one for every thing of 'villager_types.json'
+  Desert = Kee[str]('desert')
+  Jungle = Kee[str]('jungle')
+  Plains = Kee[str]('plains')
+  Savanna = Kee[str]('savanna')
+  Snow = Kee[str]('snow')
+  Swamp = Kee[str]('swamp')
+  Taiga = Kee[str]('taiga')

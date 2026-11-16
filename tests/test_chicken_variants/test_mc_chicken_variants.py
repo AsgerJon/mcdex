@@ -18,7 +18,7 @@ class TestMCChickenVariants(BaseTest):
   """
 
   def test_chicken_variants(self) -> None:
-    cold = MCChickenVariants.COLD
+    cold = MCChickenVariants.Cold
     self.assertIsInstance(cold, MCChickenVariants)
     self.assertIsInstance(cold, MCThing)
     self.assertEqual(cold[Version.V1_21_5],
@@ -26,7 +26,7 @@ class TestMCChickenVariants(BaseTest):
                          'cold', 'minecraft:chicken'
                                  '{variant:"minecraft:cold"}'))
     self.assertIsInstance(cold[Version.V26_3], GameId)
-    self.assertEqual(repr(cold), "<MCChickenVariants>.COLD")
+    self.assertEqual(repr(cold), "<MCChickenVariants>.Cold")
     self.assertEqual(len(MCChickenVariants), 3)
     self.assertNotEqual(ChickenVariantId('x', 'minecraft:x'),
                         CowVariantId('x', 'minecraft:x'))

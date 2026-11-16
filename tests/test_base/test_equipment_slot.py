@@ -19,8 +19,8 @@ class TestEquipmentSlot(BaseTest):
   def test_members(self) -> None:
     self.assertEqual(
         [member.name for member in EquipmentSlot],
-        ['MAINHAND', 'OFFHAND', 'FEET', 'LEGS', 'CHEST', 'HEAD', 'BODY',
-         'SADDLE'],
+        ['MainHand', 'OffHand', 'Feet', 'Legs', 'Chest', 'Head', 'Body',
+         'Saddle'],
     )
 
   def test_values_are_game_names(self) -> None:
@@ -33,7 +33,7 @@ class TestEquipmentSlot(BaseTest):
                  'body', 'saddle'):
       with self.subTest(text=text):
         self.assertEqual(EquipmentSlot(text).value, text)
-    self.assertIs(EquipmentSlot('chest'), EquipmentSlot.CHEST)
+    self.assertIs(EquipmentSlot('chest'), EquipmentSlot.Chest)
 
   def test_unresolvable(self) -> None:
     for text in ('', 'hand', 'torso', 'helmet', 'armor'):
